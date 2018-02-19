@@ -1,3 +1,3 @@
 <?php
-	header("Location: material/index.html");
+	header("Location: view/dashboard.php");
 ?>
