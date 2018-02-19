@@ -1,5 +1,6 @@
 <?php 
 header("Content-Type: text/html;charset=utf-8");
+date_default_timezone_set('America/Lima');
 include_once '../model/conexion_model.php';
 
 class Tree_Model
@@ -40,70 +41,68 @@ class Tree_Model
 	function listarMenu()
 	{
 		$this->prepararConsultaUsuario('opc_listar_menu');
-		$total = mysqli_num_rows($this->result);
+        $total = mysqli_num_rows($this->result);
 
-		$datos = array();
-		while($fila = mysqli_fetch_array($this->result))
-		{
-			array_push($datos, array(
-				"id" =>$fila['idtareas'],
-				"est"=>0,
-				"idParent" =>$fila['id_tareaPadre'],
-				"text"=>$fila['tar_nombre'],
-				"url"=>$fila['tar_url'],
-                "estilo"=> $fila['tar_icono']		
-				));
-		}
-		 echo '
-                <li class="header">MENÚ DE NAVEGACIÓN</li>';
+        $datos = array();
+        while($fila = mysqli_fetch_array($this->result))
+        {
+            array_push($datos, array(
+                "id" =>$fila['idtareas'],
+                "est"=>0,
+                "idParent" =>$fila['id_tareaPadre'],
+                "text"=>$fila['tar_nombre'],
+                "url"=>$fila['tar_url'],
+                "estilo"=> $fila['tar_icono']       
+                ));
+        }
+         echo '
+                 <li class="nav-small-cap">MENÚ DE NAVEGACIÓN</li>';
 
-		$padre=0;
-		$vinculo=0;
-		$estado=0;		
+        $padre=0;
+        $vinculo=0;
+        $estado=0;      
         for($i=0; $i<count($datos);$i++)
         {
-        	$padre= $datos[$i]['idParent'];
+            $padre= $datos[$i]['idParent'];
 
-        	if($padre==0 && $datos[$i]['est']==0)
-        	{
-        		$vinculo=$datos[$i]['id'];
+            if($padre==0 && $datos[$i]['est']==0)
+            {
+                $vinculo=$datos[$i]['id'];
 
-        		echo '
-                       <li class="treeview">
-                          <a href="#">
-                            <i class="fa '. $datos[$i]['estilo'].'"></i> 
-                            <span>'.$datos[$i]['text'].'</span>
-                            <span class="pull-right-container">
-                              <i class="fa fa-angle-left pull-right"></i>
-                            </span>
+                echo '
+                       <li>
+                          <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false">
+                            <i class="mdi '. $datos[$i]['estilo'].'"></i> 
+                            <span class="hide-menu">'.$datos[$i]['text'].'</span>
+                            
                           </a>
-                      <ul class="treeview-menu">
+                      <ul aria-expanded="false" class="collapse">
               ';
 
               $datos[$i]['est']=1;
                 for($j=0; $j<count($datos);$j++)
                 {
-                	$padrej =$datos[$j]['idParent'];
-                	if($padrej!=0 && $datos[$j]['est']==0)
-                	{
-                		if($datos[$j]['idParent']==$vinculo)
-                		{
-                			echo '
+                    $padrej =$datos[$j]['idParent'];
+                    if($padrej!=0 && $datos[$j]['est']==0)
+                    {
+                        if($datos[$j]['idParent']==$vinculo)
+                        {
+                            echo '
                                     <li>
-                                    <a href="'.$datos[$j]['url'].'">
-                                    <i class="fa '.$datos[$j]['estilo'].'"></i> '.$datos[$j]['text'].'</a>
+                                    <a href="'.$datos[$j]['url'].'">'.$datos[$j]['text'].'</a>
                                     </li>
-              					';
+                                ';
 
-              					$datos[$j]['est']=1;
-                		}
-                	}
-                	
+                                $datos[$j]['est']=1;
+                        }
+                    }
+                    
                 }
                 echo'
-                </ul>';
+                </ul>
+            </li>';
 
-        	}
+            }
         }
             
 

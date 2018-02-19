@@ -3,9 +3,9 @@ function init(){
   $.ajax({
     type:'POST',
     data:{param_opcion: 'listarMenu', user: user},
-    url: "controller/tree.php",
+    url: "../controller/tree.php",
     success:function(data){
-      $('#tree').html(data);
+      $('#sidebarnav').html(data);
     }
   });
 }
