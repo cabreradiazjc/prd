@@ -140,19 +140,18 @@
                         </div>
                     </div>
                     <div class="col-lg-8 col-xlg-9 col-md-7">
-                        <div class="card">
+                        <div class="card" >
                             <div class="card-body">
                                 <div class="d-flex flex-wrap">
                                     <div>
                                         <h3 class="card-title">Apertura de Bantotal</h3>
-                                        <h6 class="card-subtitle">Hora de apertura de bantotal diario.</h6> 
+                                        <h6 class="card-subtitle">Hora de apertura de bantotal de la última semana.</h6> 
                                     </div>
                                     <div class="ml-auto align-self-center">
                                         <ul class="list-inline m-b-0">
                                             <li>
-                                                <h6 class="text-muted text-success"><i class="fa fa-circle font-10 m-r-10 "></i>Open Rate</h6> </li>
-                                            <li>
-                                                <h6 class="text-muted text-info"><i class="fa fa-circle font-10 m-r-10"></i>Recurring Payments</h6> </li>
+                                                <h6 class="text-muted text-success"><i class="fa fa-circle font-10 m-r-10 "></i>Hora de Apertura</h6> </li>
+                                            
 
                                         </ul>
                                     </div>
@@ -160,9 +159,7 @@
                                 </div> 
                                 <div class="campaign ct-charts"></div>
                                 <div class="row text-center">
-                                    <div class="col-lg-4 col-md-4 m-t-20"><h1 class="m-b-0 font-light">5098</h1><small>Total Sent</small></div>
-                                    <div class="col-lg-4 col-md-4 m-t-20"><h1 class="m-b-0 font-light">4156</h1><small>Mail Open Rate</small></div>
-                                    <div class="col-lg-4 col-md-4 m-t-20"><h1 class="m-b-0 font-light">1369</h1><small>Click Rate</small></div>
+                                   
                                 </div>
                             </div>
                         </div>    
@@ -649,7 +646,6 @@
     <!-- Vector map JavaScript -->
     <script src="../../assets/plugins/vectormap/jquery-jvectormap-2.0.2.min.js"></script>
     <script src="../../assets/plugins/vectormap/jquery-jvectormap-us-aea-en.js"></script>
-    <script src="../../assets/js/dashboard1.js"></script>
     <!-- ============================================================== -->
     <!-- Style switcher -->
     <!-- ============================================================== -->
