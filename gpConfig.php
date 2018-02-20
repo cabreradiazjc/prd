@@ -13,7 +13,7 @@ include_once 'src/contrib/Google_Oauth2Service.php';
 $clientId = '1028009629426-8ah0kdc1omi747rrqe8no0q362ucqank.apps.googleusercontent.com';
 //$clientSecret = 'CVpK7A9PzQvZpTsdW2uMMRHX';
 $clientSecret = 'f6iR_8bBZlg7wpG2H3VTIMdw';
-$redirectURL = 'http://bitacorasfc.pe/produccionFC/view/dashboard.php';
+$redirectURL = 'http://bitacorasfc.pe/produccionFC/view/dashboard/dashboard.php';
 
 //Call Google API
 $gClient = new Google_Client();

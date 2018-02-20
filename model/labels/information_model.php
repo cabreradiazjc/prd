@@ -63,29 +63,35 @@ class Operaciones_model{
 	function listar_info() {
 		$user = $this->param['param_user'];
     	$this->prepararConsultaUsuario('opc_info_listar',$user);  
-
+    	echo '
+    	<ul>
+		    <li>
+		        <div class="drop-title">Notificaciones</div>
+		    </li>
+		    <li>
+			    <div class="message-center">';
     	while($row = mysqli_fetch_row($this->result)){
     		
-			echo ' <!-- inner menu: contains the actual data -->
-                <ul class="menu">
-                  <li><!-- start message -->
-                    <a href="#">
-                      <div class="pull-left">
-                       <img src="'.$row[3].'" class="img-circle" alt="User Image">
-                      </div>
-                      <h4>
-                        '.$row[4].'
-                        <small><i class="fa fa-clock-o"></i> '.$row[1].'</small>
-                      </h4>
-                      <p>'.$row[0].'</p>
-                    </a>
-                  </li>
-                  <!-- end message -->
-                 
-               
-                
-                </ul>';
+			echo ' 
+		            <!-- Message -->
+		            <a href="#">
+		                <div class="user-img"> 
+		                <img src='.$row[3].' alt="user" class="img-circle"> 
+		                <span class="profile-status offline pull-right"></span> 
+		                </div>
+		                <div class="mail-contnet">
+		                    <h5>'.$row[4].'</h5> <span class="mail-desc">'.$row[0].'</span> <span class="time">'.$row[1].'</span> </div>
+		            </a>
+                    <!-- end message -->';
 		}
+
+		echo '</div>
+			    </li>
+			    <li>
+			        <a class="nav-link text-center" href="../labels/information.php"> <strong>Ver todas las operaciones</strong> <i class="fa fa-angle-right"></i> </a>
+			    </li>
+			</ul>';
+
 	}
 
 

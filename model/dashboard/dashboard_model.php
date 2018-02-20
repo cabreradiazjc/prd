@@ -197,39 +197,11 @@ class Dashboard_model{
 
 
     		if ($row[0]>=$limitUpdated) {
-    			echo '
-
-    			 <div class="small-box bg-green">
-                                
-                             
-    			<div class="inner">
-                  <h3>SI</h3>
-
-                  <p>Bitácoras actualizadas</p>
-                </div>
-                <div class="icon">
-                  <i class="ion ion-happy-outline"></i>
-                </div>
-                <a href="#" class="small-box-footer">
-                  ¡Excelente! <i class="fa fa-check"></i>
-                </a>
-                 </div>';
+    			echo '1';
 
 
     		}else {
-    			echo ' <div class="small-box bg-red">
-    			<div class="inner">
-                  <h3>NO</h3>
-
-                  <p>Bitácoras desactualizadas</p>
-                </div>
-                <div class="icon">
-                  <i class="ion ion-sad-outline"></i>
-                </div>
-                <a href="view/bitacoras/svt.php" class="small-box-footer">
-                  Ir a llenar <i class="fa fa-arrow-circle-right"></i>
-                </a>
-                </div>';
+    			echo '0';
     		}
     		
 			

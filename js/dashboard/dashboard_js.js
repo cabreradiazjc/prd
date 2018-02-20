@@ -1,13 +1,13 @@
 
 window.onload = function(){
-	espaciosChart();
-	incidence();
-	emergencySVT();
-	lastApertura();
+	//espaciosChart();
+	//incidence();
+	//emergencySVT();
+	//lastApertura();
 	isUpdated();
-	users();
-	lastIn();
-	lastSvt();
+	//users();
+	//lastIn();
+	//lastSvt();
 	info();
 }
 
@@ -16,7 +16,7 @@ function info(){
 	$.ajax({
 		type: 'POST',
 		data:{param_opcion: 'listar_info', user: user},
-		url: 'controller/labels/information_controller.php',
+		url: '../../controller/labels/information_controller.php',
 		success: function(respuesta){
 
 			$('#info').html(respuesta);
@@ -28,6 +28,110 @@ function info(){
 	});	
 }
 
+
+
+function isUpdated(){
+	$.ajax({
+
+		type: 'POST',
+		data:{param_opcion: 'isUpdated'},
+
+		url: '../../controller/dashboard/dashboard_controller.php',
+
+		success: function(respuesta){
+			if(respuesta=='1'){
+				 $.toast({
+		            heading: 'Bitácoras Actualizadas',
+		            text: '¡Gracias por mantener al día nuestro sistema!',
+		            position: 'top-right',
+		            loaderBg:'#009e69',
+		            icon: 'success',
+		            hideAfter: 3500, 
+		            stack: 6,
+		            bgColor: '#23ce9e'
+		          });
+			}else
+			{
+				$.toast({
+		            heading: 'Bitácoras Desactualizadas',
+		            text: 'Por favor, revisar las bitácoras y llenar las faltantes.',
+		            position: 'top-right',
+		            loaderBg:'#ff6849',
+		            icon: 'error',
+		            hideAfter: 3500
+		            
+		          });
+			}
+			
+
+		},
+		error: function(respuesta){
+			
+		}
+	});	
+}
+
+$(function() {
+    "use strict";
+      $(".isUpdated").click(function(){
+      	$.ajax({
+
+			type: 'POST',
+			data:{param_opcion: 'isUpdated'},
+
+			url: '../../controller/dashboard/dashboard_controller.php',
+
+			success: function(respuesta){
+				if(respuesta=='1'){
+					 $.toast({
+			            heading: 'Bitácoras Actualizadas',
+			            text: '¡Gracias por mantener al día nuestro sistema!',
+			            position: 'top-right',
+			            loaderBg:'#009e69',
+			            icon: 'success',
+			            hideAfter: 3500, 
+			            stack: 6,
+			            bgColor: '#23ce9e'
+			          });
+				}else
+				{
+					$.toast({
+			            heading: 'Bitácoras Desactualizadas',
+			            text: 'Por favor, revisar las bitácoras y llenar las faltantes.',
+			            position: 'top-right',
+			            loaderBg:'#ff6849',
+			            icon: 'error',
+			            hideAfter: 3500
+			          });
+				}
+				
+
+			},
+			error: function(respuesta){
+				
+			}
+		});	
+
+     });
+
+});
+
+/*
+function isUpdated(){
+	$.ajax({
+		type: 'POST',
+		data:{param_opcion: 'isUpdated'},
+		url: 'controller/dashboard/dashboard_controller.php',
+		success: function(respuesta){
+			$('#isUpdated').html(respuesta);
+
+
+		},
+		error: function(respuesta){
+			$('#isUpdated').html(respuesta);
+		}
+	});	
+}
 
 function lastSvt(){
 	$.ajax({
@@ -84,21 +188,7 @@ function users(){
 	});	
 }
 
-function isUpdated(){
-	$.ajax({
-		type: 'POST',
-		data:{param_opcion: 'isUpdated'},
-		url: 'controller/dashboard/dashboard_controller.php',
-		success: function(respuesta){
-			$('#isUpdated').html(respuesta);
 
-
-		},
-		error: function(respuesta){
-			$('#isUpdated').html(respuesta);
-		}
-	});	
-}
 
 function lastApertura(){
 	$.ajax({
@@ -328,6 +418,6 @@ $(function() {
 
 });
 
-
+*/
 
 
