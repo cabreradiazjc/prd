@@ -1,6 +1,6 @@
 <?php
 //Include GP config file
-include_once '../gpConfig.php';
+include_once '../../gpConfig.php';
 
 //Unset token and user data from session
 unset($_SESSION['token']);
@@ -13,5 +13,5 @@ $gClient->revokeToken();
 session_destroy();
 
 //Redirect to homepage
-header("Location:../index.php");
+header("Location:../../index.php");
 ?>

@@ -1,5 +1,6 @@
 
 window.onload = function(){
+	profile();
 	//espaciosChart();
 	//incidence();
 	//emergencySVT();
@@ -10,6 +11,24 @@ window.onload = function(){
 	//lastSvt();
 	info();
 }
+
+function profile(){
+	var user =  $('#user').val();
+	$.ajax({
+		type: 'POST',
+		data:{param_opcion: 'profile', user: user},
+		url: '../../controller/labels/information_controller.php',
+		success: function(respuesta){
+			$('#profile').html(respuesta);
+
+
+		},
+		error: function(respuesta){
+			$('#profile').html(respuesta);
+		}
+	});	
+}
+
 
 function info(){
 	var user =  $('#user').val();
@@ -39,7 +58,8 @@ function isUpdated(){
 		url: '../../controller/dashboard/dashboard_controller.php',
 
 		success: function(respuesta){
-			if(respuesta=='1'){
+
+			if(respuesta==1){
 				 $.toast({
 		            heading: 'Bitácoras Actualizadas',
 		            text: '¡Gracias por mantener al día nuestro sistema!',
@@ -82,7 +102,7 @@ $(function() {
 			url: '../../controller/dashboard/dashboard_controller.php',
 
 			success: function(respuesta){
-				if(respuesta=='1'){
+				if(respuesta==1){
 					 $.toast({
 			            heading: 'Bitácoras Actualizadas',
 			            text: '¡Gracias por mantener al día nuestro sistema!',

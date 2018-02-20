@@ -48,38 +48,7 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <!-- Tell the browser to be responsive to screen width -->
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="../../assets/images/favicon.png">
-    <title>Produccion FC</title>
-    <!-- Bootstrap Core CSS -->
-    <link href="../../assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <!-- chartist CSS -->
-    <link href="../../assets/plugins/chartist-js/dist/chartist.min.css" rel="stylesheet">
-    <link href="../../assets/plugins/chartist-js/dist/chartist-init.css" rel="stylesheet">
-    <link href="../../assets/plugins/chartist-plugin-tooltip-master/dist/chartist-plugin-tooltip.css" rel="stylesheet">
-    <link href="../../assets/plugins/css-chart/css-chart.css" rel="stylesheet">
-    <!--This page css - Morris CSS -->
-    <link href="../../assets/plugins/c3-master/c3.min.css" rel="stylesheet">
-    <!-- Vector CSS -->
-    <link href="../../assets/plugins/vectormap/jquery-jvectormap-2.0.2.css" rel="stylesheet" />
-    <!-- toast CSS -->
-    <link href="../../assets/plugins/toast-master/css/jquery.toast.css" rel="stylesheet">
-    <!-- Custom CSS -->
-    <link href="../../assets/css/style.css" rel="stylesheet">
-    <!-- You can change the theme colors from here -->
-    <link href="../../assets/css/colors/blue.css" id="theme" rel="stylesheet">
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-<![endif]-->
+    <?php include_once('../add/head.php'); ?>
 </head>
 
 <body class="fix-header fix-sidebar card-no-border">
@@ -115,6 +84,8 @@
         <!-- ============================================================== -->
         <!-- Page wrapper  -->
         <!-- ============================================================== -->
+        <input type="hidden" name="grupo" id="grupo" value="Dashboard">
+        <input type="hidden" name="tarea" id="tarea" value="Dashboard 1">
         <div class="page-wrapper">
             <!-- ============================================================== -->
             <!-- Container fluid  -->
@@ -152,6 +123,51 @@
                 <!-- ============================================================== -->
                 <!-- Start Page Content -->
                 <!-- ============================================================== -->
+                <!-- Row -->
+                <div class="row">
+                    <!-- Column -->
+                    <div class="col-lg-4 col-xlg-3 col-md-5">
+                        <div class="card">
+                            <img class="card-img-top" src="../../assets//images/background/profile-bg.jpg" alt="Card image cap">
+                            <div class="card-body little-profile text-center">
+                                <div class="pro-img"><img src="<?php echo $gpUserProfile['picture'] ?>" alt="user"/></div>
+                                <h3 class="m-b-0"><?php echo $gpUserProfile['given_name'] ?></h3>
+                                <p><?php echo $gpUserProfile['email'] ?></p>
+                                <div id="profile">
+                                
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-8 col-xlg-9 col-md-7">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="d-flex flex-wrap">
+                                    <div>
+                                        <h3 class="card-title">Apertura de Bantotal</h3>
+                                        <h6 class="card-subtitle">Hora de apertura de bantotal diario.</h6> 
+                                    </div>
+                                    <div class="ml-auto align-self-center">
+                                        <ul class="list-inline m-b-0">
+                                            <li>
+                                                <h6 class="text-muted text-success"><i class="fa fa-circle font-10 m-r-10 "></i>Open Rate</h6> </li>
+                                            <li>
+                                                <h6 class="text-muted text-info"><i class="fa fa-circle font-10 m-r-10"></i>Recurring Payments</h6> </li>
+
+                                        </ul>
+                                    </div>
+                                    
+                                </div> 
+                                <div class="campaign ct-charts"></div>
+                                <div class="row text-center">
+                                    <div class="col-lg-4 col-md-4 m-t-20"><h1 class="m-b-0 font-light">5098</h1><small>Total Sent</small></div>
+                                    <div class="col-lg-4 col-md-4 m-t-20"><h1 class="m-b-0 font-light">4156</h1><small>Mail Open Rate</small></div>
+                                    <div class="col-lg-4 col-md-4 m-t-20"><h1 class="m-b-0 font-light">1369</h1><small>Click Rate</small></div>
+                                </div>
+                            </div>
+                        </div>    
+                    </div>    
+                </div> 
                 <!-- Row -->
                 <div class="row">
                     <!-- Column -->
@@ -205,56 +221,7 @@
                     </div>
                 </div>
                 <!-- Row -->
-                <!-- Row -->
-                <div class="row">
-                    <!-- Column -->
-                    <div class="col-lg-4 col-xlg-3 col-md-5">
-                        <div class="card blog-widget">
-                            <div class="card-body">
-                                <div class="blog-image"><img src="../../assets//images/big/img1.jpg" alt="img" class="img-responsive"/></div>
-                                 <h3>Business development new rules for 2017</h3>
-                                <label class="label label-rounded label-success">Technology</label>
-                                <p class="m-t-20 m-b-20">
-                                    Lorem ipsum dolor sit amet, this is a consectetur adipisicing elit, sed do eiusmod tempor incididunt ut 
-                                </p>
-                                <div class="d-flex">
-                                    <div class="read"><a href="javascript:void(0)" class="link font-medium">Read More</a></div>
-                                    <div class="ml-auto">
-                                        <a href="javascript:void(0)" class="link m-r-10 " data-toggle="tooltip" title="Like"><i class="mdi mdi-heart-outline"></i></a> <a href="javascript:void(0)" class="link" data-toggle="tooltip" title="Share"><i class="mdi mdi-share-variant"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-8 col-xlg-9 col-md-7">
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="d-flex flex-wrap">
-                                    <div>
-                                        <h3 class="card-title">Newsletter Campaign</h3>
-                                        <h6 class="card-subtitle">Overview of Newsletter Campaign</h6> 
-                                    </div>
-                                    <div class="ml-auto align-self-center">
-                                        <ul class="list-inline m-b-0">
-                                            <li>
-                                                <h6 class="text-muted text-success"><i class="fa fa-circle font-10 m-r-10 "></i>Open Rate</h6> </li>
-                                            <li>
-                                                <h6 class="text-muted text-info"><i class="fa fa-circle font-10 m-r-10"></i>Recurring Payments</h6> </li>
-
-                                        </ul>
-                                    </div>
-                                    
-                                </div> 
-                                <div class="campaign ct-charts"></div>
-                                <div class="row text-center">
-                                    <div class="col-lg-4 col-md-4 m-t-20"><h1 class="m-b-0 font-light">5098</h1><small>Total Sent</small></div>
-                                    <div class="col-lg-4 col-md-4 m-t-20"><h1 class="m-b-0 font-light">4156</h1><small>Mail Open Rate</small></div>
-                                    <div class="col-lg-4 col-md-4 m-t-20"><h1 class="m-b-0 font-light">1369</h1><small>Click Rate</small></div>
-                                </div>
-                            </div>
-                        </div>    
-                    </div>    
-                </div> 
+                
                 <!-- Row -->
                 <div class="row">
                     <!-- Column -->
@@ -644,12 +611,19 @@
     <!-- ============================================================== -->
     <!-- All Jquery -->
     <!-- ============================================================== -->
+    <!-- MIS JS -->
+    
+
     <script src="../../assets//plugins/jquery/jquery.min.js"></script>
     <!-- Bootstrap tether Core JavaScript -->
     <script src="../../assets/plugins/bootstrap/js/popper.min.js"></script>
     <script src="../../assets/plugins/bootstrap/js/bootstrap.min.js"></script>
     <!-- slimscrollbar scrollbar JavaScript -->
     <script src="../../assets/js/jquery.slimscroll.js"></script>
+        <!-- Menu -->
+    <script src="../../js/treemodulo.js"></script>
+    <!-- Mantenedor -->
+    <script src="../../js/dashboard/dashboard_js.js"></script>
     <!--Wave Effects -->
     <script src="../../assets/js/waves.js"></script>
     <!--Menu sidebar -->
@@ -687,11 +661,7 @@
     <script src="../../assets/js/toastr.js"></script>
     <!-- Custom Theme JavaScript -->
 
-    <!-- MIS JS -->
-    <!-- Menu -->
-    <script src="../../js/treemodulo.js"></script>
-    <!-- Mantenedor -->
-    <script src="../../js/dashboard/dashboard_js.js"></script>
+    
 </body>
 
 </html>

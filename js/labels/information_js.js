@@ -14,13 +14,14 @@ function mostrarDatos(){
 			$('#table_operaciones').DataTable().destroy();
 			$('#body_operaciones').html(respuesta);
 			$('#table_operaciones').DataTable({
-
-		      'paging'      : true,
-		      'lengthChange': true,
-		      'searching'   : true,
-		      'aaSorting' : [[1,'desc'] ],
-		      'info'        : true,
-		      'autoWidth'   : false
+			   	dom: 'Bfrtip',
+		        buttons: ['copy', 'csv', 'excel', 'pdf', 'print'],
+			    'paging'      : true,
+			    'lengthChange': true,
+			    'searching'   : true,
+			    'aaSorting' : [[1,'desc'] ],
+			    'info'        : true,
+			    'autoWidth'   : false
 
 				});
 

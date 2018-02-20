@@ -27,6 +27,8 @@ class Dashboard_model{
 		$this->param = $param;		
 		switch($this->param['param_opcion'])
 		{
+		
+
 			case "espaciosChart";
 				echo $this->espaciosChart();
 				break;

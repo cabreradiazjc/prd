@@ -1,3 +1,5 @@
+  init();
+
 function init(){
   var user =  $('#user').val();
   $.ajax({
@@ -9,7 +11,6 @@ function init(){
     }
   });
 }
-init();
 
 
 /*

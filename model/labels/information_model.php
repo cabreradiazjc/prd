@@ -31,6 +31,10 @@ class Operaciones_model{
 			case "listar_operaciones";
 				echo $this->listar_operaciones();
 				break;
+			case "profile";
+				echo $this->profile();
+				break;
+
 
 		}
 	}
@@ -51,9 +55,9 @@ class Operaciones_model{
     	while($row = mysqli_fetch_row($this->result)){
     		
 			echo '<tr>					
-					<td style="width: 20%;">'.$row[0].'</td>					
+					<td style="width: 40%;">'.$row[0].'</td>					
 					<td style="width: 20%;">'.$row[1].'</td>
-					<td style="width: 60%;">'.$row[2].'</td>
+					<td style="width: 40%;">'.$row[2].'</td>
 
 				</tr>';
 		}
@@ -94,6 +98,20 @@ class Operaciones_model{
 
 	}
 
+
+	function profile() {
+    	$user = $this->param['param_user'];
+    	$this->prepararConsultaUsuario('opc_profile',$user);    	
+    	while($row = mysqli_fetch_row($this->result)){
+    		
+			echo '<a href="javascript:void(0)" class="m-t-10 waves-effect waves-dark btn btn-primary btn-md btn-rounded">'.$row[1].'</a>
+					<div class="row text-center m-t-20">
+					    <div class="col-lg-6 col-md-6 m-t-20"><h3 class="m-b-0 font-light">'.$row[2].'</h3><small>Contribuciones</small></div>
+					    <div class="col-lg-6 col-md-6 m-t-20"><h3 class="m-b-0 font-light">'.$row[0].'</h3><small>Desde</small></div>
+					</div>';
+		}
+
+	}
 
 /*
 	function consultarln() {

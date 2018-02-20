@@ -71,7 +71,7 @@ class Tree_Model
 
                 echo '
                        <li>
-                          <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false">
+                          <a href="#" class=" has-arrow waves-effect waves-dark" aria-expanded="true">
                             <i class="mdi '. $datos[$i]['estilo'].'"></i> 
                             <span class="hide-menu">'.$datos[$i]['text'].'</span>
                             
@@ -89,7 +89,7 @@ class Tree_Model
                         {
                             echo '
                                     <li>
-                                    <a href="'.$datos[$j]['url'].'">'.$datos[$j]['text'].'</a>
+                                        <a href="'.$datos[$j]['url'].'">'.$datos[$j]['text'].'</a>
                                     </li>
                                 ';
 
