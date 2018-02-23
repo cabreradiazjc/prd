@@ -1,6 +1,7 @@
 
 window.onload = function(){
 	profile();
+	lastOpen();
 	//espaciosChart();
 	//incidence();
 	//emergencySVT();
@@ -11,6 +12,25 @@ window.onload = function(){
 	//lastSvt();
 	info();
 }
+
+function lastOpen(){
+	$.ajax({
+		type: 'POST',
+		data:{param_opcion: 'lastOpen'},
+
+		url: '../../controller/dashboard/dashboard_controller.php',
+		success: function(respuesta){
+			//$('#table_lastIn').DataTable().destroy();
+			$('#lastOpen').html(respuesta);
+			
+
+		},
+		error: function(respuesta){
+			$('#lastOpen').html(respuesta);
+		}
+	});	
+}
+
 
 function profile(){
 	var user =  $('#user').val();
@@ -656,43 +676,175 @@ $(function () {
         }
     });
 
-     // ============================================================== 
-    // Our visitor
-    // ============================================================== 
+
+
+
+$.ajax({
+		type: 'POST',
+		data:{param_opcion: 'pieChartSVT'},
+		url: '../../controller/dashboard/dashboard_controller.php',
+		//dataType: "json",
+		success: function(data){
+
+			// ============================================================== 
+		    // Our visitor
+		    // ============================================================== 
+
+		    var svt_ambiente = [];
+			var total = [];
+
+			for(var i in data) {
+				svt_ambiente.push(data[i].svt_ambiente);
+				total.push(data[i].total);
+			}
+		    
+		    var chart = c3.generate({
+		        bindto: '#visitor',
+		        data: {
+		            columns: [
+		                [svt_ambiente[0], total[0]],
+		                [svt_ambiente[1], total[1]],
+		                [svt_ambiente[2], total[2]],
+		                [svt_ambiente[3], total[3]],
+		                [svt_ambiente[4], total[4]],
+		                [svt_ambiente[5], total[5]],
+		                [svt_ambiente[6], total[6]],
+		                [svt_ambiente[7], total[7]],
+		            ],
+		            
+		            type : 'donut',
+		            onclick: function (d, i) { console.log("onclick", d, i); },
+		            onmouseover: function (d, i) { console.log("onmouseover", d, i); },
+		            onmouseout: function (d, i) { console.log("onmouseout", d, i); }
+		        },
+		        donut: {
+		            label: {
+		                show: false
+		              },
+		            title: "Pases a Producción",
+		            width:20,
+		            
+		        },
+		        
+		        legend: {
+		          hide: true
+		          //or hide: 'data1'
+		          //or hide: ['data1', 'data2']
+		        },
+		        color: {
+		              pattern: ['#1e88e5', '#eceff1', '#745af2', '#26c6da', '#ef5350', '#fff8e1', '#4db6ac', '#f5ba34']
+		        }
+		    });
+			/*
+
+			var svt_ambiente = [];
+			var total = [];
+
+			for(var i in data) {
+				svt_ambiente.push(data[i].svt_ambiente);
+				total.push(data[i].total);
+			}
+
+
+			console.log(svt_ambiente);
+			console.log(total[1]);
+
+			 // -------------
+			  // - PIE CHART -
+			  // -------------
+			  // Get context with jQuery - using jQuery's .get() method.
+			  var pieChartCanvas = $('#pieChart').get(0).getContext('2d');
+			  var pieChart       = new Chart(pieChartCanvas);
+			  var PieData        = [
+                {
+                  value    : total[0],
+                  color    : '#4289f1',
+                  highlight: '#4289f1',
+                  label    : svt_ambiente[0]
+                },
+                {
+                  value    : total[1],
+                  color    : '#8ec0d8',
+                  highlight: '#8ec0d8',
+                  label    : svt_ambiente[1]
+                },
+                {
+                  value    : total[2],
+                  color    : '#97e1b3',
+                  highlight: '#97e1b3',
+                  label    : svt_ambiente[2]
+                },
+                {
+                  value    : total[3],
+                  color    : '#eed896',
+                  highlight: '#eed896',
+                  label    : svt_ambiente[3]
+                },
+                {
+                  value    : total[4],
+                  color    : '#e3b2b2',
+                  highlight: '#e3b2b2',
+                  label    : svt_ambiente[4]
+                },
+                {
+                  value    : total[5],
+                  color    : '#fff941',
+                  highlight: '#fff941',
+                  label    : svt_ambiente[5]
+                },
+                {
+                  value    : total[6],
+                  color    : '#9f6480',
+                  highlight: '#9f6480',
+                  label    : svt_ambiente[6]
+                },
+                {
+                  value    : total[7],
+                  color    : '#cfbaea',
+                  highlight: '#cfbaea',
+                  label    : svt_ambiente[7]
+                }
+              ]
+			  var pieOptions     = {
+			    // Boolean - Whether we should show a stroke on each segment
+			    segmentShowStroke    : true,
+			    // String - The colour of each segment stroke
+			    segmentStrokeColor   : '#fff',
+			    // Number - The width of each segment stroke
+			    segmentStrokeWidth   : 1,
+			    // Number - The percentage of the chart that we cut out of the middle
+			    percentageInnerCutout: 50, // This is 0 for Pie charts
+			    // Number - Amount of animation steps
+			    animationSteps       : 100,
+			    // String - Animation easing effect
+			    animationEasing      : 'easeOutBounce',
+			    // Boolean - Whether we animate the rotation of the Doughnut
+			    animateRotate        : true,
+			    // Boolean - Whether we animate scaling the Doughnut from the centre
+			    animateScale         : false,
+			    // Boolean - whether to make the chart responsive to window resizing
+			    responsive           : true,
+			    // Boolean - whether to maintain the starting aspect ratio or not when responsive, if set to false, will take up entire container
+			    maintainAspectRatio  : false,
+			    // String - A legend template
+			    legendTemplate       : '<ul class=\'<%=name.toLowerCase()%>-legend\'><% for (var i=0; i<segments.length; i++){%><li><span style=\'background-color:<%=segments[i].fillColor%>\'></span><%if(segments[i].label){%><%=segments[i].label%><%}%></li><%}%></ul>',
+			    // String - A tooltip template
+			    tooltipTemplate      : '<%=value %> <%=label%>'
+			  };
+			  // Create pie or douhnut chart
+			  // You can switch between pie and douhnut using the method below.
+			  pieChart.Doughnut(PieData, pieOptions);
+			  // -----------------
+			  // - END PIE CHART -
+			  // -----------------*/
+
+			  },
+		error: function(respuesta){
+			$('#pieChart').html(respuesta);
+		}
+	});	
+
     
-    var chart = c3.generate({
-        bindto: '#visitor',
-        data: {
-            columns: [
-                ['Other', 30],
-                ['Desktop', 10],
-                ['Tablet', 40],
-                ['Mobile', 50],
-            ],
-            
-            type : 'donut',
-            onclick: function (d, i) { console.log("onclick", d, i); },
-            onmouseover: function (d, i) { console.log("onmouseover", d, i); },
-            onmouseout: function (d, i) { console.log("onmouseout", d, i); }
-        },
-        donut: {
-            label: {
-                show: false
-              },
-            title: "Our visitor",
-            width:20,
-            
-        },
-        
-        legend: {
-          hide: true
-          //or hide: 'data1'
-          //or hide: ['data1', 'data2']
-        },
-        color: {
-              pattern: ['#eceff1', '#745af2', '#26c6da', '#1e88e5']
-        }
-    });
 
 
 

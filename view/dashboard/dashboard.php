@@ -158,8 +158,8 @@
                                     
                                 </div> 
                                 <div class="campaign ct-charts"></div>
-                                <div class="row text-center">
-                                   
+                                 <div class="row text-center" id="lastOpen">
+                                    
                                 </div>
                             </div>
                         </div>    
@@ -197,8 +197,8 @@
                     <div class="col-lg-4 col-md-5">
                         <div class="card">
                             <div class="card-body">
-                                <h3 class="card-title">Our Visitors </h3>
-                                <h6 class="card-subtitle">Different Devices Used to Visit</h6>
+                                <h3 class="card-title">Pases a producción</h3>
+                                <h6 class="card-subtitle">Porcentaje de pases aplicados en los ambientes</h6>
                                 <div id="visitor" style="height:290px; width:100%;"></div>
                             </div>
                             <div>
@@ -207,11 +207,21 @@
                             <div class="card-body text-center ">
                                 <ul class="list-inline m-b-0">
                                     <li>
-                                        <h6 class="text-muted text-info"><i class="fa fa-circle font-10 m-r-10 "></i>Mobile</h6> </li>
+                                        <h6 style="color: #1e88e5;"><i class="fa fa-circle font-10 m-r-10 "></i>Bantotal</h6> </li>
                                     <li>
-                                        <h6 class="text-muted  text-primary"><i class="fa fa-circle font-10 m-r-10"></i>Desktop</h6> </li>
+                                        <h6 class="text-muted"><i class="fa fa-circle font-10 m-r-10"></i>Spring</h6> </li>
                                     <li>
-                                        <h6 class="text-muted  text-success"><i class="fa fa-circle font-10 m-r-10"></i>Tablet</h6> </li>
+                                        <h6 style="color: #745af2;"><i class="fa fa-circle font-10 m-r-10"></i>Cyberfinancial</h6> </li>
+                                    <li>
+                                        <h6 style="color: #26c6da;"><i class="fa fa-circle font-10 m-r-10 "></i>Sigretail</h6> </li>
+                                    <li>
+                                        <h6 style="color: #ef5350;"><i class="fa fa-circle font-10 m-r-10"></i>Sircon</h6> </li>
+                                    <li>
+                                        <h6 class="text-muted text-warning" style="color: #fff8e1;"><i class="fa fa-circle font-10 m-r-10"></i>Sarco</h6> </li>
+                                    <li>
+                                        <h6 style="color: #4db6ac;"><i class="fa fa-circle font-10 m-r-10 "></i>Movilidad</h6> </li>
+                                    <li>
+                                        <h6 style="color: #111111;"><i class="fa fa-circle font-10 m-r-10"></i>Canales</h6> </li>
                                 </ul>
                             </div>
                         </div>

@@ -28,6 +28,9 @@ class Dashboard_model{
 		switch($this->param['param_opcion'])
 		{
 		
+			case "lastOpen";
+				echo $this->lastOpen();
+				break;
 
 			case "espaciosChart";
 				echo $this->espaciosChart();
@@ -109,6 +112,21 @@ class Dashboard_model{
 		            </span>
 		        </div>
 		    </li>
+
+
+                ';
+		}
+
+	}
+
+	 function lastOpen() {
+
+    	$this->prepararConsultaUsuario('opc_lastOpen');    	
+    	while($row = mysqli_fetch_row($this->result)){
+
+			echo '
+			<div class="col-lg-6 col-md-6 m-t-20"><h1 class="m-b-0 font-light">'.$row[0].'</h1><small>Última Fecha</small></div>
+			<div class="col-lg-6 col-md-6 m-t-20"><h1 class="m-b-0 font-light">'.$row[1].'</h1><small>Última Hora</small></div>
 
 
                 ';
