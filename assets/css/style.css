@@ -2357,7 +2357,7 @@ Dashboard1 chart
   .amp-pxl .ct-series-a .ct-bar {
     stroke: #1e88e5; }
   .amp-pxl .ct-series-b .ct-bar {
-    stroke: #26c6da; }
+    stroke: #F82E48; }
 
 .c3-chart-arcs-title, .c3-legend-item {
   font-family: "Poppins", sans-serif;
@@ -5841,7 +5841,7 @@ File: scss
         background: #ffb22b; }
     .message-box .message-widget a .mail-contnet {
       display: inline-block;
-      width: 75%;
+      width: 100%;
       vertical-align: middle; }
       .message-box .message-widget a .mail-contnet h5 {
         margin: 5px 0px 0; }

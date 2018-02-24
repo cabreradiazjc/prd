@@ -8,9 +8,47 @@ window.onload = function(){
 	//lastApertura();
 	isUpdated();
 	//users();
-	//lastIn();
-	//lastSvt();
+	lastIn();
+	lastSvt();
 	info();
+}
+
+
+function lastSvt(){
+	$.ajax({
+		type: 'POST',
+		data:{param_opcion: 'lastSvt'},
+
+		url: '../../controller/dashboard/dashboard_controller.php',
+		success: function(respuesta){
+			//$('#table_lastIn').DataTable().destroy();
+			$('#lastSvt').html(respuesta);
+			
+
+		},
+		error: function(respuesta){
+			$('#lastSvt').html(respuesta);
+		}
+	});	
+}
+
+
+function lastIn(){
+	$.ajax({
+		type: 'POST',
+		data:{param_opcion: 'lastIn'},
+
+		url: '../../controller/dashboard/dashboard_controller.php',
+		success: function(respuesta){
+			//$('#table_lastIn').DataTable().destroy();
+			$('#body_lastIn').html(respuesta);
+			
+
+		},
+		error: function(respuesta){
+			$('#body_lastIn').html(respuesta);
+		}
+	});	
 }
 
 function lastOpen(){
@@ -192,24 +230,6 @@ function lastSvt(){
 }
 
 
-
-function lastIn(){
-	$.ajax({
-		type: 'POST',
-		data:{param_opcion: 'lastIn'},
-
-		url: 'controller/dashboard/dashboard_controller.php',
-		success: function(respuesta){
-			//$('#table_lastIn').DataTable().destroy();
-			$('#body_lastIn').html(respuesta);
-			
-
-		},
-		error: function(respuesta){
-			$('#body_lastIn').html(respuesta);
-		}
-	});	
-}
 
 
 function users(){
@@ -469,8 +489,8 @@ File: js
 */
 $(function () {
     "use strict";
-     // ============================================================== 
-    // Newsletter
+    // ============================================================== 
+    // APERTURA BT
     // ============================================================== 
     
     $.ajax({
@@ -515,170 +535,207 @@ $(function () {
 	        },
 	        });
 
-	        // ============================================================== 
-    // Sales overview
-    // ============================================================== 
-    var chart2 = new Chartist.Bar('.amp-pxl', {
-          labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
-          series: [
-            [9, 5, 3, 7, 5, 10, 3],
-            [6, 3, 9, 5, 4, 6, 4]
-          ]
-        }, {
-          axisX: {
-            // On the x-axis start means top and end means bottom
-            position: 'end',
-            showGrid: false
-          },
-          axisY: {
-            // On the y-axis start means left and end means right
-            position: 'start'
-          },
-        high:'12',
-        low: '0',
-        plugins: [
-            Chartist.plugins.tooltip()
-        ]
-    });
-    
-    // ============================================================== 
-    // Newsletter
-    // ============================================================== 
-    
-   
+		        // Offset x1 a tiny amount so that the straight stroke gets a bounding box
+		        // Straight lines don't get a bounding box 
+		        // Last remark on -> http://www.w3.org/TR/SVG11/coords.html#ObjectBoundingBox
+		        chart.on('draw', function(ctx) {  
+		          if(ctx.type === 'area') {    
+		            ctx.element.attr({
+		              x1: ctx.x1 + 0.001
+		            });
+		          }
+		        });
 
-        // Offset x1 a tiny amount so that the straight stroke gets a bounding box
-        // Straight lines don't get a bounding box 
-        // Last remark on -> http://www.w3.org/TR/SVG11/coords.html#ObjectBoundingBox
-        chart.on('draw', function(ctx) {  
-          if(ctx.type === 'area') {    
-            ctx.element.attr({
-              x1: ctx.x1 + 0.001
-            });
-          }
-        });
-
-        // Create the gradient definition on created event (always after chart re-render)
-        chart.on('created', function(ctx) {
-          var defs = ctx.svg.elem('defs');
-          defs.elem('linearGradient', {
-            id: 'gradient',
-            x1: 0,
-            y1: 1,
-            x2: 0,
-            y2: 0
-          }).elem('stop', {
-            offset: 0,
-            'stop-color': 'rgba(255, 255, 255, 1)'
-          }).parent().elem('stop', {
-            offset: 1,
-            'stop-color': 'rgba(38, 198, 218, 1)'
-          });
-        });
-    
-            
-    var chart = [chart2, chart];
+		        // Create the gradient definition on created event (always after chart re-render)
+		        chart.on('created', function(ctx) {
+		          var defs = ctx.svg.elem('defs');
+		          defs.elem('linearGradient', {
+		            id: 'gradient',
+		            x1: 0,
+		            y1: 1,
+		            x2: 0,
+		            y2: 0
+		          }).elem('stop', {
+		            offset: 0,
+		            'stop-color': 'rgba(255, 255, 255, 1)'
+		          }).parent().elem('stop', {
+		            offset: 1,
+		            'stop-color': 'rgba(38, 198, 218, 1)'
+		          });
+		        });
+		    
+		            
+		    	var chart = [chart];
 
 
+			    // ============================================================== 
+			    // This is for the animation
+			    // ==============================================================
+			    
+			    for (var i = 0; i < chart.length; i++) {
+			        chart[i].on('draw', function(data) {
+			            if (data.type === 'line' || data.type === 'area') {
+			                data.element.animate({
+			                    d: {
+			                        begin: 500 * data.index,
+			                        dur: 500,
+			                        from: data.path.clone().scale(1, 0).translate(0, data.chartRect.height()).stringify(),
+			                        to: data.path.clone().stringify(),
+			                        easing: Chartist.Svg.Easing.easeInOutElastic
+			                    }
+			                });
+			            }
+			            if (data.type === 'bar') {
+			                data.element.animate({
+			                    y2: {
+			                        dur: 500,
+			                        from: data.y1,
+			                        to: data.y2,
+			                        easing: Chartist.Svg.Easing.easeInOutElastic
+			                    },
+			                    opacity: {
+			                        dur: 500,
+			                        from: 0,
+			                        to: 1,
+			                        easing: Chartist.Svg.Easing.easeInOutElastic
+			                    }
+			                });
+			            }
+			        });
+			    }
+    
+		},
+		error: function(data){		
+			}
+	});
+
+ 	// ============================================================== 
+    // OPERACIONES ERRORES UNIBANCA
     // ============================================================== 
-    // This is for the animation
-    // ==============================================================
     
-    for (var i = 0; i < chart.length; i++) {
-        chart[i].on('draw', function(data) {
-            if (data.type === 'line' || data.type === 'area') {
-                data.element.animate({
-                    d: {
-                        begin: 500 * data.index,
-                        dur: 500,
-                        from: data.path.clone().scale(1, 0).translate(0, data.chartRect.height()).stringify(),
-                        to: data.path.clone().stringify(),
-                        easing: Chartist.Svg.Easing.easeInOutElastic
-                    }
-                });
-            }
-            if (data.type === 'bar') {
-                data.element.animate({
-                    y2: {
-                        dur: 500,
-                        from: data.y1,
-                        to: data.y2,
-                        easing: Chartist.Svg.Easing.easeInOutElastic
-                    },
-                    opacity: {
-                        dur: 500,
-                        from: 0,
-                        to: 1,
-                        easing: Chartist.Svg.Easing.easeInOutElastic
-                    }
-                });
-            }
-        });
-    }
+    $.ajax({
+	 	type: 'POST',
+	 	data:{param_opcion: 'ubaChart'},
+	    url: '../../controller/dashboard/dashboard_controller.php',
+	        
+	    success : function(data) {
+
+	    	var fecha = [];
+			var operaciones = [];
+			var rechazos = [];
+
+			for(var i in data) {
+				fecha.push(data[i].FECHA);
+				operaciones.push(data[i].OPERACIONES);
+				rechazos.push(data[i].RECHAZOS);
+
+			}
+
+	    	//console.log(fecha);
+		    
+			
+		    var chart2 = new Chartist.Bar('.amp-pxl', {
+		          labels: fecha,
+		          series: [
+		            operaciones,
+		            rechazos
+		          ]
+		        }, {
+		          axisX: {
+		            // On the x-axis start means top and end means bottom
+		            position: 'end',
+		            showGrid: false
+		          },
+		          axisY: {
+		            // On the y-axis start means left and end means right
+		            position: 'start'
+		          },
+		        seriesBarDistance: 10,
+
+		        plugins: [
+		            Chartist.plugins.tooltip()
+		        ]
+		    });
+	    		var chart = [chart2];
     
-			},
-			error: function(data){		
+		        // Offset x1 a tiny amount so that the straight stroke gets a bounding box
+		        // Straight lines don't get a bounding box 
+		        // Last remark on -> http://www.w3.org/TR/SVG11/coords.html#ObjectBoundingBox
+		        chart.on('draw', function(ctx) {  
+		          if(ctx.type === 'area') {    
+		            ctx.element.attr({
+		              x1: ctx.x1 + 0.001
+		            });
+		          }
+		        });
+
+		        // Create the gradient definition on created event (always after chart re-render)
+		        chart.on('created', function(ctx) {
+		          var defs = ctx.svg.elem('defs');
+		          defs.elem('linearGradient', {
+		            id: 'gradient',
+		            x1: 0,
+		            y1: 1,
+		            x2: 0,
+		            y2: 0
+		          }).elem('stop', {
+		            offset: 0,
+		            'stop-color': 'rgba(255, 255, 255, 1)'
+		          }).parent().elem('stop', {
+		            offset: 1,
+		            'stop-color': 'rgba(38, 198, 218, 1)'
+		          });
+		        });
+		    
+		            
+		    	
+
+
+			    // ============================================================== 
+			    // This is for the animation
+			    // ==============================================================
+			    
+			    for (var i = 0; i < chart.length; i++) {
+			        chart[i].on('draw', function(data) {
+			            if (data.type === 'line' || data.type === 'area') {
+			                data.element.animate({
+			                    d: {
+			                        begin: 500 * data.index,
+			                        dur: 500,
+			                        from: data.path.clone().scale(1, 0).translate(0, data.chartRect.height()).stringify(),
+			                        to: data.path.clone().stringify(),
+			                        easing: Chartist.Svg.Easing.easeInOutElastic
+			                    }
+			                });
+			            }
+			            if (data.type === 'bar') {
+			                data.element.animate({
+			                    y2: {
+			                        dur: 500,
+			                        from: data.y1,
+			                        to: data.y2,
+			                        easing: Chartist.Svg.Easing.easeInOutElastic
+			                    },
+			                    opacity: {
+			                        dur: 500,
+			                        from: 0,
+			                        to: 1,
+			                        easing: Chartist.Svg.Easing.easeInOutElastic
+			                    }
+			                });
+			            }
+			        });
+			    }
+    
+		},
+		error: function(data){		
 			}
 	});
 
 
-    // ============================================================== 
-    // Download count
-    // ============================================================== 
-    var sparklineLogin = function () {
-        $('.spark-count').sparkline([4, 5, 0, 10, 9, 12, 4, 9, 4, 5, 3, 10, 9, 12, 10, 9, 12, 4, 9], {
-            type: 'bar'
-            , width: '100%'
-            , height: '70'
-            , barWidth: '2'
-            , resize: true
-            , barSpacing: '6'
-            , barColor: 'rgba(255, 255, 255, 0.3)'
-        });
-        
-    }
-    var sparkResize;
-    
-    sparklineLogin();
 
 
-    // ============================================================== 
-    // Badnwidth usage
-    // ============================================================== 
-    new Chartist.Line('.usage', {
-        labels: ['0', '4', '8', '12', '16', '20', '24', '30']
-        , series: [
-        [5, 0, 12, 1, 8, 3, 12, 15]
-
-      ]
-    }, {
-        high:10
-        , low: 0
-        , showArea: true
-        , fullWidth: true
-        , plugins: [
-        Chartist.plugins.tooltip()
-      ], // As this is axis specific we need to tell Chartist to use whole numbers only on the concerned axis
-        axisY: {
-            onlyInteger: true
-            , offset: 20
-            , showLabel: false
-            , showGrid: false
-            , labelInterpolationFnc: function (value) {
-                return (value / 1) + 'k';
-            }
-        }
-        , axisX: {
-            showLabel: false
-            , divisor: 1
-            , showGrid: false
-            , offset: 0
-        }
-    });
-
-
-
-
+//Pie de Pases a Producción
 $.ajax({
 		type: 'POST',
 		data:{param_opcion: 'pieChartSVT'},
@@ -721,7 +778,7 @@ $.ajax({
 		            label: {
 		                show: false
 		              },
-		            title: "Pases a Producción",
+		            title: "SVT's",
 		            width:20,
 		            
 		        },
@@ -735,108 +792,7 @@ $.ajax({
 		              pattern: ['#1e88e5', '#eceff1', '#745af2', '#26c6da', '#ef5350', '#fff8e1', '#4db6ac', '#f5ba34']
 		        }
 		    });
-			/*
-
-			var svt_ambiente = [];
-			var total = [];
-
-			for(var i in data) {
-				svt_ambiente.push(data[i].svt_ambiente);
-				total.push(data[i].total);
-			}
-
-
-			console.log(svt_ambiente);
-			console.log(total[1]);
-
-			 // -------------
-			  // - PIE CHART -
-			  // -------------
-			  // Get context with jQuery - using jQuery's .get() method.
-			  var pieChartCanvas = $('#pieChart').get(0).getContext('2d');
-			  var pieChart       = new Chart(pieChartCanvas);
-			  var PieData        = [
-                {
-                  value    : total[0],
-                  color    : '#4289f1',
-                  highlight: '#4289f1',
-                  label    : svt_ambiente[0]
-                },
-                {
-                  value    : total[1],
-                  color    : '#8ec0d8',
-                  highlight: '#8ec0d8',
-                  label    : svt_ambiente[1]
-                },
-                {
-                  value    : total[2],
-                  color    : '#97e1b3',
-                  highlight: '#97e1b3',
-                  label    : svt_ambiente[2]
-                },
-                {
-                  value    : total[3],
-                  color    : '#eed896',
-                  highlight: '#eed896',
-                  label    : svt_ambiente[3]
-                },
-                {
-                  value    : total[4],
-                  color    : '#e3b2b2',
-                  highlight: '#e3b2b2',
-                  label    : svt_ambiente[4]
-                },
-                {
-                  value    : total[5],
-                  color    : '#fff941',
-                  highlight: '#fff941',
-                  label    : svt_ambiente[5]
-                },
-                {
-                  value    : total[6],
-                  color    : '#9f6480',
-                  highlight: '#9f6480',
-                  label    : svt_ambiente[6]
-                },
-                {
-                  value    : total[7],
-                  color    : '#cfbaea',
-                  highlight: '#cfbaea',
-                  label    : svt_ambiente[7]
-                }
-              ]
-			  var pieOptions     = {
-			    // Boolean - Whether we should show a stroke on each segment
-			    segmentShowStroke    : true,
-			    // String - The colour of each segment stroke
-			    segmentStrokeColor   : '#fff',
-			    // Number - The width of each segment stroke
-			    segmentStrokeWidth   : 1,
-			    // Number - The percentage of the chart that we cut out of the middle
-			    percentageInnerCutout: 50, // This is 0 for Pie charts
-			    // Number - Amount of animation steps
-			    animationSteps       : 100,
-			    // String - Animation easing effect
-			    animationEasing      : 'easeOutBounce',
-			    // Boolean - Whether we animate the rotation of the Doughnut
-			    animateRotate        : true,
-			    // Boolean - Whether we animate scaling the Doughnut from the centre
-			    animateScale         : false,
-			    // Boolean - whether to make the chart responsive to window resizing
-			    responsive           : true,
-			    // Boolean - whether to maintain the starting aspect ratio or not when responsive, if set to false, will take up entire container
-			    maintainAspectRatio  : false,
-			    // String - A legend template
-			    legendTemplate       : '<ul class=\'<%=name.toLowerCase()%>-legend\'><% for (var i=0; i<segments.length; i++){%><li><span style=\'background-color:<%=segments[i].fillColor%>\'></span><%if(segments[i].label){%><%=segments[i].label%><%}%></li><%}%></ul>',
-			    // String - A tooltip template
-			    tooltipTemplate      : '<%=value %> <%=label%>'
-			  };
-			  // Create pie or douhnut chart
-			  // You can switch between pie and douhnut using the method below.
-			  pieChart.Doughnut(PieData, pieOptions);
-			  // -----------------
-			  // - END PIE CHART -
-			  // -----------------*/
+			
 
 			  },
 		error: function(respuesta){

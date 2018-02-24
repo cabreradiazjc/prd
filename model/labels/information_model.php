@@ -67,13 +67,7 @@ class Operaciones_model{
 	function listar_info() {
 		$user = $this->param['param_user'];
     	$this->prepararConsultaUsuario('opc_info_listar',$user);  
-    	echo '
-    	<ul>
-		    <li>
-		        <div class="drop-title">Notificaciones</div>
-		    </li>
-		    <li>
-			    <div class="message-center">';
+
     	while($row = mysqli_fetch_row($this->result)){
     		
 			echo ' 
@@ -89,12 +83,6 @@ class Operaciones_model{
                     <!-- end message -->';
 		}
 
-		echo '</div>
-			    </li>
-			    <li>
-			        <a class="nav-link text-center" href="../labels/information.php"> <strong>Ver todas las operaciones</strong> <i class="fa fa-angle-right"></i> </a>
-			    </li>
-			</ul>';
 
 	}
 

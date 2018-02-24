@@ -72,6 +72,10 @@ class Dashboard_model{
 				echo $this->lastSvt();
 				break;
 
+			case "ubaChart";
+				echo $this->ubaChart();
+				break;
+
 
 
 		}
@@ -99,21 +103,17 @@ class Dashboard_model{
 					$row2="<span class='label label-success pull-right'>Atendido</span>";
 					break;
 				default:
-					$row2="<span class='label label-danger pull-right'>En proceso</span>";
+					$row2="<span class='label label-warning pull-right'>En proceso</span>";
 				};
 
 			echo '
-			<li class="item">                               
-		        <div>
-		            <a href="view/bitacoras/svt.php" class="product-title">'.$row[0].$row2.'
-		                </a>
-		            <span class="product-description">
-		                '.$row[1].'
-		            </span>
-		        </div>
-		    </li>
 
 
+			<!-- Message -->
+            <a href="#">
+                <div class="mail-contnet">
+                    <h5>SVT Nro.'.$row[3].'</h5> <span class="mail-desc">'.$row[1].'</span> <span class="time">'.$row[0].'</span> '.$row2.'</div>
+            </a>
                 ';
 		}
 
@@ -159,6 +159,93 @@ class Dashboard_model{
 
 	}
 
+	function ubaChart() {
+
+    	/*$this->prepararConsultaUsuario('opc_pieChartSVT');  
+
+    	$jsonArray = array();
+		$consultaSql = "call sp_control_dashboard('opc_pieChartSVT')";
+		//echo $consultaSql;
+		$this->result3 = mysqli_query($this->conexion,$consultaSql);
+
+    	  while($row = $this->result3->fetch_assoc()) {
+		    $jsonArrayItem = array();
+		    $jsonArrayItem['svt_ambiente'] = $row['svt_ambiente'];
+		    $jsonArrayItem['total'] = $row['total'];
+		    //append the above created object into the main array.
+		    array_push($jsonArray, $jsonArrayItem);
+		  }
+
+		 //set the response content type as JSON
+		header('Content-type: application/json');
+		//output the return value of json encode using the echo function. 
+		echo json_encode($jsonArray);*/
+
+		$conn = oci_connect("TGGAS001", "cajasur2017", "172.20.0.24:1523/cngdb"); 
+		if (!$conn) {    
+		  $m = oci_error();    
+		  echo $m['message'], "n";    
+		  exit; 
+		} else {    
+		    //$usuario = 'TGSAA001'
+		    $fini = date('d/m/Y',mktime(0, 0, 0, date("m")  , date("d")-7, date("Y")));
+		    $ffin = date('d/m/Y');
+			$sql = " SELECT DISTINCT to_char(u.z0e4gefec, 'DD/MM/YYYY') as FECHA, 
+		            (select  COUNT(*) from dbprod.z0e4ge op1
+		            where op1.z0e4gefec >= u.z0e4gefec and op1.z0e4gefec <= u.z0e4gefec and op1.z0e4gehor >='00:00:00' and op1.z0e4gehor <='23:59:59' and op1.z0e4gemen = 1) as OPERACIONES_1,  
+		            (select count(*) from dbprod.z0e4ge re2
+		            where re2.z0e4gefec >= u.z0e4gefec and re2.z0e4gefec <= u.z0e4gefec and re2.z0e4gehor >='00:00:00' and re2.z0e4gehor <='23:59:59' and re2.z0e4gemen = 1 and re2.z0e4geest<>'PC' and re2.z0e4geest<>'00') as RECHAZOS_1
+		          FROM dbprod.z0e4ge u
+		          where u.z0e4gefec>=to_date('$fini','dd/mm/yyyy') and u.z0e4gefec<= to_date('$ffin','dd/mm/yyyy')
+		          order by to_char(u.z0e4gefec, 'DD/MM/YYYY')";
+		    //echo "-----------";
+		    //echo $sql;
+		    //oci_bind_by_name($stmt, ':variable', $id, -1); 
+
+		   // oci_execute($stmt, OCI_DEFAULT); 
+		    $stmt = oci_parse($conn, $sql);        // Preparar la sentencia
+		    $ok   = oci_execute( $stmt );              // Ejecutar la sentencia
+		    if( $ok == true )
+		    {
+		        /* Mostrar los datos. Lo hacemos de este modo puesto que no es posible obtener el número de
+		           registros sin antes haber accedido a los datos mediante las funciones 'oci_fetch_*'):
+		        */
+		         if( $obj = oci_fetch_object($stmt) )
+		        {
+		            
+
+		             $jsonArray = array();
+		              while($obj = oci_fetch_object($stmt)) {
+		                 $jsonArrayItem = array();
+		                $submitdate = str_replace("/","-",$obj->FECHA);
+		                $jsonArrayItem['FECHA'] = date('Mj',strtotime($submitdate));
+		                $jsonArrayItem['OPERACIONES'] = $obj->OPERACIONES_1;
+		                 $jsonArrayItem['RECHAZOS'] = $obj->RECHAZOS_1;
+		                //append the above created object into the main array.
+		                array_push($jsonArray, $jsonArrayItem);
+
+		              }
+		               //set the response content type as JSON
+						header('Content-type: application/json');
+						//output the return value of json encode using the echo function. 
+						echo json_encode($jsonArray);
+		        }
+		        else
+		            echo "<p>No se encontraron personas</p>";
+		    }
+		    else
+		     oci_free_statement($stmt);    // Liberar los recursos asociados a una sentencia o cursor
+
+		} 
+		 
+		// Close the Oracle connection 
+		oci_close($conn); 
+
+
+
+	}
+
+
 
 
 
@@ -189,22 +276,27 @@ class Dashboard_model{
     		switch($row[3])
 				{
 			case "Coordinador";
-				$row3='<span class="label label-info">Coordinador</span>';
+				$row3='<span class="profile-status online pull-right"></span>';
 				break;
 			case "Analista";
-				$row3='<span class="label label-warning">Analista</span>';
+				$row3='<span class="profile-status away pull-right"></span>';
 				break;
 			default :
-				$row3='<span class="label label-danger">Invitado</span>';
+				$row3='<span class="profile-status busy pull-right"></span>';
 			}
     		
-			echo '<tr>					
-					<td style="font-size: 12px; height: 10px; width: 30%;">'.$row[0].'</td>					
-					<td style="font-size: 12px; height: 10px; width: 20%;">'.$row[1].'</td>
-					<td style="font-size: 12px; height: 10px; width: 20%;">'.$row[2].'</td>
-					<td style="font-size: 12px; height: 10px; width: 20%;">'.$row3.'</td>
-
-				</tr>';
+			echo '
+			<!-- Message -->
+            <a href="#">
+                <div class="user-img"> <img src="'.$row[4].'"> 
+                '.$row3.'</div>
+                <div class="mail-contnet">
+                    <h5>'.$row[0].'</h5> 
+                    <span class="mail-desc">'.$row[1].'</span>
+                    <span class="mail-desc">'.$row[2].'</span>
+                </div>
+            </a>
+				';
 		}
 	}
 
