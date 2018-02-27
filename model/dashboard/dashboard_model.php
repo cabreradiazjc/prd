@@ -112,7 +112,7 @@ class Dashboard_model{
 			<!-- Message -->
             <a href="#">
                 <div class="mail-contnet">
-                    <h5>SVT Nro.'.$row[3].'</h5> <span class="mail-desc">'.$row[1].'</span> <span class="time">'.$row[0].'</span> '.$row2.'</div>
+                    <h5>SVT Nro. '.$row[3].'</h5> <span class="mail-desc">'.$row[1].'</span> <span class="time">'.$row[0].'</span> '.$row2.'</div>
             </a>
                 ';
 		}
@@ -374,8 +374,8 @@ class Dashboard_model{
 		//porcentaje
 		$p=100;
 		$limit1=0;
-		$limit2=60;
-		$limit3=80;
+		$limit2=55;
+		$limit3=78;
 
 		//Espacio Total Asignado
 		$e24 = 499;
@@ -411,14 +411,17 @@ class Dashboard_model{
     		
 
 			if (($p24>$limit1) and ($p24<$limit2)) {
-				$color24 = "green";
+				$color24 = "bg-success";
+				$face24  = "mdi-emoticon-cool text-success";
 				
 			}else{
 					if (($p24>$limit2) and ($p24<$limit3)) {
-					$color24 = "yellow";
+					$color24 = "bg-primary";
+					$face24  = "mdi-emoticon-neutral text-purple";
 					
 				}else{
-						$color24 = "red";
+						$color24 = "bg-danger";
+						$face24  = "mdi-emoticon-sad text-danger";
 						
 				}
 			};
@@ -431,14 +434,17 @@ class Dashboard_model{
     		
 
 			if (($p31>$limit1) and ($p31<$limit2)) {
-				$color31 = "green";
+				$color31 = "bg-success";
+				$face31  = "mdi-emoticon-cool text-success";
 				
 			}else{
 					if (($p31>$limit2) and ($p31<$limit3)) {
-					$color31 = "yellow";
+					$color31 = "bg-primary";
+					$face31  = "mdi-emoticon-neutral text-purple";
 					
 				}else{
-						$color31 = "red";
+						$color31 = "bg-danger";
+						$face31  = "mdi-emoticon-sad text-danger";
 						
 				}
 			};
@@ -451,15 +457,17 @@ class Dashboard_model{
     		
 
 			if (($p38>$limit1) and ($p38<$limit2)) {
-				$color38 = "green";
+				$color38 = "bg-success";
+				$face38  = "mdi-emoticon-cool text-success";
 				
 			}else{
 					if (($p38>$limit2) and ($p38<$limit3)) {
-					$color38 = "yellow";
+					$color38 = "bg-primary";
+					$face38  = "mdi-emoticon-neutral text-purple";
 					
 				}else{
-						$color38 = "red";
-						
+						$color38 = "bg-danger";
+						$face38  = "mdi-emoticon-sad text-danger";
 				}
 			};
 
@@ -470,14 +478,17 @@ class Dashboard_model{
     		
 
 			if (($p127>$limit1) and ($p127<$limit2)) {
-				$color127 = "green";
+				$color127 = "bg-success";
+				$face127  = "mdi-emoticon-cool text-success";
 				
 			}else{
 					if (($p127>$limit2) and ($p127<$limit3)) {
-					$color127 = "yellow";
+					$color127 = "bg-primary";
+					$face127  = "mdi-emoticon-neutral text-purple";
 					
 				}else{
-						$color127 = "red";
+						$color127 = "bg-danger";
+						$face127  = "mdi-emoticon-sad text-danger";
 						
 				}
 			};
@@ -491,14 +502,17 @@ class Dashboard_model{
     		
 
 			if (($ptedbprod>$limit1) and ($ptedbprod<$limit2)) {
-				$colortedbprod = "green";
+				$colortedbprod = "bg-success";
+				$facetedbprod  = "mdi-emoticon-cool text-success";
 				
 			}else{
 					if (($ptedbprod>$limit2) and ($ptedbprod<$limit3)) {
-					$colortedbprod = "yellow";
+					$colortedbprod = "bg-primary";
+					$facetedbprod  = "mdi-emoticon-neutral text-purple";
 					
 				}else{
-						$colortedbprod = "red";
+						$colortedbprod = "bg-danger";
+						$facetedbprod  = "mdi-emoticon-sad text-danger";
 					
 				}
 			};
@@ -510,14 +524,17 @@ class Dashboard_model{
     		
 
 			if (($ptecyber>$limit1) and ($ptecyber<$limit2)) {
-				$colortecyber = "green";
+				$colortecyber = "bg-success";
+				$facetecyber  = "mdi-emoticon-cool text-success";
 				
 			}else{
 					if (($ptecyber>$limit2) and ($ptecyber<$limit3)) {
-					$colortecyber = "yellow";
+					$colortecyber = "bg-primary";
+					$facetecyber  = "mdi-emoticon-neutral text-purple";
 					
 				}else{
-						$colortecyber = "red";
+						$colortecyber = "bg-danger";
+						$facetecyber  = "mdi-emoticon-sad text-danger";
 						
 				}
 			};
@@ -531,76 +548,92 @@ class Dashboard_model{
 
 			
     		echo '
-            <p class="text-center">
-                Espacio - Libre/Total <strong>(% usado) </strong>
-            </p>
 
-          <div class="progress-group">
-                <span class="progress-text">BD PRODUCCION (.24)</span>
-                <span class="progress-number">'.$row[0].'/'.$e24.' MB <b>('.number_format($p24,2).' % used)</b></span>
-
-                <div class="progress sm">
-                    <div class="progress-bar progress-bar-'.$color24.'" style="width: '.$p24.'%"></div>
-                </div>
-            </div>
-            <!-- /.progress-group -->
-
-
-             <div class="progress-group">
-                <span class="progress-text">BD PRD CONTIGENCIA (.31)</span>
-                <span class="progress-number">'.$row[1].'/'.$e31.' MB <b>('.number_format($p31,2).' % used)</b></span>
-
-                <div class="progress sm">
-                    <div class="progress-bar progress-bar-'.$color31.'" style="width: '.$p31.'%"></div>
-                </div>
-            </div>
-            <!-- /.progress-group -->
+    		<tr>
+	            <td style="width:90px; text-align: center; direction: rtl;"><span style="font-size: 60px;"><i class="mdi '.$face24.'"></i></span></td>
+	            <td style="width:200px;">
+	                <h5 class="card-title">BD PRODUCCIÓN</h5>
+	                <h6 class="card-subtitle">172.20.0.24</h6>
+	                <h6 class="card-subtitle">'.$row[0].'/'.$e24.' MB</h6>
+	                <h6 class="card-subtitle"><b>('.number_format($p24,2).' % used)</b></h6></td>
+	            <td class="vm">
+	               <div class="progress">
+	                    <div class="progress-bar '.$color24.'" role="progressbar" style="width: '.$p24.'%; height:6px;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+	                </div>
+	            </td>
+	        </tr>
 
 
-              <div class="progress-group">
-                <span class="progress-text">REP. BACKUPS BT(.38)</span>
-                <span class="progress-number">'.$row[2].'/'.$e38.' MB <b>('.number_format($p38,2).' % used)</b></span>
-
-                <div class="progress sm">
-                    <div class="progress-bar progress-bar-'.$color38.'" style="width: '.$p38.'%"></div>
-                </div>
-            </div>
-            <!-- /.progress-group -->
-
-
-            <div class="progress-group">
-                <span class="progress-text">BD CYBER (.127)</span>
-                <span class="progress-number">'.$row[3].'/'.$e127.' MB <b>('.number_format($p127,2).' % used)</b></span>
-
-                <div class="progress sm">
-                    <div class="progress-bar progress-bar-'.$color127.'" style="width: '.$p127.'%"></div>
-                </div>
-            </div>
-            <!-- /.progress-group -->
+	        <tr>
+	            <td style="width:90px; text-align: center; direction: rtl;"><span style="font-size: 60px;"><i class="mdi '.$face31.'"></i></span></td>
+	            <td style="width:200px;">
+	                <h5 class="card-title">BD PRD CONTIGENCIA</h5>
+	                <h6 class="card-subtitle">172.20.0.31</h6>
+	                <h6 class="card-subtitle">'.$row[1].'/'.$e31.' MB</h6>
+	                <h6 class="card-subtitle"><b>('.number_format($p31,2).' % used)</b></h6></td>
+	            <td class="vm">
+	               <div class="progress">
+	                    <div class="progress-bar '.$color31.'" role="progressbar" style="width: '.$p31.'%; height:6px;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+	                </div>
+	            </td>
+	        </tr>
 
 
-            <div class="progress-group">
-                <span class="progress-text">Tablespace DBPROD</span>
-                <span class="progress-number">'.$row[4].'/'.$etedbprod.' MB <b>('.number_format($ptedbprod,2).' % used)</b></span>
+	        <tr>
+	            <td style="width:90px; text-align: center; direction: rtl;"><span style="font-size: 60px;"><i class="mdi '.$face38.'"></i></span></td>
+	            <td style="width:200px;">
+	                <h5 class="card-title">REP. BACKUPS BT</h5>
+	                <h6 class="card-subtitle">172.20.0.38</h6>
+	                <h6 class="card-subtitle">'.$row[2].'/'.$e38.' MB</h6>
+	                <h6 class="card-subtitle"><b>('.number_format($p38,2).' % used)</b></h6></td>
+	            <td class="vm">
+	               <div class="progress">
+	                    <div class="progress-bar '.$color38.'" role="progressbar" style="width: '.$p38.'%; height:6px;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+	                </div>
+	            </td>
+	        </tr>
 
-                <div class="progress sm">
-                    <div class="progress-bar progress-bar-'.$colortedbprod.'" style="width: '.$ptedbprod.'%"></div>
-                </div>
-            </div>
-            <!-- /.progress-group -->
+	        <tr>
+	            <td style="width:90px; text-align: center; direction: rtl;"><span style="font-size: 60px;"><i class="mdi '.$face127.'"></i></span></td>
+	            <td style="width:200px;">
+	                <h5 class="card-title">BD CYBER</h5>
+	                <h6 class="card-subtitle">172.20.0.127</h6>
+	                <h6 class="card-subtitle">'.$row[3].'/'.$e127.' MB</h6>
+	                <h6 class="card-subtitle"><b>('.number_format($p127,2).' % used)</b></h6></td>
+	            <td class="vm">
+	               <div class="progress">
+	                    <div class="progress-bar '.$color127.'" role="progressbar" style="width: '.$p127.'%; height:6px;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+	                </div>
+	            </td>
+	        </tr>
 
+	        <tr>
+	            <td style="width:90px; text-align: center; direction: rtl;"><span style="font-size: 60px;"><i class="mdi '.$facetedbprod.'"></i></span></td>
+	            <td style="width:200px;">
+	                <h5 class="card-title">Tablespace DBPROD</h5>
+	                <h6 class="card-subtitle">172.20.0.24</h6>
+	                <h6 class="card-subtitle">'.$row[4].'/'.$etedbprod.' MB</h6>
+	                <h6 class="card-subtitle"><b>('.number_format($ptedbprod,2).' % used)</b></h6></td>
+	            <td class="vm">
+	               <div class="progress">
+	                    <div class="progress-bar '.$colortedbprod.'" role="progressbar" style="width: '.$ptedbprod.'%; height:6px;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+	                </div>
+	            </td>
+	        </tr>
 
-			<div class="progress-group">
-                <span class="progress-text">Tablespace CYBER</span>
-                <span class="progress-number">'.$row[5].'/'.$etecyber.' MB <b>('.number_format($ptecyber,2).' % used)</b></span>
-
-                <div class="progress sm">
-                    <div class="progress-bar progress-bar-'.$colortecyber.'" style="width: '.$ptecyber.'%"></div>
-                </div>
-            </div>
-            <!-- /.progress-group -->
-
-
+	        <tr>
+	            <td style="width:90px; text-align: center; direction: rtl;"><span style="font-size: 60px;"><i class="mdi '.$facetecyber.'"></i></span></td>
+	            <td style="width:200px;">
+	                <h5 class="card-title">Tablespace CYBER</h5>
+	                <h6 class="card-subtitle">172.20.0.127</h6>
+	                <h6 class="card-subtitle">'.$row[5].'/'.$etecyber.' MB</h6>
+	                <h6 class="card-subtitle"><b>('.number_format($ptecyber,2).' % used)</b></h6></td>
+	            <td class="vm">
+	               <div class="progress">
+	                    <div class="progress-bar '.$colortecyber.'" role="progressbar" style="width: '.$ptecyber.'%; height:6px;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+	                </div>
+	            </td>
+	        </tr>
 
     		';
     		

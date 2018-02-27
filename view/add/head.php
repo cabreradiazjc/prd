@@ -7,8 +7,22 @@
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="../../assets/images/favicon.png">
     <title>Produccion FC</title>
+    
     <!-- Bootstrap Core CSS -->
     <link href="../../assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../assets/plugins/bootstrap-material-datetimepicker/css/bootstrap-material-datetimepicker.css" rel="stylesheet">
+    
+  
+    <!-- Page plugins css -->
+    <link href="../../assets/plugins/clockpicker/dist/jquery-clockpicker.min.css" rel="stylesheet">
+    <!-- Color picker plugins css -->
+    <link href="../../assets/plugins/jquery-asColorPicker-master/css/asColorPicker.css" rel="stylesheet">
+    <!-- Date picker plugins css -->
+    <link href="../../assets/plugins/bootstrap-datepicker/bootstrap-datepicker.min.css" rel="stylesheet" type="text/css" />
+    <!-- Daterange picker plugins css -->
+    <link href="../../assets/plugins/timepicker/bootstrap-timepicker.min.css" rel="stylesheet">
+    <link href="../../assets/plugins/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
+
     <!-- chartist CSS -->
     <link href="../../assets/plugins/chartist-js/dist/chartist.min.css" rel="stylesheet">
     <link href="../../assets/plugins/chartist-js/dist/chartist-init.css" rel="stylesheet">
@@ -20,6 +34,10 @@
     <link href="../../assets/plugins/vectormap/jquery-jvectormap-2.0.2.css" rel="stylesheet" />
     <!-- toast CSS -->
     <link href="../../assets/plugins/toast-master/css/jquery.toast.css" rel="stylesheet">
+    <!--alerts CSS -->
+    <link href="../../assets/plugins/sweetalert/sweetalert.css" rel="stylesheet" type="text/css">
+
+
     <!-- Custom CSS -->
     <link href="../../assets/css/style.css" rel="stylesheet">
     <!-- You can change the theme colors from here -->

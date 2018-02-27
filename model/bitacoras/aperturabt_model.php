@@ -31,14 +31,23 @@ class Aperturabt_model{
 			case "listar_aperturabt";
 				echo $this->listar_aperturabt();
 				break;
+			case "eliminar_aperturabt";
+				echo $this->eliminar_aperturabt();
+				break;
+			case "editar_aperturabt";
+				echo $this->editar_aperturabt();
+				break;
+			case "update_aperturabt";
+				echo $this->update_aperturabt();
+				break;
 
 		}
 	}
 
 	function prepararConsultaUsuario($opcion) 
 	{
-		$consultaSql = "call sp_control_bitacoras(";
-		$consultaSql.="'".$opcion."')";
+		$consultaSql = "call sp_control_aperturabt(";
+		$consultaSql.="'".$opcion."','')";
 		//echo $consultaSql;	
 		$this->result = mysqli_query($this->conexion,$consultaSql);
     }
@@ -49,35 +58,17 @@ class Aperturabt_model{
     	while($row = mysqli_fetch_row($this->result)){
     		
 			echo '<tr>					
-					<td style="width: 20%;">'.$row[0].'</td>					
-					<td style="width: 20%;">'.$row[1].'</td>
-					<td style="width: 50%;">'.$row[2].'</td>
+					<td style="width: 30%;">'.$row[0].'</td>					
+					<td style="width: 30%;">'.$row[1].'</td>
+					<td style="width: 40%;">'.$row[2].'</td>
 					<td style="width: 10%; text-align: center; direction: rtl;"> 
-						<a class="btn btn-primary btn-xs" onclick="editar('.$row[0].');"><i class="fa fa-edit"></i></a> 
-						<a class="btn btn-danger btn-xs" onclick="eliminar('.$row[0].');"><i class="fa fa-trash"></i></a> 
+						<a class="btn btn-danger btn-sm text-white" onclick="eliminar('.$row[3].');"><i class="fa fa-trash"></i></a> 
+						<a class="btn btn-info btn-sm text-white" onclick="editar('.$row[3].');"><i class="fa fa-edit"></i></a> 
 					</td>
 
 				</tr>';
 		}
 	}
-/*
-	function consultarln() {
-    	$this->prepararRegistroUsuario('opc_ln_consultar');  	
-    	while($row = mysqli_fetch_row($this->result)){
-    		
-			echo '<tr>					
-					<td style="font-size: 12px; height: 10px; width: 4%;">'.$row[0].'</td>					
-					<td style="font-size: 12px; height: 10px; width: 15%;">'.$row[1].'</td>
-					<td style="font-size: 12px; height: 10px; width: 25%;">'.$row[2].'</td>
-					<td style="font-size: 12px; height: 10px; width: 10%;">'.$row[3].'</td>
-					<td style="font-size: 12px; height: 10px; width: 15%;">'.$row[4].'</td>
-					<td style="font-size: 12px; height: 10px; width: 10%;">'.$row[5].'</td>
-					<td style="font-size: 12px; height: 10px; width: 15%;">'.$row[6].'</td>
-				</tr>';
-		}
-	}
-
-*/
 
 	function nuevo_aperturabt() {
 		$this->insertar_aperturabt('opc_aperturabt_registrar');
@@ -117,6 +108,49 @@ class Aperturabt_model{
 		echo json_encode($row);
 		
 	}
+
+	function preparar($opcion,$id) 
+	{
+		$consultaSql = "call sp_control_aperturabt(";
+		$consultaSql.="'".$opcion."',";
+		$consultaSql.="".$id.")";
+		//echo $consultaSql;	
+		$this->result = mysqli_query($this->conexion,$consultaSql);
+    }
+
+    function eliminar_aperturabt() {
+
+
+    	$this->preparar('opc_aperturabt_eliminar',$this->param['param_id']);
+
+    	while ($row = mysqli_fetch_row($this->result)) {
+                        echo json_encode($row);
+        	}
+	}
+
+	function editar_aperturabt() {
+
+    	$this->preparar('opc_aperturabt_editar',$this->param['param_id']);
+
+    	while ($row = mysqli_fetch_row($this->result)) {
+                        echo json_encode($row);
+        	}
+	}
+
+
+	function update_aperturabt() {
+
+    	$consultaSql = "UPDATE aperturabt set ";
+		$consultaSql.="fecha = '".$this->param['param_fecha_edit']."',";
+		$consultaSql.="hora = '".$this->param['param_hora_edit']."',";
+		$consultaSql.="observaciones = '".$this->param['param_observaciones_edit']."'";
+		$consultaSql.=" where id_aperturabt = '".$this->param['param_id_edit']."'";
+
+		//echo $consultaSql;
+		mysqli_query($this->conexion,$consultaSql);
+
+	}
+
 
 
 

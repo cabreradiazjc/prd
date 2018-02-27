@@ -2,7 +2,7 @@
 window.onload = function(){
 	profile();
 	lastOpen();
-	//espaciosChart();
+	espaciosChart();
 	//incidence();
 	//emergencySVT();
 	//lastApertura();
@@ -13,6 +13,21 @@ window.onload = function(){
 	info();
 }
 
+function espaciosChart(){
+	$.ajax({
+		type: 'POST',
+		data:{param_opcion: 'espaciosChart'},
+		url: '../../controller/dashboard/dashboard_controller.php',
+		success: function(respuesta){
+			$('#espaciosChart').html(respuesta);
+
+
+		},
+		error: function(respuesta){
+			$('#espaciosChart').html(respuesta);
+		}
+	});	
+}
 
 function lastSvt(){
 	$.ajax({

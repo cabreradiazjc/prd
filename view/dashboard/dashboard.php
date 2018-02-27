@@ -53,6 +53,14 @@
 
 <body class="fix-header fix-sidebar card-no-border">
     <!-- ============================================================== -->
+    <!-- Preloader - style you can find in spinners.css -->
+    <!-- ============================================================== -->
+    <div class="preloader">
+        <svg class="circular" viewBox="25 25 50 50">
+            <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10" /> </svg>
+    </div>
+    
+    <!-- ============================================================== -->
     <!-- Main wrapper - style you can find in pages.scss -->
     <!-- ============================================================== -->
     <div id="main-wrapper">
@@ -260,87 +268,12 @@
                         <div class="card">
                             <div class="card-body">
                                 <h3 class="card-title">Espacios en disco y tablespaces</h3>
+                                <h6 class="card-subtitle">Espacio Libre/Total (% usado)</h6>
                                 <div class="table-responsive">
                                     <table class="table m-b-0  m-t-30 no-border">
-                                        <tbody>
-                                            <tr>
-                                                <td style="width:90px; text-align: center; direction: rtl;"><span style="font-size: 60px;"><i class="mdi mdi-emoticon-cool text-info"></i></span></td>
-                                                <td style="width:200px;">
-                                                    <h4 class="card-title">BD PRODUCCIÓN</h4>
-                                                    <h6 class="card-subtitle">172.20.0.24</h6>
-                                                    <h6 class="card-subtitle">297.6/499 MB</h6>
-                                                    <h6 class="card-subtitle">40.36 % used</h6></td>
-                                                <td class="vm">
-                                                   <div class="progress">
-                                                        <div class="progress-bar bg-success" role="progressbar" style="width: 65%; height:6px;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td style="width:90px; text-align: center; direction: rtl;"><span style="font-size: 60px;"><i class="mdi mdi-emoticon-sad text-danger"></i></span></td>
-                                                <td style="width:200px;">
-                                                    <h4 class="card-title">BD PRODUCCIÓN</h4>
-                                                    <h6 class="card-subtitle">172.20.0.24</h6>
-                                                    <h6 class="card-subtitle">297.6/499 MB</h6>
-                                                    <h6 class="card-subtitle">40.36 % used</h6></td>
-                                                <td class="vm">
-                                                   <div class="progress">
-                                                        <div class="progress-bar bg-danger" role="progressbar" style="width: 15%; height:6px;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td style="width:90px; text-align: center; direction: rtl;"><span style="font-size: 60px;"><i class="mdi mdi-emoticon-neutral text-purple"></i></span></td>
-                                                <td style="width:200px;">
-                                                    <h4 class="card-title">BD PRODUCCIÓN</h4>
-                                                    <h6 class="card-subtitle">172.20.0.24</h6>
-                                                    <h6 class="card-subtitle">297.6/499 MB</h6>
-                                                    <h6 class="card-subtitle">40.36 % used</h6></td>
-                                                <td class="vm">
-                                                  <div class="progress">
-                                                    <div class="progress-bar bg-primary" role="progressbar" style="width: 35%; height:6px;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                                                </div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td style="width:90px; text-align: center; direction: rtl;"><span style="font-size: 60px;"><i class="mdi mdi-emoticon-cool"></i></span></td>
-                                                <td style="width:200px;">
-                                                    <h4 class="card-title">BD PRODUCCIÓN</h4>
-                                                    <h6 class="card-subtitle">172.20.0.24</h6>
-                                                    <h6 class="card-subtitle">297.6/499 MB</h6>
-                                                    <h6 class="card-subtitle">40.36 % used</h6></td>
-                                                <td class="vm">
-                                                   <div class="progress">
-                                                        <div class="progress-bar bg-success" role="progressbar" style="width: 65%; height:6px;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td style="width:90px; text-align: center; direction: rtl;"><span style="font-size: 60px;"><i class="mdi mdi-emoticon-cool"></i></span></td>
-                                                <td style="width:200px;">
-                                                    <h4 class="card-title">BD PRODUCCIÓN</h4>
-                                                    <h6 class="card-subtitle">172.20.0.24</h6>
-                                                    <h6 class="card-subtitle">297.6/499 MB</h6>
-                                                    <h6 class="card-subtitle">40.36 % used</h6></td>
-                                                <td class="vm">
-                                                   <div class="progress">
-                                                        <div class="progress-bar bg-success" role="progressbar" style="width: 65%; height:6px;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td style="width:90px; text-align: center; direction: rtl;"><span style="font-size: 60px;"><i class="mdi mdi-emoticon-cool"></i></span></td>
-                                                <td style="width:200px;">
-                                                    <h4 class="card-title">BD PRODUCCIÓN</h4>
-                                                    <h6 class="card-subtitle">172.20.0.24</h6>
-                                                    <h6 class="card-subtitle">297.6/499 MB</h6>
-                                                    <h6 class="card-subtitle">40.36 % used</h6></td>
-                                                <td class="vm">
-                                                   <div class="progress">
-                                                        <div class="progress-bar bg-success" role="progressbar" style="width: 65%; height:6px;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                                                    </div>
-                                                </td>
-                                            </tr>
+                                        <tbody id="espaciosChart">
+                                            
+                                           
                                         </tbody>
                                     </table>
                                 </div>
@@ -350,13 +283,13 @@
                             <div class="card-body m-b-20 m-t-10">
                                 <div class="row">
                                     <div class="col-4">
-                                        <h1>5486</h1>
-                                        <h6 class="text-muted">Projects</h6></div>
+                                        <h1>6</h1>
+                                        <h6 class="text-muted">Espacios Monitoreados</h6></div>
                                     <div class="col-4">
-                                        <h1>987</h1>
-                                        <h6 class="text-muted">Winning  Entries</h6></div>
+                                        <h1>Antes </h1>
+                                        <h6 class="text-muted">y <strong>después </strong> de la cadena de cierre.</h6></div>
                                     <div class="col-4 align-self-center text-right">
-                                        <button type="button" class="btn btn-success">Hire me</button>
+                                        <a href="../bitacoras/espacios.php"><button type="button" class="btn btn-success">Ver histórico</button></a>
                                     </div>
                                 </div>
                             </div>
