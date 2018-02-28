@@ -94,17 +94,17 @@
                 <!-- ============================================================== -->
                 <div class="row page-titles">
                     <div class="col-md-5 col-8 align-self-center">
-                        <h3 class="text-themecolor m-b-0 m-t-0">Apertura de bantotal</h3>
+                        <h3 class="text-themecolor m-b-0 m-t-0">Espacios y Tablespaces</h3>
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="javascript:void(0)">Bitácoras</a></li>
-                            <li class="breadcrumb-item active">Apertura de bantotal</li>
+                            <li class="breadcrumb-item active">Espacios</li>
                         </ol>
                     </div>
                    <div class="col-md-7 col-4 align-self-center">
                         <div class="d-flex m-t-10 justify-content-end">
                             
                             <div class="d-flex m-r-20 m-l-10 hidden-md-down">
-                                <button class="btn btn-info" alt="default" data-toggle="modal" data-target="#modal-nuevo_aperturabt">Nuevo registro</button>
+                               
                             </div>
                             
                         </div>
@@ -117,268 +117,624 @@
                 <!-- Start Page Content -->
                 <!-- ============================================================== -->
                 <input type="hidden" name="grupo" id="grupo" value="Bitácoras">
-                <input type="hidden" name="tarea" id="tarea" value="Apertura Bantotal">
+                <input type="hidden" name="tarea" id="tarea" value="Espacios">
                 <input type="hidden" name="user" id="user" value="<?php echo $userData['email']; ?>">
 
                 <div class="row">
                     <div class="col-12">
-                        <div class="card">
-                            <div class="card-body bg-info">
-                                <h4 class="card-title text-white">Histórico de registros</h4>
-                                <h6 class="card-subtitle text-white">Información de la apertura de bantotal después de carteras 2.</h6>
-                            </div>  
-                            <div class="card-body">
-                                <div class="message-box contact-box">
-                                    <h2 class="add-ct-btn">
-                                        <button type="button" class="btn btn-circle btn-lg btn-success waves-effect waves-dark"  alt="default" data-toggle="modal" data-target="#modal-nuevo_aperturabt">+</button>
-                                    </h2>
-                                </div>  
-                               
-                                <!-- Nav tabs -->
-                                <div class="vtabs customvtab" style="width: 100%;">
-                                    <ul class="nav nav-tabs tabs-vertical" role="tablist">
-                                        <li class="nav-item"> <a class="nav-link active" data-toggle="tab" href="#ac" role="tab"><span class="hidden-sm-up"><i class="ti-home"></i></span> <span class="hidden-xs-down">Pre-cadena</span> </a> </li>
-                                        <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#dc" role="tab"><span class="hidden-sm-up"><i class="ti-user"></i></span> <span class="hidden-xs-down">Post-cadena</span></a> </li>
-                                    </ul>
-                                    <!-- Tab panes -->
-                                    <div class="tab-content">
-                                        <div class="tab-pane active" id="ac" role="tabpanel">
-                                            <div class="alert alert-info">
-                                                <button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true">&times;</span> </button>
-                                                <h3 class="text-info"><i class="fa fa-exclamation-circle"></i> Information</h3> This is an example top alert. You can edit what u wish. Aww yeah, you successfully read this important alert message. This example text is going to run a bit longer so that you can see how spacing within an alert works with this kind of content.
-                                            </div>
+                        <div class="card card-body">
+                            <div class="alert alert-info">
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true">&times;</span> </button>
+                                <h3 class="text-info"><i class="fa fa-exclamation-circle"></i> ¡Importante!</h3> Ésta bitácora debe contener los datos de los espacios y tablespaces de los servidores y base de datos tanto antes de la cadena de cierre diaria como después de ésta. Mantener actualizada ésta bitácora nos dará como resultado el comportamiento de los espacios mencionados.
+                            </div>
+                            <!-- Nav tabs -->
+                            <ul class="nav nav-tabs customtab" role="tablist">
+                                <li class="nav-item"> <a class="nav-link active" data-toggle="tab" href="#precadena" role="tab"><span class="hidden-sm-up"><i class="ti-home"></i></span> <span class="hidden-xs-down">Pre-cadena</span></a> </li>
+                                <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#postcadena" role="tab"><span class="hidden-sm-up"><i class="ti-user"></i></span> <span class="hidden-xs-down">Post-cadena</span></a> </li>
+                            </ul>
 
-                                            <div class="table-responsive" >
-                                                <table id="table_aperturabt" class="display nowrap table table-hover table-striped table-bordered" cellspacing="0" width="100%">
-                                                    <thead>
-                                                        <tr>
-                                                            <th>Fecha</th>
-                                                            <th>Hora</th>
-                                                            <th>Observaciones</th>
-                                                            <th>Acciones</th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tfoot>
-                                                        <tr>
-                                                            <th>Fecha</th>
-                                                            <th>Hora</th>
-                                                            <th>Observaciones</th>
-                                                            <th>Acciones</th>
-                                                        </tr>
-                                                    </tfoot>
-                                                    <tbody  id="body_aperturabt">
-                                                        
-                                                    </tbody>
-                                                </table>
-                                            </div>
-                                        </div>
-                                        <div class="tab-pane" id="dc" role="tabpanel">
-                                            <div class="alert alert-info">
-                                                <button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true">&times;</span> </button>
-                                                <h3 class="text-info"><i class="fa fa-exclamation-circle"></i> Information</h3> This is an example top alert. You can edit what u wish. Aww yeah, you successfully read this important alert message. This example text is going to run a bit longer so that you can see how spacing within an alert works with this kind of content.
-                                            </div>
-
-                                            <div class="table-responsive" >
-                                                <table id="table_aperturabt" class="display nowrap table table-hover table-striped table-bordered" cellspacing="0" width="100%">
-                                                    <thead>
-                                                        <tr>
-                                                            <th>Fecha</th>
-                                                            <th>Hora</th>
-                                                            <th>Observaciones</th>
-                                                            <th>Acciones</th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tfoot>
-                                                        <tr>
-                                                            <th>Fecha</th>
-                                                            <th>Hora</th>
-                                                            <th>Observaciones</th>
-                                                            <th>Acciones</th>
-                                                        </tr>
-                                                    </tfoot>
-                                                    <tbody  id="body_aperturabt">
-                                                        
-                                                    </tbody>
-                                                </table>
-                                            </div>
+                           <!-- Tab panes -->
+                            <div class="tab-content">
+                                <div class="tab-pane active" id="precadena" role="tabpanel">
+                                    <div class="p-20">
+                                        <div class="card-body bg-info">
+                                        <h4 class="card-title text-white">Histórico de registros</h4>
+                                        <h6 class="card-subtitle text-white">Información de los espacios y tablespaces <strong>antes</strong> de la cadena de cierre.</h6>
+                                    </div>  
+                                    <div class="card-body">
+                                        <div class="message-box contact-box">
+                                            <h2 class="add-ct-btn">
+                                                <button type="button" class="btn btn-circle btn-lg btn-success waves-effect waves-dark"  alt="default" data-toggle="modal" data-target="#modal-nuevo_ac">+</button>
+                                            </h2>
+                                        </div>  
+                                       
+                                        <div class="table-responsive m-t-40">
+                                            <table id="table_ac_espacios" class="display nowrap table table-hover table-striped table-bordered" cellspacing="0" width="100%">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Fecha Pre</th>
+                                                        <th>172.20.0.24</th>
+                                                        <th>172.20.0.31</th>
+                                                        <th>172.20.0.38</th>
+                                                        <th>172.20.0.127</th>
+                                                        <th>DBPROD</th>
+                                                        <th>Cyber</th>
+                                                        <th>Acciones</th>
+                                                    </tr>
+                                                </thead>
+                                                <tfoot>
+                                                    <tr>
+                                                        <th>Fecha Pre</th>
+                                                        <th>172.20.0.24</th>
+                                                        <th>172.20.0.31</th>
+                                                        <th>172.20.0.38</th>
+                                                        <th>172.20.0.127</th>
+                                                        <th>DBPROD</th>
+                                                        <th>Cyber</th>
+                                                        <th>Acciones</th>
+                                                    </tr>
+                                                </tfoot>
+                                                <tbody  id="body_ac_espacios">
+                                                    
+                                                </tbody>
+                                            </table>
                                         </div>
                                     </div>
-                                </div>      
+                                    </div>
+                                </div>
+                                <div class="tab-pane" id="postcadena" role="tabpanel">
+                                    <div class="p-20">
+                                        <div class="card-body bg-info">
+                                        <h4 class="card-title text-white">Histórico de registros</h4>
+                                        <h6 class="card-subtitle text-white">Información de los espacios y tablespaces <strong>después</strong> de la cadena de cierre.</h6>
+                                    </div>  
+                                    <div class="card-body">
+                                        <div class="message-box contact-box">
+                                            <h2 class="add-ct-btn">
+                                                <button type="button" class="btn btn-circle btn-lg btn-success waves-effect waves-dark"  alt="default" data-toggle="modal" data-target="#modal-nuevo_dc">+</button>
+                                            </h2>
+                                        </div>  
+                                        <div class="table-responsive m-t-40">
+                                            <table id="table_dc_espacios" class="display nowrap table table-hover table-striped table-bordered" cellspacing="0" width="100%">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Fecha Post</th>
+                                                        <th>172.20.0.24</th>
+                                                        <th>172.20.0.31</th>
+                                                        <th>172.20.0.38</th>
+                                                        <th>172.20.0.127</th>
+                                                        <th>DBPROD</th>
+                                                        <th>Cyber</th>
+                                                        <th>Acciones</th>
+                                                    </tr>
+                                                </thead>
+                                                <tfoot>
+                                                    <tr>
+                                                        <th>Fecha Post</th>
+                                                        <th>172.20.0.24</th>
+                                                        <th>172.20.0.31</th>
+                                                        <th>172.20.0.38</th>
+                                                        <th>172.20.0.127</th>
+                                                        <th>DBPROD</th>
+                                                        <th>Cyber</th>
+                                                        <th>Acciones</th>
+                                                    </tr>
+                                                </tfoot>
+                                                <tbody  id="body_dc_espacios">
+                                                    
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                        
+                </div>
+
+                <!-- ============================================================== -->
+                <!-- Modal nuevo registro pre-cadena -->
+                <!-- ============================================================== -->
+                <div id="modal-nuevo_ac" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                <h4 class="modal-title">Nuevo registro</h4>
+                            </div>
+                            <div class="modal-body">
+                                <!-- Row -->
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                            <div class="card-body p-t-20">
+                                                <form id="frm_nuevo_ac" name="frm_nuevo_ac">
+                                                    <div class="form-body">
+                                                        <h3 class="card-title">Espacios y tablespaces pre - cadena</h3>
+                                                        <hr>
+                                                        <div id="mensaje_ac"></div>
+                                                        <div class="row">
+                                                            <div class="col-md-6">
+                                                                <div class="form-group has-success">
+                                                                    <label class="control-label">Fecha</label>
+                                                                    <div class="input-group">
+                                                                        <input type="text" class="form-control" placeholder="yyyy-mm-dd" data-date-format='yyyy-mm-dd' value="<?php echo date('Y-m-d',strtotime("0 days")); ?>" id="param_ac_fecha" name="param_ac_fecha">
+                                                                        <span class="input-group-addon"><i class="icon-calender"></i></span> 
+                                                                    </div>
+                                                                    <small class="form-control-feedback"> Usar fecha de hoy.</small>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <h5>Espacios</h5>
+                                                        <hr>
+                                                        <div class="row">
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <label class="control-label">172.20.0.24</label>
+                                                                    <div class="input-group">
+                                                                        <input type="number" class="form-control" id="param_ac_24" name="param_ac_24" placeholder="en MB">
+                                                                    </div>
+                                                                    <small class="form-control-feedback pull-right">/oradata6</small>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <label class="control-label">172.20.0.31</label>
+                                                                    <div class="input-group">
+                                                                        <input type="number" class="form-control" id="param_ac_31" name="param_ac_31" placeholder="en MB">
+                                                                    </div>
+                                                                    <small class="form-control-feedback pull-right">/oradata6</small>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <label class="control-label">172.20.0.38</label>
+                                                                    <div class="input-group">
+                                                                        <input type="number" class="form-control" id="param_ac_38" name="param_ac_38" placeholder="en MB">
+                                                                    </div>
+                                                                    <small class="form-control-feedback pull-right">/oradatahis</small>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <label class="control-label">172.20.0.127</label>
+                                                                    <div class="input-group">
+                                                                        <input type="number" class="form-control" id="param_ac_127" name="param_ac_127" placeholder="en MB">
+                                                                    </div>
+                                                                    <small class="form-control-feedback pull-right">/export</small>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <h5>Tablespaces</h5>
+                                                        <hr>
+                                                        <div class="row">
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <label class="control-label">PRODUCCIÓN</label>
+                                                                    <div class="input-group">
+                                                                        <input type="number" class="form-control" id="param_ac_tedbprod" name="param_ac_tedbprod" placeholder="en MB">
+                                                                    </div>
+                                                                    <small class="form-control-feedback pull-right">dbprod</small>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <label class="control-label">CYBERFINANCIAL</label>
+                                                                    <div class="input-group">
+                                                                        <input type="number" class="form-control" id="param_ac_tecyber" name="param_ac_tecyber" placeholder="en MB">
+                                                                    </div>
+                                                                    <small class="form-control-feedback pull-right">rcvry</small>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        
+                                                    </div>
+                                                    <!-- Datos de Operación -->
+                                                    <input type="hidden" name="grupo" id="grupo" value="Bitácoras">
+                                                    <input type="hidden" name="tarea" id="tarea" value="Bitácora de espacios precadena">
+                                                    <input type="hidden" name="user" id="user" value="<?php echo $userData['email']; ?>">
+                                                    <!-- /. End Datos de Operación -->
+                                                </form>
+                                            </div>
+                                    </div>
+                                </div>
+                                <!-- Row -->
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">Cerrar</button>
+                                <button type="button" class="btn btn-info waves-effect waves-light" id="nuevo_ac">Guardar</button>
                             </div>
                         </div>
                     </div>
                 </div>
+                <!-- ============================================================== -->
+                <!-- End Modal nuevo registro pre-cadena-->
+                <!-- ============================================================== -->
+
+
+                <!-- ============================================================== -->
+                <!-- Modal nuevo registro post-cadena -->
+                <!-- ============================================================== -->
+                <div id="modal-nuevo_dc" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                <h4 class="modal-title">Nuevo registro</h4>
+                            </div>
+                            <div class="modal-body">
+                                <!-- Row -->
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                            <div class="card-body p-t-20">
+                                                <form id="frm_nuevo_dc" name="frm_nuevo_dc">
+                                                    <div class="form-body">
+                                                        <h3 class="card-title">Espacios y tablespaces post - cadena</h3>
+                                                        <hr>
+                                                        <div id="mensaje_dc"></div>
+                                                        <div class="row">
+                                                            <div class="col-md-6">
+                                                                <div class="form-group has-success">
+                                                                    <label class="control-label">Fecha</label>
+                                                                    <div class="input-group">
+                                                                        <input type="text" class="form-control" placeholder="yyyy-mm-dd" data-date-format='yyyy-mm-dd' value="<?php echo date('Y-m-d',strtotime("0 days")); ?>" id="param_dc_fecha" name="param_dc_fecha">
+                                                                        <span class="input-group-addon"><i class="icon-calender"></i></span> 
+                                                                    </div>
+                                                                    <small class="form-control-feedback"> Usar fecha de hoy.</small>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <h5>Espacios</h5>
+                                                        <hr>
+                                                        <div class="row">
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <label class="control-label">172.20.0.24</label>
+                                                                    <div class="input-group">
+                                                                        <input type="number" class="form-control" id="param_dc_24" name="param_dc_24" placeholder="en MB">
+                                                                    </div>
+                                                                    <small class="form-control-feedback pull-right">/oradata6</small>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <label class="control-label">172.20.0.31</label>
+                                                                    <div class="input-group">
+                                                                        <input type="number" class="form-control" id="param_dc_31" name="param_dc_31" placeholder="en MB">
+                                                                    </div>
+                                                                    <small class="form-control-feedback pull-right">/oradata6</small>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <label class="control-label">172.20.0.38</label>
+                                                                    <div class="input-group">
+                                                                        <input type="number" class="form-control" id="param_dc_38" name="param_dc_38" placeholder="en MB">
+                                                                    </div>
+                                                                    <small class="form-control-feedback pull-right">/oradatahis</small>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <label class="control-label">172.20.0.127</label>
+                                                                    <div class="input-group">
+                                                                        <input type="number" class="form-control" id="param_dc_127" name="param_dc_127" placeholder="en MB">
+                                                                    </div>
+                                                                    <small class="form-control-feedback pull-right">/export</small>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <h5>Tablespaces</h5>
+                                                        <hr>
+                                                        <div class="row">
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <label class="control-label">PRODUCCIÓN</label>
+                                                                    <div class="input-group">
+                                                                        <input type="number" class="form-control" id="param_dc_tedbprod" name="param_dc_tedbprod" placeholder="en MB">
+                                                                    </div>
+                                                                    <small class="form-control-feedback pull-right">dbprod</small>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <label class="control-label">CYBERFINANCIAL</label>
+                                                                    <div class="input-group">
+                                                                        <input type="number" class="form-control" id="param_dc_tecyber" name="param_dc_tecyber" placeholder="en MB">
+                                                                    </div>
+                                                                    <small class="form-control-feedback pull-right">rcvry</small>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        
+                                                    </div>
+                                                    <!-- Datos de Operación -->
+                                                    <input type="hidden" name="grupo" id="grupo" value="Bitácoras">
+                                                    <input type="hidden" name="tarea" id="tarea" value="Bitácora de espacios postcadena">
+                                                    <input type="hidden" name="user" id="user" value="<?php echo $userData['email']; ?>">
+                                                    <!-- /. End Datos de Operación -->
+                                                </form>
+                                            </div>
+                                    </div>
+                                </div>
+                                <!-- Row -->
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">Cerrar</button>
+                                <button type="button" class="btn btn-info waves-effect waves-light" id="nuevo_dc">Guardar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- ============================================================== -->
+                <!-- End Modal nuevo registro post-cadena-->
+                <!-- ============================================================== -->
+
+
+                <!-- ============================================================== -->
+                <!-- Modal EDITAR registro pre-cadena -->
+                <!-- ============================================================== -->
+                <div id="modal-editar_ac" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                <h4 class="modal-title">Editar registro</h4>
+                            </div>
+                            <div class="modal-body">
+                                <!-- Row -->
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                            <div class="card-body p-t-20">
+                                                <form id="frm_editar_ac" name="frm_editar_ac">
+                                                    <div class="form-body">
+                                                        <h3 class="card-title">Espacios y tablespaces pre - cadena</h3>
+                                                        <hr>
+                                                        <div id="mensaje_ac_edit"></div>
+                                                        <div class="row">
+                                                            <div class="col-md-6">
+                                                                <div class="form-group has-success">
+                                                                    <label class="control-label">Fecha</label>
+                                                                    <div class="input-group">
+                                                                        <input type="text" class="form-control" placeholder="yyyy-mm-dd" data-date-format='yyyy-mm-dd' value="<?php echo date('Y-m-d',strtotime("0 days")); ?>" id="param_ac_fecha_edit" name="param_ac_fecha_edit">
+                                                                        <span class="input-group-addon"><i class="icon-calender"></i></span> 
+                                                                    </div>
+                                                                    <small class="form-control-feedback"> Usar fecha de hoy.</small>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <h5>Espacios</h5>
+                                                        <hr>
+                                                        <div class="row">
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <label class="control-label">172.20.0.24</label>
+                                                                    <div class="input-group">
+                                                                        <input type="number" class="form-control" id="param_ac_24_edit" name="param_ac_24_edit" placeholder="en MB">
+                                                                    </div>
+                                                                    <small class="form-control-feedback pull-right">/oradata6</small>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <label class="control-label">172.20.0.31</label>
+                                                                    <div class="input-group">
+                                                                        <input type="number" class="form-control" id="param_ac_31_edit" name="param_ac_31_edit" placeholder="en MB">
+                                                                    </div>
+                                                                    <small class="form-control-feedback pull-right">/oradata6</small>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <label class="control-label">172.20.0.38</label>
+                                                                    <div class="input-group">
+                                                                        <input type="number" class="form-control" id="param_ac_38_edit" name="param_ac_38_edit" placeholder="en MB">
+                                                                    </div>
+                                                                    <small class="form-control-feedback pull-right">/oradatahis</small>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <label class="control-label">172.20.0.127</label>
+                                                                    <div class="input-group">
+                                                                        <input type="number" class="form-control" id="param_ac_127_edit" name="param_ac_127_edit" placeholder="en MB">
+                                                                    </div>
+                                                                    <small class="form-control-feedback pull-right">/export</small>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <h5>Tablespaces</h5>
+                                                        <hr>
+                                                        <div class="row">
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <label class="control-label">PRODUCCIÓN</label>
+                                                                    <div class="input-group">
+                                                                        <input type="number" class="form-control" id="param_ac_tedbprod_edit" name="param_ac_tedbprod_edit" placeholder="en MB">
+                                                                    </div>
+                                                                    <small class="form-control-feedback pull-right">dbprod</small>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <label class="control-label">CYBERFINANCIAL</label>
+                                                                    <div class="input-group">
+                                                                        <input type="number" class="form-control" id="param_ac_tecyber_edit" name="param_ac_tecyber_edit" placeholder="en MB">
+                                                                    </div>
+                                                                    <small class="form-control-feedback pull-right">rcvry</small>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        
+                                                    </div>
+                                                   <input type="hidden" id="param_ac_id_edit" name="param_ac_id_edit">
+                                                </form>
+                                            </div>
+                                    </div>
+                                </div>
+                                <!-- Row -->
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">Cerrar</button>
+                                <button type="button" class="btn btn-info waves-effect waves-light" id="editar_ac">Guardar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- ============================================================== -->
+                <!-- End Modal EDITAR registro pre-cadena-->
+                <!-- ============================================================== -->
+
+
+                 <!-- ============================================================== -->
+                <!-- Modal EDITAR registro post-cadena -->
+                <!-- ============================================================== -->
+                <div id="modal-editar_dc" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                <h4 class="modal-title">Editar registro</h4>
+                            </div>
+                            <div class="modal-body">
+                                <!-- Row -->
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                            <div class="card-body p-t-20">
+                                                <form id="frm_editar_dc" name="frm_editar_dc">
+                                                    <div class="form-body">
+                                                        <h3 class="card-title">Espacios y tablespaces post - cadena</h3>
+                                                        <hr>
+                                                        <div id="mensaje_dc_edit"></div>
+                                                        <div class="row">
+                                                            <div class="col-md-6">
+                                                                <div class="form-group has-success">
+                                                                    <label class="control-label">Fecha</label>
+                                                                    <div class="input-group">
+                                                                        <input type="text" class="form-control" placeholder="yyyy-mm-dd" data-date-format='yyyy-mm-dd' value="<?php echo date('Y-m-d',strtotime("0 days")); ?>" id="param_dc_fecha_edit" name="param_dc_fecha_edit">
+                                                                        <span class="input-group-addon"><i class="icon-calender"></i></span> 
+                                                                    </div>
+                                                                    <small class="form-control-feedback"> Usar fecha de hoy.</small>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <h5>Espacios</h5>
+                                                        <hr>
+                                                        <div class="row">
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <label class="control-label">172.20.0.24</label>
+                                                                    <div class="input-group">
+                                                                        <input type="number" class="form-control" id="param_dc_24_edit" name="param_dc_24_edit" placeholder="en MB">
+                                                                    </div>
+                                                                    <small class="form-control-feedback pull-right">/oradata6</small>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <label class="control-label">172.20.0.31</label>
+                                                                    <div class="input-group">
+                                                                        <input type="number" class="form-control" id="param_dc_31_edit" name="param_dc_31_edit" placeholder="en MB">
+                                                                    </div>
+                                                                    <small class="form-control-feedback pull-right">/oradata6</small>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <label class="control-label">172.20.0.38</label>
+                                                                    <div class="input-group">
+                                                                        <input type="number" class="form-control" id="param_dc_38_edit" name="param_dc_38_edit" placeholder="en MB">
+                                                                    </div>
+                                                                    <small class="form-control-feedback pull-right">/oradatahis</small>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <label class="control-label">172.20.0.127</label>
+                                                                    <div class="input-group">
+                                                                        <input type="number" class="form-control" id="param_dc_127_edit" name="param_dc_127_edit" placeholder="en MB">
+                                                                    </div>
+                                                                    <small class="form-control-feedback pull-right">/export</small>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <h5>Tablespaces</h5>
+                                                        <hr>
+                                                        <div class="row">
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <label class="control-label">PRODUCCIÓN</label>
+                                                                    <div class="input-group">
+                                                                        <input type="number" class="form-control" id="param_dc_tedbprod_edit" name="param_dc_tedbprod_edit" placeholder="en MB">
+                                                                    </div>
+                                                                    <small class="form-control-feedback pull-right">dbprod</small>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <label class="control-label">CYBERFINANCIAL</label>
+                                                                    <div class="input-group">
+                                                                        <input type="number" class="form-control" id="param_dc_tecyber_edit" name="param_dc_tecyber_edit" placeholder="en MB">
+                                                                    </div>
+                                                                    <small class="form-control-feedback pull-right">rcvry</small>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        
+                                                    </div>
+                                                    <input type="hidden" id="param_dc_id_edit" name="param_dc_id_edit">
+                                                </form>
+                                            </div>
+                                    </div>
+                                </div>
+                                <!-- Row -->
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">Cerrar</button>
+                                <button type="button" class="btn btn-info waves-effect waves-light" id="editar_dc">Guardar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- ============================================================== -->
+                <!-- End Modal EDITAR registro post-cadena-->
+                <!-- ============================================================== -->
+
+               
+
+
+                <!-- ============================================================== -->
+                <!-- End PAge Content -->
+                <!-- ============================================================== -->
+                
             </div>
-             <!-- ============================================================== -->
+            <!-- ============================================================== -->
             <!-- End Container fluid  -->
             <!-- ============================================================== -->
-
-
             <!-- ============================================================== -->
-            <!-- Modal nuevo registro -->
+            <!-- footer -->
             <!-- ============================================================== -->
-            <div id="modal-nuevo_aperturabt" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                            <h4 class="modal-title">Nuevo registro</h4>
-                        </div>
-                        <div class="modal-body">
-                            <!-- Row -->
-                            <div class="row">
-                                <div class="col-lg-12">
-                                        <div class="card-body">
-                                            <form id="frm_nuevo_aperturabt" name="frm_nuevo_aperturabt">
-                                                <div class="form-body">
-                                                    <h3 class="card-title">Apertura de Bantotal</h3>
-                                                    <hr>
-                                                    <div id="mensaje"></div>
-                                                    <div class="row p-t-20">
-                                                        <div class="col-md-6">
-                                                            <div class="form-group">
-                                                                <label class="control-label">Fecha</label>
-                                                                <div class="input-group">
-                                                                    <input type="text" class="form-control" placeholder="yyyy-mm-dd" data-date-format='yyyy-mm-dd' value="<?php echo date('Y-m-d',strtotime("0 days")); ?>" id="param_fecha" name="param_fecha">
-                                                                    <span class="input-group-addon"><i class="icon-calender"></i></span> 
-                                                                </div>
-                                                                <small class="form-control-feedback"> Usar fecha de hoy.</small>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-md-6">
-                                                            <div class="form-group">
-                                                                <label class="control-label">Hora</label>
-                                                                <div class="input-group">
-                                                                    <input type="text" class="form-control" placeholder="00:00:00" name="param_hora" id="param_hora"> <span class="input-group-addon"> <span class="fa fa-clock-o"></span> </span>
-                                                                </div>
-                                                                <small class="form-control-feedback"> Después de carteras 2. </small> 
-                                                            </div>
-                                                        </div>
-                                                        <!--/span-->
-                                                    </div>
-                                                    <div class="row">
-                                                        <div class="col-md-12 ">
-                                                            <div class="form-group">
-                                                                <label>Observaciones</label>
-                                                                <textarea row="2" class="form-control" placeholder="En caso la apertura sea demasiado tarde." name="param_observaciones" id="param_observaciones"></textarea>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <!-- Datos de Operación -->
-                                                <input type="hidden" name="grupo" id="grupo" value="Bitácoras">
-                                                <input type="hidden" name="tarea" id="tarea" value="Bitácora de Apertura Bantotal">
-                                                <input type="hidden" name="user" id="user" value="<?php echo $userData['email']; ?>">
-                                                <!-- /. End Datos de Operación -->
-                                            </form>
-                                        </div>
-                                </div>
-                            </div>
-                            <!-- Row -->
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">Cerrar</button>
-                            <button type="button" class="btn btn-info waves-effect waves-light" id="nuevo_aperturabt">Guardar</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <?php include_once('../add/footer.php'); ?>
             <!-- ============================================================== -->
-            <!-- End Modal nuevo registro -->
+            <!-- End footer -->
             <!-- ============================================================== -->
-
-
-            <!-- ============================================================== -->
-            <!-- Modal editar -->
-            <!-- ============================================================== -->
-            <div id="modal-editar_aperturabt" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                            <h4 class="modal-title">Editar registro</h4>
-                        </div>
-                        <div class="modal-body">
-                            <!-- Row -->
-                            <div class="row">
-                                <div class="col-lg-12">
-                                        <div class="card-body">
-                                            <form id="frm_update_aperturabt" name="frm_update_aperturabt">
-                                                <div class="form-body">
-                                                    <h3 class="card-title">Apertura de Bantotal</h3>
-                                                    <hr>
-                                                    <div id="mensaje"></div>
-                                                    <div class="row p-t-20">
-                                                        <div class="col-md-6">
-                                                            <div class="form-group">
-                                                                <label class="control-label">Fecha</label>
-                                                                <div class="input-group">
-                                                                    <input type="text" class="form-control" placeholder="yyyy-mm-dd" data-date-format='yyyy-mm-dd' value="<?php echo date('Y-m-d',strtotime("0 days")); ?>" id="param_fecha_edit" name="param_fecha_edit">
-                                                                    <span class="input-group-addon"><i class="icon-calender"></i></span> 
-                                                                </div>
-                                                                <small class="form-control-feedback"> Usar fecha de hoy.</small>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-md-6">
-                                                            <div class="form-group">
-                                                                <label class="control-label">Hora</label>
-                                                                <div class="input-group">
-                                                                    <input type="text" class="form-control" placeholder="00:00:00" name="param_hora_edit" id="param_hora_edit"> <span class="input-group-addon"> <span class="fa fa-clock-o"></span> </span>
-                                                                </div>
-                                                                <small class="form-control-feedback"> Después de carteras 2. </small> 
-                                                            </div>
-                                                        </div>
-                                                        <!--/span-->
-                                                    </div>
-                                                    <div class="row">
-                                                        <div class="col-md-12 ">
-                                                            <div class="form-group">
-                                                                <label>Observaciones</label>
-                                                                <textarea row="2" class="form-control" placeholder="En caso la apertura sea demasiado tarde." name="param_observaciones_edit" id="param_observaciones_edit"></textarea>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <input type="hidden" id="param_id_edit" name="param_id_edit">
-                                            </form>
-                                        </div>
-                                </div>
-                            </div>
-                            <!-- Row -->
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">Cerrar</button>
-                            <button type="button" class="btn btn-info waves-effect waves-light" id="update_aperturabt">Actualizar</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- ============================================================== -->
-            <!-- End Modal editar -->
-            <!-- ============================================================== -->
-
-
-        <!-- ============================================================== -->
-        <!-- End PAge Content -->
-        <!-- ============================================================== -->
-            
         </div>
-           
         <!-- ============================================================== -->
-        <!-- footer -->
-        <!-- ============================================================== -->
-        <?php include_once('../add/footer.php'); ?>
-        <!-- ============================================================== -->
-        <!-- End footer -->
+        <!-- End Page wrapper  -->
         <!-- ============================================================== -->
     </div>
     <!-- ============================================================== -->
-    <!-- End Page wrapper  -->
+    <!-- End Wrapper -->
     <!-- ============================================================== -->
-</div>
-<!-- ============================================================== -->
-<!-- End Wrapper -->
-<!-- ============================================================== -->
     <!-- ============================================================== -->
     <!-- All Jquery -->
     <!-- ============================================================== -->
@@ -392,7 +748,7 @@
     <!-- Menu -->
     <script src="../../js/treemodulo.js"></script>
     <!-- Mantenedor -->
-    <script src="../../js/bitacoras/aperturabt_js.js"></script>
+    <script src="../../js/bitacoras/espacios_js.js"></script>
      <!-- Plugin JavaScript --> 
     <script src="../../assets/plugins/moment/moment.js"></script>
     <script src="../../assets/plugins/bootstrap-material-datetimepicker/js/bootstrap-material-datetimepicker.js"></script>
@@ -430,7 +786,12 @@
     <script>
     
   
-    jQuery('#param_fecha').datepicker({
+    jQuery('#param_ac_fecha').datepicker({
+        autoclose: true,
+        todayHighlight: true
+    });
+
+    jQuery('#param_dc_fecha').datepicker({
         autoclose: true,
         todayHighlight: true
     });

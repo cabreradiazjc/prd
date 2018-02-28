@@ -47,8 +47,8 @@ class Espacios_model{
 
 	function prepararConsultaUsuario($opcion) 
 	{
-		$consultaSql = "call sp_control_bitacoras(";
-		$consultaSql.="'".$opcion."')";
+		$consultaSql = "call sp_control_espacios(";
+		$consultaSql.="'".$opcion."','')";
 		//echo $consultaSql;	
 		$this->result = mysqli_query($this->conexion,$consultaSql);
     }
@@ -59,13 +59,17 @@ class Espacios_model{
     	while($row = mysqli_fetch_row($this->result)){
     		
 			echo '<tr>					
-					<td style="width: 20%;">'.$row[0].'</td>					
-					<td style="width: 15%;">'.$row[1].'</td>
-					<td style="width: 15%;">'.$row[2].'</td>
-					<td style="width: 15%;">'.$row[3].'</td>
-					<td style="width: 15%;">'.$row[4].'</td>
-					<td style="width: 15%;">'.$row[5].'</td>
-					<td style="width: 15%;">'.$row[6].'</td>
+					<td style="width: 15%;">'.$row[0].'</td>					
+					<td style="width: 12%; text-align: right;">'.number_format($row[1], 2, '.', ',').' MB</td>
+					<td style="width: 12%; text-align: right;">'.number_format($row[2], 2, '.', ',').' MB</td>
+					<td style="width: 12%; text-align: right;">'.number_format($row[3], 2, '.', ',').' MB</td>
+					<td style="width: 12%; text-align: right;">'.number_format($row[4], 2, '.', ',').' MB</td>
+					<td style="width: 12%; text-align: right;">'.number_format($row[5], 2, '.', ',').' MB</td>
+					<td style="width: 12%; text-align: right;">'.number_format($row[6], 2, '.', ',').' MB</td>
+					<td style="width: 13%; text-align: center; direction: rtl;"> 
+						<a class="btn btn-danger btn-sm text-white" onclick="eliminar_ac('.$row[7].');"><i class="fa fa-trash"></i></a> 
+						<a class="btn btn-info btn-sm text-white" onclick="editar_ac('.$row[7].');"><i class="fa fa-edit"></i></a> 
+					</td>
 				</tr>';
 		}
 	}
@@ -76,13 +80,17 @@ class Espacios_model{
     	while($row = mysqli_fetch_row($this->result)){
     		
 			echo '<tr>					
-					<td style="width: 20%;">'.$row[0].'</td>					
-					<td style="width: 15%;">'.$row[1].'</td>
-					<td style="width: 15%;">'.$row[2].'</td>
-					<td style="width: 15%;">'.$row[3].'</td>
-					<td style="width: 15%;">'.$row[4].'</td>
-					<td style="width: 15%;">'.$row[5].'</td>
-					<td style="width: 15%;">'.$row[6].'</td>
+					<td style="width: 15%;">'.$row[0].'</td>					
+					<td style="width: 12%; text-align: right;">'.number_format($row[1], 2, '.', ',').' MB</td>
+					<td style="width: 12%; text-align: right;">'.number_format($row[2], 2, '.', ',').' MB</td>
+					<td style="width: 12%; text-align: right;">'.number_format($row[3], 2, '.', ',').' MB</td>
+					<td style="width: 12%; text-align: right;">'.number_format($row[4], 2, '.', ',').' MB</td>
+					<td style="width: 12%; text-align: right;">'.number_format($row[5], 2, '.', ',').' MB</td>
+					<td style="width: 12%; text-align: right;">'.number_format($row[6], 2, '.', ',').' MB</td>
+					<td style="width: 13%; text-align: center; direction: rtl;"> 
+						<a class="btn btn-danger btn-sm text-white" onclick="eliminar_dc('.$row[7].');"><i class="fa fa-trash"></i></a> 
+						<a class="btn btn-info btn-sm text-white" onclick="editar_dc('.$row[7].');"><i class="fa fa-edit"></i></a> 
+					</td>
 				</tr>';
 		}
 	}
