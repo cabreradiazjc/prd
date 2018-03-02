@@ -22,6 +22,10 @@ if (isset($_POST['user']))
     $param['param_user'] = $_POST['user'];
 //FIN OPeraciones
 
+$param['param_id']='';
+if (isset($_POST['param_id']))
+    $param['param_id'] = $_POST['param_id'];
+
 
 //ESPACIOS
 
@@ -48,6 +52,12 @@ $param['param_dc_tecyber']='';
 
 if (isset($_POST['param_ac_id']))
     $param['param_ac_id'] = $_POST['param_ac_id']; 
+
+if (isset($_POST['param_ac_id_edit']))
+    $param['param_ac_id_edit'] = $_POST['param_ac_id_edit']; 
+
+
+
 
 if (isset($_POST['param_ac_fecha']))
     $param['param_ac_fecha'] = $_POST['param_ac_fecha']; 
@@ -76,6 +86,9 @@ if (isset($_POST['param_ac_tecyber']))
 if (isset($_POST['param_dc_id']))
     $param['param_dc_id'] = $_POST['param_dc_id']; 
 
+if (isset($_POST['param_dc_id_edit']))
+    $param['param_dc_id_edit'] = $_POST['param_dc_id_edit']; 
+
 if (isset($_POST['param_dc_fecha']))
     $param['param_dc_fecha'] = $_POST['param_dc_fecha']; 
 
@@ -99,7 +112,60 @@ if (isset($_POST['param_dc_tecyber']))
 
 
 
-//Reporte
+//EDITAR
+
+
+
+if (isset($_POST['param_ac_id_edit']))
+    $param['param_ac_id_edit'] = $_POST['param_ac_id_edit']; 
+
+if (isset($_POST['param_ac_fecha_edit']))
+    $param['param_ac_fecha_edit'] = $_POST['param_ac_fecha_edit']; 
+
+if (isset($_POST['param_ac_24_edit']))
+    $param['param_ac_24_edit'] = $_POST['param_ac_24_edit']; 
+
+if (isset($_POST['param_ac_31_edit']))
+    $param['param_ac_31_edit'] = $_POST['param_ac_31_edit']; 
+
+if (isset($_POST['param_ac_38_edit']))
+    $param['param_ac_38_edit'] = $_POST['param_ac_38_edit']; 
+
+if (isset($_POST['param_ac_127_edit']))
+    $param['param_ac_127_edit'] = $_POST['param_ac_127_edit']; 
+
+if (isset($_POST['param_ac_tedbprod_edit']))
+    $param['param_ac_tedbprod_edit'] = $_POST['param_ac_tedbprod_edit']; 
+
+if (isset($_POST['param_ac_tecyber_edit']))
+    $param['param_ac_tecyber_edit'] = $_POST['param_ac_tecyber_edit']; 
+
+
+
+
+if (isset($_POST['param_dc_id_edit']))
+    $param['param_dc_id_edit'] = $_POST['param_dc_id_edit']; 
+
+if (isset($_POST['param_dc_fecha_edit']))
+    $param['param_dc_fecha_edit'] = $_POST['param_dc_fecha_edit']; 
+
+if (isset($_POST['param_dc_24_edit']))
+    $param['param_dc_24_edit'] = $_POST['param_dc_24_edit']; 
+
+if (isset($_POST['param_dc_31_edit']))
+    $param['param_dc_31_edit'] = $_POST['param_dc_31_edit']; 
+
+if (isset($_POST['param_dc_38_edit']))
+    $param['param_dc_38_edit'] = $_POST['param_dc_38_edit']; 
+
+if (isset($_POST['param_dc_127_edit']))
+    $param['param_dc_127_edit'] = $_POST['param_dc_127_edit']; 
+
+if (isset($_POST['param_dc_tedbprod_edit']))
+    $param['param_dc_tedbprod_edit'] = $_POST['param_dc_tedbprod_edit']; 
+
+if (isset($_POST['param_dc_tecyber_edit']))
+    $param['param_dc_tecyber_edit'] = $_POST['param_dc_tecyber_edit']; 
 
 
 

@@ -106,7 +106,7 @@ function eliminar_ac(id){
 					//console.log(data);
 					$('#param_opcion').val('');	
 					swal("Deleted!", "Eliminado con éxito", "success"); 
-					setTimeout(mostrarDatos(),4000);
+					setTimeout(antesCadena(),4000);
 				},
 				error: function(data){
 					
@@ -179,7 +179,7 @@ function eliminar_dc(id){
 					//console.log(data);
 					$('#param_opcion').val('');	
 					swal("Deleted!", "Eliminado con éxito", "success"); 
-					setTimeout(mostrarDatos(),4000);
+					setTimeout(despuesCadena(),4000);
 				},
 				error: function(data){
 					
@@ -305,7 +305,7 @@ $(function() {
 		        data: $('#frm_nuevo_dc').serialize()+'&param_opcion=nuevo_dc',
 		        url: '../../controller/bitacoras/espacios_controller.php',
 		        success: function(data){
-		            $("#mensaje_dc").html('<div class="alert alert-success alert-dismissible"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button><h4><i class="icon fa fa-check"></i> Alert!</h4>Registro exitoso.</div>').show();
+		            swal("Good job!", "¡Guardado satisfactoriamente!", "success");
 		                        //window.location = "../index.php";
 		            $('#param_dc_fecha').val(today);
 					$('#param_dc_24').val();
@@ -326,7 +326,99 @@ $(function() {
 		
 	});
 
-	
+	$('#update_ac').on('click', function(){
+
+		var ac_fecha_edit = $('#param_ac_fecha_edit').val();
+		var ac_24_edit = $('#param_ac_24_edit').val();
+		var ac_31_edit = $('#param_ac_31_edit').val();
+		var ac_38_edit = $('#param_ac_38_edit').val();
+		var ac_127_edit = $('#param_ac_127_edit').val();
+		var ac_tedbprod_edit = $('#param_ac_tedbprod_edit').val();
+		var ac_tecyber_edit = $('#param_ac_tecyber_edit').val();
+		
+
+		if (ac_fecha_edit.length == '' || ac_24_edit.length == '' || ac_31_edit.length == '' || ac_38_edit.length == '' || ac_127_edit.length == '' || ac_tedbprod_edit.length == '' || ac_tecyber_edit.length == ''  ) {            
+            $("#mensaje").html(
+            	'<div class="alert alert-warning alert-dismissible">'+
+            	'<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>'+
+            	'<h3 class="text-warning"><i class="fa fa-exclamation-triangle"></i> Warning</h3>'+
+            	'Debe llenar los campos necesarios</div>').show(200).delay(3500).hide(200);
+        } else {
+        	$.ajax({
+		        type: 'POST',        
+		        data: $('#frm_update_ac').serialize()+'&param_opcion=update_ac',
+		        url: '../../controller/bitacoras/espacios_controller.php',
+		        success: function(data){
+		            swal("Good job!", "Se realizó la edición con éxito.", "success");
+		                        //window.location = "../index.php";
+		            
+		            $('#param_opcion_edit').val('');
+		            $('#param_ac_fecha_edit').val(today);
+					$('#param_ac_24_edit').val('');
+					$('#param_ac_31_edit').val('');
+					$('#param_ac_38_edit').val('');
+					$('#param_ac_127_edit').val();
+					$('#param_ac_tedbprod_edit').val('');
+					$('#param_ac_tecyber_edit').val('');
+
+					
+					setTimeout(antesCadena(),2000);        
+
+		        },
+		        error: function(data){
+		                   
+		        } 
+			});
+        }
+		
+	});
+
+	$('#update_dc').on('click', function(){
+
+		var dc_fecha_edit = $('#param_dc_fecha_edit').val();
+		var dc_24_edit = $('#param_dc_24_edit').val();
+		var dc_31_edit = $('#param_dc_31_edit').val();
+		var dc_38_edit = $('#param_dc_38_edit').val();
+		var dc_127_edit = $('#param_dc_127_edit').val();
+		var dc_tedbprod_edit = $('#param_dc_tedbprod_edit').val();
+		var dc_tecyber_edit = $('#param_dc_tecyber_edit').val();
+		
+
+		if (dc_fecha_edit.length == '' || dc_24_edit.length == '' || dc_31_edit.length == '' || dc_38_edit.length == '' || dc_127_edit.length == '' || dc_tedbprod_edit.length == '' || dc_tecyber_edit.length == ''  ) {            
+            $("#mensaje").html(
+            	'<div class="alert alert-warning alert-dismissible">'+
+            	'<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>'+
+            	'<h3 class="text-warning"><i class="fa fa-exclamation-triangle"></i> Warning</h3>'+
+            	'Debe llenar los campos necesarios</div>').show(200).delay(3500).hide(200);
+        } else {
+        	$.ajax({
+		        type: 'POST',        
+		        data: $('#frm_update_dc').serialize()+'&param_opcion=update_dc',
+		        url: '../../controller/bitacoras/espacios_controller.php',
+		        success: function(data){
+		            swal("Good job!", "Se realizó la edición con éxito.", "success");
+		                        //window.location = "../index.php";
+		            
+		            $('#param_opcion_edit').val('');
+		            $('#param_dc_fecha_edit').val(today);
+					$('#param_dc_24_edit').val('');
+					$('#param_dc_31_edit').val('');
+					$('#param_dc_38_edit').val('');
+					$('#param_dc_127_edit').val();
+					$('#param_dc_tedbprod_edit').val('');
+					$('#param_dc_tecyber_edit').val('');
+
+					
+					setTimeout(despuesCadena(),2000);        
+
+		        },
+		        error: function(data){
+		                   
+		        } 
+			});
+        }
+		
+	});
 
 
 });

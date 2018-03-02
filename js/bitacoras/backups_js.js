@@ -3,7 +3,8 @@ window.onload = function(){
 	listar_dbprod();
 	listar_can();
 	listar_prd();
-	listar_cyber();	
+	listar_delquda2();
+	listar_rcvry();		
 	info();
 }
 
@@ -81,8 +82,6 @@ function listar_can(){
 }
 
 
-
-
 function listar_prd(){
 	$.ajax({
 		type: 'POST',
@@ -111,17 +110,15 @@ function listar_prd(){
 }
 
 
-
-
-function listar_cyber(){
+function listar_delquda2(){
 	$.ajax({
 		type: 'POST',
-		data:{param_opcion: 'listar_cyber'},
+		data:{param_opcion: 'listar_delquda2'},
 		url: '../../controller/bitacoras/backups_controller.php',
 		success: function(respuesta){
-			$('#table_cyber').DataTable().destroy();
-			$('#body_cyber').html(respuesta);
-			$('#table_cyber').DataTable({
+			$('#table_delquda2').DataTable().destroy();
+			$('#body_delquda2').html(respuesta);
+			$('#table_delquda2').DataTable({
 
 		      'paging'      : true,
 		      'lengthChange': true,
@@ -131,15 +128,42 @@ function listar_cyber(){
 		      'autoWidth'   : false
 
 				});
-			$('#modal-cyber').modal('hide'); 
+			$('#modal-delquda2').modal('hide'); 
 
 		},
 		error: function(respuesta){
-			$('#body_cyber').html(respuesta);
+			$('#body_delquda2').html(respuesta);
 		}
 	});	
 }
 
+
+function listar_rcvry(){
+	$.ajax({
+		type: 'POST',
+		data:{param_opcion: 'listar_rcvry'},
+		url: '../../controller/bitacoras/backups_controller.php',
+		success: function(respuesta){
+			$('#table_rcvry').DataTable().destroy();
+			$('#body_rcvry').html(respuesta);
+			$('#table_rcvry').DataTable({
+
+		      'paging'      : true,
+		      'lengthChange': true,
+		      'searching'   : true,
+		      'aaSorting'	: [[0,'desc'] ],
+		      'info'        : true,
+		      'autoWidth'   : false
+
+				});
+			$('#modal-rcvry').modal('hide'); 
+
+		},
+		error: function(respuesta){
+			$('#body_rcvry').html(respuesta);
+		}
+	});	
+}
 
 
 $(function() {

@@ -41,6 +41,30 @@ class Espacios_model{
 				echo $this->listar_dc();
 				break;
 
+			case "eliminar_ac";
+				echo $this->eliminar_ac();
+				break;
+
+			case "eliminar_dc";
+				echo $this->eliminar_dc();
+				break;
+
+			case "editar_ac";
+				echo $this->editar_ac();
+				break;
+
+			case "editar_dc";
+				echo $this->editar_dc();
+				break;
+
+			case "update_ac";
+				echo $this->update_ac();
+				break;
+
+			case "update_dc";
+				echo $this->update_dc();
+				break;
+
 
 		}
 	}
@@ -130,8 +154,6 @@ class Espacios_model{
     }
 
 
-  
-
 	function mostrarUsuario() {
     	$this->prepararEditarUsuario('opc_usuario_mostrar');    	
     	$row = mysqli_fetch_row($this->result);
@@ -152,27 +174,86 @@ class Espacios_model{
 		mysqli_query($this->conexion,$consultaSql);
     }
 
+    function preparar($opcion,$id) 
+	{
+		$consultaSql = "call sp_control_espacios(";
+		$consultaSql.="'".$opcion."',";
+		$consultaSql.="".$id.")";
+		//echo $consultaSql;	
+		$this->result = mysqli_query($this->conexion,$consultaSql);
+    }
 
-//REPORTES
+    function eliminar_ac() {
 
-/*
-	function consultarln() {
-    	$this->prepararRegistroUsuario('opc_ln_consultar');  	
-    	while($row = mysqli_fetch_row($this->result)){
-    		
-			echo '<tr>					
-					<td style="font-size: 12px; height: 10px; width: 4%;">'.$row[0].'</td>					
-					<td style="font-size: 12px; height: 10px; width: 15%;">'.$row[1].'</td>
-					<td style="font-size: 12px; height: 10px; width: 25%;">'.$row[2].'</td>
-					<td style="font-size: 12px; height: 10px; width: 10%;">'.$row[3].'</td>
-					<td style="font-size: 12px; height: 10px; width: 15%;">'.$row[4].'</td>
-					<td style="font-size: 12px; height: 10px; width: 10%;">'.$row[5].'</td>
-					<td style="font-size: 12px; height: 10px; width: 15%;">'.$row[6].'</td>
-				</tr>';
-		}
+
+    	$this->preparar('opc_ac_eliminar',$this->param['param_id']);
+
+    	while ($row = mysqli_fetch_row($this->result)) {
+                        echo json_encode($row);
+        	}
 	}
 
-*/
+	function editar_ac() {
+
+    	$this->preparar('opc_ac_editar',$this->param['param_id']);
+
+    	while ($row = mysqli_fetch_row($this->result)) {
+                        echo json_encode($row);
+        	}
+	}
+
+	function eliminar_dc() {
+
+
+    	$this->preparar('opc_dc_eliminar',$this->param['param_id']);
+
+    	while ($row = mysqli_fetch_row($this->result)) {
+                        echo json_encode($row);
+        	}
+	}
+
+	function editar_dc() {
+
+    	$this->preparar('opc_dc_editar',$this->param['param_id']);
+
+    	while ($row = mysqli_fetch_row($this->result)) {
+                        echo json_encode($row);
+        	}
+	}
+
+	function update_ac() {
+
+    	$consultaSql = "UPDATE ac_espacios set ";
+		$consultaSql.="ac_fecha = '".$this->param['param_ac_fecha_edit']."',";
+		$consultaSql.="ac_24 = '".$this->param['param_ac_24_edit']."',";
+		$consultaSql.="ac_31 = '".$this->param['param_ac_31_edit']."',";
+		$consultaSql.="ac_38 = '".$this->param['param_ac_38_edit']."',";
+		$consultaSql.="ac_127 = '".$this->param['param_ac_127_edit']."',";
+		$consultaSql.="ac_tedbprod = '".$this->param['param_ac_tedbprod_edit']."',";
+		$consultaSql.="ac_tecyber = '".$this->param['param_ac_tecyber_edit']."'";	
+		$consultaSql.=" where ac_id = '".$this->param['param_ac_id_edit']."'";
+
+		echo $consultaSql;
+		mysqli_query($this->conexion,$consultaSql);
+
+	}
+
+	function update_dc() {
+
+    	$consultaSql = "UPDATE dc_espacios set ";
+		$consultaSql.="dc_fecha = '".$this->param['param_dc_fecha_edit']."',";
+		$consultaSql.="dc_24 = '".$this->param['param_dc_24_edit']."',";
+		$consultaSql.="dc_31 = '".$this->param['param_dc_31_edit']."',";
+		$consultaSql.="dc_38 = '".$this->param['param_dc_38_edit']."',";
+		$consultaSql.="dc_127 = '".$this->param['param_dc_127_edit']."',";
+		$consultaSql.="dc_tedbprod = '".$this->param['param_dc_tedbprod_edit']."',";
+		$consultaSql.="dc_tecyber = '".$this->param['param_dc_tecyber_edit']."'";	
+		$consultaSql.=" where dc_id = '".$this->param['param_dc_id_edit']."'";
+
+		echo $consultaSql;
+		mysqli_query($this->conexion,$consultaSql);
+
+	}
 
 
 }

@@ -94,10 +94,10 @@
                 <!-- ============================================================== -->
                 <div class="row page-titles">
                     <div class="col-md-5 col-8 align-self-center">
-                        <h3 class="text-themecolor m-b-0 m-t-0">Espacios y Tablespaces</h3>
+                        <h3 class="text-themecolor m-b-0 m-t-0">Monitoreo de Backups</h3>
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="javascript:void(0)">Bitácoras</a></li>
-                            <li class="breadcrumb-item active">Espacios</li>
+                            <li class="breadcrumb-item active">Backups</li>
                         </ol>
                     </div>
                    <div class="col-md-7 col-4 align-self-center">
@@ -123,58 +123,57 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="card card-body">
+                            <!--
                             <div class="alert alert-info">
                                 <button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true">&times;</span> </button>
                                 <h3 class="text-info"><i class="fa fa-exclamation-circle"></i> ¡Importante!</h3> Ésta bitácora debe contener los datos de los espacios y tablespaces de los servidores y base de datos tanto antes de la cadena de cierre diaria como después de ésta. Mantener actualizada ésta bitácora nos dará como resultado el comportamiento de los espacios mencionados.
                             </div>
+                            -->
                             <!-- Nav tabs -->
                             <ul class="nav nav-tabs customtab" role="tablist">
-                                <li class="nav-item"> <a class="nav-link active" data-toggle="tab" href="#precadena" role="tab"><span class="hidden-sm-up"><i class="ti-home"></i></span> <span class="hidden-xs-down">Pre-cadena</span></a> </li>
-                                <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#postcadena" role="tab"><span class="hidden-sm-up"><i class="ti-user"></i></span> <span class="hidden-xs-down">Post-cadena</span></a> </li>
+                                <li class="nav-item"> <a class="nav-link active" data-toggle="tab" href="#dbprod" role="tab"><span class="hidden-sm-up"><i class="ti-home"></i></span> <span class="hidden-xs-down">DBPROD</span></a> </li>
+                                <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#can" role="tab"><span class="hidden-sm-up"><i class="ti-user"></i></span> <span class="hidden-xs-down">CAN</span></a> </li>
+                                <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#prd" role="tab"><span class="hidden-sm-up"><i class="ti-user"></i></span> <span class="hidden-xs-down">PRD</span></a> </li>
+                                <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#cyber" role="tab"><span class="hidden-sm-up"><i class="ti-user"></i></span> <span class="hidden-xs-down">CYBER</span></a> </li>
+
                             </ul>
 
                            <!-- Tab panes -->
                             <div class="tab-content">
-                                <div class="tab-pane active" id="precadena" role="tabpanel">
+                                <div class="tab-pane active" id="dbprod" role="tabpanel">
                                     <div class="p-20">
                                         <div class="card-body bg-info">
                                         <h4 class="card-title text-white">Histórico de registros</h4>
-                                        <h6 class="card-subtitle text-white">Información de los espacios y tablespaces <strong>antes</strong> de la cadena de cierre.</h6>
+                                        <h6 class="card-subtitle text-white">Información del tamaño de backup de las tablas principales de la base de datos de producción necesario antes de la cadena de cierre.</h6>
                                     </div>  
                                     <div class="card-body">
                                         <div class="message-box contact-box">
                                             <h2 class="add-ct-btn">
-                                                <button type="button" class="btn btn-circle btn-lg btn-success waves-effect waves-dark"  alt="default" data-toggle="modal" data-target="#modal-nuevo_ac">+</button>
+                                                <button type="button" class="btn btn-circle btn-lg btn-success waves-effect waves-dark"  alt="default" data-toggle="modal" data-target="#modal-nuevo_dbprod">+</button>
                                             </h2>
                                         </div>  
                                        
                                         <div class="table-responsive m-t-40">
-                                            <table id="table_ac_espacios" class="display nowrap table table-hover table-striped table-bordered" cellspacing="0" width="100%">
+                                            <table id="table_dbprod" class="display nowrap table table-hover table-striped table-bordered" cellspacing="0" width="100%">
                                                 <thead>
                                                     <tr>
-                                                        <th>Fecha Pre</th>
-                                                        <th>172.20.0.24</th>
-                                                        <th>172.20.0.31</th>
-                                                        <th>172.20.0.38</th>
-                                                        <th>172.20.0.127</th>
-                                                        <th>DBPROD</th>
-                                                        <th>Cyber</th>
+                                                        <th>Fecha</th>
+                                                        <th>Nombre</th>
+                                                        <th>Compreso</th>
+                                                        <th>Expandido</th>
                                                         <th>Acciones</th>
                                                     </tr>
                                                 </thead>
                                                 <tfoot>
                                                     <tr>
-                                                        <th>Fecha Pre</th>
-                                                        <th>172.20.0.24</th>
-                                                        <th>172.20.0.31</th>
-                                                        <th>172.20.0.38</th>
-                                                        <th>172.20.0.127</th>
-                                                        <th>DBPROD</th>
-                                                        <th>Cyber</th>
+                                                        <th>Fecha</th>
+                                                        <th>Nombre</th>
+                                                        <th>Compreso</th>
+                                                        <th>Expandido</th>
                                                         <th>Acciones</th>
                                                     </tr>
                                                 </tfoot>
-                                                <tbody  id="body_ac_espacios">
+                                                <tbody  id="body_dbprod">
                                                     
                                                 </tbody>
                                             </table>
@@ -182,51 +181,180 @@
                                     </div>
                                     </div>
                                 </div>
-                                <div class="tab-pane" id="postcadena" role="tabpanel">
+                                <div class="tab-pane" id="can" role="tabpanel">
                                     <div class="p-20">
                                         <div class="card-body bg-info">
                                         <h4 class="card-title text-white">Histórico de registros</h4>
-                                        <h6 class="card-subtitle text-white">Información de los espacios y tablespaces <strong>después</strong> de la cadena de cierre.</h6>
+                                        <h6 class="card-subtitle text-white">Información de backups de las tablas de canales de la base de datos de producción, necesario antes de la cadena de cierre.</h6>
                                     </div>  
                                     <div class="card-body">
                                         <div class="message-box contact-box">
                                             <h2 class="add-ct-btn">
-                                                <button type="button" class="btn btn-circle btn-lg btn-success waves-effect waves-dark"  alt="default" data-toggle="modal" data-target="#modal-nuevo_dc">+</button>
+                                                <button type="button" class="btn btn-circle btn-lg btn-success waves-effect waves-dark"  alt="default" data-toggle="modal" data-target="#modal-nuevo_dbprod">+</button>
                                             </h2>
                                         </div>  
                                         <div class="table-responsive m-t-40">
-                                            <table id="table_dc_espacios" class="display nowrap table table-hover table-striped table-bordered" cellspacing="0" width="100%">
+                                            <table id="table_can" class="display nowrap table table-hover table-striped table-bordered" cellspacing="0" width="100%">
                                                 <thead>
                                                     <tr>
-                                                        <th>Fecha Post</th>
-                                                        <th>172.20.0.24</th>
-                                                        <th>172.20.0.31</th>
-                                                        <th>172.20.0.38</th>
-                                                        <th>172.20.0.127</th>
-                                                        <th>DBPROD</th>
-                                                        <th>Cyber</th>
+                                                        <th>Fecha</th>
+                                                        <th>Nombre</th>
+                                                        <th>Compreso</th>
+                                                        <th>Expandido</th>
                                                         <th>Acciones</th>
                                                     </tr>
                                                 </thead>
                                                 <tfoot>
                                                     <tr>
-                                                        <th>Fecha Post</th>
-                                                        <th>172.20.0.24</th>
-                                                        <th>172.20.0.31</th>
-                                                        <th>172.20.0.38</th>
-                                                        <th>172.20.0.127</th>
-                                                        <th>DBPROD</th>
-                                                        <th>Cyber</th>
+                                                        <th>Fecha</th>
+                                                        <th>Nombre</th>
+                                                        <th>Compreso</th>
+                                                        <th>Expandido</th>
                                                         <th>Acciones</th>
                                                     </tr>
                                                 </tfoot>
-                                                <tbody  id="body_dc_espacios">
+                                                <tbody  id="body_can">
                                                     
                                                 </tbody>
                                             </table>
                                         </div>
                                     </div>
                                     </div>
+                                </div>
+                                <div class="tab-pane" id="prd" role="tabpanel">
+                                    <div class="p-20">
+                                        <div class="card-body bg-info">
+                                        <h4 class="card-title text-white">Histórico de registros</h4>
+                                        <h6 class="card-subtitle text-white">Información de backups de las tablas LONG de la base de datos de producción, necesario antes de la cadena de cierre.</h6>
+                                    </div>  
+                                    <div class="card-body">
+                                        <div class="message-box contact-box">
+                                            <h2 class="add-ct-btn">
+                                                <button type="button" class="btn btn-circle btn-lg btn-success waves-effect waves-dark"  alt="default" data-toggle="modal" data-target="#modal-nuevo_prd">+</button>
+                                            </h2>
+                                        </div>  
+                                       
+                                        <div class="table-responsive m-t-40">
+                                            <table id="table_prd" class="display nowrap table table-hover table-striped table-bordered" cellspacing="0" width="100%">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Fecha</th>
+                                                        <th>Nombre</th>
+                                                        <th>Compreso</th>
+                                                        <th>Expandido</th>
+                                                        <th>Acciones</th>
+                                                    </tr>
+                                                </thead>
+                                                <tfoot>
+                                                    <tr>
+                                                        <th>Fecha</th>
+                                                        <th>Nombre</th>
+                                                        <th>Compreso</th>
+                                                        <th>Expandido</th>
+                                                        <th>Acciones</th>
+                                                    </tr>
+                                                </tfoot>
+                                                <tbody  id="body_prd">
+                                                    
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane" id="cyber" role="tabpanel">
+                                    <div class="p-20">
+                                        <div class="card-body bg-info">
+                                            <h4 class="card-title text-white">Histórico de registros</h4>
+                                            <h6 class="card-subtitle text-white">Información de backups de las tablas diarias de la base de datos de cyberfinancial, realizado automáticamente a la medianoche.</h6>
+                                        </div>  
+                                        <div class="card-body">
+                                            <div class="message-box contact-box">
+                                                <h2 class="add-ct-btn">
+                                                    <button type="button" class="btn btn-circle btn-lg btn-success waves-effect waves-dark"  alt="default" data-toggle="modal" data-target="#modal-nuevo_delquda2">+</button>
+                                                </h2>
+                                            </div>  
+                                        </div>
+                                    </div>
+
+                                    <div class="card-body">
+                                        
+                                        <!-- Nav tabs -->
+                                        <div class="vtabs customvtab">
+                                            <ul class="nav nav-tabs tabs-vertical" role="tablist">
+                                                <li class="nav-item"> <a class="nav-link active" data-toggle="tab" href="#delquda2" role="tab"><span class="hidden-sm-up"><i class="ti-home"></i></span> <span class="hidden-xs-down">delquda2</span> </a> </li>
+                                                <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#rcvry" role="tab"><span class="hidden-sm-up"><i class="ti-user"></i></span> <span class="hidden-xs-down">rcvry</span></a> </li>
+
+                                            </ul>
+                                            <!-- Tab panes -->
+                                            <div class="tab-content">
+                                                <div class="tab-pane active" id="delquda2" role="tabpanel">
+                                                    <div class="card-body">
+                                                        <div class="alert alert-info">
+                                                            <button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true">&times;</span> </button>
+                                                            <h3 class="text-info"><i class="fa fa-exclamation-circle"></i> ¡Importante!</h3> Ésta bitácora debe contener los datos de los espacios y tablespaces de los servidores y base de datos tanto antes de la cadena de cierre diaria como después de ésta. Mantener actualizada ésta bitácora nos dará como resultado el comportamiento de los espacios mencionados.
+                                                        </div>
+                                                        <div class="table-responsive m-t-40">
+                                                            <table id="table_delquda2" class="display nowrap table table-hover table-striped table-bordered" cellspacing="0" width="100%" >
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th>Fecha</th>
+                                                                        <th>Nombre expdp_delquda2</th>
+                                                                        <th>Compreso</th>
+                                                                        <th>Expandido</th>
+                                                                        <th>Acciones</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tfoot>
+                                                                    <tr>
+                                                                       <th>Fecha</th>
+                                                                        <th>Nombre expdp_delquda2</th>
+                                                                        <th>Compreso</th>
+                                                                        <th>Expandido</th>
+                                                                        <th>Acciones</th>
+                                                                    </tr>
+                                                                </tfoot>
+                                                                <tbody  id="body_delquda2">
+                                                                    
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="tab-pane  p-20" id="rcvry" role="tabpanel">
+                                                    <div class="alert alert-info">
+                                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true">&times;</span> </button>
+                                                        <h3 class="text-info"><i class="fa fa-exclamation-circle"></i> ¡Importante!</h3> Ésta bitácora debe contener los datos de los espacios y tablespaces de los servidores y base de datos tanto antes de la cadena de cierre diaria como después de ésta. Mantener actualizada ésta bitácora nos dará como resultado el comportamiento de los espacios mencionados.
+                                                    </div>
+                                                    <div class="table-responsive m-t-40">
+                                                        <table id="table_rcvry" class="display nowrap table table-hover table-striped table-bordered" cellspacing="0" width="100%" >
+                                                            <thead>
+                                                                <tr>
+                                                                    <th>Fecha</th>
+                                                                    <th>Nombre expdp_delquda2</th>
+                                                                    <th>Compreso</th>
+                                                                    <th>Expandido</th>
+                                                                    <th>Acciones</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tfoot>
+                                                                <tr>
+                                                                   <th>Fecha</th>
+                                                                    <th>Nombre expdp_delquda2</th>
+                                                                    <th>Compreso</th>
+                                                                    <th>Expandido</th>
+                                                                    <th>Acciones</th>
+                                                                </tr>
+                                                            </tfoot>
+                                                            <tbody  id="body_rcvry">
+                                                                
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>  
                                 </div>
                             </div>
                         </div>
@@ -380,10 +508,10 @@
                                                                 <div class="form-group has-success">
                                                                     <label class="control-label">Fecha</label>
                                                                     <div class="input-group">
-                                                                        <input type="text" class="form-control" placeholder="yyyy-mm-dd" data-date-format='yyyy-mm-dd' value="<?php echo date('Y-m-d',strtotime("-1 days")); ?>" id="param_dc_fecha" name="param_dc_fecha">
+                                                                        <input type="text" class="form-control" placeholder="yyyy-mm-dd" data-date-format='yyyy-mm-dd' value="<?php echo date('Y-m-d',strtotime("0 days")); ?>" id="param_dc_fecha" name="param_dc_fecha">
                                                                         <span class="input-group-addon"><i class="icon-calender"></i></span> 
                                                                     </div>
-                                                                    <small class="form-control-feedback"> Usar fecha de cadena.</small>
+                                                                    <small class="form-control-feedback"> Usar fecha de hoy.</small>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -748,7 +876,7 @@
     <!-- Menu -->
     <script src="../../js/treemodulo.js"></script>
     <!-- Mantenedor -->
-    <script src="../../js/bitacoras/espacios_js.js"></script>
+    <script src="../../js/bitacoras/backups_js.js"></script>
      <!-- Plugin JavaScript --> 
     <script src="../../assets/plugins/moment/moment.js"></script>
     <script src="../../assets/plugins/bootstrap-material-datetimepicker/js/bootstrap-material-datetimepicker.js"></script>
