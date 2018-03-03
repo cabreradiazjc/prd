@@ -57,13 +57,25 @@ class Backups_model{
 				echo $this->nuevo_prd();
 				break;
 
-			case "nuevo_delquda2";
-				echo $this->nuevo_delquda2();
+			case "nuevo_cyber";
+				echo $this->nuevo_cyber();
+				break;
+
+			case "eliminar_dbprod";
+				echo $this->eliminar_dbprod();
 				break;	
 
-			case "nuevo_rcvry";
-				echo $this->nuevo_rcvry();
-				break;			
+			case "eliminar_can";
+				echo $this->eliminar_can();
+				break;
+
+			case "eliminar_prd";
+				echo $this->eliminar_prd();
+				break;
+
+			case "eliminar_cyber";
+				echo $this->eliminar_cyber();
+				break;	
 
 
 		}
@@ -139,13 +151,13 @@ class Backups_model{
     	while($row = mysqli_fetch_row($this->result)){
     		
 			echo '<tr>
-					<td style="width: 15%;">'.$row[0].'</td>
+					<td style="width: 20%;">'.$row[0].'</td>
 					<td style="width: 35%;">'.$row[1].'</td>					
 					<td style="width: 15%;">'.number_format($row[2], 2, '.', ',').'</td>
 					<td style="width: 15%;">'.number_format($row[3], 2, '.', ',').'</td>
 
 					<td style="width: 15%; text-align: center; direction: rtl;"> 
-						<a class="btn btn-danger btn-sm text-white" onclick="eliminar_delquda2('.$row[4].');"><i class="fa fa-trash"></i></a> 
+						<a class="btn btn-danger btn-sm text-white" onclick="eliminar_cyber('.$row[4].');"><i class="fa fa-trash"></i></a> 
 						<a class="btn btn-info btn-sm text-white" onclick="editar_delquda2('.$row[4].');"><i class="fa fa-edit"></i></a> 
 					</td>
 
@@ -158,20 +170,19 @@ class Backups_model{
     	while($row = mysqli_fetch_row($this->result)){
     		
 			echo '<tr>
-					<td style="width: 15%;">'.$row[0].'</td>
+					<td style="width: 20%;">'.$row[0].'</td>
 					<td style="width: 35%;">'.$row[1].'</td>					
 					<td style="width: 15%;">'.number_format($row[2], 2, '.', ',').'</td>
 					<td style="width: 15%;">'.number_format($row[3], 2, '.', ',').'</td>
 
 					<td style="width: 15%; text-align: center; direction: rtl;"> 
-						<a class="btn btn-danger btn-sm text-white" onclick="eliminar_rcvry('.$row[4].');"><i class="fa fa-trash"></i></a> 
+						<a class="btn btn-danger btn-sm text-white" onclick="eliminar_cyber('.$row[4].');"><i class="fa fa-trash"></i></a> 
 						<a class="btn btn-info btn-sm text-white" onclick="editar_rcvry('.$row[4].');"><i class="fa fa-edit"></i></a> 
 					</td>
 
 				</tr>';
 		}
 	}
-
 
 
     function insertar_operacion() {
@@ -233,24 +244,13 @@ class Backups_model{
     }
 
 
-	function nuevo_delquda2() {
+	function nuevo_cyber() {
 		$this->insertar_operacion();
 		$consultaSql = "INSERT INTO backup_cyber(cyber_fecha,delquda2_nombre,delquda2_com,delquda2_sincom,rcvry_nombre,rcvry_com,rcvry_sincom) VALUES (";
 		$consultaSql.="'".$this->param['param_cyber_fecha']."',";
 		$consultaSql.="'".$this->param['param_delquda2_nombre']."',";
 		$consultaSql.="'".$this->param['param_delquda2_com']."',";
-		$consultaSql.="'".$this->param['param_delquda2_sincom']."')";
-
-
-		//echo $estado;
-		//echo $consultaSql;	// FALTA VER AKI EL REGISTRO PREGUNTAR A MILUSKA	
-		$this->result = mysqli_query($this->conexion,$consultaSql);
-    }
-
-    function nuevo_rcvry() {
-		$this->insertar_operacion();
-		$consultaSql = "INSERT INTO backup_cyber(cyber_fecha,delquda2_nombre,delquda2_com,delquda2_sincom,rcvry_nombre,rcvry_com,rcvry_sincom) VALUES (";
-		$consultaSql.="'".$this->param['param_cyber_fecha']."',";
+		$consultaSql.="'".$this->param['param_delquda2_sincom']."',";
 		$consultaSql.="'".$this->param['param_rcvry_nombre']."',";
 		$consultaSql.="'".$this->param['param_rcvry_com']."',";
 		$consultaSql.="'".$this->param['param_rcvry_sincom']."')";
@@ -261,6 +261,55 @@ class Backups_model{
 		$this->result = mysqli_query($this->conexion,$consultaSql);
     }
 
+
+    function preparar($opcion,$id) 
+	{
+		$consultaSql = "call sp_control_backups(";
+		$consultaSql.="'".$opcion."',";
+		$consultaSql.="".$id.")";
+		//echo $consultaSql;	
+		$this->result = mysqli_query($this->conexion,$consultaSql);
+    }
+  	
+  	function eliminar_dbprod() {
+
+
+    	$this->preparar('opc_dbprod_eliminar',$this->param['param_id']);
+
+    	while ($row = mysqli_fetch_row($this->result)) {
+                        echo json_encode($row);
+        	}
+	}
+
+	function eliminar_can() {
+
+
+    	$this->preparar('opc_can_eliminar',$this->param['param_id']);
+
+    	while ($row = mysqli_fetch_row($this->result)) {
+                        echo json_encode($row);
+        	}
+	}
+
+	function eliminar_prd() {
+
+
+    	$this->preparar('opc_prd_eliminar',$this->param['param_id']);
+
+    	while ($row = mysqli_fetch_row($this->result)) {
+                        echo json_encode($row);
+        	}
+	}
+
+	function eliminar_cyber() {
+
+
+    	$this->preparar('opc_cyber_eliminar',$this->param['param_id']);
+
+    	while ($row = mysqli_fetch_row($this->result)) {
+                        echo json_encode($row);
+        	}
+	}
 
 
 

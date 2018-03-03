@@ -583,7 +583,7 @@
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">Cerrar</button>
-                                <button type="button" class="btn btn-info waves-effect waves-light" id="update_ac">Guardar</button>
+                                <button type="button" class="btn btn-info waves-effect waves-light" id="update_ac">Actualizar</button>
                             </div>
                         </div>
                     </div>
@@ -700,7 +700,7 @@
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">Cerrar</button>
-                                <button type="button" class="btn btn-info waves-effect waves-light" id="update_dc">Guardar</button>
+                                <button type="button" class="btn btn-info waves-effect waves-light" id="update_dc">Actualizar</button>
                             </div>
                         </div>
                     </div>

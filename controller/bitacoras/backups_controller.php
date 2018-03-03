@@ -23,6 +23,8 @@ if (isset($_POST['user']))
     $param['param_user'] = $_POST['user'];
 //FIN OPeraciones
 
+if (isset($_POST['param_id']))
+    $param['param_id'] = $_POST['param_id'];
 
 
 //DBPROD

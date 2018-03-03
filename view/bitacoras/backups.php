@@ -190,7 +190,7 @@
                                     <div class="card-body">
                                         <div class="message-box contact-box">
                                             <h2 class="add-ct-btn">
-                                                <button type="button" class="btn btn-circle btn-lg btn-success waves-effect waves-dark"  alt="default" data-toggle="modal" data-target="#modal-nuevo_dbprod">+</button>
+                                                <button type="button" class="btn btn-circle btn-lg btn-success waves-effect waves-dark"  alt="default" data-toggle="modal" data-target="#modal-nuevo_can">+</button>
                                             </h2>
                                         </div>  
                                         <div class="table-responsive m-t-40">
@@ -271,7 +271,7 @@
                                         <div class="card-body">
                                             <div class="message-box contact-box">
                                                 <h2 class="add-ct-btn">
-                                                    <button type="button" class="btn btn-circle btn-lg btn-success waves-effect waves-dark"  alt="default" data-toggle="modal" data-target="#modal-nuevo_delquda2">+</button>
+                                                    <button type="button" class="btn btn-circle btn-lg btn-success waves-effect waves-dark"  alt="default" data-toggle="modal" data-target="#modal-nuevo_cyber">+</button>
                                                 </h2>
                                             </div>  
                                         </div>
@@ -290,9 +290,9 @@
                                             <div class="tab-content">
                                                 <div class="tab-pane active" id="delquda2" role="tabpanel">
                                                     <div class="card-body">
-                                                        <div class="alert alert-info">
+                                                        <div class="alert alert-warning">
                                                             <button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true">&times;</span> </button>
-                                                            <h3 class="text-info"><i class="fa fa-exclamation-circle"></i> ¡Importante!</h3> Ésta bitácora debe contener los datos de los espacios y tablespaces de los servidores y base de datos tanto antes de la cadena de cierre diaria como después de ésta. Mantener actualizada ésta bitácora nos dará como resultado el comportamiento de los espacios mencionados.
+                                                            <h3 class="text-warning"><i class="fa fa-exclamation-triangle"></i> ¡Advertencia!</h3> Los datos de ésta bitácora deben monitorearse ya que el backup se genera automáticamente a la medianoche.
                                                         </div>
                                                         <div class="table-responsive m-t-40">
                                                             <table id="table_delquda2" class="display nowrap table table-hover table-striped table-bordered" cellspacing="0" width="100%" >
@@ -322,16 +322,16 @@
                                                     </div>
                                                 </div>
                                                 <div class="tab-pane  p-20" id="rcvry" role="tabpanel">
-                                                    <div class="alert alert-info">
-                                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true">&times;</span> </button>
-                                                        <h3 class="text-info"><i class="fa fa-exclamation-circle"></i> ¡Importante!</h3> Ésta bitácora debe contener los datos de los espacios y tablespaces de los servidores y base de datos tanto antes de la cadena de cierre diaria como después de ésta. Mantener actualizada ésta bitácora nos dará como resultado el comportamiento de los espacios mencionados.
-                                                    </div>
+                                                   <div class="alert alert-warning">
+                                                            <button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true">&times;</span> </button>
+                                                            <h3 class="text-warning"><i class="fa fa-exclamation-triangle"></i> ¡Advertencia!</h3> Los datos de ésta bitácora deben monitorearse ya que el backup se genera automáticamente a la medianoche.
+                                                        </div>
                                                     <div class="table-responsive m-t-40">
                                                         <table id="table_rcvry" class="display nowrap table table-hover table-striped table-bordered" cellspacing="0" width="100%" >
                                                             <thead>
                                                                 <tr>
                                                                     <th>Fecha</th>
-                                                                    <th>Nombre expdp_delquda2</th>
+                                                                    <th>Nombre expdp_rcvry</th>
                                                                     <th>Compreso</th>
                                                                     <th>Expandido</th>
                                                                     <th>Acciones</th>
@@ -340,7 +340,7 @@
                                                             <tfoot>
                                                                 <tr>
                                                                    <th>Fecha</th>
-                                                                    <th>Nombre expdp_delquda2</th>
+                                                                    <th>Nombre expdp_rcvry</th>
                                                                     <th>Compreso</th>
                                                                     <th>Expandido</th>
                                                                     <th>Acciones</th>
@@ -363,9 +363,9 @@
                 </div>
 
                 <!-- ============================================================== -->
-                <!-- Modal nuevo registro pre-cadena -->
+                <!-- Modal nuevo registro DBPROD -->
                 <!-- ============================================================== -->
-                <div id="modal-nuevo_ac" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+                <div id="modal-nuevo_dbprod" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">
@@ -377,92 +377,61 @@
                                 <div class="row">
                                     <div class="col-lg-12">
                                             <div class="card-body p-t-20">
-                                                <form id="frm_nuevo_ac" name="frm_nuevo_ac">
+                                                <form id="frm_nuevo_dbprod" name="frm_nuevo_dbprod">
                                                     <div class="form-body">
-                                                        <h3 class="card-title">Espacios y tablespaces pre - cadena</h3>
+                                                        <h3 class="card-title">Backup DBPROD</h3>
                                                         <hr>
-                                                        <div id="mensaje_ac"></div>
+                                                        <div id="mensaje_dbprod"></div>
                                                         <div class="row">
                                                             <div class="col-md-6">
                                                                 <div class="form-group has-success">
                                                                     <label class="control-label">Fecha</label>
                                                                     <div class="input-group">
-                                                                        <input type="text" class="form-control" placeholder="yyyy-mm-dd" data-date-format='yyyy-mm-dd' value="<?php echo date('Y-m-d',strtotime("0 days")); ?>" id="param_ac_fecha" name="param_ac_fecha">
+                                                                        <input type="text" class="form-control" placeholder="yyyy-mm-dd" data-date-format='yyyy-mm-dd' value="<?php echo date('Y-m-d',strtotime("-1 days")); ?>" id="param_dbprod_fecha" name="param_dbprod_fecha">
                                                                         <span class="input-group-addon"><i class="icon-calender"></i></span> 
                                                                     </div>
-                                                                    <small class="form-control-feedback"> Usar fecha de hoy.</small>
+                                                                    <small class="form-control-feedback"> Usar fecha de backup.</small>
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <h5>Espacios</h5>
-                                                        <hr>
                                                         <div class="row">
-                                                            <div class="col-md-6">
-                                                                <div class="form-group">
-                                                                    <label class="control-label">172.20.0.24</label>
+                                                            <div class="col-md-12">    
+                                                                <div class="form-group has-success">
+                                                                    <label class="control-label">Nombre</label>
                                                                     <div class="input-group">
-                                                                        <input type="number" class="form-control" id="param_ac_24" name="param_ac_24" placeholder="en MB">
+                                                                        <input type="text" class="form-control" 
+                                                                        value="DBPROD_<?php echo date('Ymd',strtotime("-1 days")); ?>_" id="param_dbprod_nombre" name="param_dbprod_nombre">
+                                                                       
                                                                     </div>
-                                                                    <small class="form-control-feedback pull-right">/oradata6</small>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-md-6">
-                                                                <div class="form-group">
-                                                                    <label class="control-label">172.20.0.31</label>
-                                                                    <div class="input-group">
-                                                                        <input type="number" class="form-control" id="param_ac_31" name="param_ac_31" placeholder="en MB">
-                                                                    </div>
-                                                                    <small class="form-control-feedback pull-right">/oradata6</small>
+                                                                    <small class="form-control-feedback"> Completar nombre.</small>
                                                                 </div>
                                                             </div>
                                                         </div>
                                                         <div class="row">
                                                             <div class="col-md-6">
                                                                 <div class="form-group">
-                                                                    <label class="control-label">172.20.0.38</label>
+                                                                    <label class="control-label">Tamaño compreso</label>
                                                                     <div class="input-group">
-                                                                        <input type="number" class="form-control" id="param_ac_38" name="param_ac_38" placeholder="en MB">
+                                                                        <input type="number" class="form-control" id="param_dbprod_com" name="param_dbprod_com">
                                                                     </div>
-                                                                    <small class="form-control-feedback pull-right">/oradatahis</small>
+                                                                    <small class="form-control-feedback pull-right">Tamaño en bytes</small>
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-6">
                                                                 <div class="form-group">
-                                                                    <label class="control-label">172.20.0.127</label>
+                                                                    <label class="control-label">Tamaño expandido</label>
                                                                     <div class="input-group">
-                                                                        <input type="number" class="form-control" id="param_ac_127" name="param_ac_127" placeholder="en MB">
+                                                                        <input type="number" class="form-control" id="param_dbprod_sincom" name="param_dbprod_sincom" >
                                                                     </div>
-                                                                    <small class="form-control-feedback pull-right">/export</small>
+                                                                    <small class="form-control-feedback pull-right">Tamaño en bytes</small>
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <h5>Tablespaces</h5>
-                                                        <hr>
-                                                        <div class="row">
-                                                            <div class="col-md-6">
-                                                                <div class="form-group">
-                                                                    <label class="control-label">PRODUCCIÓN</label>
-                                                                    <div class="input-group">
-                                                                        <input type="number" class="form-control" id="param_ac_tedbprod" name="param_ac_tedbprod" placeholder="en MB">
-                                                                    </div>
-                                                                    <small class="form-control-feedback pull-right">dbprod</small>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-md-6">
-                                                                <div class="form-group">
-                                                                    <label class="control-label">CYBERFINANCIAL</label>
-                                                                    <div class="input-group">
-                                                                        <input type="number" class="form-control" id="param_ac_tecyber" name="param_ac_tecyber" placeholder="en MB">
-                                                                    </div>
-                                                                    <small class="form-control-feedback pull-right">rcvry</small>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        
+                                                    
                                                     </div>
                                                     <!-- Datos de Operación -->
                                                     <input type="hidden" name="grupo" id="grupo" value="Bitácoras">
-                                                    <input type="hidden" name="tarea" id="tarea" value="Bitácora de espacios precadena">
+                                                    <input type="hidden" name="tarea" id="tarea" value="Bitácora de backup DBPROD">
                                                     <input type="hidden" name="user" id="user" value="<?php echo $userData['email']; ?>">
                                                     <!-- /. End Datos de Operación -->
                                                 </form>
@@ -473,20 +442,20 @@
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">Cerrar</button>
-                                <button type="button" class="btn btn-info waves-effect waves-light" id="nuevo_ac">Guardar</button>
+                                <button type="button" class="btn btn-info waves-effect waves-light" id="nuevo_dbprod">Guardar</button>
                             </div>
                         </div>
                     </div>
                 </div>
                 <!-- ============================================================== -->
-                <!-- End Modal nuevo registro pre-cadena-->
+                <!-- End Modal nuevo registro DBPROD-->
                 <!-- ============================================================== -->
 
 
                 <!-- ============================================================== -->
-                <!-- Modal nuevo registro post-cadena -->
+                <!-- Modal nuevo registro nuevo_can -->
                 <!-- ============================================================== -->
-                <div id="modal-nuevo_dc" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+                <div id="modal-nuevo_can" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">
@@ -498,92 +467,61 @@
                                 <div class="row">
                                     <div class="col-lg-12">
                                             <div class="card-body p-t-20">
-                                                <form id="frm_nuevo_dc" name="frm_nuevo_dc">
+                                                <form id="frm_nuevo_can" name="frm_nuevo_can">
                                                     <div class="form-body">
-                                                        <h3 class="card-title">Espacios y tablespaces post - cadena</h3>
+                                                        <h3 class="card-title">Backup CAN</h3>
                                                         <hr>
-                                                        <div id="mensaje_dc"></div>
+                                                        <div id="mensaje_can"></div>
                                                         <div class="row">
                                                             <div class="col-md-6">
                                                                 <div class="form-group has-success">
                                                                     <label class="control-label">Fecha</label>
                                                                     <div class="input-group">
-                                                                        <input type="text" class="form-control" placeholder="yyyy-mm-dd" data-date-format='yyyy-mm-dd' value="<?php echo date('Y-m-d',strtotime("0 days")); ?>" id="param_dc_fecha" name="param_dc_fecha">
+                                                                        <input type="text" class="form-control" placeholder="yyyy-mm-dd" data-date-format='yyyy-mm-dd' value="<?php echo date('Y-m-d',strtotime("-1 days")); ?>" id="param_can_fecha" name="param_can_fecha">
                                                                         <span class="input-group-addon"><i class="icon-calender"></i></span> 
                                                                     </div>
-                                                                    <small class="form-control-feedback"> Usar fecha de hoy.</small>
+                                                                    <small class="form-control-feedback"> Usar fecha de backup.</small>
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <h5>Espacios</h5>
-                                                        <hr>
                                                         <div class="row">
-                                                            <div class="col-md-6">
-                                                                <div class="form-group">
-                                                                    <label class="control-label">172.20.0.24</label>
+                                                            <div class="col-md-12">    
+                                                                <div class="form-group has-success">
+                                                                    <label class="control-label">Nombre</label>
                                                                     <div class="input-group">
-                                                                        <input type="number" class="form-control" id="param_dc_24" name="param_dc_24" placeholder="en MB">
+                                                                        <input type="text" class="form-control" 
+                                                                        value="CAN_<?php echo date('Ymd',strtotime("-1 days")); ?>_" id="param_can_nombre" name="param_can_nombre">
+                                                                        
                                                                     </div>
-                                                                    <small class="form-control-feedback pull-right">/oradata6</small>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-md-6">
-                                                                <div class="form-group">
-                                                                    <label class="control-label">172.20.0.31</label>
-                                                                    <div class="input-group">
-                                                                        <input type="number" class="form-control" id="param_dc_31" name="param_dc_31" placeholder="en MB">
-                                                                    </div>
-                                                                    <small class="form-control-feedback pull-right">/oradata6</small>
+                                                                    <small class="form-control-feedback"> Completar nombre.</small>
                                                                 </div>
                                                             </div>
                                                         </div>
                                                         <div class="row">
                                                             <div class="col-md-6">
                                                                 <div class="form-group">
-                                                                    <label class="control-label">172.20.0.38</label>
+                                                                    <label class="control-label">Tamaño compreso</label>
                                                                     <div class="input-group">
-                                                                        <input type="number" class="form-control" id="param_dc_38" name="param_dc_38" placeholder="en MB">
+                                                                        <input type="number" class="form-control" id="param_can_com" name="param_can_com">
                                                                     </div>
-                                                                    <small class="form-control-feedback pull-right">/oradatahis</small>
+                                                                    <small class="form-control-feedback pull-right">Tamaño en bytes</small>
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-6">
                                                                 <div class="form-group">
-                                                                    <label class="control-label">172.20.0.127</label>
+                                                                    <label class="control-label">Tamaño expandido</label>
                                                                     <div class="input-group">
-                                                                        <input type="number" class="form-control" id="param_dc_127" name="param_dc_127" placeholder="en MB">
+                                                                        <input type="number" class="form-control" id="param_can_sincom" name="param_can_sincom" >
                                                                     </div>
-                                                                    <small class="form-control-feedback pull-right">/export</small>
+                                                                    <small class="form-control-feedback pull-right">Tamaño en bytes</small>
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <h5>Tablespaces</h5>
-                                                        <hr>
-                                                        <div class="row">
-                                                            <div class="col-md-6">
-                                                                <div class="form-group">
-                                                                    <label class="control-label">PRODUCCIÓN</label>
-                                                                    <div class="input-group">
-                                                                        <input type="number" class="form-control" id="param_dc_tedbprod" name="param_dc_tedbprod" placeholder="en MB">
-                                                                    </div>
-                                                                    <small class="form-control-feedback pull-right">dbprod</small>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-md-6">
-                                                                <div class="form-group">
-                                                                    <label class="control-label">CYBERFINANCIAL</label>
-                                                                    <div class="input-group">
-                                                                        <input type="number" class="form-control" id="param_dc_tecyber" name="param_dc_tecyber" placeholder="en MB">
-                                                                    </div>
-                                                                    <small class="form-control-feedback pull-right">rcvry</small>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        
+                                                    
                                                     </div>
                                                     <!-- Datos de Operación -->
                                                     <input type="hidden" name="grupo" id="grupo" value="Bitácoras">
-                                                    <input type="hidden" name="tarea" id="tarea" value="Bitácora de espacios postcadena">
+                                                    <input type="hidden" name="tarea" id="tarea" value="Bitácora de backup CAN">
                                                     <input type="hidden" name="user" id="user" value="<?php echo $userData['email']; ?>">
                                                     <!-- /. End Datos de Operación -->
                                                 </form>
@@ -594,115 +532,87 @@
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">Cerrar</button>
-                                <button type="button" class="btn btn-info waves-effect waves-light" id="nuevo_dc">Guardar</button>
+                                <button type="button" class="btn btn-info waves-effect waves-light" id="nuevo_can">Guardar</button>
                             </div>
                         </div>
                     </div>
                 </div>
                 <!-- ============================================================== -->
-                <!-- End Modal nuevo registro post-cadena-->
+                <!-- End Modal nuevo registro nuevo_can-->
                 <!-- ============================================================== -->
 
-
                 <!-- ============================================================== -->
-                <!-- Modal EDITAR registro pre-cadena -->
+                <!-- Modal nuevo registro nuevo_prd -->
                 <!-- ============================================================== -->
-                <div id="modal-editar_ac" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+                <div id="modal-nuevo_prd" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">
                                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                                <h4 class="modal-title">Editar registro</h4>
+                                <h4 class="modal-title">Nuevo registro</h4>
                             </div>
                             <div class="modal-body">
                                 <!-- Row -->
                                 <div class="row">
                                     <div class="col-lg-12">
                                             <div class="card-body p-t-20">
-                                                <form id="frm_update_ac" name="frm_update_ac">
+                                                <form id="frm_nuevo_prd" name="frm_nuevo_prd">
                                                     <div class="form-body">
-                                                        <h3 class="card-title">Espacios y tablespaces pre - cadena</h3>
+                                                        <h3 class="card-title">Backup PRD</h3>
                                                         <hr>
-                                                        <div id="mensaje_ac_edit"></div>
+                                                        <div id="mensaje_prd"></div>
                                                         <div class="row">
                                                             <div class="col-md-6">
                                                                 <div class="form-group has-success">
                                                                     <label class="control-label">Fecha</label>
                                                                     <div class="input-group">
-                                                                        <input type="text" class="form-control" placeholder="yyyy-mm-dd" data-date-format='yyyy-mm-dd' value="<?php echo date('Y-m-d',strtotime("0 days")); ?>" id="param_ac_fecha_edit" name="param_ac_fecha_edit">
+                                                                        <input type="text" class="form-control" placeholder="yyyy-mm-dd" data-date-format='yyyy-mm-dd' value="<?php echo date('Y-m-d',strtotime("-2 days")); ?>" id="param_prd_fecha" name="param_prd_fecha">
                                                                         <span class="input-group-addon"><i class="icon-calender"></i></span> 
                                                                     </div>
-                                                                    <small class="form-control-feedback"> Usar fecha de hoy.</small>
+                                                                    <small class="form-control-feedback"> Usar fecha de backup.</small>
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <h5>Espacios</h5>
-                                                        <hr>
                                                         <div class="row">
-                                                            <div class="col-md-6">
-                                                                <div class="form-group">
-                                                                    <label class="control-label">172.20.0.24</label>
+                                                            <div class="col-md-12">    
+                                                                <div class="form-group has-success">
+                                                                    <label class="control-label">Nombre</label>
                                                                     <div class="input-group">
-                                                                        <input type="number" class="form-control" id="param_ac_24_edit" name="param_ac_24_edit" placeholder="en MB">
+                                                                        <input type="text" class="form-control" 
+                                                                        value="PRD_<?php echo date('Ymd',strtotime("-2 days")); ?>_" id="param_prd_nombre" name="param_prd_nombre">
+                                                                        
                                                                     </div>
-                                                                    <small class="form-control-feedback pull-right">/oradata6</small>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-md-6">
-                                                                <div class="form-group">
-                                                                    <label class="control-label">172.20.0.31</label>
-                                                                    <div class="input-group">
-                                                                        <input type="number" class="form-control" id="param_ac_31_edit" name="param_ac_31_edit" placeholder="en MB">
-                                                                    </div>
-                                                                    <small class="form-control-feedback pull-right">/oradata6</small>
+                                                                    <small class="form-control-feedback"> Completar nombre.</small>
                                                                 </div>
                                                             </div>
                                                         </div>
                                                         <div class="row">
                                                             <div class="col-md-6">
                                                                 <div class="form-group">
-                                                                    <label class="control-label">172.20.0.38</label>
+                                                                    <label class="control-label">Tamaño compreso</label>
                                                                     <div class="input-group">
-                                                                        <input type="number" class="form-control" id="param_ac_38_edit" name="param_ac_38_edit" placeholder="en MB">
+                                                                        <input type="number" class="form-control" id="param_prd_com" name="param_prd_com">
                                                                     </div>
-                                                                    <small class="form-control-feedback pull-right">/oradatahis</small>
+                                                                    <small class="form-control-feedback pull-right">Tamaño en bytes</small>
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-6">
                                                                 <div class="form-group">
-                                                                    <label class="control-label">172.20.0.127</label>
+                                                                    <label class="control-label">Tamaño expandido</label>
                                                                     <div class="input-group">
-                                                                        <input type="number" class="form-control" id="param_ac_127_edit" name="param_ac_127_edit" placeholder="en MB">
+                                                                        <input type="number" class="form-control" id="param_prd_sincom" name="param_prd_sincom" >
                                                                     </div>
-                                                                    <small class="form-control-feedback pull-right">/export</small>
+                                                                    <small class="form-control-feedback pull-right">Tamaño en bytes</small>
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <h5>Tablespaces</h5>
-                                                        <hr>
-                                                        <div class="row">
-                                                            <div class="col-md-6">
-                                                                <div class="form-group">
-                                                                    <label class="control-label">PRODUCCIÓN</label>
-                                                                    <div class="input-group">
-                                                                        <input type="number" class="form-control" id="param_ac_tedbprod_edit" name="param_ac_tedbprod_edit" placeholder="en MB">
-                                                                    </div>
-                                                                    <small class="form-control-feedback pull-right">dbprod</small>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-md-6">
-                                                                <div class="form-group">
-                                                                    <label class="control-label">CYBERFINANCIAL</label>
-                                                                    <div class="input-group">
-                                                                        <input type="number" class="form-control" id="param_ac_tecyber_edit" name="param_ac_tecyber_edit" placeholder="en MB">
-                                                                    </div>
-                                                                    <small class="form-control-feedback pull-right">rcvry</small>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        
+                                                    
                                                     </div>
-                                                   <input type="hidden" id="param_ac_id_edit" name="param_ac_id_edit">
+                                                    <!-- Datos de Operación -->
+                                                    <input type="hidden" name="grupo" id="grupo" value="Bitácoras">
+                                                    <input type="hidden" name="tarea" id="tarea" value="Bitácora de backup PRD">
+                                                    <input type="hidden" name="user" id="user" value="<?php echo $userData['email']; ?>">
+                                                    <!-- /. End Datos de Operación -->
                                                 </form>
                                             </div>
                                     </div>
@@ -711,115 +621,128 @@
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">Cerrar</button>
-                                <button type="button" class="btn btn-info waves-effect waves-light" id="update_ac">Guardar</button>
+                                <button type="button" class="btn btn-info waves-effect waves-light" id="nuevo_prd">Guardar</button>
                             </div>
                         </div>
                     </div>
                 </div>
                 <!-- ============================================================== -->
-                <!-- End Modal EDITAR registro pre-cadena-->
+                <!-- End Modal nuevo registro nuevo_prd-->
                 <!-- ============================================================== -->
 
 
-                 <!-- ============================================================== -->
-                <!-- Modal EDITAR registro post-cadena -->
                 <!-- ============================================================== -->
-                <div id="modal-editar_dc" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+                <!-- Modal nuevo registro nuevo_cyber -->
+                <!-- ============================================================== -->
+                <div id="modal-nuevo_cyber" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">
                                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                                <h4 class="modal-title">Editar registro</h4>
+                                <h4 class="modal-title">Nuevo registro</h4>
                             </div>
                             <div class="modal-body">
                                 <!-- Row -->
                                 <div class="row">
                                     <div class="col-lg-12">
                                             <div class="card-body p-t-20">
-                                                <form id="frm_update_dc" name="frm_update_dc">
+                                                <form id="frm_nuevo_cyber" name="frm_nuevo_cyber">
                                                     <div class="form-body">
-                                                        <h3 class="card-title">Espacios y tablespaces post - cadena</h3>
+                                                        <h3 class="card-title">Backup CYBER</h3>
                                                         <hr>
-                                                        <div id="mensaje_dc_edit"></div>
+                                                        <div id="mensaje_cyber"></div>
                                                         <div class="row">
                                                             <div class="col-md-6">
                                                                 <div class="form-group has-success">
                                                                     <label class="control-label">Fecha</label>
                                                                     <div class="input-group">
-                                                                        <input type="text" class="form-control" placeholder="yyyy-mm-dd" data-date-format='yyyy-mm-dd' value="<?php echo date('Y-m-d',strtotime("0 days")); ?>" id="param_dc_fecha_edit" name="param_dc_fecha_edit">
-                                                                        <span class="input-group-addon"><i class="icon-calender"></i></span> 
+                                                                        <input type="text" class="form-control" placeholder="yyyy-mm-dd" data-date-format='yyyy-mm-dd' value="<?php echo date('Y-m-d',strtotime("-1 days")); ?>" id="param_cyber_fecha" name="param_cyber_fecha">
+                                                                       
                                                                     </div>
-                                                                    <small class="form-control-feedback"> Usar fecha de hoy.</small>
+                                                                    <small class="form-control-feedback"> 1 día antes de backup.</small>
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <h5>Espacios</h5>
+                                                        <!-- delquda2 -->
+                                                        <h5 class="card-title">delquda2</h5>
                                                         <hr>
                                                         <div class="row">
-                                                            <div class="col-md-6">
-                                                                <div class="form-group">
-                                                                    <label class="control-label">172.20.0.24</label>
+                                                            <div class="col-md-12">    
+                                                                <div class="form-group has-success">
+                                                                    <label class="control-label">Nombre</label>
                                                                     <div class="input-group">
-                                                                        <input type="number" class="form-control" id="param_dc_24_edit" name="param_dc_24_edit" placeholder="en MB">
+                                                                        <input type="text" class="form-control" 
+                                                                        value="expdp_delquda2_<?php echo date('Ymd',strtotime("0 days")); ?>_0000" id="param_delquda2_nombre" name="param_delquda2_nombre">
+                                                                        
                                                                     </div>
-                                                                    <small class="form-control-feedback pull-right">/oradata6</small>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-md-6">
-                                                                <div class="form-group">
-                                                                    <label class="control-label">172.20.0.31</label>
-                                                                    <div class="input-group">
-                                                                        <input type="number" class="form-control" id="param_dc_31_edit" name="param_dc_31_edit" placeholder="en MB">
-                                                                    </div>
-                                                                    <small class="form-control-feedback pull-right">/oradata6</small>
+                                                                    <small class="form-control-feedback"> Nombre completado automáticamente</small>
                                                                 </div>
                                                             </div>
                                                         </div>
                                                         <div class="row">
                                                             <div class="col-md-6">
                                                                 <div class="form-group">
-                                                                    <label class="control-label">172.20.0.38</label>
+                                                                    <label class="control-label">Tamaño compreso</label>
                                                                     <div class="input-group">
-                                                                        <input type="number" class="form-control" id="param_dc_38_edit" name="param_dc_38_edit" placeholder="en MB">
+                                                                        <input type="number" class="form-control" id="param_delquda2_com" name="param_delquda2_com">
                                                                     </div>
-                                                                    <small class="form-control-feedback pull-right">/oradatahis</small>
+                                                                    <small class="form-control-feedback pull-right">Tamaño en bytes</small>
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-6">
                                                                 <div class="form-group">
-                                                                    <label class="control-label">172.20.0.127</label>
+                                                                    <label class="control-label">Tamaño expandido</label>
                                                                     <div class="input-group">
-                                                                        <input type="number" class="form-control" id="param_dc_127_edit" name="param_dc_127_edit" placeholder="en MB">
+                                                                        <input type="number" class="form-control" id="param_delquda2_sincom" name="param_delquda2_sincom" >
                                                                     </div>
-                                                                    <small class="form-control-feedback pull-right">/export</small>
+                                                                    <small class="form-control-feedback pull-right">Tamaño en bytes</small>
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <h5>Tablespaces</h5>
+
+                                                        <!-- rcvry -->
+                                                        <h5 class="card-title">rcvry</h5>
                                                         <hr>
                                                         <div class="row">
-                                                            <div class="col-md-6">
-                                                                <div class="form-group">
-                                                                    <label class="control-label">PRODUCCIÓN</label>
+                                                            <div class="col-md-12">    
+                                                                <div class="form-group has-success">
+                                                                    <label class="control-label">Nombre</label>
                                                                     <div class="input-group">
-                                                                        <input type="number" class="form-control" id="param_dc_tedbprod_edit" name="param_dc_tedbprod_edit" placeholder="en MB">
+                                                                        <input type="text" class="form-control" 
+                                                                        value="expdp_backup_rcvry_<?php echo date('Ymd',strtotime("0 days")); ?>_0000" id="param_rcvry_nombre" name="param_rcvry_nombre">
+                                                                        
                                                                     </div>
-                                                                    <small class="form-control-feedback pull-right">dbprod</small>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-md-6">
-                                                                <div class="form-group">
-                                                                    <label class="control-label">CYBERFINANCIAL</label>
-                                                                    <div class="input-group">
-                                                                        <input type="number" class="form-control" id="param_dc_tecyber_edit" name="param_dc_tecyber_edit" placeholder="en MB">
-                                                                    </div>
-                                                                    <small class="form-control-feedback pull-right">rcvry</small>
+                                                                    <small class="form-control-feedback"> Nombre completado automáticamente</small>
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        
+                                                        <div class="row">
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <label class="control-label">Tamaño compreso</label>
+                                                                    <div class="input-group">
+                                                                        <input type="number" class="form-control" id="param_rcvry_com" name="param_rcvry_com">
+                                                                    </div>
+                                                                    <small class="form-control-feedback pull-right">Tamaño en bytes</small>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <label class="control-label">Tamaño expandido</label>
+                                                                    <div class="input-group">
+                                                                        <input type="number" class="form-control" id="param_rcvry_sincom" name="param_rcvry_sincom" >
+                                                                    </div>
+                                                                    <small class="form-control-feedback pull-right">Tamaño en bytes</small>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    
                                                     </div>
-                                                    <input type="hidden" id="param_dc_id_edit" name="param_dc_id_edit">
+                                                    <!-- Datos de Operación -->
+                                                    <input type="hidden" name="grupo" id="grupo" value="Bitácoras">
+                                                    <input type="hidden" name="tarea" id="tarea" value="Bitácora de backup cyber">
+                                                    <input type="hidden" name="user" id="user" value="<?php echo $userData['email']; ?>">
+                                                    <!-- /. End Datos de Operación -->
                                                 </form>
                                             </div>
                                     </div>
@@ -828,16 +751,26 @@
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">Cerrar</button>
-                                <button type="button" class="btn btn-info waves-effect waves-light" id="update_dc">Guardar</button>
+                                <button type="button" class="btn btn-info waves-effect waves-light" id="nuevo_cyber">Guardar</button>
                             </div>
                         </div>
                     </div>
                 </div>
                 <!-- ============================================================== -->
-                <!-- End Modal EDITAR registro post-cadena-->
+                <!-- End Modal nuevo registro nuevo_cyber-->
                 <!-- ============================================================== -->
 
-               
+
+
+
+
+
+
+
+
+
+
+
 
 
                 <!-- ============================================================== -->
@@ -914,15 +847,51 @@
     <script>
     
   
-    jQuery('#param_ac_fecha').datepicker({
+    jQuery('#param_dbprod_fecha').datepicker({
         autoclose: true,
         todayHighlight: true
     });
 
-    jQuery('#param_dc_fecha').datepicker({
+    jQuery('#param_dbprod_fecha_edit').datepicker({
         autoclose: true,
         todayHighlight: true
     });
+
+    jQuery('#param_can_fecha').datepicker({
+        autoclose: true,
+        todayHighlight: true
+    });
+
+    jQuery('#param_can_fecha_edit').datepicker({
+        autoclose: true,
+        todayHighlight: true
+    });
+
+    jQuery('#param_prd_fecha').datepicker({
+        autoclose: true,
+        todayHighlight: true
+    });
+
+    jQuery('#param_prd_fecha_edit').datepicker({
+        autoclose: true,
+        todayHighlight: true
+    });
+
+    jQuery('#param_cyber_fecha').datepicker({
+        autoclose: true,
+        todayHighlight: true
+    });
+
+    jQuery('#param_cyber_fecha_edit').datepicker({
+        autoclose: true,
+        todayHighlight: true
+    });
+
+
+
+
+
+  
     
     </script>
 
