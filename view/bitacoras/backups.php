@@ -762,11 +762,438 @@
 
 
 
+                <!-- ============================================================== -->
+                <!-- Modal editar registro DBPROD -->
+                <!-- ============================================================== -->
+                <div id="modal-editar_dbprod" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                <h4 class="modal-title">Editar registro</h4>
+                            </div>
+                            <div class="modal-body">
+                                <!-- Row -->
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                            <div class="card-body p-t-20">
+                                                <form id="frm_update_dbprod" name="frm_update_dbprod">
+                                                    <div class="form-body">
+                                                        <h3 class="card-title">Backup DBPROD</h3>
+                                                        <hr>
+                                                        <div id="mensaje_dbprod_edit"></div>
+                                                        <div class="row">
+                                                            <div class="col-md-6">
+                                                                <div class="form-group has-success">
+                                                                    <label class="control-label">Fecha</label>
+                                                                    <div class="input-group">
+                                                                        <input type="text" class="form-control" placeholder="yyyy-mm-dd" data-date-format='yyyy-mm-dd' id="param_dbprod_fecha_edit" name="param_dbprod_fecha_edit">
+                                                                        <span class="input-group-addon"><i class="icon-calender"></i></span> 
+                                                                    </div>
+                                                                    <small class="form-control-feedback"> Usar fecha de backup.</small>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-12">    
+                                                                <div class="form-group has-success">
+                                                                    <label class="control-label">Nombre</label>
+                                                                    <div class="input-group">
+                                                                        <input type="text" class="form-control" 
+                                                                        id="param_dbprod_nombre_edit" name="param_dbprod_nombre_edit">
+                                                                       
+                                                                    </div>
+                                                                    <small class="form-control-feedback"> Completar nombre.</small>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <label class="control-label">Tamaño compreso</label>
+                                                                    <div class="input-group">
+                                                                        <input type="number" class="form-control" id="param_dbprod_com_edit" name="param_dbprod_com_edit">
+                                                                    </div>
+                                                                    <small class="form-control-feedback pull-right">Tamaño en bytes</small>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <label class="control-label">Tamaño expandido</label>
+                                                                    <div class="input-group">
+                                                                        <input type="number" class="form-control" id="param_dbprod_sincom_edit" name="param_dbprod_sincom_edit" >
+                                                                    </div>
+                                                                    <small class="form-control-feedback pull-right">Tamaño en bytes</small>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    
+                                                    </div>
+                                                    <input type="hidden" id="param_dbprod_id_edit" name="param_dbprod_id_edit">
+                                                </form>
+                                            </div>
+                                    </div>
+                                </div>
+                                <!-- Row -->
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">Cerrar</button>
+                                <button type="button" class="btn btn-info waves-effect waves-light" id="update_dbprod">Actualizar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- ============================================================== -->
+                <!-- End Modal editar registro DBPROD-->
+                <!-- ============================================================== -->
+
+
+                <!-- ============================================================== -->
+                <!-- Modal editar registro editar_can -->
+                <!-- ============================================================== -->
+                <div id="modal-editar_can" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                <h4 class="modal-title">Editar registro</h4>
+                            </div>
+                            <div class="modal-body">
+                                <!-- Row -->
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                            <div class="card-body p-t-20">
+                                                <form id="frm_update_can" name="frm_update_can">
+                                                    <div class="form-body">
+                                                        <h3 class="card-title">Backup CAN</h3>
+                                                        <hr>
+                                                        <div id="mensaje_can"></div>
+                                                        <div class="row">
+                                                            <div class="col-md-6">
+                                                                <div class="form-group has-success">
+                                                                    <label class="control-label">Fecha</label>
+                                                                    <div class="input-group">
+                                                                        <input type="text" class="form-control" placeholder="yyyy-mm-dd" data-date-format='yyyy-mm-dd' id="param_can_fecha_edit" name="param_can_fecha_edit">
+                                                                        <span class="input-group-addon"><i class="icon-calender"></i></span> 
+                                                                    </div>
+                                                                    <small class="form-control-feedback"> Usar fecha de backup.</small>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-12">    
+                                                                <div class="form-group has-success">
+                                                                    <label class="control-label">Nombre</label>
+                                                                    <div class="input-group">
+                                                                        <input type="text" class="form-control" 
+                                                                         id="param_can_nombre_edit" name="param_can_nombre_edit">
+                                                                        
+                                                                    </div>
+                                                                    <small class="form-control-feedback"> Completar nombre.</small>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <label class="control-label">Tamaño compreso</label>
+                                                                    <div class="input-group">
+                                                                        <input type="number" class="form-control" id="param_can_com_edit" name="param_can_com_edit">
+                                                                    </div>
+                                                                    <small class="form-control-feedback pull-right">Tamaño en bytes</small>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <label class="control-label">Tamaño expandido</label>
+                                                                    <div class="input-group">
+                                                                        <input type="number" class="form-control" id="param_can_sincom_edit" name="param_can_sincom_edit" >
+                                                                    </div>
+                                                                    <small class="form-control-feedback pull-right">Tamaño en bytes</small>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    
+                                                    </div>
+                                                    <input type="hidden" id="param_can_id_edit" name="param_can_id_edit">
+                                                </form>
+                                            </div>
+                                    </div>
+                                </div>
+                                <!-- Row -->
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">Cerrar</button>
+                                <button type="button" class="btn btn-info waves-effect waves-light" id="update_can">Actualizar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- ============================================================== -->
+                <!-- End Modal editar registro editar_can-->
+                <!-- ============================================================== -->
+
+                <!-- ============================================================== -->
+                <!-- Modal editar registro editar_prd -->
+                <!-- ============================================================== -->
+                <div id="modal-editar_prd" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                <h4 class="modal-title">Editar registro</h4>
+                            </div>
+                            <div class="modal-body">
+                                <!-- Row -->
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                            <div class="card-body p-t-20">
+                                                <form id="frm_update_prd" name="frm_update_prd">
+                                                    <div class="form-body">
+                                                        <h3 class="card-title">Backup PRD</h3>
+                                                        <hr>
+                                                        <div id="mensaje_prd"></div>
+                                                        <div class="row">
+                                                            <div class="col-md-6">
+                                                                <div class="form-group has-success">
+                                                                    <label class="control-label">Fecha</label>
+                                                                    <div class="input-group">
+                                                                        <input type="text" class="form-control" placeholder="yyyy-mm-dd" data-date-format='yyyy-mm-dd' id="param_prd_fecha_edit" name="param_prd_fecha_edit">
+                                                                        <span class="input-group-addon"><i class="icon-calender"></i></span> 
+                                                                    </div>
+                                                                    <small class="form-control-feedback"> Usar fecha de backup.</small>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-12">    
+                                                                <div class="form-group has-success">
+                                                                    <label class="control-label">Nombre</label>
+                                                                    <div class="input-group">
+                                                                        <input type="text" class="form-control" 
+                                                                        id="param_prd_nombre_edit" name="param_prd_nombre_edit">
+                                                                        
+                                                                    </div>
+                                                                    <small class="form-control-feedback"> Completar nombre.</small>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <label class="control-label">Tamaño compreso</label>
+                                                                    <div class="input-group">
+                                                                        <input type="number" class="form-control" id="param_prd_com_edit" name="param_prd_com_edit">
+                                                                    </div>
+                                                                    <small class="form-control-feedback pull-right">Tamaño en bytes</small>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <label class="control-label">Tamaño expandido</label>
+                                                                    <div class="input-group">
+                                                                        <input type="number" class="form-control" id="param_prd_sincom_edit" name="param_prd_sincom_edit" >
+                                                                    </div>
+                                                                    <small class="form-control-feedback pull-right">Tamaño en bytes</small>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    
+                                                    </div>
+                                                    <input type="hidden" id="param_prd_id_edit" name="param_prd_id_edit">
+                                                </form>
+                                            </div>
+                                    </div>
+                                </div>
+                                <!-- Row -->
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">Cerrar</button>
+                                <button type="button" class="btn btn-info waves-effect waves-light" id="update_prd">Actualizar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- ============================================================== -->
+                <!-- End Modal editar registro editar_prd-->
+                <!-- ============================================================== -->
+
+
+                <!-- ============================================================== -->
+                <!-- Modal editar registro editar_delquda2 -->
+                <!-- ============================================================== -->
+                <div id="modal-editar_delquda2" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                <h4 class="modal-title">Editar registro</h4>
+                            </div>
+                            <div class="modal-body">
+                                <!-- Row -->
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                            <div class="card-body p-t-20">
+                                                <form id="frm_update_delquda2" name="frm_update_delquda2">
+                                                    <div class="form-body">
+                                                        <h3 class="card-title">Backup delquda2</h3>
+                                                        <hr>
+                                                        <div id="mensaje_delquda2"></div>
+                                                        <div class="row">
+                                                            <div class="col-md-6">
+                                                                <div class="form-group has-success">
+                                                                    <label class="control-label">Fecha</label>
+                                                                    <div class="input-group">
+                                                                        <input type="text" class="form-control" placeholder="yyyy-mm-dd" data-date-format='yyyy-mm-dd' id="param_delquda2_fecha_edit" name="param_delquda2_fecha_edit">
+                                                                       
+                                                                    </div>
+                                                                    <small class="form-control-feedback"> 1 día antes de backup.</small>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <!-- delquda2 -->
+                                                        <h5 class="card-title">delquda2</h5>
+                                                        <hr>
+                                                        <div class="row">
+                                                            <div class="col-md-12">    
+                                                                <div class="form-group has-success">
+                                                                    <label class="control-label">Nombre</label>
+                                                                    <div class="input-group">
+                                                                        <input type="text" class="form-control" 
+                                                                         id="param_delquda2_nombre_edit" name="param_delquda2_nombre_edit">
+                                                                        
+                                                                    </div>
+                                                                    <small class="form-control-feedback"> Nombre completado automáticamente</small>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <label class="control-label">Tamaño compreso</label>
+                                                                    <div class="input-group">
+                                                                        <input type="number" class="form-control" id="param_delquda2_com_edit" name="param_delquda2_com_edit">
+                                                                    </div>
+                                                                    <small class="form-control-feedback pull-right">Tamaño en bytes</small>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <label class="control-label">Tamaño expandido</label>
+                                                                    <div class="input-group">
+                                                                        <input type="number" class="form-control" id="param_delquda2_sincom_edit" name="param_delquda2_sincom_edit" >
+                                                                    </div>
+                                                                    <small class="form-control-feedback pull-right">Tamaño en bytes</small>
+                                                                </div>
+                                                            </div>
+                                                        </div>            
+                                                    </div>
+                                                    <input type="hidden" id="param_delquda2_id_edit" name="param_delquda2_id_edit">
+                                                </form>
+                                            </div>
+                                    </div>
+                                </div>
+                                <!-- Row -->
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">Cerrar</button>
+                                <button type="button" class="btn btn-info waves-effect waves-light" id="update_delquda2">Actualizar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- ============================================================== -->
+                <!-- End Modal editar registro editar_delquda2-->
+                <!-- ============================================================== -->
 
 
 
-
-
+                <!-- ============================================================== -->
+                <!-- Modal editar registro editar_rcvry -->
+                <!-- ============================================================== -->
+                <div id="modal-editar_rcvry" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                <h4 class="modal-title">Editar registro</h4>
+                            </div>
+                            <div class="modal-body">
+                                <!-- Row -->
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                            <div class="card-body p-t-20">
+                                                <form id="frm_update_rcvry" name="frm_update_rcvry">
+                                                    <div class="form-body">
+                                                        <h3 class="card-title">Backup rcvry</h3>
+                                                        <hr>
+                                                        <div id="mensaje_rcvry"></div>
+                                                        <div class="row">
+                                                            <div class="col-md-6">
+                                                                <div class="form-group has-success">
+                                                                    <label class="control-label">Fecha</label>
+                                                                    <div class="input-group">
+                                                                        <input type="text" class="form-control" placeholder="yyyy-mm-dd" data-date-format='yyyy-mm-dd' id="param_rcvry_fecha_edit" name="param_rcvry_fecha_edit">
+                                                                       
+                                                                    </div>
+                                                                    <small class="form-control-feedback"> 1 día antes de backup.</small>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <!-- rcvry -->
+                                                        <h5 class="card-title">rcvry</h5>
+                                                        <hr>
+                                                        <div class="row">
+                                                            <div class="col-md-12">    
+                                                                <div class="form-group has-success">
+                                                                    <label class="control-label">Nombre</label>
+                                                                    <div class="input-group">
+                                                                        <input type="text" class="form-control" 
+                                                                         id="param_rcvry_nombre_edit" name="param_rcvry_nombre_edit">
+                                                                        
+                                                                    </div>
+                                                                    <small class="form-control-feedback"> Nombre completado automáticamente</small>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <label class="control-label">Tamaño compreso</label>
+                                                                    <div class="input-group">
+                                                                        <input type="number" class="form-control" id="param_rcvry_com_edit" name="param_rcvry_com_edit">
+                                                                    </div>
+                                                                    <small class="form-control-feedback pull-right">Tamaño en bytes</small>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <label class="control-label">Tamaño expandido</label>
+                                                                    <div class="input-group">
+                                                                        <input type="number" class="form-control" id="param_rcvry_sincom_edit" name="param_rcvry_sincom_edit" >
+                                                                    </div>
+                                                                    <small class="form-control-feedback pull-right">Tamaño en bytes</small>
+                                                                </div>
+                                                            </div>
+                                                        </div>        
+                                                    </div>
+                                                    <input type="hidden" id="param_rcvry_id_edit" name="param_rcvry_id_edit">
+                                                </form>
+                                            </div>
+                                    </div>
+                                </div>
+                                <!-- Row -->
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">Cerrar</button>
+                                <button type="button" class="btn btn-info waves-effect waves-light" id="update_rcvry">Actualizar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- ============================================================== -->
+                <!-- End Modal editar registro editar_rcvry-->
+                <!-- ============================================================== -->
 
 
 

@@ -26,12 +26,23 @@ if (isset($_POST['user']))
 if (isset($_POST['param_id']))
     $param['param_id'] = $_POST['param_id'];
 
+if (isset($_POST['param_dbprod_id_edit']))
+    $param['param_dbprod_id_edit'] = $_POST['param_dbprod_id_edit'];
+
+if (isset($_POST['param_can_id_edit']))
+    $param['param_can_id_edit'] = $_POST['param_can_id_edit'];
+
+if (isset($_POST['param_prd_id_edit']))
+    $param['param_prd_id_edit'] = $_POST['param_prd_id_edit'];
+
+if (isset($_POST['param_delquda2_id_edit']))
+    $param['param_delquda2_id_edit'] = $_POST['param_delquda2_id_edit'];
+
+if (isset($_POST['param_rcvry_id_edit']))
+    $param['param_rcvry_id_edit'] = $_POST['param_rcvry_id_edit'];
+
 
 //DBPROD
-$param['param_dbprod_fecha']='';
-$param['param_dbprod_nombre']='';
-$param['param_dbprod_com']='';
-$param['param_dbprod_sincom']='';
 
 if (isset($_POST['param_dbprod_fecha']))
     $param['param_dbprod_fecha'] = $_POST['param_dbprod_fecha']; 
@@ -48,10 +59,6 @@ if (isset($_POST['param_dbprod_sincom']))
 
 
 //CAN
-$param['param_can_fecha']='';
-$param['param_can_nombre']='';
-$param['param_can_com']='';
-$param['param_can_sincom']='';
 
 
 if (isset($_POST['param_can_fecha']))
@@ -68,10 +75,6 @@ if (isset($_POST['param_can_sincom']))
 
 
 //PRD
-$param['param_prd_fecha']='';
-$param['param_prd_nombre']='';
-$param['param_prd_com']='';
-$param['param_prd_sincom']='';
 
 if (isset($_POST['param_prd_fecha']))
     $param['param_prd_fecha'] = $_POST['param_prd_fecha']; 
@@ -126,14 +129,82 @@ if (isset($_POST['param_rcvry_sincom']))
     $param['param_rcvry_sincom'] = $_POST['param_rcvry_sincom']; 
 
 
-//Reporte
+/////////////////////////////-----------------------/EDITAR
+
+
+//DBPROD
+
+if (isset($_POST['param_dbprod_fecha_edit']))
+    $param['param_dbprod_fecha_edit'] = $_POST['param_dbprod_fecha_edit']; 
+
+if (isset($_POST['param_dbprod_nombre_edit']))
+    $param['param_dbprod_nombre_edit'] = $_POST['param_dbprod_nombre_edit']; 
+
+if (isset($_POST['param_dbprod_com_edit']))
+    $param['param_dbprod_com_edit'] = $_POST['param_dbprod_com_edit']; 
+
+if (isset($_POST['param_dbprod_sincom_edit']))
+    $param['param_dbprod_sincom_edit'] = $_POST['param_dbprod_sincom_edit']; 
 
 
 
+//CAN
 
 
+if (isset($_POST['param_can_fecha_edit']))
+    $param['param_can_fecha_edit'] = $_POST['param_can_fecha_edit']; 
 
-//FIN REPORTES
+if (isset($_POST['param_can_nombre_edit']))
+    $param['param_can_nombre_edit'] = $_POST['param_can_nombre_edit']; 
+
+if (isset($_POST['param_can_com_edit']))
+    $param['param_can_com_edit'] = $_POST['param_can_com_edit']; 
+
+if (isset($_POST['param_can_sincom_edit']))
+    $param['param_can_sincom_edit'] = $_POST['param_can_sincom_edit']; 
+
+
+//PRD
+
+if (isset($_POST['param_prd_fecha_edit']))
+    $param['param_prd_fecha_edit'] = $_POST['param_prd_fecha_edit']; 
+
+if (isset($_POST['param_prd_nombre_edit']))
+    $param['param_prd_nombre_edit'] = $_POST['param_prd_nombre_edit']; 
+
+if (isset($_POST['param_prd_com_edit']))
+    $param['param_prd_com_edit'] = $_POST['param_prd_com_edit']; 
+
+if (isset($_POST['param_prd_sincom_edit']))
+    $param['param_prd_sincom_edit'] = $_POST['param_prd_sincom_edit']; 
+
+
+//CYBER
+
+
+if (isset($_POST['param_delquda2_fecha_edit']))
+    $param['param_delquda2_fecha_edit'] = $_POST['param_delquda2_fecha_edit']; 
+
+if (isset($_POST['param_rcvry_fecha_edit']))
+    $param['param_rcvry_fecha_edit'] = $_POST['param_rcvry_fecha_edit']; 
+
+if (isset($_POST['param_delquda2_nombre_edit']))
+    $param['param_delquda2_nombre_edit'] = $_POST['param_delquda2_nombre_edit']; 
+
+if (isset($_POST['param_delquda2_com_edit']))
+    $param['param_delquda2_com_edit'] = $_POST['param_delquda2_com_edit']; 
+
+if (isset($_POST['param_delquda2_sincom_edit']))
+    $param['param_delquda2_sincom_edit'] = $_POST['param_delquda2_sincom_edit']; 
+
+if (isset($_POST['param_rcvry_nombre_edit']))
+    $param['param_rcvry_nombre_edit'] = $_POST['param_rcvry_nombre_edit']; 
+
+if (isset($_POST['param_rcvry_com_edit']))
+    $param['param_rcvry_com_edit'] = $_POST['param_rcvry_com_edit']; 
+
+if (isset($_POST['param_rcvry_sincom_edit']))
+    $param['param_rcvry_sincom_edit'] = $_POST['param_rcvry_sincom_edit']; 
 
 
 $Backups = new Backups_model();
