@@ -303,12 +303,12 @@ class Dashboard_model{
 
      function isUpdated() {
 
-     	$limitUpdated = 6;
+     	$limitUpdated = 7;
     	$this->prepararConsultaUsuario('opc_isUpdated');    	
     	while($row = mysqli_fetch_row($this->result)){
 
 
-    		if ($row[0]>=$limitUpdated) {
+    		if ($row[0]==$limitUpdated) {
     			echo '1';
 
 

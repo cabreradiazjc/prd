@@ -89,9 +89,9 @@ class Postcadena_model{
 
 	function prepararConsultaUsuario($opcion) 
 	{
-		$consultaSql = "call sp_postcadena(";
+		$consultaSql = "call sp_control_postcadena(";
 		$consultaSql.="'".$opcion."')";
-		//echo $consultaSql;	
+		echo $consultaSql;	
 		$this->result = mysqli_query($this->conexion,$consultaSql);
     }
 
@@ -101,17 +101,11 @@ class Postcadena_model{
     	while($row = mysqli_fetch_row($this->result)){
     		
 			echo '<tr>
-					<td style="width: 5%;">'.$row[0].'</td>			
-					<td style="font-size: 11px; width: 6%;">'.$row[1].'</td>					
-					<td style="font-size: 11px; width: 25%;">'.$row[2].'</td>
-					<td style="width: 8%;">'.$row[3].'</td>
-					<td style="width: 8%;">'.$row[4].'</td>
-					<td style="width: 8%;">'.$row[5].'</td>
-					<td style="width: 8%;">'.$row[6].'</td>
-					<td style="width: 8%;">'.$row[7].'</td>
-					<td style="width: 8%;">'.$row[8].'</td>
-					<td style="width: 8%;">'.$row[9].'</td>
-
+					<td style="width: 15%;">'.$row[1].'</td>			
+					<td style="width: 15%;">'.$row[2].'</td>
+					<td style="width: 55%;">'.$row[3].'</td>
+					<td style="width: 15%;">'.$row[4].'</td>
+					
 
 				</tr>';
 		}

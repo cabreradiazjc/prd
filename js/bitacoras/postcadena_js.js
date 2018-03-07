@@ -41,10 +41,11 @@ function listar_tesoreria(){
 		      'paging'      : true,
 		      'lengthChange': true,
 		      'searching'   : true,
-		      'aaSorting'	: [[0,'asc'] ],
+		      'aaSorting'	: [[0,'desc'] ],
 		      'info'        : true,
 		      'autoWidth'   : false,
-		      'pageLength'	: 25
+		      'pageLength'	: 17,
+		      "lengthMenu": [[17, 34, 51, -1], [17, 34, 51, "Todos"]]
 
 				});
 			$('#modal-tesoreria').modal('hide');  

@@ -134,31 +134,30 @@
                                     </h2>
                                 </div>  
                                
-                            
-                                    <div class="table-responsive m-t-40">
-                                        <table id="table_aperturabt" class="display nowrap table table-hover table-striped table-bordered" cellspacing="0" width="100%">
-                                            <thead>
-                                                <tr>
-                                                    <th>Fecha</th>
-                                                    <th>Hora</th>
-                                                    <th>Observaciones</th>
-                                                    <th>Acciones</th>
-                                                </tr>
-                                            </thead>
-                                            <tfoot>
-                                                <tr>
-                                                    <th>Fecha</th>
-                                                    <th>Hora</th>
-                                                    <th>Observaciones</th>
-                                                    <th>Acciones</th>
-                                                </tr>
-                                            </tfoot>
-                                            <tbody  id="body_aperturabt">
-                                                
-                                            </tbody>
-                                        </table>
-                                    </div>
+                                <div class="table-responsive m-t-40">
+                                    <table id="table_aperturabt" class="display nowrap table table-hover table-striped table-bordered" cellspacing="0" width="100%">
+                                        <thead>
+                                            <tr>
+                                                <th>Fecha</th>
+                                                <th>Hora</th>
+                                                <th>Observaciones</th>
+                                                <th>Acciones</th>
+                                            </tr>
+                                        </thead>
+                                        <tfoot>
+                                            <tr>
+                                                <th>Fecha</th>
+                                                <th>Hora</th>
+                                                <th>Observaciones</th>
+                                                <th>Acciones</th>
+                                            </tr>
+                                        </tfoot>
+                                        <tbody  id="body_aperturabt">
+                                            
+                                        </tbody>
+                                    </table>
                                 </div>
+
                             </div>
                         </div>
                     </div>
