@@ -117,17 +117,11 @@ class Postcadena_model{
     	while($row = mysqli_fetch_row($this->result)){
     		
 			echo '<tr>
-					<td style="width: 5%;">'.$row[0].'</td>			
-					<td style="font-size: 11px; width: 6%;">'.$row[1].'</td>					
-					<td style="font-size: 11px; width: 25%;">'.$row[2].'</td>
-					<td style="width: 8%;">'.$row[3].'</td>
-					<td style="width: 8%;">'.$row[4].'</td>
-					<td style="width: 8%;">'.$row[5].'</td>
-					<td style="width: 8%;">'.$row[6].'</td>
-					<td style="width: 8%;">'.$row[7].'</td>
-					<td style="width: 8%;">'.$row[8].'</td>
-					<td style="width: 8%;">'.$row[9].'</td>
-
+					<td style="width: 15%;">'.$row[1].'</td>			
+					<td style="width: 15%;">'.$row[2].'</td>
+					<td style="width: 55%;">'.$row[3].'</td>
+					<td style="width: 15%;">'.$row[4].'</td>
+					
 
 				</tr>';
 		}
@@ -138,17 +132,11 @@ class Postcadena_model{
     	while($row = mysqli_fetch_row($this->result)){
     		
 			echo '<tr>
-					<td style="width: 5%;">'.$row[0].'</td>			
-					<td style="font-size: 11px; width: 6%;">'.$row[1].'</td>					
-					<td style="font-size: 11px; width: 25%;">'.$row[2].'</td>
-					<td style="width: 8%;">'.$row[3].'</td>
-					<td style="width: 8%;">'.$row[4].'</td>
-					<td style="width: 8%;">'.$row[5].'</td>
-					<td style="width: 8%;">'.$row[6].'</td>
-					<td style="width: 8%;">'.$row[7].'</td>
-					<td style="width: 8%;">'.$row[8].'</td>
-					<td style="width: 8%;">'.$row[9].'</td>
-
+					<td style="width: 15%;">'.$row[1].'</td>			
+					<td style="width: 15%;">'.$row[2].'</td>
+					<td style="width: 55%;">'.$row[3].'</td>
+					<td style="width: 15%;">'.$row[4].'</td>
+					
 
 				</tr>';
 		}
@@ -159,17 +147,11 @@ class Postcadena_model{
     	while($row = mysqli_fetch_row($this->result)){
     		
 			echo '<tr>
-					<td style="width: 5%;">'.$row[0].'</td>			
-					<td style="font-size: 11px; width: 6%;">'.$row[1].'</td>					
-					<td style="font-size: 11px; width: 25%;">'.$row[2].'</td>
-					<td style="width: 8%;">'.$row[3].'</td>
-					<td style="width: 8%;">'.$row[4].'</td>
-					<td style="width: 8%;">'.$row[5].'</td>
-					<td style="width: 8%;">'.$row[6].'</td>
-					<td style="width: 8%;">'.$row[7].'</td>
-					<td style="width: 8%;">'.$row[8].'</td>
-					<td style="width: 8%;">'.$row[9].'</td>
-
+					<td style="width: 15%;">'.$row[1].'</td>			
+					<td style="width: 15%;">'.$row[2].'</td>
+					<td style="width: 55%;">'.$row[3].'</td>
+					<td style="width: 15%;">'.$row[4].'</td>
+					
 
 				</tr>';
 		}
@@ -180,17 +162,11 @@ class Postcadena_model{
     	while($row = mysqli_fetch_row($this->result)){
     		
 			echo '<tr>
-					<td style="width: 5%;">'.$row[0].'</td>			
-					<td style="font-size: 11px; width: 6%;">'.$row[1].'</td>					
-					<td style="font-size: 11px; width: 25%;">'.$row[2].'</td>
-					<td style="width: 8%;">'.$row[3].'</td>
-					<td style="width: 8%;">'.$row[4].'</td>
-					<td style="width: 8%;">'.$row[5].'</td>
-					<td style="width: 8%;">'.$row[6].'</td>
-					<td style="width: 8%;">'.$row[7].'</td>
-					<td style="width: 8%;">'.$row[8].'</td>
-					<td style="width: 8%;">'.$row[9].'</td>
-
+					<td style="width: 15%;">'.$row[1].'</td>			
+					<td style="width: 15%;">'.$row[2].'</td>
+					<td style="width: 55%;">'.$row[3].'</td>
+					<td style="width: 15%;">'.$row[4].'</td>
+					
 
 				</tr>';
 		}
@@ -201,17 +177,11 @@ class Postcadena_model{
     	while($row = mysqli_fetch_row($this->result)){
     		
 			echo '<tr>
-					<td style="width: 5%;">'.$row[0].'</td>			
-					<td style="font-size: 11px; width: 6%;">'.$row[1].'</td>					
-					<td style="font-size: 11px; width: 25%;">'.$row[2].'</td>
-					<td style="width: 8%;">'.$row[3].'</td>
-					<td style="width: 8%;">'.$row[4].'</td>
-					<td style="width: 8%;">'.$row[5].'</td>
-					<td style="width: 8%;">'.$row[6].'</td>
-					<td style="width: 8%;">'.$row[7].'</td>
-					<td style="width: 8%;">'.$row[8].'</td>
-					<td style="width: 8%;">'.$row[9].'</td>
-
+					<td style="width: 15%;">'.$row[1].'</td>			
+					<td style="width: 15%;">'.$row[2].'</td>
+					<td style="width: 55%;">'.$row[3].'</td>
+					<td style="width: 15%;">'.$row[4].'</td>
+					
 
 				</tr>';
 		}
@@ -220,19 +190,13 @@ class Postcadena_model{
 	function listar_carteras3() {
     	$this->prepararConsultaUsuario('opc_carteras3_listar');    	
     	while($row = mysqli_fetch_row($this->result)){
-    		
-			echo '<tr>
-					<td style="width: 5%;">'.$row[0].'</td>			
-					<td style="font-size: 11px; width: 6%;">'.$row[1].'</td>					
-					<td style="font-size: 11px; width: 25%;">'.$row[2].'</td>
-					<td style="width: 8%;">'.$row[3].'</td>
-					<td style="width: 8%;">'.$row[4].'</td>
-					<td style="width: 8%;">'.$row[5].'</td>
-					<td style="width: 8%;">'.$row[6].'</td>
-					<td style="width: 8%;">'.$row[7].'</td>
-					<td style="width: 8%;">'.$row[8].'</td>
-					<td style="width: 8%;">'.$row[9].'</td>
-
+    	
+    		echo '<tr>
+					<td style="width: 15%;">'.$row[1].'</td>			
+					<td style="width: 15%;">'.$row[2].'</td>
+					<td style="width: 55%;">'.$row[3].'</td>
+					<td style="width: 15%;">'.$row[4].'</td>
+					
 
 				</tr>';
 		}

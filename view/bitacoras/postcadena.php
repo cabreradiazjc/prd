@@ -135,11 +135,10 @@
 
                                         <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#contabilidad" role="tab"><span class="hidden-sm-up"><i class="ti-user"></i></span> <span class="hidden-xs-down">Contabilidad</span></a> </li>
 
-                                        <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#anexos" role="tab"><span class="hidden-sm-up"><i class="ti-email"></i></span> <span class="hidden-xs-down">Anexos</span></a> </li>
+                                        <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#anexos" role="tab"><span class="hidden-sm-up"><i class="ti-email"></i></span> <span class="hidden-xs-down">Anexos y Tasaciones</span></a> </li>
 
-                                        <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#tasaciones" role="tab"><span class="hidden-sm-up"><i class="ti-email"></i></span> <span class="hidden-xs-down">Tasaciones</span></a> </li>
 
-                                        <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#cyberfinacial" role="tab"><span class="hidden-sm-up"><i class="ti-email"></i></span> <span class="hidden-xs-down">Cyberfinancial</span></a> </li>
+                                        <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#cyberfinancial" role="tab"><span class="hidden-sm-up"><i class="ti-email"></i></span> <span class="hidden-xs-down">Cyberfinancial</span></a> </li>
 
                                         <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#creditos" role="tab"><span class="hidden-sm-up"><i class="ti-email"></i></span> <span class="hidden-xs-down">Créditos Cancelados</span></a> </li>
 
@@ -149,7 +148,100 @@
                                     </ul>
                                     <!-- Tab panes -->
                                     <div class="tab-content">
+
                                         <div class="tab-pane active" id="tesoreria" role="tabpanel">
+                                            <div class="row">
+                                                <div class="col-12">       
+                                                    <div class="card-body bg-info">
+                                                        <h4 class="card-title text-white">Histórico de registros</h4>
+                                                        <h6 class="card-subtitle text-white">Información de los tiempos de ejecución de los procesos de tesorería después de la finalización correcta de la cadena de cierre.</h6>
+                                                    </div> 
+                                                    <div class="card-body" >
+                                                        <div class="message-box contact-box">
+                                                            <h2 class="add-ct-btn">
+                                                                <button type="button" class="btn btn-circle btn-lg btn-success waves-effect waves-dark"  alt="default" data-toggle="modal" data-target="#modal-nuevo_tesoreria">+</button>
+                                                                <button type="button" class="btn btn-circle btn-lg btn-inverse waves-effect waves-dark"  alt="default" data-toggle="modal" data-target="#modal-editar_tesoreria"><i class="fa fa-edit"></i> </button>
+                                                            </h2>
+                                                            
+
+                                                        </div>  
+                                                       
+                                                        <div class="table-responsive m-t-40">
+                                                            <table id="table_tesoreria" class="display nowrap table table-hover table-striped table-bordered" cellspacing="0" style="width: 100%;" >
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th>Fecha</th>
+                                                                        <th>Código</th>
+                                                                        <th>Descripción</th>
+                                                                        <th>Tiempo</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tfoot>
+                                                                    <tr>
+                                                                        <th>Fecha</th>
+                                                                        <th>Código</th>
+                                                                        <th>Descripción</th>
+                                                                        <th>Tiempo</th>
+                                                                    </tr>
+                                                                </tfoot>
+                                                                <tbody  id="body_tesoreria">
+                                                                    
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                              
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="tab-pane" id="contabilidad" role="tabpanel">
+                                            <div class="row">
+                                                <div class="col-12">       
+                                                    <div class="card-body bg-info">
+                                                        <h4 class="card-title text-white">Histórico de registros</h4>
+                                                        <h6 class="card-subtitle text-white">Información de los tiempos de ejecución de los procesos de tesorería después de la finalización correcta de la cadena de cierre.</h6>
+                                                    </div> 
+                                                    <div class="card-body" >
+                                                        <div class="message-box contact-box">
+                                                            <h2 class="add-ct-btn">
+                                                                <button type="button" class="btn btn-circle btn-lg btn-success waves-effect waves-dark"  alt="default" data-toggle="modal" data-target="#modal-nuevo_contabilidad">+</button>
+                                                                <button type="button" class="btn btn-circle btn-lg btn-inverse waves-effect waves-dark"  alt="default" data-toggle="modal" data-target="#modal-editar_contabilidad"><i class="fa fa-edit"></i> </button>
+                                                            </h2>
+                                                            
+
+                                                        </div>  
+                                                       
+                                                        <div class="table-responsive m-t-40">
+                                                            <table id="table_contabilidad" class="display nowrap table table-hover table-striped table-bordered" cellspacing="0" style="width: 100%;" >
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th>Fecha</th>
+                                                                        <th>Código</th>
+                                                                        <th>Descripción</th>
+                                                                        <th>Tiempo</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tfoot>
+                                                                    <tr>
+                                                                        <th>Fecha</th>
+                                                                        <th>Código</th>
+                                                                        <th>Descripción</th>
+                                                                        <th>Tiempo</th>
+                                                                    </tr>
+                                                                </tfoot>
+                                                                <tbody  id="body_contabilidad">
+                                                                    
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                              
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="tab-pane" id="anexos" role="tabpanel">
                                             <div class="row">
                                                 <div class="col-12">       
                                                         <div class="card-body bg-info">
@@ -159,15 +251,15 @@
                                                         <div class="card-body" >
                                                             <div class="message-box contact-box">
                                                                 <h2 class="add-ct-btn">
-                                                                    <button type="button" class="btn btn-circle btn-lg btn-success waves-effect waves-dark"  alt="default" data-toggle="modal" data-target="#modal-nuevo_tesoreria">+</button>
-                                                                    <button type="button" class="btn btn-circle btn-lg btn-inverse waves-effect waves-dark"  alt="default" data-toggle="modal" data-target="#modal-editar_tesoreria"><i class="fa fa-edit"></i> </button>
+                                                                    <button type="button" class="btn btn-circle btn-lg btn-success waves-effect waves-dark"  alt="default" data-toggle="modal" data-target="#modal-nuevo_anexos">+</button>
+                                                                    <button type="button" class="btn btn-circle btn-lg btn-inverse waves-effect waves-dark"  alt="default" data-toggle="modal" data-target="#modal-editar_anexos"><i class="fa fa-edit"></i> </button>
                                                                 </h2>
                                                                 
 
                                                             </div>  
                                                            
                                                             <div class="table-responsive m-t-40">
-                                                                <table id="table_tesoreria" class="display nowrap table table-hover table-striped table-bordered" cellspacing="0" style="width: 100%;" >
+                                                                <table id="table_anexos" class="display nowrap table table-hover table-striped table-bordered" cellspacing="0" style="width: 100%;" >
                                                                     <thead>
                                                                         <tr>
                                                                             <th>Fecha</th>
@@ -184,7 +276,7 @@
                                                                             <th>Tiempo</th>
                                                                         </tr>
                                                                     </tfoot>
-                                                                    <tbody  id="body_tesoreria">
+                                                                    <tbody  id="body_anexos">
                                                                         
                                                                     </tbody>
                                                                 </table>
@@ -193,39 +285,191 @@
                                               
                                                 </div>
                                             </div>
-
                                         </div>
 
-                                        <div class="tab-pane  p-20" id="contabilidad" role="tabpanel">
-                                            contabilidad
+                                        <div class="tab-pane" id="cyberfinancial" role="tabpanel">
+                                            <div class="row">
+                                                <div class="col-12">       
+                                                        <div class="card-body bg-info">
+                                                            <h4 class="card-title text-white">Histórico de registros</h4>
+                                                            <h6 class="card-subtitle text-white">Información de los tiempos de ejecución de los procesos de tesorería después de la finalización correcta de la cadena de cierre.</h6>
+                                                        </div> 
+                                                        <div class="card-body" >
+                                                            <div class="message-box contact-box">
+                                                                <h2 class="add-ct-btn">
+                                                                    <button type="button" class="btn btn-circle btn-lg btn-success waves-effect waves-dark"  alt="default" data-toggle="modal" data-target="#modal-nuevo_cyberfinancial">+</button>
+                                                                    <button type="button" class="btn btn-circle btn-lg btn-inverse waves-effect waves-dark"  alt="default" data-toggle="modal" data-target="#modal-editar_cyberfinancial"><i class="fa fa-edit"></i> </button>
+                                                                </h2>
+                                                                
+
+                                                            </div>  
+                                                           
+                                                            <div class="table-responsive m-t-40">
+                                                                <table id="table_cyberfinancial" class="display nowrap table table-hover table-striped table-bordered" cellspacing="0" style="width: 100%;" >
+                                                                    <thead>
+                                                                        <tr>
+                                                                            <th>Fecha</th>
+                                                                            <th>Código</th>
+                                                                            <th>Descripción</th>
+                                                                            <th>Tiempo</th>
+                                                                        </tr>
+                                                                    </thead>
+                                                                    <tfoot>
+                                                                        <tr>
+                                                                            <th>Fecha</th>
+                                                                            <th>Código</th>
+                                                                            <th>Descripción</th>
+                                                                            <th>Tiempo</th>
+                                                                        </tr>
+                                                                    </tfoot>
+                                                                    <tbody  id="body_cyberfinancial">
+                                                                        
+                                                                    </tbody>
+                                                                </table>
+                                                            </div>
+                                                        </div>
+                                              
+                                                </div>
+                                            </div>
                                         </div>
 
-                                        <div class="tab-pane p-20" id="anexos" role="tabpanel">
-                                            anexos
+                                        <div class="tab-pane" id="creditos" role="tabpanel">
+                                            <div class="row">
+                                                <div class="col-12">       
+                                                        <div class="card-body bg-info">
+                                                            <h4 class="card-title text-white">Histórico de registros</h4>
+                                                            <h6 class="card-subtitle text-white">Información de los tiempos de ejecución de los procesos de tesorería después de la finalización correcta de la cadena de cierre.</h6>
+                                                        </div> 
+                                                        <div class="card-body" >
+                                                            <div class="message-box contact-box">
+                                                                <h2 class="add-ct-btn">
+                                                                    <button type="button" class="btn btn-circle btn-lg btn-success waves-effect waves-dark"  alt="default" data-toggle="modal" data-target="#modal-nuevo_creditos">+</button>
+                                                                    <button type="button" class="btn btn-circle btn-lg btn-inverse waves-effect waves-dark"  alt="default" data-toggle="modal" data-target="#modal-editar_creditos"><i class="fa fa-edit"></i> </button>
+                                                                </h2>
+                                                                
+
+                                                            </div>  
+                                                           
+                                                            <div class="table-responsive m-t-40">
+                                                                <table id="table_creditos" class="display nowrap table table-hover table-striped table-bordered" cellspacing="0" style="width: 100%;" >
+                                                                    <thead>
+                                                                        <tr>
+                                                                            <th>Fecha</th>
+                                                                            <th>Código</th>
+                                                                            <th>Descripción</th>
+                                                                            <th>Tiempo</th>
+                                                                        </tr>
+                                                                    </thead>
+                                                                    <tfoot>
+                                                                        <tr>
+                                                                            <th>Fecha</th>
+                                                                            <th>Código</th>
+                                                                            <th>Descripción</th>
+                                                                            <th>Tiempo</th>
+                                                                        </tr>
+                                                                    </tfoot>
+                                                                    <tbody  id="body_creditos">
+                                                                        
+                                                                    </tbody>
+                                                                </table>
+                                                            </div>
+                                                        </div>
+                                              
+                                                </div>
+                                            </div>
                                         </div>
 
-                                        <div class="tab-pane p-20" id="tasaciones" role="tabpanel">
-                                            tasaciones
+                                        <div class="tab-pane" id="pr" role="tabpanel">
+                                            <div class="row">
+                                                <div class="col-12">       
+                                                        <div class="card-body bg-info">
+                                                            <h4 class="card-title text-white">Histórico de registros</h4>
+                                                            <h6 class="card-subtitle text-white">Información de los tiempos de ejecución de los procesos de tesorería después de la finalización correcta de la cadena de cierre.</h6>
+                                                        </div> 
+                                                        <div class="card-body" >
+                                                            <div class="message-box contact-box">
+                                                                <h2 class="add-ct-btn">
+                                                                    <button type="button" class="btn btn-circle btn-lg btn-success waves-effect waves-dark"  alt="default" data-toggle="modal" data-target="#modal-nuevo_pr">+</button>
+                                                                    <button type="button" class="btn btn-circle btn-lg btn-inverse waves-effect waves-dark"  alt="default" data-toggle="modal" data-target="#modal-editar_pr"><i class="fa fa-edit"></i> </button>
+                                                                </h2>
+                                                                
+
+                                                            </div>  
+                                                           
+                                                            <div class="table-responsive m-t-40">
+                                                                <table id="table_pr" class="display nowrap table table-hover table-striped table-bordered" cellspacing="0" style="width: 100%;" >
+                                                                    <thead>
+                                                                        <tr>
+                                                                            <th>Fecha</th>
+                                                                            <th>Código</th>
+                                                                            <th>Descripción</th>
+                                                                            <th>Tiempo</th>
+                                                                        </tr>
+                                                                    </thead>
+                                                                    <tfoot>
+                                                                        <tr>
+                                                                            <th>Fecha</th>
+                                                                            <th>Código</th>
+                                                                            <th>Descripción</th>
+                                                                            <th>Tiempo</th>
+                                                                        </tr>
+                                                                    </tfoot>
+                                                                    <tbody  id="body_pr">
+                                                                        
+                                                                    </tbody>
+                                                                </table>
+                                                            </div>
+                                                        </div>
+                                              
+                                                </div>
+                                            </div>
                                         </div>
 
-                                        <div class="tab-pane p-20" id="cyberfinacial" role="tabpanel">
-                                            cyberfinacial
+                                        <div class="tab-pane" id="carteras3" role="tabpanel">
+                                            <div class="row">
+                                                <div class="col-12">       
+                                                        <div class="card-body bg-info">
+                                                            <h4 class="card-title text-white">Histórico de registros</h4>
+                                                            <h6 class="card-subtitle text-white">Información de los tiempos de ejecución de los procesos de tesorería después de la finalización correcta de la cadena de cierre.</h6>
+                                                        </div> 
+                                                        <div class="card-body" >
+                                                            <div class="message-box contact-box">
+                                                                <h2 class="add-ct-btn">
+                                                                    <button type="button" class="btn btn-circle btn-lg btn-success waves-effect waves-dark"  alt="default" data-toggle="modal" data-target="#modal-nuevo_carteras3">+</button>
+                                                                    <button type="button" class="btn btn-circle btn-lg btn-inverse waves-effect waves-dark"  alt="default" data-toggle="modal" data-target="#modal-editar_carteras3"><i class="fa fa-edit"></i> </button>
+                                                                </h2>
+                                                                
+
+                                                            </div>  
+                                                           
+                                                            <div class="table-responsive m-t-40">
+                                                                <table id="table_carteras3" class="display nowrap table table-hover table-striped table-bordered" cellspacing="0" style="width: 100%;" >
+                                                                    <thead>
+                                                                        <tr>
+                                                                            <th>Fecha</th>
+                                                                            <th>Código</th>
+                                                                            <th>Descripción</th>
+                                                                            <th>Tiempo</th>
+                                                                        </tr>
+                                                                    </thead>
+                                                                    <tfoot>
+                                                                        <tr>
+                                                                            <th>Fecha</th>
+                                                                            <th>Código</th>
+                                                                            <th>Descripción</th>
+                                                                            <th>Tiempo</th>
+                                                                        </tr>
+                                                                    </tfoot>
+                                                                    <tbody  id="body_carteras3">
+                                                                        
+                                                                    </tbody>
+                                                                </table>
+                                                            </div>
+                                                        </div>
+                                              
+                                                </div>
+                                            </div>
                                         </div>
-
-                                        <div class="tab-pane p-20" id="creditos" role="tabpanel">
-                                            creditos
-                                        </div>
-
-                                        <div class="tab-pane p-20" id="pr" role="tabpanel">
-                                            pr
-                                        </div>
-
-                                        <div class="tab-pane p-20" id="carteras3" role="tabpanel">
-                                            carteras3
-                                        </div>
-
-
-
 
                                     </div>
                                 </div>
@@ -249,7 +493,7 @@
                                 <div class="row">
                                     <div class="col-lg-12">
                                             <div class="card-body p-t-20">
-                                                <form id="frm_nuevo_dbprod" name="frm_nuevo_dbprod">
+                                                <form id="frm_nuevo_tesoreria" name="frm_nuevo_tesoreria">
                                                     <div class="form-body">
                                                         <h3 class="card-title">Tesorería</h3>
                                                         <hr>
@@ -438,7 +682,7 @@
                                                     </div>
                                                     <!-- Datos de Operación -->
                                                     <input type="hidden" name="grupo" id="grupo" value="Bitácoras">
-                                                    <input type="hidden" name="tarea" id="tarea" value="Bitácora de backup DBPROD">
+                                                    <input type="hidden" name="tarea" id="tarea" value="Bitácora de postcadena - Tesorería">
                                                     <input type="hidden" name="user" id="user" value="<?php echo $userData['email']; ?>">
                                                     <!-- /. End Datos de Operación -->
                                                 </form>
@@ -449,21 +693,22 @@
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">Cerrar</button>
-                                <button type="button" class="btn btn-info waves-effect waves-light" id="nuevo_dbprod">Guardar</button>
+                                <button type="button" class="btn btn-info waves-effect waves-light" id="nuevo_tesoreria">Guardar</button>
                             </div>
                         </div>
                     </div>
                 </div>
                 <!-- ============================================================== -->
-                <!-- End Modal nuevo registro DBPROD-->
+                <!-- End Modal nuevo registro Tesorería-->
                 <!-- ============================================================== -->
 
 
+
                 <!-- ============================================================== -->
-                <!-- Modal nuevo registro nuevo_can -->
+                <!-- Modal nuevo registro Contabilidad -->
                 <!-- ============================================================== -->
-                <div id="modal-nuevo_can" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
-                    <div class="modal-dialog">
+                <div id="modal-nuevo_contabilidad" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+                    <div class="modal-dialog modal-lg">
                         <div class="modal-content">
                             <div class="modal-header">
                                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
@@ -474,51 +719,175 @@
                                 <div class="row">
                                     <div class="col-lg-12">
                                             <div class="card-body p-t-20">
-                                                <form id="frm_nuevo_can" name="frm_nuevo_can">
+                                                <form id="frm_nuevo_contabilidad" name="frm_nuevo_contabilidad">
                                                     <div class="form-body">
-                                                        <h3 class="card-title">Backup CAN</h3>
+                                                        <h3 class="card-title">Contabilidad</h3>
                                                         <hr>
-                                                        <div id="mensaje_can"></div>
+                                                        <div id="mensaje_dbprod"></div>
                                                         <div class="row">
                                                             <div class="col-md-6">
                                                                 <div class="form-group has-success">
                                                                     <label class="control-label">Fecha</label>
                                                                     <div class="input-group">
-                                                                        <input type="text" class="form-control" placeholder="yyyy-mm-dd" data-date-format='yyyy-mm-dd' value="<?php echo date('Y-m-d',strtotime("-1 days")); ?>" id="param_can_fecha" name="param_can_fecha">
+                                                                        <input type="text" class="form-control" style="text-align: right;" placeholder="yyyy-mm-dd" data-date-format='yyyy-mm-dd' value="<?php echo date('Y-m-d',strtotime("-1 days")); ?>" id="param_fecha_contabilidad" name="param_fecha_contabilidad">
                                                                         <span class="input-group-addon"><i class="icon-calender"></i></span> 
                                                                     </div>
-                                                                    <small class="form-control-feedback"> Usar fecha de backup.</small>
+                                                                    <small class="form-control-feedback"> Usar fecha de cadena.</small>
                                                                 </div>
                                                             </div>
+                                                            
                                                         </div>
+
                                                         <div class="row">
-                                                            <div class="col-md-12">    
-                                                                <div class="form-group has-success">
-                                                                    <label class="control-label">Nombre</label>
-                                                                    <div class="input-group">
-                                                                        <input type="text" class="form-control" 
-                                                                        value="CAN_<?php echo date('Ymd',strtotime("-1 days")); ?>_" id="param_can_nombre" name="param_can_nombre">
-                                                                        
-                                                                    </div>
-                                                                    <small class="form-control-feedback"> Completar nombre.</small>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="row">
-                                                            <div class="col-md-6">
+                                                            <div class="col-md-3">
                                                                 <div class="form-group">
-                                                                    <label class="control-label">Tamaño compreso</label>
+                                                                    <label class="control-label">PBCPED1A</label>
                                                                     <div class="input-group">
-                                                                        <input type="text" class="form-control" id="param_can_com" name="param_can_com">
+                                                                        <input type="text" class="form-control pull-right" id="param_PBCPED1A" name="param_PBCPED1A" value="00:00:00" style="text-align: right;">
                                                                     </div>
                                                                     
                                                                 </div>
                                                             </div>
-                                                            <div class="col-md-6">
+                                                            <div class="col-md-3">
                                                                 <div class="form-group">
-                                                                    <label class="control-label">Tamaño expandido</label>
+                                                                    <label class="control-label">PBCPED1B</label>
                                                                     <div class="input-group">
-                                                                        <input type="number" class="form-control" id="param_can_sincom" name="param_can_sincom" >
+                                                                        <input type="text" class="form-control" id="param_PBCPED1B" name="param_PBCPED1B" value="00:00:00"  style="text-align: right;">
+                                                                    </div>
+                                                                    
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-3">
+                                                                <div class="form-group">
+                                                                    <label class="control-label">PBCPED1D</label>
+                                                                    <div class="input-group">
+                                                                        <input type="text" class="form-control" id="param_PBCPED1D" name="param_PBCPED1D" value="00:00:00"  style="text-align: right;">
+                                                                    </div>
+                                                                    
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-3">
+                                                                <div class="form-group">
+                                                                    <label class="control-label">PBCPED1C</label>
+                                                                    <div class="input-group">
+                                                                        <input type="text" class="form-control" id="param_PBCPED1C" name="param_PBCPED1C" value="00:00:00"  style="text-align: right;">
+                                                                    </div>
+                                                                    
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="row">
+                                                            <div class="col-md-3">
+                                                                <div class="form-group">
+                                                                    <label class="control-label">PBCPED7A</label>
+                                                                    <div class="input-group">
+                                                                        <input type="text" class="form-control" id="param_PBCPED7A" name="param_PBCPED7A" value="00:00:00" style="text-align: right;">
+                                                                    </div>
+                                                                    
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-3">
+                                                                <div class="form-group">
+                                                                    <label class="control-label">PBCPED7B</label>
+                                                                    <div class="input-group">
+                                                                        <input type="text" class="form-control" id="param_PBCPED7B" name="param_PBCPED7B" value="00:00:00" style="text-align: right;">
+                                                                    </div>
+                                                                    
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-3">
+                                                                <div class="form-group">
+                                                                    <label class="control-label">PBCPED7D</label>
+                                                                    <div class="input-group">
+                                                                        <input type="text" class="form-control" id="param_PBCPED7D" name="param_PBCPED7D" value="00:00:00" style="text-align: right;">
+                                                                    </div>
+                                                                    
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-3">
+                                                                <div class="form-group">
+                                                                    <label class="control-label">PBCPED7C</label>
+                                                                    <div class="input-group">
+                                                                        <input type="text" class="form-control" id="param_PBCPED7C" name="param_PBCPED7C" value="00:00:00" style="text-align: right;">
+                                                                    </div>
+                                                                    
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="row">
+                                                            <div class="col-md-3">
+                                                                <div class="form-group">
+                                                                    <label class="control-label">PBCPED8A</label>
+                                                                    <div class="input-group">
+                                                                        <input type="text" class="form-control" id="param_PBCPED8A" name="param_PBCPED8A" value="00:00:00" style="text-align: right;">
+                                                                    </div>
+                                                                    
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-3">
+                                                                <div class="form-group">
+                                                                    <label class="control-label">PBCPED8B</label>
+                                                                    <div class="input-group">
+                                                                        <input type="text" class="form-control" id="param_PBCPED8B" name="param_PBCPED8B" value="00:00:00"  style="text-align: right;">
+                                                                    </div>
+                                                                    
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-3">
+                                                                <div class="form-group">
+                                                                    <label class="control-label">PBCPED8D</label>
+                                                                    <div class="input-group">
+                                                                        <input type="text" class="form-control" id="param_PBCPED8D" name="param_PBCPED8D"  value="00:00:00" style="text-align: right;">
+                                                                    </div>
+                                                                    
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-3">
+                                                                <div class="form-group">
+                                                                    <label class="control-label">PBCPED8C</label>
+                                                                    <div class="input-group">
+                                                                        <input type="text" class="form-control" id="param_PBCPED8C" name="param_PBCPED8C"  value="00:00:00"  style="text-align: right;">
+                                                                    </div>
+                                                                    
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="row">
+                                                            <div class="col-md-3">
+                                                                <div class="form-group">
+                                                                    <label class="control-label">PBCPED2A</label>
+                                                                    <div class="input-group">
+                                                                        <input type="text" class="form-control" id="param_PBCPED2A" name="param_PBCPED2A" value="00:00:00" style="text-align: right;">
+                                                                    </div>
+                                                                    
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-3">
+                                                                <div class="form-group">
+                                                                    <label class="control-label">PBCPED2B</label>
+                                                                    <div class="input-group">
+                                                                        <input type="text" class="form-control" id="param_PBCPED2B" name="param_PBCPED2B"  value="00:00:00" style="text-align: right;">
+                                                                    </div>
+                                                                    
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-3">
+                                                                <div class="form-group">
+                                                                    <label class="control-label">PBCPED2D</label>
+                                                                    <div class="input-group">
+                                                                        <input type="text" class="form-control" id="param_PBCPED2D" name="param_PBCPED2D" value="00:00:00" style="text-align: right;" >
+                                                                    </div>
+                                                                    
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-3">
+                                                                <div class="form-group">
+                                                                    <label class="control-label">PBCPED2C</label>
+                                                                    <div class="input-group">
+                                                                        <input type="text" class="form-control" id="param_PBCPED2C" name="param_PBCPED2C" value="00:00:00" style="text-align: right;" >
                                                                     </div>
                                                                     
                                                                 </div>
@@ -528,7 +897,7 @@
                                                     </div>
                                                     <!-- Datos de Operación -->
                                                     <input type="hidden" name="grupo" id="grupo" value="Bitácoras">
-                                                    <input type="hidden" name="tarea" id="tarea" value="Bitácora de backup CAN">
+                                                    <input type="hidden" name="tarea" id="tarea" value="Bitácora de postcadena - Contabilidad">
                                                     <input type="hidden" name="user" id="user" value="<?php echo $userData['email']; ?>">
                                                     <!-- /. End Datos de Operación -->
                                                 </form>
@@ -539,20 +908,22 @@
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">Cerrar</button>
-                                <button type="button" class="btn btn-info waves-effect waves-light" id="nuevo_can">Guardar</button>
+                                <button type="button" class="btn btn-info waves-effect waves-light" id="nuevo_contabilidad">Guardar</button>
                             </div>
                         </div>
                     </div>
                 </div>
                 <!-- ============================================================== -->
-                <!-- End Modal nuevo registro nuevo_can-->
+                <!-- End Modal nuevo registro Contabilidad-->
                 <!-- ============================================================== -->
 
+
+
                 <!-- ============================================================== -->
-                <!-- Modal nuevo registro nuevo_prd -->
+                <!-- Modal nuevo registro Anexos -->
                 <!-- ============================================================== -->
-                <div id="modal-nuevo_prd" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
-                    <div class="modal-dialog">
+                <div id="modal-nuevo_anexos" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+                    <div class="modal-dialog modal-lg">
                         <div class="modal-content">
                             <div class="modal-header">
                                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
@@ -563,61 +934,145 @@
                                 <div class="row">
                                     <div class="col-lg-12">
                                             <div class="card-body p-t-20">
-                                                <form id="frm_nuevo_prd" name="frm_nuevo_prd">
+                                                <form id="frm_nuevo_anexos" name="frm_nuevo_anexos">
                                                     <div class="form-body">
-                                                        <h3 class="card-title">Backup PRD</h3>
+                                                        <h3 class="card-title">Anexos</h3>
                                                         <hr>
-                                                        <div id="mensaje_prd"></div>
+                                                        <div id="mensaje_dbprod"></div>
                                                         <div class="row">
                                                             <div class="col-md-6">
                                                                 <div class="form-group has-success">
                                                                     <label class="control-label">Fecha</label>
                                                                     <div class="input-group">
-                                                                        <input type="text" class="form-control" placeholder="yyyy-mm-dd" data-date-format='yyyy-mm-dd' value="<?php echo date('Y-m-d',strtotime("-2 days")); ?>" id="param_prd_fecha" name="param_prd_fecha">
+                                                                        <input type="text" class="form-control" style="text-align: right;" placeholder="yyyy-mm-dd" data-date-format='yyyy-mm-dd' value="<?php echo date('Y-m-d',strtotime("-1 days")); ?>" id="param_fecha_anexos" name="param_fecha_anexos">
                                                                         <span class="input-group-addon"><i class="icon-calender"></i></span> 
                                                                     </div>
-                                                                    <small class="form-control-feedback"> Usar fecha de backup.</small>
+                                                                    <small class="form-control-feedback"> Usar fecha de cadena.</small>
                                                                 </div>
                                                             </div>
+                                                           
                                                         </div>
+
+
+                                                        <h5>ANEXO 15B </h5>
+                                                        <hr>
                                                         <div class="row">
-                                                            <div class="col-md-12">    
-                                                                <div class="form-group has-success">
-                                                                    <label class="control-label">Nombre</label>
-                                                                    <div class="input-group">
-                                                                        <input type="text" class="form-control" 
-                                                                        value="PRD_<?php echo date('Ymd',strtotime("-2 days")); ?>_" id="param_prd_nombre" name="param_prd_nombre">
-                                                                        
-                                                                    </div>
-                                                                    <small class="form-control-feedback"> Completar nombre.</small>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="row">
-                                                            <div class="col-md-6">
+                                                            <div class="col-md-3">
                                                                 <div class="form-group">
-                                                                    <label class="control-label">Tamaño compreso</label>
+                                                                    <label class="control-label">PJNGY450</label>
                                                                     <div class="input-group">
-                                                                        <input type="number" class="form-control" id="param_prd_com" name="param_prd_com">
+                                                                        <input type="text" class="form-control pull-right" id="param_PJNGY450" name="param_PJNGY450" value="00:00:00" style="text-align: right;">
                                                                     </div>
                                                                     
                                                                 </div>
                                                             </div>
-                                                            <div class="col-md-6">
+                                                            
+                                                        </div>
+
+                                                        <h5>ANEXO 17A DIARIO</h5>
+                                                        <hr>
+                                                        <div class="row">
+                                                            <div class="col-md-3">
                                                                 <div class="form-group">
-                                                                    <label class="control-label">Tamaño expandido</label>
+                                                                    <label class="control-label">PBCPEMTA</label>
                                                                     <div class="input-group">
-                                                                        <input type="number" class="form-control" id="param_prd_sincom" name="param_prd_sincom" >
+                                                                        <input type="text" class="form-control" id="param_PBCPEMTA" name="param_PBCPEMTA" value="00:00:00" style="text-align: right;">
                                                                     </div>
                                                                     
                                                                 </div>
+                                                            </div>
+                                                            <div class="col-md-3">
+                                                                <div class="form-group">
+                                                                    <label class="control-label">PBCPEMTB</label>
+                                                                    <div class="input-group">
+                                                                        <input type="text" class="form-control" id="param_PBCPEMTB" name="param_PBCPEMTB" value="00:00:00" style="text-align: right;">
+                                                                    </div>
+                                                                    
+                                                                </div>
+                                                            </div>
+                                                            
+                                                        </div>
+
+                                                        <h5>ANEXO 7</h5>
+                                                        <hr>
+                                                        <div class="row">
+                                                            <div class="col-md-3">
+                                                                <div class="form-group">
+                                                                    <label class="control-label">PBCPEMZA</label>
+                                                                    <div class="input-group">
+                                                                        <input type="text" class="form-control" id="param_PBCPEMZA" name="param_PBCPEMZA" value="00:00:00" style="text-align: right;">
+                                                                    </div>
+                                                                    
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-3">
+                                                                <div class="form-group">
+                                                                    <label class="control-label">PBCPEMZN</label>
+                                                                    <div class="input-group">
+                                                                        <input type="text" class="form-control" id="param_PBCPEMZN" name="param_PBCPEMZN" value="00:00:00"  style="text-align: right;">
+                                                                    </div>
+                                                                    
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-3">
+                                                                <div class="form-group">
+                                                                    <label class="control-label">PBCPEMZO</label>
+                                                                    <div class="input-group">
+                                                                        <input type="text" class="form-control" id="param_PBCPEMZO" name="param_PBCPEMZO"  value="00:00:00" style="text-align: right;">
+                                                                    </div>
+                                                                    
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-3">
+                                                                <div class="form-group">
+                                                                    <label class="control-label">PBCPEMZC</label>
+                                                                    <div class="input-group">
+                                                                        <input type="text" class="form-control" id="param_PBCPEMZC" name="param_PBCPEMZC"  value="00:00:00"  style="text-align: right;">
+                                                                    </div>
+                                                                    
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                         <h5>TASACIONES</h5>
+                                                        <hr>
+                                                        <div class="row">
+                                                            <div class="col-md-3">
+                                                                <div class="form-group">
+                                                                    <label class="control-label">PJNGY244</label>
+                                                                    <div class="input-group">
+                                                                        <input type="text" class="form-control" id="param_PJNGY244" name="param_PJNGY244" value="00:00:00" style="text-align: right;">
+                                                                    </div>
+                                                                    
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-3">
+                                                                <div class="form-group">
+                                                                    <label class="control-label">PJNGY242</label>
+                                                                    <div class="input-group">
+                                                                        <input type="text" class="form-control" id="param_PJNGY242" name="param_PJNGY242"  value="00:00:00" style="text-align: right;">
+                                                                    </div>
+                                                                    
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-3">
+                                                                <div class="form-group">
+                                                                    <label class="control-label">PJNGY243</label>
+                                                                    <div class="input-group">
+                                                                        <input type="text" class="form-control" id="param_PJNGY243" name="param_PJNGY243" value="00:00:00" style="text-align: right;" >
+                                                                    </div>
+                                                                    
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-3">
+                                                                
                                                             </div>
                                                         </div>
                                                     
                                                     </div>
                                                     <!-- Datos de Operación -->
                                                     <input type="hidden" name="grupo" id="grupo" value="Bitácoras">
-                                                    <input type="hidden" name="tarea" id="tarea" value="Bitácora de backup PRD">
+                                                    <input type="hidden" name="tarea" id="tarea" value="Bitácora de postcadena - Anexos">
                                                     <input type="hidden" name="user" id="user" value="<?php echo $userData['email']; ?>">
                                                     <!-- /. End Datos de Operación -->
                                                 </form>
@@ -628,21 +1083,22 @@
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">Cerrar</button>
-                                <button type="button" class="btn btn-info waves-effect waves-light" id="nuevo_prd">Guardar</button>
+                                <button type="button" class="btn btn-info waves-effect waves-light" id="nuevo_anexos">Guardar</button>
                             </div>
                         </div>
                     </div>
                 </div>
                 <!-- ============================================================== -->
-                <!-- End Modal nuevo registro nuevo_prd-->
+                <!-- End Modal nuevo registro Anexos-->
                 <!-- ============================================================== -->
 
 
+
                 <!-- ============================================================== -->
-                <!-- Modal nuevo registro nuevo_cyber -->
+                <!-- Modal nuevo registro cyberfinancial -->
                 <!-- ============================================================== -->
-                <div id="modal-nuevo_cyber" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
-                    <div class="modal-dialog">
+                <div id="modal-nuevo_cyberfinancial" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+                    <div class="modal-dialog modal-lg">
                         <div class="modal-content">
                             <div class="modal-header">
                                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
@@ -653,101 +1109,186 @@
                                 <div class="row">
                                     <div class="col-lg-12">
                                             <div class="card-body p-t-20">
-                                                <form id="frm_nuevo_cyber" name="frm_nuevo_cyber">
+                                                <form id="frm_nuevo_cyberfinancial" name="frm_nuevo_cyberfinancial">
                                                     <div class="form-body">
-                                                        <h3 class="card-title">Backup CYBER</h3>
+                                                        <h3 class="card-title">Cyberfinancial</h3>
                                                         <hr>
-                                                        <div id="mensaje_cyber"></div>
+                                                        <div id="mensaje_dbprod"></div>
                                                         <div class="row">
                                                             <div class="col-md-6">
                                                                 <div class="form-group has-success">
                                                                     <label class="control-label">Fecha</label>
                                                                     <div class="input-group">
-                                                                        <input type="text" class="form-control" placeholder="yyyy-mm-dd" data-date-format='yyyy-mm-dd' value="<?php echo date('Y-m-d',strtotime("-1 days")); ?>" id="param_cyber_fecha" name="param_cyber_fecha">
-                                                                       
+                                                                        <input type="text" class="form-control" style="text-align: right;" placeholder="yyyy-mm-dd" data-date-format='yyyy-mm-dd' value="<?php echo date('Y-m-d',strtotime("-1 days")); ?>" id="param_fecha_cyberfinancial" name="param_fecha_cyberfinancial">
+                                                                        <span class="input-group-addon"><i class="icon-calender"></i></span> 
                                                                     </div>
-                                                                    <small class="form-control-feedback"> 1 día antes de backup.</small>
+                                                                    <small class="form-control-feedback"> Usar fecha de cadena.</small>
                                                                 </div>
                                                             </div>
+                                                            
                                                         </div>
-                                                        <!-- delquda2 -->
-                                                        <h5 class="card-title">delquda2</h5>
+                                                        <h5>Cyberfinancial 1</h5>
                                                         <hr>
                                                         <div class="row">
-                                                            <div class="col-md-12">    
-                                                                <div class="form-group has-success">
-                                                                    <label class="control-label">Nombre</label>
-                                                                    <div class="input-group">
-                                                                        <input type="text" class="form-control" 
-                                                                        value="expdp_delquda2_<?php echo date('Ymd',strtotime("0 days")); ?>_0000" id="param_delquda2_nombre" name="param_delquda2_nombre">
-                                                                        
-                                                                    </div>
-                                                                    <small class="form-control-feedback"> Nombre completado automáticamente</small>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="row">
-                                                            <div class="col-md-6">
+                                                            <div class="col-md-3">
                                                                 <div class="form-group">
-                                                                    <label class="control-label">Tamaño compreso</label>
+                                                                    <label class="control-label">PJNGY729</label>
                                                                     <div class="input-group">
-                                                                        <input type="number" class="form-control" id="param_delquda2_com" name="param_delquda2_com">
+                                                                        <input type="text" class="form-control pull-right" id="param_PJNGY729" name="param_PJNGY729" value="00:00:00" style="text-align: right;">
                                                                     </div>
                                                                     
                                                                 </div>
                                                             </div>
-                                                            <div class="col-md-6">
+                                                            <div class="col-md-3">
                                                                 <div class="form-group">
-                                                                    <label class="control-label">Tamaño expandido</label>
+                                                                    <label class="control-label">PJNGY730</label>
                                                                     <div class="input-group">
-                                                                        <input type="number" class="form-control" id="param_delquda2_sincom" name="param_delquda2_sincom" >
+                                                                        <input type="text" class="form-control" id="param_PJNGY730" name="param_PJNGY730" value="00:00:00"  style="text-align: right;">
+                                                                    </div>
+                                                                    
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-3">
+                                                                <div class="form-group">
+                                                                    <label class="control-label">PJNGY754</label>
+                                                                    <div class="input-group">
+                                                                        <input type="text" class="form-control" id="param_PJNGY754" name="param_PJNGY754" value="00:00:00"  style="text-align: right;">
+                                                                    </div>
+                                                                    
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-3">
+                                                                <div class="form-group">
+                                                                    <label class="control-label">PJNGY753</label>
+                                                                    <div class="input-group">
+                                                                        <input type="text" class="form-control" id="param_PJNGY753" name="param_PJNGY753" value="00:00:00"  style="text-align: right;">
+                                                                    </div>
+                                                                    
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <h5>Cyberfinancial 2</h5>
+                                                        <hr>
+                                                        <div class="row">
+                                                            <div class="col-md-3">
+                                                                <div class="form-group">
+                                                                    <label class="control-label">PJNGY758</label>
+                                                                    <div class="input-group">
+                                                                        <input type="text" class="form-control" id="param_PJNGY758" name="param_PJNGY758" value="00:00:00" style="text-align: right;">
+                                                                    </div>
+                                                                    
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-3">
+                                                                <div class="form-group">
+                                                                    <label class="control-label">PJNGY731</label>
+                                                                    <div class="input-group">
+                                                                        <input type="text" class="form-control" id="param_PJNGY731" name="param_PJNGY731" value="00:00:00" style="text-align: right;">
+                                                                    </div>
+                                                                    
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-3">
+                                                                <div class="form-group">
+                                                                    <label class="control-label">PJNGY759</label>
+                                                                    <div class="input-group">
+                                                                        <input type="text" class="form-control" id="param_PJNGY759" name="param_PJNGY759" value="00:00:00" style="text-align: right;">
+                                                                    </div>
+                                                                    
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-3">
+                                                                <div class="form-group">
+                                                                    <label class="control-label">PJNGY808</label>
+                                                                    <div class="input-group">
+                                                                        <input type="text" class="form-control" id="param_PJNGY808" name="param_PJNGY808" value="00:00:00" style="text-align: right;">
                                                                     </div>
                                                                     
                                                                 </div>
                                                             </div>
                                                         </div>
 
-                                                        <!-- rcvry -->
-                                                        <h5 class="card-title">rcvry</h5>
-                                                        <hr>
                                                         <div class="row">
-                                                            <div class="col-md-12">    
-                                                                <div class="form-group has-success">
-                                                                    <label class="control-label">Nombre</label>
+                                                            <div class="col-md-3">
+                                                                <div class="form-group">
+                                                                    <label class="control-label">PJNGY747</label>
                                                                     <div class="input-group">
-                                                                        <input type="text" class="form-control" 
-                                                                        value="expdp_backup_rcvry_<?php echo date('Ymd',strtotime("0 days")); ?>_0000" id="param_rcvry_nombre" name="param_rcvry_nombre">
-                                                                        
+                                                                        <input type="text" class="form-control" id="param_PJNGY747" name="param_PJNGY747" value="00:00:00" style="text-align: right;">
                                                                     </div>
-                                                                    <small class="form-control-feedback"> Nombre completado automáticamente</small>
+                                                                    
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-3">
+                                                                <div class="form-group">
+                                                                    <label class="control-label">PJNGY751</label>
+                                                                    <div class="input-group">
+                                                                        <input type="text" class="form-control" id="param_PJNGY751" name="param_PJNGY751" value="00:00:00" style="text-align: right;">
+                                                                    </div>
+                                                                    
                                                                 </div>
                                                             </div>
                                                         </div>
+
+                                                        <h5>Cyberfinancial 3</h5>
+                                                        <hr>
                                                         <div class="row">
-                                                            <div class="col-md-6">
+                                                            <div class="col-md-3">
                                                                 <div class="form-group">
-                                                                    <label class="control-label">Tamaño compreso</label>
+                                                                    <label class="control-label">PJNGY767</label>
                                                                     <div class="input-group">
-                                                                        <input type="number" class="form-control" id="param_rcvry_com" name="param_rcvry_com">
+                                                                        <input type="text" class="form-control" id="param_PJNGY767" name="param_PJNGY767" value="00:00:00" style="text-align: right;">
                                                                     </div>
                                                                     
                                                                 </div>
                                                             </div>
-                                                            <div class="col-md-6">
+                                                            <div class="col-md-3">
                                                                 <div class="form-group">
-                                                                    <label class="control-label">Tamaño expandido</label>
+                                                                    <label class="control-label">PJNGY768</label>
                                                                     <div class="input-group">
-                                                                        <input type="number" class="form-control" id="param_rcvry_sincom" name="param_rcvry_sincom" >
+                                                                        <input type="text" class="form-control" id="param_PJNGY768" name="param_PJNGY768" value="00:00:00"  style="text-align: right;">
                                                                     </div>
                                                                     
                                                                 </div>
+                                                            </div>
+                                                            <div class="col-md-3">
+                                                                <div class="form-group">
+                                                                    <label class="control-label">PJNGY769</label>
+                                                                    <div class="input-group">
+                                                                        <input type="text" class="form-control" id="param_PJNGY769" name="param_PJNGY769"  value="00:00:00" style="text-align: right;">
+                                                                    </div>
+                                                                    
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-3">
+                                                                <div class="form-group">
+                                                                    <label class="control-label">PJNGY760</label>
+                                                                    <div class="input-group">
+                                                                        <input type="text" class="form-control" id="param_PJNGY760" name="param_PJNGY760"  value="00:00:00"  style="text-align: right;">
+                                                                    </div>
+                                                                    
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="row">
+                                                            <div class="col-md-3">
+                                                                <div class="form-group">
+                                                                    <label class="control-label">Testigo PJNGY766</label>
+                                                                    <div class="input-group">
+                                                                        <input type="text" class="form-control" id="param_PJNGY766" name="param_PJNGY766" value="00:00:00" style="text-align: right;" >
+                                                                    </div>
+                                                                    
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-3">
+                                                                
                                                             </div>
                                                         </div>
                                                     
                                                     </div>
                                                     <!-- Datos de Operación -->
                                                     <input type="hidden" name="grupo" id="grupo" value="Bitácoras">
-                                                    <input type="hidden" name="tarea" id="tarea" value="Bitácora de backup cyber">
+                                                    <input type="hidden" name="tarea" id="tarea" value="Bitácora de postcadena - Cyberfinancial">
                                                     <input type="hidden" name="user" id="user" value="<?php echo $userData['email']; ?>">
                                                     <!-- /. End Datos de Operación -->
                                                 </form>
@@ -758,85 +1299,105 @@
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">Cerrar</button>
-                                <button type="button" class="btn btn-info waves-effect waves-light" id="nuevo_cyber">Guardar</button>
+                                <button type="button" class="btn btn-info waves-effect waves-light" id="nuevo_cyberfinancial">Guardar</button>
                             </div>
                         </div>
                     </div>
                 </div>
                 <!-- ============================================================== -->
-                <!-- End Modal nuevo registro nuevo_cyber-->
+                <!-- End Modal nuevo registro Cyberfinancial-->
                 <!-- ============================================================== -->
 
 
 
                 <!-- ============================================================== -->
-                <!-- Modal editar registro DBPROD -->
+                <!-- Modal nuevo registro creditos -->
                 <!-- ============================================================== -->
-                <div id="modal-editar_dbprod" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
-                    <div class="modal-dialog">
+                <div id="modal-nuevo_creditos" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+                    <div class="modal-dialog modal-lg">
                         <div class="modal-content">
                             <div class="modal-header">
                                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                                <h4 class="modal-title">Editar registro</h4>
+                                <h4 class="modal-title">Nuevo registro</h4>
                             </div>
                             <div class="modal-body">
                                 <!-- Row -->
                                 <div class="row">
                                     <div class="col-lg-12">
                                             <div class="card-body p-t-20">
-                                                <form id="frm_update_dbprod" name="frm_update_dbprod">
+                                                <form id="frm_nuevo_creditos" name="frm_nuevo_creditos">
                                                     <div class="form-body">
-                                                        <h3 class="card-title">Backup DBPROD</h3>
+                                                        <h3 class="card-title">Créditos Cancelados</h3>
                                                         <hr>
-                                                        <div id="mensaje_dbprod_edit"></div>
+                                                        <div id="mensaje_dbprod"></div>
                                                         <div class="row">
                                                             <div class="col-md-6">
                                                                 <div class="form-group has-success">
                                                                     <label class="control-label">Fecha</label>
                                                                     <div class="input-group">
-                                                                        <input type="text" class="form-control" placeholder="yyyy-mm-dd" data-date-format='yyyy-mm-dd' id="param_dbprod_fecha_edit" name="param_dbprod_fecha_edit">
+                                                                        <input type="text" class="form-control" style="text-align: right;" placeholder="yyyy-mm-dd" data-date-format='yyyy-mm-dd' value="<?php echo date('Y-m-d',strtotime("-1 days")); ?>" id="param_fecha_creditos" name="param_fecha_creditos">
                                                                         <span class="input-group-addon"><i class="icon-calender"></i></span> 
                                                                     </div>
-                                                                    <small class="form-control-feedback"> Usar fecha de backup.</small>
+                                                                    <small class="form-control-feedback"> Usar fecha de cadena.</small>
                                                                 </div>
                                                             </div>
+                                                            
                                                         </div>
+                                                        <h5> Cartera Semanal </h5>
+                                                        <hr>
                                                         <div class="row">
-                                                            <div class="col-md-12">    
-                                                                <div class="form-group has-success">
-                                                                    <label class="control-label">Nombre</label>
-                                                                    <div class="input-group">
-                                                                        <input type="text" class="form-control" 
-                                                                        id="param_dbprod_nombre_edit" name="param_dbprod_nombre_edit">
-                                                                       
-                                                                    </div>
-                                                                    <small class="form-control-feedback"> Completar nombre.</small>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="row">
-                                                            <div class="col-md-6">
+                                                            <div class="col-md-3">
                                                                 <div class="form-group">
-                                                                    <label class="control-label">Tamaño compreso</label>
+                                                                    <label class="control-label">PJNGY338</label>
                                                                     <div class="input-group">
-                                                                        <input type="number" class="form-control" id="param_dbprod_com_edit" name="param_dbprod_com_edit">
+                                                                        <input type="text" class="form-control pull-right" id="param_PJNGY338" name="param_PJNGY338" style="text-align: right;">
                                                                     </div>
                                                                     
                                                                 </div>
                                                             </div>
-                                                            <div class="col-md-6">
+                                                            
+                                                        </div>
+                                                        <h5> Clasificadora Semanal </h5>
+                                                        <hr>
+                                                        <div class="row">
+                                                            <div class="col-md-3">
                                                                 <div class="form-group">
-                                                                    <label class="control-label">Tamaño expandido</label>
+                                                                    <label class="control-label">PJNGY238</label>
                                                                     <div class="input-group">
-                                                                        <input type="number" class="form-control" id="param_dbprod_sincom_edit" name="param_dbprod_sincom_edit" >
+                                                                        <input type="text" class="form-control" id="param_PJNGY238" name="param_PJNGY238" value="00:00:00" style="text-align: right;">
                                                                     </div>
-                                                                    <small class="form-control-feedback pull-right">Tamaño en bytes</small>
+                                                                    
                                                                 </div>
                                                             </div>
+                                                            <div class="col-md-3">
+                                                                <div class="form-group">
+                                                                    <label class="control-label">PJNGY233</label>
+                                                                    <div class="input-group">
+                                                                        <input type="text" class="form-control" id="param_PJNGY233" name="param_PJNGY233" value="00:00:00" style="text-align: right;">
+                                                                    </div>
+                                                                    
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-3">
+                                                                <div class="form-group">
+                                                                    <label class="control-label">PJNGY234</label>
+                                                                    <div class="input-group">
+                                                                        <input type="text" class="form-control" id="param_PJNGY234" name="param_PJNGY234" value="00:00:00" style="text-align: right;">
+                                                                    </div>
+                                                                    
+                                                                </div>
+                                                            </div>
+                                                            
                                                         </div>
+
+                                                       
                                                     
                                                     </div>
-                                                    <input type="hidden" id="param_dbprod_id_edit" name="param_dbprod_id_edit">
+                                                    <!-- Datos de Operación -->
+                                                    <input type="hidden" name="grupo" id="grupo" value="Bitácoras">
+                                                    <input type="hidden" name="tarea" id="tarea" value="Bitácora de postcadena - Créditos Cancelados">
+                                                    <input type="hidden" name="user" id="user" value="<?php echo $userData['email']; ?>">
+                                                    <!-- /. End Datos de Operación -->
                                                 </form>
                                             </div>
                                     </div>
@@ -845,84 +1406,106 @@
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">Cerrar</button>
-                                <button type="button" class="btn btn-info waves-effect waves-light" id="update_dbprod">Actualizar</button>
+                                <button type="button" class="btn btn-info waves-effect waves-light" id="nuevo_creditos">Guardar</button>
                             </div>
                         </div>
                     </div>
                 </div>
                 <!-- ============================================================== -->
-                <!-- End Modal editar registro DBPROD-->
+                <!-- End Modal nuevo registro Créditos Cancelados-->
                 <!-- ============================================================== -->
 
 
+
                 <!-- ============================================================== -->
-                <!-- Modal editar registro editar_can -->
+                <!-- Modal nuevo registro pr -->
                 <!-- ============================================================== -->
-                <div id="modal-editar_can" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
-                    <div class="modal-dialog">
+                <div id="modal-nuevo_pr" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+                    <div class="modal-dialog modal-lg">
                         <div class="modal-content">
                             <div class="modal-header">
                                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                                <h4 class="modal-title">Editar registro</h4>
+                                <h4 class="modal-title">Nuevo registro</h4>
                             </div>
                             <div class="modal-body">
                                 <!-- Row -->
                                 <div class="row">
                                     <div class="col-lg-12">
                                             <div class="card-body p-t-20">
-                                                <form id="frm_update_can" name="frm_update_can">
+                                                <form id="frm_nuevo_pr" name="frm_nuevo_pr">
                                                     <div class="form-body">
-                                                        <h3 class="card-title">Backup CAN</h3>
+                                                        <h3 class="card-title">Prorrogados y Reprogramados</h3>
                                                         <hr>
-                                                        <div id="mensaje_can"></div>
+                                                        <div id="mensaje_dbprod"></div>
                                                         <div class="row">
                                                             <div class="col-md-6">
                                                                 <div class="form-group has-success">
                                                                     <label class="control-label">Fecha</label>
                                                                     <div class="input-group">
-                                                                        <input type="text" class="form-control" placeholder="yyyy-mm-dd" data-date-format='yyyy-mm-dd' id="param_can_fecha_edit" name="param_can_fecha_edit">
+                                                                        <input type="text" class="form-control" style="text-align: right;" placeholder="yyyy-mm-dd" data-date-format='yyyy-mm-dd' value="<?php echo date('Y-m-d',strtotime("-1 days")); ?>" id="param_fecha_pr" name="param_fecha_pr">
                                                                         <span class="input-group-addon"><i class="icon-calender"></i></span> 
                                                                     </div>
-                                                                    <small class="form-control-feedback"> Usar fecha de backup.</small>
+                                                                    <small class="form-control-feedback"> Usar fecha de cadena.</small>
                                                                 </div>
                                                             </div>
+                                                            
                                                         </div>
+
+                                                        <h5>Reprogramados</h5>
+                                                        <hr>
                                                         <div class="row">
-                                                            <div class="col-md-12">    
-                                                                <div class="form-group has-success">
-                                                                    <label class="control-label">Nombre</label>
+                                                            <div class="col-md-3">
+                                                                <div class="form-group">
+                                                                    <label class="control-label">PJNGY579</label>
                                                                     <div class="input-group">
-                                                                        <input type="text" class="form-control" 
-                                                                         id="param_can_nombre_edit" name="param_can_nombre_edit">
-                                                                        
+                                                                        <input type="text" class="form-control pull-right" id="param_PJNGY579" name="param_PJNGY579" value="00:00:00" style="text-align: right;">
                                                                     </div>
-                                                                    <small class="form-control-feedback"> Completar nombre.</small>
+                                                                    
                                                                 </div>
                                                             </div>
+                                                            <div class="col-md-3">
+                                                                <div class="form-group">
+                                                                    <label class="control-label">PJNGY580</label>
+                                                                    <div class="input-group">
+                                                                        <input type="text" class="form-control" id="param_PJNGY580" name="param_PJNGY580" value="00:00:00"  style="text-align: right;">
+                                                                    </div>
+                                                                    
+                                                                </div>
+                                                            </div>
+                                                            
                                                         </div>
+                                                         <h5>Prorrogados</h5>
+                                                        <hr>
                                                         <div class="row">
-                                                            <div class="col-md-6">
+                                                            <div class="col-md-3">
                                                                 <div class="form-group">
-                                                                    <label class="control-label">Tamaño compreso</label>
+                                                                    <label class="control-label">PJNGY526</label>
                                                                     <div class="input-group">
-                                                                        <input type="number" class="form-control" id="param_can_com_edit" name="param_can_com_edit">
+                                                                        <input type="text" class="form-control" id="param_PJNGY526" name="param_PJNGY526" value="00:00:00" style="text-align: right;">
                                                                     </div>
-                                                                    <small class="form-control-feedback pull-right">Tamaño en bytes</small>
+                                                                    
                                                                 </div>
                                                             </div>
-                                                            <div class="col-md-6">
+                                                            <div class="col-md-3">
                                                                 <div class="form-group">
-                                                                    <label class="control-label">Tamaño expandido</label>
+                                                                    <label class="control-label">PJNGY549</label>
                                                                     <div class="input-group">
-                                                                        <input type="number" class="form-control" id="param_can_sincom_edit" name="param_can_sincom_edit" >
+                                                                        <input type="text" class="form-control" id="param_PJNGY549" name="param_PJNGY549" value="00:00:00" style="text-align: right;">
                                                                     </div>
-                                                                    <small class="form-control-feedback pull-right">Tamaño en bytes</small>
+                                                                    
                                                                 </div>
                                                             </div>
+                                                           
                                                         </div>
+
+                                                    
                                                     
                                                     </div>
-                                                    <input type="hidden" id="param_can_id_edit" name="param_can_id_edit">
+                                                    <!-- Datos de Operación -->
+                                                    <input type="hidden" name="grupo" id="grupo" value="Bitácoras">
+                                                    <input type="hidden" name="tarea" id="tarea" value="Bitácora de postcadena - Prorrogados y Reprogramados">
+                                                    <input type="hidden" name="user" id="user" value="<?php echo $userData['email']; ?>">
+                                                    <!-- /. End Datos de Operación -->
                                                 </form>
                                             </div>
                                     </div>
@@ -931,83 +1514,196 @@
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">Cerrar</button>
-                                <button type="button" class="btn btn-info waves-effect waves-light" id="update_can">Actualizar</button>
+                                <button type="button" class="btn btn-info waves-effect waves-light" id="nuevo_pr">Guardar</button>
                             </div>
                         </div>
                     </div>
                 </div>
                 <!-- ============================================================== -->
-                <!-- End Modal editar registro editar_can-->
+                <!-- End Modal nuevo registro pr-->
                 <!-- ============================================================== -->
 
+
+
                 <!-- ============================================================== -->
-                <!-- Modal editar registro editar_prd -->
+                <!-- Modal nuevo registro carteras3 -->
                 <!-- ============================================================== -->
-                <div id="modal-editar_prd" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
-                    <div class="modal-dialog">
+                <div id="modal-nuevo_carteras3" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+                    <div class="modal-dialog modal-lg">
                         <div class="modal-content">
                             <div class="modal-header">
                                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                                <h4 class="modal-title">Editar registro</h4>
+                                <h4 class="modal-title">Nuevo registro</h4>
                             </div>
                             <div class="modal-body">
                                 <!-- Row -->
                                 <div class="row">
                                     <div class="col-lg-12">
                                             <div class="card-body p-t-20">
-                                                <form id="frm_update_prd" name="frm_update_prd">
+                                                <form id="frm_nuevo_carteras3" name="frm_nuevo_carteras3">
                                                     <div class="form-body">
-                                                        <h3 class="card-title">Backup PRD</h3>
+                                                        <h3 class="card-title">Carteras 3</h3>
                                                         <hr>
-                                                        <div id="mensaje_prd"></div>
+                                                        <div id="mensaje_dbprod"></div>
                                                         <div class="row">
                                                             <div class="col-md-6">
                                                                 <div class="form-group has-success">
                                                                     <label class="control-label">Fecha</label>
                                                                     <div class="input-group">
-                                                                        <input type="text" class="form-control" placeholder="yyyy-mm-dd" data-date-format='yyyy-mm-dd' id="param_prd_fecha_edit" name="param_prd_fecha_edit">
+                                                                        <input type="text" class="form-control" style="text-align: right;" placeholder="yyyy-mm-dd" data-date-format='yyyy-mm-dd' value="<?php echo date('Y-m-d',strtotime("-1 days")); ?>" id="param_fecha_carteras3" name="param_fecha_carteras3">
                                                                         <span class="input-group-addon"><i class="icon-calender"></i></span> 
                                                                     </div>
-                                                                    <small class="form-control-feedback"> Usar fecha de backup.</small>
+                                                                    <small class="form-control-feedback"> Usar fecha de cadena.</small>
+                                                                </div>
+                                                            </div>
+                                                           
+                                                        </div>
+
+                                                        <div class="row">
+                                                            <div class="col-md-3">
+                                                                <div class="form-group">
+                                                                    <label class="control-label">PKNGY251</label>
+                                                                    <div class="input-group">
+                                                                        <input type="text" class="form-control pull-right" id="param_PKNGY251" name="param_PKNGY251" value="00:00:00" style="text-align: right;">
+                                                                    </div>
+                                                                    
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-3">
+                                                                <div class="form-group">
+                                                                    <label class="control-label">PKNGY252</label>
+                                                                    <div class="input-group">
+                                                                        <input type="text" class="form-control" id="param_PKNGY252" name="param_PKNGY252" value="00:00:00"  style="text-align: right;">
+                                                                    </div>
+                                                                    
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-3">
+                                                                <div class="form-group">
+                                                                    <label class="control-label">PKNGY253</label>
+                                                                    <div class="input-group">
+                                                                        <input type="text" class="form-control" id="param_PKNGY253" name="param_PKNGY253" value="00:00:00"  style="text-align: right;">
+                                                                    </div>
+                                                                    
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-3">
+                                                                <div class="form-group">
+                                                                    <label class="control-label">PJNGX516</label>
+                                                                    <div class="input-group">
+                                                                        <input type="text" class="form-control" id="param_PJNGX516" name="param_PJNGX516" value="00:00:00"  style="text-align: right;">
+                                                                    </div>
+                                                                    
                                                                 </div>
                                                             </div>
                                                         </div>
+
                                                         <div class="row">
-                                                            <div class="col-md-12">    
-                                                                <div class="form-group has-success">
-                                                                    <label class="control-label">Nombre</label>
+                                                            <div class="col-md-3">
+                                                                <div class="form-group">
+                                                                    <label class="control-label">PPJNGX446</label>
                                                                     <div class="input-group">
-                                                                        <input type="text" class="form-control" 
-                                                                        id="param_prd_nombre_edit" name="param_prd_nombre_edit">
-                                                                        
+                                                                        <input type="text" class="form-control" id="param_PJNGX446" name="param_PJNGX446" value="00:00:00" style="text-align: right;">
                                                                     </div>
-                                                                    <small class="form-control-feedback"> Completar nombre.</small>
+                                                                    
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-3">
+                                                                <div class="form-group">
+                                                                    <label class="control-label">PJNGX423</label>
+                                                                    <div class="input-group">
+                                                                        <input type="text" class="form-control" id="param_PJNGX423" name="param_PJNGX423" value="00:00:00" style="text-align: right;">
+                                                                    </div>
+                                                                    
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-3">
+                                                                <div class="form-group">
+                                                                    <label class="control-label">PJNGX395</label>
+                                                                    <div class="input-group">
+                                                                        <input type="text" class="form-control" id="param_PJNGX395" name="param_PJNGX395" value="00:00:00" style="text-align: right;">
+                                                                    </div>
+                                                                    
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-3">
+                                                                <div class="form-group">
+                                                                    <label class="control-label">PJNGY269</label>
+                                                                    <div class="input-group">
+                                                                        <input type="text" class="form-control" id="param_PJNGY269" name="param_PJNGY269" value="00:00:00" style="text-align: right;">
+                                                                    </div>
+                                                                    
                                                                 </div>
                                                             </div>
                                                         </div>
+
                                                         <div class="row">
-                                                            <div class="col-md-6">
+                                                            <div class="col-md-3">
                                                                 <div class="form-group">
-                                                                    <label class="control-label">Tamaño compreso</label>
+                                                                    <label class="control-label">PJNGX586</label>
                                                                     <div class="input-group">
-                                                                        <input type="number" class="form-control" id="param_prd_com_edit" name="param_prd_com_edit">
+                                                                        <input type="text" class="form-control" id="param_PJNGX586" name="param_PJNGX586" value="00:00:00" style="text-align: right;">
                                                                     </div>
-                                                                    <small class="form-control-feedback pull-right">Tamaño en bytes</small>
+                                                                    
                                                                 </div>
                                                             </div>
-                                                            <div class="col-md-6">
+                                                            <div class="col-md-3">
                                                                 <div class="form-group">
-                                                                    <label class="control-label">Tamaño expandido</label>
+                                                                    <label class="control-label">PJNGX582</label>
                                                                     <div class="input-group">
-                                                                        <input type="number" class="form-control" id="param_prd_sincom_edit" name="param_prd_sincom_edit" >
+                                                                        <input type="text" class="form-control" id="param_PJNGX582" name="param_PJNGX582" value="00:00:00"  style="text-align: right;">
                                                                     </div>
-                                                                    <small class="form-control-feedback pull-right">Tamaño en bytes</small>
+                                                                    
                                                                 </div>
                                                             </div>
+                                                            <div class="col-md-3">
+                                                                <div class="form-group">
+                                                                    <label class="control-label">PJNGX483</label>
+                                                                    <div class="input-group">
+                                                                        <input type="text" class="form-control" id="param_PJNGX483" name="param_PJNGX483"  value="00:00:00" style="text-align: right;">
+                                                                    </div>
+                                                                    
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-3">
+                                                                <div class="form-group">
+                                                                    <label class="control-label">PJNGX613</label>
+                                                                    <div class="input-group">
+                                                                        <input type="text" class="form-control" id="param_PJNGX613" name="param_PJNGX613"  value="00:00:00"  style="text-align: right;">
+                                                                    </div>
+                                                                    
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="row">
+                                                            <div class="col-md-3">
+                                                                <div class="form-group">
+                                                                    <label class="control-label">PJNGX641</label>
+                                                                    <div class="input-group">
+                                                                        <input type="text" class="form-control" id="param_PJNGX641" name="param_PJNGX641" value="00:00:00" style="text-align: right;">
+                                                                    </div>
+                                                                    
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-3">
+                                                                <div class="form-group">
+                                                                    <label class="control-label">PJNGX632</label>
+                                                                    <div class="input-group">
+                                                                        <input type="text" class="form-control" id="param_PJNGX632" name="param_PJNGX632"  value="00:00:00" style="text-align: right;">
+                                                                    </div>
+                                                                    
+                                                                </div>
+                                                            </div>
+                                                            
                                                         </div>
                                                     
                                                     </div>
-                                                    <input type="hidden" id="param_prd_id_edit" name="param_prd_id_edit">
+                                                    <!-- Datos de Operación -->
+                                                    <input type="hidden" name="grupo" id="grupo" value="Bitácoras">
+                                                    <input type="hidden" name="tarea" id="tarea" value="Bitácora de postcadena - Carteras 3">
+                                                    <input type="hidden" name="user" id="user" value="<?php echo $userData['email']; ?>">
+                                                    <!-- /. End Datos de Operación -->
                                                 </form>
                                             </div>
                                     </div>
@@ -1016,191 +1712,16 @@
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">Cerrar</button>
-                                <button type="button" class="btn btn-info waves-effect waves-light" id="update_prd">Actualizar</button>
+                                <button type="button" class="btn btn-info waves-effect waves-light" id="nuevo_carteras3">Guardar</button>
                             </div>
                         </div>
                     </div>
                 </div>
                 <!-- ============================================================== -->
-                <!-- End Modal editar registro editar_prd-->
+                <!-- End Modal nuevo registro carteras3-->
                 <!-- ============================================================== -->
 
 
-                <!-- ============================================================== -->
-                <!-- Modal editar registro editar_delquda2 -->
-                <!-- ============================================================== -->
-                <div id="modal-editar_delquda2" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                                <h4 class="modal-title">Editar registro</h4>
-                            </div>
-                            <div class="modal-body">
-                                <!-- Row -->
-                                <div class="row">
-                                    <div class="col-lg-12">
-                                            <div class="card-body p-t-20">
-                                                <form id="frm_update_delquda2" name="frm_update_delquda2">
-                                                    <div class="form-body">
-                                                        <h3 class="card-title">Backup delquda2</h3>
-                                                        <hr>
-                                                        <div id="mensaje_delquda2"></div>
-                                                        <div class="row">
-                                                            <div class="col-md-6">
-                                                                <div class="form-group has-success">
-                                                                    <label class="control-label">Fecha</label>
-                                                                    <div class="input-group">
-                                                                        <input type="text" class="form-control" placeholder="yyyy-mm-dd" data-date-format='yyyy-mm-dd' id="param_delquda2_fecha_edit" name="param_delquda2_fecha_edit">
-                                                                       
-                                                                    </div>
-                                                                    <small class="form-control-feedback"> 1 día antes de backup.</small>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <!-- delquda2 -->
-                                                        <h5 class="card-title">delquda2</h5>
-                                                        <hr>
-                                                        <div class="row">
-                                                            <div class="col-md-12">    
-                                                                <div class="form-group has-success">
-                                                                    <label class="control-label">Nombre</label>
-                                                                    <div class="input-group">
-                                                                        <input type="text" class="form-control" 
-                                                                         id="param_delquda2_nombre_edit" name="param_delquda2_nombre_edit">
-                                                                        
-                                                                    </div>
-                                                                    <small class="form-control-feedback"> Nombre completado automáticamente</small>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="row">
-                                                            <div class="col-md-6">
-                                                                <div class="form-group">
-                                                                    <label class="control-label">Tamaño compreso</label>
-                                                                    <div class="input-group">
-                                                                        <input type="number" class="form-control" id="param_delquda2_com_edit" name="param_delquda2_com_edit">
-                                                                    </div>
-                                                                    <small class="form-control-feedback pull-right">Tamaño en bytes</small>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-md-6">
-                                                                <div class="form-group">
-                                                                    <label class="control-label">Tamaño expandido</label>
-                                                                    <div class="input-group">
-                                                                        <input type="number" class="form-control" id="param_delquda2_sincom_edit" name="param_delquda2_sincom_edit" >
-                                                                    </div>
-                                                                    <small class="form-control-feedback pull-right">Tamaño en bytes</small>
-                                                                </div>
-                                                            </div>
-                                                        </div>            
-                                                    </div>
-                                                    <input type="hidden" id="param_delquda2_id_edit" name="param_delquda2_id_edit">
-                                                </form>
-                                            </div>
-                                    </div>
-                                </div>
-                                <!-- Row -->
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">Cerrar</button>
-                                <button type="button" class="btn btn-info waves-effect waves-light" id="update_delquda2">Actualizar</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- ============================================================== -->
-                <!-- End Modal editar registro editar_delquda2-->
-                <!-- ============================================================== -->
-
-
-
-                <!-- ============================================================== -->
-                <!-- Modal editar registro editar_rcvry -->
-                <!-- ============================================================== -->
-                <div id="modal-editar_rcvry" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                                <h4 class="modal-title">Editar registro</h4>
-                            </div>
-                            <div class="modal-body">
-                                <!-- Row -->
-                                <div class="row">
-                                    <div class="col-lg-12">
-                                            <div class="card-body p-t-20">
-                                                <form id="frm_update_rcvry" name="frm_update_rcvry">
-                                                    <div class="form-body">
-                                                        <h3 class="card-title">Backup rcvry</h3>
-                                                        <hr>
-                                                        <div id="mensaje_rcvry"></div>
-                                                        <div class="row">
-                                                            <div class="col-md-6">
-                                                                <div class="form-group has-success">
-                                                                    <label class="control-label">Fecha</label>
-                                                                    <div class="input-group">
-                                                                        <input type="text" class="form-control" placeholder="yyyy-mm-dd" data-date-format='yyyy-mm-dd' id="param_rcvry_fecha_edit" name="param_rcvry_fecha_edit">
-                                                                       
-                                                                    </div>
-                                                                    <small class="form-control-feedback"> 1 día antes de backup.</small>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <!-- rcvry -->
-                                                        <h5 class="card-title">rcvry</h5>
-                                                        <hr>
-                                                        <div class="row">
-                                                            <div class="col-md-12">    
-                                                                <div class="form-group has-success">
-                                                                    <label class="control-label">Nombre</label>
-                                                                    <div class="input-group">
-                                                                        <input type="text" class="form-control" 
-                                                                         id="param_rcvry_nombre_edit" name="param_rcvry_nombre_edit">
-                                                                        
-                                                                    </div>
-                                                                    <small class="form-control-feedback"> Nombre completado automáticamente</small>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="row">
-                                                            <div class="col-md-6">
-                                                                <div class="form-group">
-                                                                    <label class="control-label">Tamaño compreso</label>
-                                                                    <div class="input-group">
-                                                                        <input type="number" class="form-control" id="param_rcvry_com_edit" name="param_rcvry_com_edit">
-                                                                    </div>
-                                                                    <small class="form-control-feedback pull-right">Tamaño en bytes</small>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-md-6">
-                                                                <div class="form-group">
-                                                                    <label class="control-label">Tamaño expandido</label>
-                                                                    <div class="input-group">
-                                                                        <input type="number" class="form-control" id="param_rcvry_sincom_edit" name="param_rcvry_sincom_edit" >
-                                                                    </div>
-                                                                    <small class="form-control-feedback pull-right">Tamaño en bytes</small>
-                                                                </div>
-                                                            </div>
-                                                        </div>        
-                                                    </div>
-                                                    <input type="hidden" id="param_rcvry_id_edit" name="param_rcvry_id_edit">
-                                                </form>
-                                            </div>
-                                    </div>
-                                </div>
-                                <!-- Row -->
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">Cerrar</button>
-                                <button type="button" class="btn btn-info waves-effect waves-light" id="update_rcvry">Actualizar</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- ============================================================== -->
-                <!-- End Modal editar registro editar_rcvry-->
-                <!-- ============================================================== -->
 
 
 
@@ -1281,50 +1802,42 @@
     <script>
     
   
-    jQuery('#param_dbprod_fecha').datepicker({
+    jQuery('#param_fecha_tesoreria').datepicker({
         autoclose: true,
         todayHighlight: true
     });
 
-    jQuery('#param_dbprod_fecha_edit').datepicker({
+    jQuery('#param_fecha_contabilidad').datepicker({
         autoclose: true,
         todayHighlight: true
     });
 
-    jQuery('#param_can_fecha').datepicker({
+    jQuery('#param_fecha_anexos').datepicker({
         autoclose: true,
         todayHighlight: true
     });
 
-    jQuery('#param_can_fecha_edit').datepicker({
+    jQuery('#param_fecha_cyberfinancial').datepicker({
         autoclose: true,
         todayHighlight: true
     });
 
-    jQuery('#param_prd_fecha').datepicker({
+    jQuery('#param_fecha_creditos').datepicker({
         autoclose: true,
         todayHighlight: true
     });
 
-    jQuery('#param_prd_fecha_edit').datepicker({
+    jQuery('#param_fecha_pr').datepicker({
         autoclose: true,
         todayHighlight: true
     });
 
-    jQuery('#param_cyber_fecha').datepicker({
+    jQuery('#param_fecha_carteras3').datepicker({
         autoclose: true,
         todayHighlight: true
     });
 
-    jQuery('#param_cyber_fecha_edit').datepicker({
-        autoclose: true,
-        todayHighlight: true
-    });
-
-
-
-
-
+   
   
     
     </script>

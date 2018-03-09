@@ -57,7 +57,6 @@ function listar_tesoreria(){
 	});	
 }
 
-
 function listar_contabilidad(){
 	$.ajax({
 		type: 'POST',
@@ -74,7 +73,8 @@ function listar_contabilidad(){
 		      'aaSorting'	: [[0,'asc'] ],
 		      'info'        : true,
 		      'autoWidth'   : false,
-		      'pageLength'	: 25
+		      'pageLength'	: 16,
+		      "lengthMenu": [[16, 32, 48, -1], [16, 32, 48, "Todos"]]
 
 				});
 			$('#modal-contabilidad').modal('hide');  
@@ -102,7 +102,8 @@ function listar_anexos(){
 		      'aaSorting'	: [[0,'asc'] ],
 		      'info'        : true,
 		      'autoWidth'   : false,
-		      'pageLength'	: 25
+		      'pageLength'	: 10,
+		      "lengthMenu": [[10, 20, 30, -1], [10, 20, 30, "Todos"]]
 
 				});
 			$('#modal-anexos').modal('hide');  
@@ -130,7 +131,8 @@ function listar_cyberfinancial(){
 		      'aaSorting'	: [[0,'asc'] ],
 		      'info'        : true,
 		      'autoWidth'   : false,
-		      'pageLength'	: 25
+		      'pageLength'	: 15,
+		      "lengthMenu": [[15, 30, 45, -1], [15, 30, 45, "Todos"]]
 
 				});
 			$('#modal-cyberfinancial').modal('hide');  
@@ -158,7 +160,8 @@ function listar_creditos(){
 		      'aaSorting'	: [[0,'asc'] ],
 		      'info'        : true,
 		      'autoWidth'   : false,
-		      'pageLength'	: 25
+		      'pageLength'	: 18,
+		      "lengthMenu": [[18, 36, 54, -1], [18, 36, 54, "Todos"]]
 
 				});
 			$('#modal-creditos').modal('hide');  
@@ -186,7 +189,8 @@ function listar_pr(){
 		      'aaSorting'	: [[0,'asc'] ],
 		      'info'        : true,
 		      'autoWidth'   : false,
-		      'pageLength'	: 25
+		      'pageLength'	: 12,
+		      "lengthMenu": [[12, 36, 48, -1], [12, 36, 48, "Todos"]]
 
 				});
 			$('#modal-pr').modal('hide');  
@@ -214,7 +218,8 @@ function listar_carteras3(){
 		      'aaSorting'	: [[0,'asc'] ],
 		      'info'        : true,
 		      'autoWidth'   : false,
-		      'pageLength'	: 25
+		      'pageLength'	: 14,
+		      "lengthMenu": [[14, 28, 42, -1], [14, 28, 42, "Todos"]]
 
 				});
 			$('#modal-carteras3').modal('hide');  
@@ -325,8 +330,7 @@ $(function() {
 					$('#param_PBCPED2B').val("00:00:00");
 					$('#param_PBCPED2D').val("00:00:00");
 					$('#param_PBCPED2C').val("00:00:00");
-					$('#param_PBCPEMTA').val("00:00:00");
-					$('#param_PBCPEMTB').val("00:00:00");
+					
 
 
 					setTimeout(listar_contabilidad(),8000);
@@ -369,7 +373,8 @@ $(function() {
 					$('#param_PJNGY244').val("00:00:00");
 					$('#param_PJNGY242').val("00:00:00");
 					$('#param_PJNGY243').val("00:00:00");
-					
+					$('#param_PBCPEMTA').val("00:00:00");
+					$('#param_PBCPEMTB').val("00:00:00");
 
 					setTimeout(listar_anexos(),8000);
 					
@@ -446,7 +451,7 @@ $(function() {
 		            $("#mensaje_creditos").html('<div class="alert alert-success alert-dismissible"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button><h4><i class="icon fa fa-check"></i> Alert!</h4>Registro exitoso.</div>').show(2000).delay(3500).hide(200);
 		                        //window.location = "../index.php";
 		            $('#param_fecha_creditos').val(convertDate(todaysDate));
-					$('#param_PJNGY338').val("00:00:00");
+					$('#param_PJNGY338').val("");
 					$('#param_PJNGY238').val("00:00:00");
 					$('#param_PJNGY233').val("00:00:00");
 					$('#param_PJNGY234').val("00:00:00");
