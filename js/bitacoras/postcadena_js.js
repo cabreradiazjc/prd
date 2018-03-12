@@ -48,7 +48,7 @@ function listar_tesoreria(){
 		      "lengthMenu": [[17, 34, 51, -1], [17, 34, 51, "Todos"]]
 
 				});
-			$('#modal-tesoreria').modal('hide');  
+			$('#modal-nuevo_tesoreria').modal('hide');  
 
 		},
 		error: function(respuesta){
@@ -70,14 +70,14 @@ function listar_contabilidad(){
 		      'paging'      : true,
 		      'lengthChange': true,
 		      'searching'   : true,
-		      'aaSorting'	: [[0,'asc'] ],
+		      'aaSorting'	: [[0,'desc'] ],
 		      'info'        : true,
 		      'autoWidth'   : false,
 		      'pageLength'	: 16,
 		      "lengthMenu": [[16, 32, 48, -1], [16, 32, 48, "Todos"]]
 
 				});
-			$('#modal-contabilidad').modal('hide');  
+			$('#modal-nuevo_contabilidad').modal('hide');  
 
 		},
 		error: function(respuesta){
@@ -99,14 +99,14 @@ function listar_anexos(){
 		      'paging'      : true,
 		      'lengthChange': true,
 		      'searching'   : true,
-		      'aaSorting'	: [[0,'asc'] ],
+		      'aaSorting'	: [[0,'desc'] ],
 		      'info'        : true,
 		      'autoWidth'   : false,
 		      'pageLength'	: 10,
 		      "lengthMenu": [[10, 20, 30, -1], [10, 20, 30, "Todos"]]
 
 				});
-			$('#modal-anexos').modal('hide');  
+			$('#modal-nuevo_anexos').modal('hide');  
 
 		},
 		error: function(respuesta){
@@ -128,14 +128,14 @@ function listar_cyberfinancial(){
 		      'paging'      : true,
 		      'lengthChange': true,
 		      'searching'   : true,
-		      'aaSorting'	: [[0,'asc'] ],
+		      'aaSorting'	: [[0,'desc'] ],
 		      'info'        : true,
 		      'autoWidth'   : false,
 		      'pageLength'	: 15,
 		      "lengthMenu": [[15, 30, 45, -1], [15, 30, 45, "Todos"]]
 
 				});
-			$('#modal-cyberfinancial').modal('hide');  
+			$('#modal-nuevo_cyberfinancial').modal('hide');  
 
 		},
 		error: function(respuesta){
@@ -157,14 +157,14 @@ function listar_creditos(){
 		      'paging'      : true,
 		      'lengthChange': true,
 		      'searching'   : true,
-		      'aaSorting'	: [[0,'asc'] ],
+		      'aaSorting'	: [[0,'desc'] ],
 		      'info'        : true,
 		      'autoWidth'   : false,
 		      'pageLength'	: 18,
 		      "lengthMenu": [[18, 36, 54, -1], [18, 36, 54, "Todos"]]
 
 				});
-			$('#modal-creditos').modal('hide');  
+			$('#modal-nuevo_creditos').modal('hide');  
 
 		},
 		error: function(respuesta){
@@ -186,14 +186,14 @@ function listar_pr(){
 		      'paging'      : true,
 		      'lengthChange': true,
 		      'searching'   : true,
-		      'aaSorting'	: [[0,'asc'] ],
+		      'aaSorting'	: [[0,'desc'] ],
 		      'info'        : true,
 		      'autoWidth'   : false,
 		      'pageLength'	: 12,
 		      "lengthMenu": [[12, 36, 48, -1], [12, 36, 48, "Todos"]]
 
 				});
-			$('#modal-pr').modal('hide');  
+			$('#modal-nuevo_pr').modal('hide');  
 
 		},
 		error: function(respuesta){
@@ -215,14 +215,14 @@ function listar_carteras3(){
 		      'paging'      : true,
 		      'lengthChange': true,
 		      'searching'   : true,
-		      'aaSorting'	: [[0,'asc'] ],
+		      'aaSorting'	: [[0,'desc'] ],
 		      'info'        : true,
 		      'autoWidth'   : false,
-		      'pageLength'	: 14,
-		      "lengthMenu": [[14, 28, 42, -1], [14, 28, 42, "Todos"]]
+		      'pageLength'	: 15,
+		      "lengthMenu": [[15, 30, 45, -1], [15, 30, 45, "Todos"]]
 
 				});
-			$('#modal-carteras3').modal('hide');  
+			$('#modal-nuevo_carteras3').modal('hide');  
 
 		},
 		error: function(respuesta){
@@ -257,14 +257,17 @@ $(function() {
 
 		if (fecha_tesoreria.length == '' ) {            
             $("#mensaje_tesoreria").html(
-            	'<div class="alert alert-danger alert-dismissible"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button><h4><i class="icon fa fa-ban"></i> Alert!</h4> Debe llenar los campos necesarios</div>').show(2000).delay(3500).hide(200);
+            	'<div class="alert alert-warning alert-dismissible">'+
+            	'<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>'+
+            	'<h3 class="text-warning"><i class="fa fa-exclamation-triangle"></i> Warning</h3>'+
+            	'Debe llenar los campos necesarios</div>').show(200).delay(3500).hide(200);
         } else {
         	$.ajax({
 		        type: 'POST',        
-		        data: $('#frm_tesoreria').serialize()+'&param_opcion=nuevo_tesoreria',
+		        data: $('#frm_nuevo_tesoreria').serialize()+'&param_opcion=nuevo_tesoreria',
 		        url: '../../controller/bitacoras/postcadena_controller.php',
 		        success: function(data){
-		            $("#mensaje_tesoreria").html('<div class="alert alert-success alert-dismissible"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button><h4><i class="icon fa fa-check"></i> Alert!</h4>Registro exitoso.</div>').show(2000).delay(3500).hide(200);
+		            swal("Good job!", "¡Guardado satisfactoriamente!", "success");
 		                        //window.location = "../index.php";
 		            $('#param_fecha_tesoreria').val(convertDate(todaysDate));
 					$('#param_balancenormativo').val("00:00:00");
@@ -285,7 +288,7 @@ $(function() {
 					$('#param_PBCPEE6B').val("00:00:00");
 					$('#param_PBCPEE6C').val("00:00:00");
 
-					setTimeout(listar_tesoreria(),8000);
+					setTimeout(listar_tesoreria(),2000);
 					
 
 		        },
@@ -305,14 +308,17 @@ $(function() {
 
 		if (fecha_contabilidad.length == '' ) {            
             $("#mensaje_contabilidad").html(
-            	'<div class="alert alert-danger alert-dismissible"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button><h4><i class="icon fa fa-ban"></i> Alert!</h4> Debe llenar los campos necesarios</div>').show(2000).delay(3500).hide(200);
+            	'<div class="alert alert-warning alert-dismissible">'+
+            	'<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>'+
+            	'<h3 class="text-warning"><i class="fa fa-exclamation-triangle"></i> Warning</h3>'+
+            	'Debe llenar los campos necesarios</div>').show(200).delay(3500).hide(200);
         } else {
         	$.ajax({
 		        type: 'POST',        
-		        data: $('#frm_contabilidad').serialize()+'&param_opcion=nuevo_contabilidad',
+		        data: $('#frm_nuevo_contabilidad').serialize()+'&param_opcion=nuevo_contabilidad',
 		        url: '../../controller/bitacoras/postcadena_controller.php',
 		        success: function(data){
-		            $("#mensaje_contabilidad").html('<div class="alert alert-success alert-dismissible"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button><h4><i class="icon fa fa-check"></i> Alert!</h4>Registro exitoso.</div>').show(2000).delay(3500).hide(200);
+		            swal("Good job!", "¡Guardado satisfactoriamente!", "success");
 		                        //window.location = "../index.php";
 		            $('#param_fecha_contabilidad').val(convertDate(todaysDate));
 					$('#param_PBCPED1A').val("00:00:00");
@@ -333,7 +339,7 @@ $(function() {
 					
 
 
-					setTimeout(listar_contabilidad(),8000);
+					setTimeout(listar_contabilidad(),2000);
 					
 
 		        },
@@ -354,14 +360,17 @@ $(function() {
 
 		if (fecha_anexos.length == '' ) {            
             $("#mensaje_anexos").html(
-            	'<div class="alert alert-danger alert-dismissible"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button><h4><i class="icon fa fa-ban"></i> Alert!</h4> Debe llenar los campos necesarios</div>').show(2000).delay(3500).hide(200);
+            	'<div class="alert alert-warning alert-dismissible">'+
+            	'<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>'+
+            	'<h3 class="text-warning"><i class="fa fa-exclamation-triangle"></i> Warning</h3>'+
+            	'Debe llenar los campos necesarios</div>').show(200).delay(3500).hide(200);
         } else {
         	$.ajax({
 		        type: 'POST',        
-		        data: $('#frm_anexos').serialize()+'&param_opcion=nuevo_anexos',
+		        data: $('#frm_nuevo_anexos').serialize()+'&param_opcion=nuevo_anexos',
 		        url: '../../controller/bitacoras/postcadena_controller.php',
 		        success: function(data){
-		            $("#mensaje_anexos").html('<div class="alert alert-success alert-dismissible"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button><h4><i class="icon fa fa-check"></i> Alert!</h4>Registro exitoso.</div>').show(2000).delay(3500).hide(200);
+		            swal("Good job!", "¡Guardado satisfactoriamente!", "success");
 		                        //window.location = "../index.php";
 
 		            $('#param_fecha_anexos').val(convertDate(todaysDate));
@@ -376,7 +385,7 @@ $(function() {
 					$('#param_PBCPEMTA').val("00:00:00");
 					$('#param_PBCPEMTB').val("00:00:00");
 
-					setTimeout(listar_anexos(),8000);
+					setTimeout(listar_anexos(),2000);
 					
 
 		        },
@@ -396,14 +405,17 @@ $(function() {
 
 		if (fecha_cyberfinancial.length == '' ) {            
             $("#mensaje_cyberfinancial").html(
-            	'<div class="alert alert-danger alert-dismissible"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button><h4><i class="icon fa fa-ban"></i> Alert!</h4> Debe llenar los campos necesarios</div>').show(2000).delay(3500).hide(200);
+            	'<div class="alert alert-warning alert-dismissible">'+
+            	'<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>'+
+            	'<h3 class="text-warning"><i class="fa fa-exclamation-triangle"></i> Warning</h3>'+
+            	'Debe llenar los campos necesarios</div>').show(200).delay(3500).hide(200);
         } else {
         	$.ajax({
 		        type: 'POST',        
-		        data: $('#frm_cyberfinancial').serialize()+'&param_opcion=nuevo_cyberfinancial',
+		        data: $('#frm_nuevo_cyberfinancial').serialize()+'&param_opcion=nuevo_cyberfinancial',
 		        url: '../../controller/bitacoras/postcadena_controller.php',
 		        success: function(data){
-		            $("#mensaje_cyberfinancial").html('<div class="alert alert-success alert-dismissible"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button><h4><i class="icon fa fa-check"></i> Alert!</h4>Registro exitoso.</div>').show(2000).delay(3500).hide(200);
+		            swal("Good job!", "¡Guardado satisfactoriamente!", "success");
 		                        //window.location = "../index.php";
 		            $('#param_fecha_cyberfinancial').val(convertDate(todaysDate));
 					$('#param_PJNGY729').val("00:00:00");
@@ -422,7 +434,7 @@ $(function() {
 					$('#param_PJNGY760').val("00:00:00");
 					$('#param_PJNGY766').val("00:00:00");
 
-					setTimeout(listar_cyberfinancial(),8000);
+					setTimeout(listar_cyberfinancial(),2000);
 					
 
 		        },
@@ -441,14 +453,17 @@ $(function() {
 
 		if (fecha_creditos.length == '' ) {            
             $("#mensaje_creditos").html(
-            	'<div class="alert alert-danger alert-dismissible"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button><h4><i class="icon fa fa-ban"></i> Alert!</h4> Debe llenar los campos necesarios</div>').show(2000).delay(3500).hide(200);
+            	'<div class="alert alert-warning alert-dismissible">'+
+            	'<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>'+
+            	'<h3 class="text-warning"><i class="fa fa-exclamation-triangle"></i> Warning</h3>'+
+            	'Debe llenar los campos necesarios</div>').show(200).delay(3500).hide(200);
         } else {
         	$.ajax({
 		        type: 'POST',        
-		        data: $('#frm_creditos').serialize()+'&param_opcion=nuevo_creditos',
+		        data: $('#frm_nuevo_creditos').serialize()+'&param_opcion=nuevo_creditos',
 		        url: '../../controller/bitacoras/postcadena_controller.php',
 		        success: function(data){
-		            $("#mensaje_creditos").html('<div class="alert alert-success alert-dismissible"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button><h4><i class="icon fa fa-check"></i> Alert!</h4>Registro exitoso.</div>').show(2000).delay(3500).hide(200);
+		            swal("Good job!", "¡Guardado satisfactoriamente!", "success");
 		                        //window.location = "../index.php";
 		            $('#param_fecha_creditos').val(convertDate(todaysDate));
 					$('#param_PJNGY338').val("");
@@ -458,7 +473,7 @@ $(function() {
 					
 
 
-					setTimeout(listar_creditos(),8000);
+					setTimeout(listar_creditos(),2000);
 					
 
 		        },
@@ -477,14 +492,17 @@ $(function() {
 
 		if (fecha_pr.length == '' ) {            
             $("#mensaje_pr").html(
-            	'<div class="alert alert-danger alert-dismissible"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button><h4><i class="icon fa fa-ban"></i> Alert!</h4> Debe llenar los campos necesarios</div>').show(2000).delay(3500).hide(200);
+            	'<div class="alert alert-warning alert-dismissible">'+
+            	'<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>'+
+            	'<h3 class="text-warning"><i class="fa fa-exclamation-triangle"></i> Warning</h3>'+
+            	'Debe llenar los campos necesarios</div>').show(200).delay(3500).hide(200);
         } else {
         	$.ajax({
 		        type: 'POST',        
-		        data: $('#frm_pr').serialize()+'&param_opcion=nuevo_pr',
+		        data: $('#frm_nuevo_pr').serialize()+'&param_opcion=nuevo_pr',
 		        url: '../../controller/bitacoras/postcadena_controller.php',
 		        success: function(data){
-		            $("#mensaje_pr").html('<div class="alert alert-success alert-dismissible"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button><h4><i class="icon fa fa-check"></i> Alert!</h4>Registro exitoso.</div>').show(2000).delay(3500).hide(200);
+		            swal("Good job!", "¡Guardado satisfactoriamente!", "success");
 		                        //window.location = "../index.php";
 		            $('#param_fecha_pr').val(convertDate(todaysDate));
 					$('#param_PJNGY526').val("00:00:00");
@@ -494,7 +512,7 @@ $(function() {
 					
 
 
-					setTimeout(listar_pr(),8000);
+					setTimeout(listar_pr(),2000);
 					
 
 		        },
@@ -513,14 +531,17 @@ $(function() {
 
 		if (fecha_carteras3.length == '' ) {            
             $("#mensaje_carteras3").html(
-            	'<div class="alert alert-danger alert-dismissible"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button><h4><i class="icon fa fa-ban"></i> Alert!</h4> Debe llenar los campos necesarios</div>').show(2000).delay(3500).hide(200);
+            	'<div class="alert alert-warning alert-dismissible">'+
+            	'<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>'+
+            	'<h3 class="text-warning"><i class="fa fa-exclamation-triangle"></i> Warning</h3>'+
+            	'Debe llenar los campos necesarios</div>').show(200).delay(3500).hide(200);
         } else {
         	$.ajax({
 		        type: 'POST',        
-		        data: $('#frm_carteras3').serialize()+'&param_opcion=nuevo_carteras3',
+		        data: $('#frm_nuevo_carteras3').serialize()+'&param_opcion=nuevo_carteras3',
 		        url: '../../controller/bitacoras/postcadena_controller.php',
 		        success: function(data){
-		            $("#mensaje_carteras3").html('<div class="alert alert-success alert-dismissible"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button><h4><i class="icon fa fa-check"></i> Alert!</h4>Registro exitoso.</div>').show(2000).delay(3500).hide(200);
+		            swal("Good job!", "¡Guardado satisfactoriamente!", "success");
 		                        //window.location = "../index.php";
 		            $('#param_fecha_carteras3').val(convertDate(todaysDate));
 					$('#param_PKNGY251').val("00:00:00");
@@ -538,7 +559,7 @@ $(function() {
 					$('#param_PJNGX641').val("00:00:00");
 					$('#param_PJNGX632').val("00:00:00");
 
-					setTimeout(listar_carteras3(),8000);
+					setTimeout(listar_carteras3(),2000);
 					
 
 		        },
@@ -549,12 +570,6 @@ $(function() {
         }
 		
 	});
-
-
-	
-	
-
-
 
 
 

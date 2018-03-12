@@ -301,9 +301,24 @@ class Dashboard_model{
 	}
 
 
-     function isUpdated() {
 
-     	$limitUpdated = 7;
+	function prepararConsultaUpdated($opcion,$hoy) 
+
+	{
+		$opcion = "";
+		$consultaSql = "call sp_bitacoras_updated(";
+		$consultaSql.="'".$opcion."',";
+		$consultaSql.="'".$hoy."')";
+		//echo $consultaSql;	
+		$this->result = mysqli_query($this->conexion,$consultaSql);
+    }
+
+
+
+
+    function isUpdated() {
+
+     	/*$limitUpdated = 7;
     	$this->prepararConsultaUsuario('opc_isUpdated');    	
     	while($row = mysqli_fetch_row($this->result)){
 
@@ -317,7 +332,84 @@ class Dashboard_model{
     		}
     		
 			
+		}*/
+		$limitUpdated = 5;
+		$dia = "";
+		$hoy = "";
+		$hoy = date('N',strtotime("0 days"));
+		//echo $hoy;
+		$dia = date('Y-m-d',strtotime("0 days"));
+		//echo $dia;
+
+
+		if (
+			$dia =='2018-03-28' or 
+			$dia =='2018-03-29' or
+			$dia =='2018-05-01' or
+			$dia =='2018-06-29' 
+		) {
+			$hoy = 'feriado';
+				
 		}
+
+
+
+		switch($hoy){
+
+			case "7";
+				
+				$this->prepararConsultaUpdated('','7');
+				while($row = mysqli_fetch_row($this->result)){
+		    		if ($row[0]==$limitUpdated) {
+		    			echo '1';
+		    		}else {
+		    			echo '0';
+		    		}		
+				}
+				break;
+
+			case "1";
+				$this->prepararConsultaUpdated('','1');
+				while($row = mysqli_fetch_row($this->result)){
+		    		if ($row[0]==$limitUpdated) {
+		    			echo '1';
+		    		}else {
+		    			echo '0';
+		    		}		
+				}
+				break;
+			case "2";
+				$this->prepararConsultaUpdated('','2');
+				while($row = mysqli_fetch_row($this->result)){
+		    		if ($row[0]==$limitUpdated) {
+		    			echo '1';
+		    		}else {
+		    			echo '0';
+		    		}		
+				}
+				break;
+			case "feriado";
+				$this->prepararConsultaUpdated('','feriado');
+				while($row = mysqli_fetch_row($this->result)){
+		    		if ($row[0]==$limitUpdated) {
+		    			echo '1';
+		    		}else {
+		    			echo '0';
+		    		}		
+				}
+				break;
+			default;
+				$this->prepararConsultaUpdated('','0');
+				while($row = mysqli_fetch_row($this->result)){
+		    		if ($row[0]==$limitUpdated) {
+		    			echo '1';
+		    		}else {
+		    			echo '0';
+		    		}		
+				}
+				break;
+			}
+
 	}
 
 

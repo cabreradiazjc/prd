@@ -136,11 +136,7 @@ if (isset($_POST['param_PBCPED2D']))
 if (isset($_POST['param_PBCPED2C']))
     $param['param_PBCPED2C'] = $_POST['param_PBCPED2C']; 
 
-if (isset($_POST['param_PBCPEMTA']))
-    $param['param_PBCPEMTA'] = $_POST['param_PBCPEMTA']; 
 
-if (isset($_POST['param_PBCPEMTB']))
-    $param['param_PBCPEMTB'] = $_POST['param_PBCPEMTB']; 
 
 
 
@@ -150,6 +146,12 @@ if (isset($_POST['param_PBCPEMTB']))
 
 if (isset($_POST['param_fecha_anexos']))
     $param['param_fecha_anexos'] = $_POST['param_fecha_anexos']; 
+
+if (isset($_POST['param_PBCPEMTA']))
+    $param['param_PBCPEMTA'] = $_POST['param_PBCPEMTA']; 
+
+if (isset($_POST['param_PBCPEMTB']))
+    $param['param_PBCPEMTB'] = $_POST['param_PBCPEMTB']; 
 
 
 if (isset($_POST['param_PJNGY450']))
@@ -316,6 +318,9 @@ if (isset($_POST['param_PJNGX641']))
 
 if (isset($_POST['param_PJNGX632']))
     $param['param_PJNGX632'] = $_POST['param_PJNGX632']; 
+
+if (isset($_POST['param_PJNGX648']))
+    $param['param_PJNGX648'] = $_POST['param_PJNGX648'];
 
 
 $Postcadena = new Postcadena_model();

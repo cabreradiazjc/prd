@@ -160,7 +160,7 @@
                                                         <div class="message-box contact-box">
                                                             <h2 class="add-ct-btn">
                                                                 <button type="button" class="btn btn-circle btn-lg btn-success waves-effect waves-dark"  alt="default" data-toggle="modal" data-target="#modal-nuevo_tesoreria">+</button>
-                                                                <button type="button" class="btn btn-circle btn-lg btn-inverse waves-effect waves-dark"  alt="default" data-toggle="modal" data-target="#modal-editar_tesoreria"><i class="fa fa-edit"></i> </button>
+                                                                
                                                             </h2>
                                                             
 
@@ -206,7 +206,7 @@
                                                         <div class="message-box contact-box">
                                                             <h2 class="add-ct-btn">
                                                                 <button type="button" class="btn btn-circle btn-lg btn-success waves-effect waves-dark"  alt="default" data-toggle="modal" data-target="#modal-nuevo_contabilidad">+</button>
-                                                                <button type="button" class="btn btn-circle btn-lg btn-inverse waves-effect waves-dark"  alt="default" data-toggle="modal" data-target="#modal-editar_contabilidad"><i class="fa fa-edit"></i> </button>
+                                                                
                                                             </h2>
                                                             
 
@@ -252,7 +252,7 @@
                                                             <div class="message-box contact-box">
                                                                 <h2 class="add-ct-btn">
                                                                     <button type="button" class="btn btn-circle btn-lg btn-success waves-effect waves-dark"  alt="default" data-toggle="modal" data-target="#modal-nuevo_anexos">+</button>
-                                                                    <button type="button" class="btn btn-circle btn-lg btn-inverse waves-effect waves-dark"  alt="default" data-toggle="modal" data-target="#modal-editar_anexos"><i class="fa fa-edit"></i> </button>
+                                                                    
                                                                 </h2>
                                                                 
 
@@ -298,7 +298,7 @@
                                                             <div class="message-box contact-box">
                                                                 <h2 class="add-ct-btn">
                                                                     <button type="button" class="btn btn-circle btn-lg btn-success waves-effect waves-dark"  alt="default" data-toggle="modal" data-target="#modal-nuevo_cyberfinancial">+</button>
-                                                                    <button type="button" class="btn btn-circle btn-lg btn-inverse waves-effect waves-dark"  alt="default" data-toggle="modal" data-target="#modal-editar_cyberfinancial"><i class="fa fa-edit"></i> </button>
+                                                                    
                                                                 </h2>
                                                                 
 
@@ -344,7 +344,7 @@
                                                             <div class="message-box contact-box">
                                                                 <h2 class="add-ct-btn">
                                                                     <button type="button" class="btn btn-circle btn-lg btn-success waves-effect waves-dark"  alt="default" data-toggle="modal" data-target="#modal-nuevo_creditos">+</button>
-                                                                    <button type="button" class="btn btn-circle btn-lg btn-inverse waves-effect waves-dark"  alt="default" data-toggle="modal" data-target="#modal-editar_creditos"><i class="fa fa-edit"></i> </button>
+                                                                    
                                                                 </h2>
                                                                 
 
@@ -390,7 +390,7 @@
                                                             <div class="message-box contact-box">
                                                                 <h2 class="add-ct-btn">
                                                                     <button type="button" class="btn btn-circle btn-lg btn-success waves-effect waves-dark"  alt="default" data-toggle="modal" data-target="#modal-nuevo_pr">+</button>
-                                                                    <button type="button" class="btn btn-circle btn-lg btn-inverse waves-effect waves-dark"  alt="default" data-toggle="modal" data-target="#modal-editar_pr"><i class="fa fa-edit"></i> </button>
+                                                                    
                                                                 </h2>
                                                                 
 
@@ -436,7 +436,7 @@
                                                             <div class="message-box contact-box">
                                                                 <h2 class="add-ct-btn">
                                                                     <button type="button" class="btn btn-circle btn-lg btn-success waves-effect waves-dark"  alt="default" data-toggle="modal" data-target="#modal-nuevo_carteras3">+</button>
-                                                                    <button type="button" class="btn btn-circle btn-lg btn-inverse waves-effect waves-dark"  alt="default" data-toggle="modal" data-target="#modal-editar_carteras3"><i class="fa fa-edit"></i> </button>
+                                                                    
                                                                 </h2>
                                                                 
 
@@ -1691,6 +1691,16 @@
                                                                     <label class="control-label">PJNGX632</label>
                                                                     <div class="input-group">
                                                                         <input type="text" class="form-control" id="param_PJNGX632" name="param_PJNGX632"  value="00:00:00" style="text-align: right;">
+                                                                    </div>
+                                                                    
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="col-md-3">
+                                                                <div class="form-group">
+                                                                    <label class="control-label">PJNGX648</label>
+                                                                    <div class="input-group">
+                                                                        <input type="text" class="form-control" id="param_PJNGX648" name="param_PJNGX648"  value="00:00:00" style="text-align: right;">
                                                                     </div>
                                                                     
                                                                 </div>

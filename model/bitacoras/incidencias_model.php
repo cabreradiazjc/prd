@@ -45,21 +45,24 @@ class Incidencias_model {
     }
 
     function listar_incidencias() {
+
         $this->prepararConsultaUsuario('opc_incidencias_listar');
-        $i = 1;
         while ($row = mysqli_fetch_row($this->result)) {
             echo '<tr>					
-                    <td style="font-size: 12px; height: 10px; width: 4%;">' . $i . '</td>	
-                    <td style="font-size: 12px; height: 10px; width: 6%;"><b>' . $row[0] . '</b></td>
-                    <td style="font-size: 12px; height: 10px; width: 4%;"><b>' . $row[1] . '</b> <br> <small>'.$row[2].'</small></td>
-                    <td style="font-size: 12px; height: 10px; width: 9%;" class="text text-center">' . $row[3] . '</td>
-                    <td style="font-size: 12px; height: 10px; width: 23%;">' . $row[4] . '</td>
-                    <td style="font-size: 12px; height: 10px; width: 8%;" class="text text-center">' . $row[5] . '</td>
-                    <td style="font-size: 12px; height: 10px; width: 8%;"><b>' . $row[6] . '</b> <br> <small>'.$row[7].'</small></b></td>
-                    <td style="font-size: 12px; height: 10px; width: 5%;"> <a class="btn btn-info btn-xs"><i class="fa fa-edit fa-lg"></i></a> &nbsp;&nbsp; <a class="btn btn-warning btn-xs"><i class="fa fa-trash-o fa-lg"></i></a>  </td>
+                    <td style="width: 10%;"><b>' . $row[0] . '</b></td>
+                    <td style="width: 10%;"><b>' . $row[1] . '</b> <br> <small>'.$row[2].'</small></td>
+                    <td style="width: 10%;" class="text text-center">' . $row[3] . '</td>
+                    <td style="width: 40%; font-size: 14px;" >' . $row[4] . '</td>
+                    <td style="width: 10%;" class="text text-center">' . $row[5] . '</td>
+                    <td style="width: 10%;"><b>' . $row[6] . '</b> <br> <small>'.$row[7].'</small></b></td>
+                    
+                    <td style="width: 10%; text-align: center; direction: rtl;"> 
+                        <a class="btn btn-danger btn-sm text-white" onclick="eliminar('.$row[8].');"><i class="fa fa-trash"></i></a> 
+                        <a class="btn btn-info btn-sm text-white" onclick="editar('.$row[8].');"><i class="fa fa-edit"></i></a> 
+                    </td>
                  </tr>';
 
-            $i++;
+
         }
     }
 
