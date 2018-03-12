@@ -36,7 +36,7 @@ function mostrarDatos() {
             'paging'      : true,
             'lengthChange': true,
             'searching'   : true,
-            'aaSorting' : [[3,'desc'] ],
+            'aaSorting' : [[2,'desc'] ],
             'info'        : true,
             'autoWidth'   : false
 

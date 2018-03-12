@@ -333,7 +333,7 @@ class Dashboard_model{
     		
 			
 		}*/
-		$limitUpdated = 5;
+		$limitUpdated = 7;
 		$dia = "";
 		$hoy = "";
 		$hoy = date('N',strtotime("0 days"));

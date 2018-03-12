@@ -192,37 +192,41 @@
                                                         <div class="row p-t-20">
                                                             <div class="col-md-6">
                                                                 <div class="form-group">
-                                                                    <label class="control-label">Fecha</label>
+                                                                    <label class="control-label">Fecha de Incidencia</label>
                                                                     <div class="input-group">
-                                                                        <input type="text" class="form-control" placeholder="yyyy-mm-dd" data-date-format='yyyy-mm-dd' value="<?php echo date('Y-m-d',strtotime("0 days")); ?>" id="param_fecha" name="param_fecha">
+                                                                        <input type="text" class="form-control" placeholder="yyyy-mm-dd" data-date-format='yyyy-mm-dd' value="<?php echo date('Y-m-d',strtotime("0 days")); ?>" id="param_fecha_incidencia" name="param_fecha_incidencia">
                                                                         <span class="input-group-addon"><i class="icon-calender"></i></span> 
                                                                     </div>
-                                                                    <small class="form-control-feedback"> Usar fecha de hoy.</small>
+                                                                    <small class="form-control-feedback"> Usar fecha de incidencia.</small>
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-6">
                                                                 <div class="form-group">
-                                                                    <label class="control-label">Hora</label>
+                                                                    <label class="control-label">Fecha de Solución</label>
                                                                     <div class="input-group">
-                                                                        <input type="text" class="form-control" placeholder="00:00:00" name="param_hora" id="param_hora"> <span class="input-group-addon"> <span class="fa fa-clock-o"></span> </span>
+                                                                        <input type="text" class="form-control" placeholder="yyyy-mm-dd" data-date-format='yyyy-mm-dd' value="<?php echo date('Y-m-d',strtotime("0 days")); ?>" id="param_fecha_solucion" name="param_fecha_solucion">
+                                                                        <span class="input-group-addon"><i class="icon-calender"></i></span> 
                                                                     </div>
-                                                                    <small class="form-control-feedback"> Después de carteras 2. </small> 
+                                                                    <small class="form-control-feedback"> Usar fecha de solución.</small>
                                                                 </div>
                                                             </div>
                                                             <!--/span-->
                                                         </div>
-                                                        <div class="row">
-                                                            <div class="col-md-12 ">
-                                                                <div class="form-group">
-                                                                    <label>Observaciones</label>
-                                                                    <textarea row="2" class="form-control" placeholder="En caso la apertura sea demasiado tarde." name="param_observaciones" id="param_observaciones"></textarea>
-                                                                </div>
+                                                        <div class="form-group row">
+                                                            <label class="control-label text-right col-md-3">Category</label>
+                                                            <div class="col-md-12">
+                                                                <select class="form-control custom-select" id="param_categoria">
+                                                                    <option value="Category 1">Category 1</option>
+                                                                    <option value="Category 2">Category 2</option>
+                                                                    <option value="Category 3">Category 5</option>
+                                                                    <option value="Category 4">Category 4</option>
+                                                                </select>
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <!-- Datos de Operación -->
                                                     <input type="hidden" name="grupo" id="grupo" value="Bitácoras">
-                                                    <input type="hidden" name="tarea" id="tarea" value="Bitácora de Apertura Bantotal">
+                                                    <input type="hidden" name="tarea" id="tarea" value="Bitácora de Incidencias">
                                                     <input type="hidden" name="user" id="user" value="<?php echo $userData['email']; ?>">
                                                     <!-- /. End Datos de Operación -->
                                                 </form>
