@@ -37,6 +37,13 @@
     <!--alerts CSS -->
     <link href="../../assets/plugins/sweetalert/sweetalert.css" rel="stylesheet" type="text/css">
 
+    <!-- Select2 -->
+    <link href="../../assets/plugins/select2/dist/css/select2.min.css" rel="stylesheet" type="text/css" />
+    <link href="../../assets/plugins/switchery/dist/switchery.min.css" rel="stylesheet" />
+    <link href="../../assets/plugins/bootstrap-select/bootstrap-select.min.css" rel="stylesheet" />
+    <link href="../../assets/plugins/bootstrap-tagsinput/dist/bootstrap-tagsinput.css" rel="stylesheet" />
+    <link href="../../assets/plugins/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.css" rel="stylesheet" />
+    <link href="../../assets/plugins/multiselect/css/multi-select.css" rel="stylesheet" type="text/css" />
 
     <!-- Custom CSS -->
     <link href="../../assets/css/style.css" rel="stylesheet">

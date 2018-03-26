@@ -259,7 +259,7 @@
                                                                 <div class="form-group has-success">
                                                                     <label class="control-label">Fecha</label>
                                                                     <div class="input-group">
-                                                                        <input type="text" class="form-control" placeholder="yyyy-mm-dd" data-date-format='yyyy-mm-dd' value="<?php echo date('Y-m-d',strtotime("0 days")); ?>" id="param_ac_fecha" name="param_ac_fecha">
+                                                                        <input type="text" class="form-control" placeholder="yyyy-mm-dd" data-date-format='yyyy-mm-dd' value="<?php echo date('Y-m-d',strtotime("-1 days")); ?>" id="param_ac_fecha" name="param_ac_fecha">
                                                                         <span class="input-group-addon"><i class="icon-calender"></i></span> 
                                                                     </div>
                                                                     <small class="form-control-feedback"> Usar fecha de hoy.</small>

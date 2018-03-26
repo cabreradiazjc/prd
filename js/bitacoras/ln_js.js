@@ -32,7 +32,9 @@ function mostrarDatos(){
 			$('#table_ln').DataTable().destroy();
 			$('#body_ln').html(respuesta);
 			$('#table_ln').DataTable({
-
+				dom: 'Bfrtip',
+	          buttons: [
+	            'copy', 'csv', 'excel', 'pdf', 'print' ],
 		      'paging'      : true,
 		      'lengthChange': true,
 		      'searching'   : true,

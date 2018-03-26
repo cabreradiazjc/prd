@@ -49,8 +49,6 @@
 
 <head>
     <?php include_once('../add/head.php'); ?>
-    
-    
 </head>
 
 <body class="fix-header card-no-border">
@@ -96,17 +94,17 @@
                 <!-- ============================================================== -->
                 <div class="row page-titles">
                     <div class="col-md-5 col-8 align-self-center">
-                        <h3 class="text-themecolor m-b-0 m-t-0">Incidencias</h3>
+                        <h3 class="text-themecolor m-b-0 m-t-0">LISTAS NEGRAS</h3>
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="javascript:void(0)">Bitácoras</a></li>
-                            <li class="breadcrumb-item active">Incidencias</li>
+                            <li class="breadcrumb-item active">Listas Negras</li>
                         </ol>
                     </div>
                    <div class="col-md-7 col-4 align-self-center">
                         <div class="d-flex m-t-10 justify-content-end">
                             
                             <div class="d-flex m-r-20 m-l-10 hidden-md-down">
-                                <button class="btn btn-info" alt="default" data-toggle="modal" data-target="#modal-nuevo_incidencias">Nuevo registro</button>
+                                <button class="btn btn-info" alt="default" data-toggle="modal" data-target="#modal-nuevo_svt">Nuevo registro</button>
                             </div>
                             
                         </div>
@@ -119,50 +117,50 @@
                 <!-- Start Page Content -->
                 <!-- ============================================================== -->
                 <input type="hidden" name="grupo" id="grupo" value="Bitácoras">
-                <input type="hidden" name="tarea" id="tarea" value="Apertura Bantotal">
+                <input type="hidden" name="tarea" id="tarea" value="Listas Negras">
                 <input type="hidden" name="user" id="user" value="<?php echo $userData['email']; ?>">
 
+              
                 <div class="row">
                     <div class="col-12">
                         <div class="card">
+
                             <div class="card-body bg-info">
-                                <h4 class="card-title text-white">Histórico de registros</h4>
-                                <h6 class="card-subtitle text-white">Información de las incidencias presentadas en los procesos de cadena de cierre o postcadena.</h6>
+                                <h4 class="card-title text-white">Listas Negras</h4>
+                                <h6 class="card-subtitle text-white">Listas negras cargadas semanalmente.</h6>
                             </div>  
+
                             <div class="card-body">
                                 <div class="message-box contact-box">
                                     <h2 class="add-ct-btn">
-                                        <button type="button" class="btn btn-circle btn-lg btn-success waves-effect waves-dark"  alt="default" data-toggle="modal" data-target="#modal-nuevo_incidencias">+</button>
+                                        <button type="button" class="btn btn-circle btn-lg btn-success waves-effect waves-dark"  alt="default" data-toggle="modal" data-target="#modal-nuevoln">+</button>
                                     </h2>
                                 </div>  
+                                <br>
                                
+                                
                                 <div class="table-responsive m-t-40">
-                                    <table id="table_incidencias" class="display nowrap table table-hover table-striped table-bordered" cellspacing="0" width="100%">
+
+                                   <table id="table_ln" class="display nowrap table table-hover table-striped table-bordered" cellspacing="0" width="100%">
+
                                         <thead>
                                             <tr>
-                                                <th>Categoría</th>
-                                                <th>Proceso</th>
-                                                <th>Fecha Inc.</th>
-                                                <th>Detalle</th>
-                                                <th>Fecha Sol.</th>
-                                                <th>Criticidad</th>
+                                                <th>Nombre</th>
+                                                <th>Fecha Desc.</th>
+                                                <th>Tamaño</th>
+                                                <th>Fecha Mod.</th>
+                                                <th>Tam. Mod.</th>
+                                                <th>Carga 24</th>
+                                                <th>Carga BT</th>
+                                                <th>Estado</th>
                                                 <th>Acciones</th>
                                             </tr>
                                         </thead>
-                                        <tfoot>
-                                            <tr>
-                                                <th>Categoría</th>
-                                                <th>Proceso</th>
-                                                <th>Fecha Inc.</th>
-                                                <th>Detalle</th>
-                                                <th>Fecha Sol.</th>
-                                                <th>Criticidad</th>
-                                                <th>Acciones</th>
-                                            </tr>
-                                        </tfoot>
-                                        <tbody  id="body_incidencias">
-                                            
+
+                                        <tbody id="body_ln">
+
                                         </tbody>
+                                        
                                     </table>
                                 </div>
 
@@ -170,12 +168,12 @@
                         </div>
                     </div>
                 </div>
-
+               
                 <!-- ============================================================== -->
                 <!-- Modal nuevo registro -->
                 <!-- ============================================================== -->
-                <div id="modal-nuevo_incidencias" class="modal fade bs-example-modal-lg" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
-                    <div class="modal-dialog modal-lg">
+                <div id="modal-nuevo_aperturabt" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+                    <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">
                                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
@@ -186,62 +184,45 @@
                                 <div class="row">
                                     <div class="col-lg-12">
                                             <div class="card-body">
-                                                <form id="frm_nuevo_incidencias" name="frm_nuevo_incidencias">
+                                                <form id="frm_nuevo_aperturabt" name="frm_nuevo_aperturabt">
                                                     <div class="form-body">
-                                                        <h3 class="card-title">Incidencias</h3>
+                                                        <h3 class="card-title">Apertura de Bantotal</h3>
                                                         <hr>
                                                         <div id="mensaje"></div>
                                                         <div class="row p-t-20">
                                                             <div class="col-md-6">
                                                                 <div class="form-group">
-                                                                    <label class="control-label">Fecha de Incidencia</label>
+                                                                    <label class="control-label">Fecha</label>
                                                                     <div class="input-group">
-                                                                        <input type="text" class="form-control" placeholder="yyyy-mm-dd" data-date-format='yyyy-mm-dd' value="<?php echo date('Y-m-d',strtotime("0 days")); ?>" id="param_fecha_incidencia" name="param_fecha_incidencia">
+                                                                        <input type="text" class="form-control" placeholder="yyyy-mm-dd" data-date-format='yyyy-mm-dd' value="<?php echo date('Y-m-d',strtotime("0 days")); ?>" id="param_fecha" name="param_fecha">
                                                                         <span class="input-group-addon"><i class="icon-calender"></i></span> 
                                                                     </div>
-                                                                    <small class="form-control-feedback"> Usar fecha de incidencia.</small>
+                                                                    <small class="form-control-feedback"> Usar fecha de hoy.</small>
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-6">
                                                                 <div class="form-group">
-                                                                    <label class="control-label">Fecha de Solución</label>
+                                                                    <label class="control-label">Hora</label>
                                                                     <div class="input-group">
-                                                                        <input type="text" class="form-control" placeholder="yyyy-mm-dd" data-date-format='yyyy-mm-dd' value="<?php echo date('Y-m-d',strtotime("0 days")); ?>" id="param_fecha_solucion" name="param_fecha_solucion">
-                                                                        <span class="input-group-addon"><i class="icon-calender"></i></span> 
+                                                                        <input type="text" class="form-control" placeholder="00:00:00" name="param_hora" id="param_hora"> <span class="input-group-addon"> <span class="fa fa-clock-o"></span> </span>
                                                                     </div>
-                                                                    <small class="form-control-feedback"> Usar fecha de solución.</small>
+                                                                    <small class="form-control-feedback"> Después de carteras 2. </small> 
                                                                 </div>
                                                             </div>
                                                             <!--/span-->
                                                         </div>
-                                                        <div class="form-group row">
-                                                            <label class="control-label col-md-12">Proceso de incidencia</label>
-                                                            <div class="form-control col-md-12">
-                                                                <select class="select2 form-control" style="width: 100%" id="param_procesos" name="param_procesos">
-                                                                    
-                                                                </select>
-                                                            </div>
-                                                        </div>
-                                                        <div class="form-group row">
-                                                           <label class="control-label col-md-12">Criticidad</label>
-                                                            <div class="col-md-12">
-                                                                <select class="form-control" style="width: 100%" id="param_criticidad" name="param_criticidad">
-                                                                    <option value="1">BAJO</option>
-                                                                    <option value="2">MEDIO</option>
-                                                                    <option value="3">ALTO</option>
-                                                                </select>
-                                                            </div>
-                                                        </div>
-                                                        <div class="form-group row">
-                                                            <div class="col-md-12">
-                                                                <label>Detalle</label>
-                                                                <textarea rows="5" class="form-control" name="param_detalle" id="param_detalle"></textarea>
+                                                        <div class="row">
+                                                            <div class="col-md-12 ">
+                                                                <div class="form-group">
+                                                                    <label>Observaciones</label>
+                                                                    <textarea row="2" class="form-control" placeholder="En caso la apertura sea demasiado tarde." name="param_observaciones" id="param_observaciones"></textarea>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <!-- Datos de Operación -->
                                                     <input type="hidden" name="grupo" id="grupo" value="Bitácoras">
-                                                    <input type="hidden" name="tarea" id="tarea" value="Bitácora de Incidencias">
+                                                    <input type="hidden" name="tarea" id="tarea" value="Bitácora de Apertura Bantotal">
                                                     <input type="hidden" name="user" id="user" value="<?php echo $userData['email']; ?>">
                                                     <!-- /. End Datos de Operación -->
                                                 </form>
@@ -252,7 +233,7 @@
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">Cerrar</button>
-                                <button type="button" class="btn btn-info waves-effect waves-light" id="nuevo_incidencias">Guardar</button>
+                                <button type="button" class="btn btn-info waves-effect waves-light" id="nuevo_aperturabt">Guardar</button>
                             </div>
                         </div>
                     </div>
@@ -262,12 +243,11 @@
                 <!-- ============================================================== -->
 
 
-
                 <!-- ============================================================== -->
-                <!-- Modal editar registro -->
+                <!-- Modal editar -->
                 <!-- ============================================================== -->
-                <div id="modal-editar_incidencias" class="modal fade bs-example-modal-lg" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
-                    <div class="modal-dialog modal-lg">
+                <div id="modal-editar_aperturabt" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+                    <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">
                                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
@@ -278,56 +258,39 @@
                                 <div class="row">
                                     <div class="col-lg-12">
                                             <div class="card-body">
-                                                <form id="frm_update_incidencias" name="frm_update_incidencias">
+                                                <form id="frm_update_aperturabt" name="frm_update_aperturabt">
                                                     <div class="form-body">
-                                                        <h3 class="card-title">Incidencias</h3>
+                                                        <h3 class="card-title">Apertura de Bantotal</h3>
                                                         <hr>
                                                         <div id="mensaje"></div>
                                                         <div class="row p-t-20">
                                                             <div class="col-md-6">
                                                                 <div class="form-group">
-                                                                    <label class="control-label">Fecha de Incidencia</label>
+                                                                    <label class="control-label">Fecha</label>
                                                                     <div class="input-group">
-                                                                        <input type="text" class="form-control" placeholder="yyyy-mm-dd" data-date-format='yyyy-mm-dd' value="<?php echo date('Y-m-d',strtotime("0 days")); ?>" id="param_fecha_incidencia_edit" name="param_fecha_incidencia_edit">
+                                                                        <input type="text" class="form-control" placeholder="yyyy-mm-dd" data-date-format='yyyy-mm-dd' value="<?php echo date('Y-m-d',strtotime("0 days")); ?>" id="param_fecha_edit" name="param_fecha_edit">
                                                                         <span class="input-group-addon"><i class="icon-calender"></i></span> 
                                                                     </div>
-                                                                    <small class="form-control-feedback"> Usar fecha de incidencia.</small>
+                                                                    <small class="form-control-feedback"> Usar fecha de hoy.</small>
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-6">
                                                                 <div class="form-group">
-                                                                    <label class="control-label">Fecha de Solución</label>
+                                                                    <label class="control-label">Hora</label>
                                                                     <div class="input-group">
-                                                                        <input type="text" class="form-control" placeholder="yyyy-mm-dd" data-date-format='yyyy-mm-dd' value="<?php echo date('Y-m-d',strtotime("0 days")); ?>" id="param_fecha_solucion_edit" name="param_fecha_solucion_edit">
-                                                                        <span class="input-group-addon"><i class="icon-calender"></i></span> 
+                                                                        <input type="text" class="form-control" placeholder="00:00:00" name="param_hora_edit" id="param_hora_edit"> <span class="input-group-addon"> <span class="fa fa-clock-o"></span> </span>
                                                                     </div>
-                                                                    <small class="form-control-feedback"> Usar fecha de solución.</small>
+                                                                    <small class="form-control-feedback"> Después de carteras 2. </small> 
                                                                 </div>
                                                             </div>
                                                             <!--/span-->
                                                         </div>
-                                                        <div class="form-group row">
-                                                            <label class="control-label col-md-12">Proceso de incidencia</label>
-                                                            <div class="form-control col-md-12">
-                                                                <select class="select2 form-control" style="width: 100%" id="param_procesos_edit" name="param_procesos_edit">
-                                                                    
-                                                                </select>
-                                                            </div>
-                                                        </div>
-                                                        <div class="form-group row">
-                                                           <label class="control-label col-md-12">Criticidad</label>
-                                                            <div class="col-md-12">
-                                                                <select class="form-control" style="width: 100%" id="param_criticidad_edit" name="param_criticidad_edit">
-                                                                    <option value="1">BAJO</option>
-                                                                    <option value="2">MEDIO</option>
-                                                                    <option value="3">ALTO</option>
-                                                                </select>
-                                                            </div>
-                                                        </div>
-                                                        <div class="form-group row">
-                                                            <div class="col-md-12">
-                                                                <label>Detalle</label>
-                                                                <textarea rows="5" class="form-control" name="param_detalle_edit" id="param_detalle_edit"></textarea>
+                                                        <div class="row">
+                                                            <div class="col-md-12 ">
+                                                                <div class="form-group">
+                                                                    <label>Observaciones</label>
+                                                                    <textarea row="2" class="form-control" placeholder="En caso la apertura sea demasiado tarde." name="param_observaciones_edit" id="param_observaciones_edit"></textarea>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -340,15 +303,14 @@
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">Cerrar</button>
-                                <button type="button" class="btn btn-info waves-effect waves-light" id="update_incidencias">Guardar</button>
+                                <button type="button" class="btn btn-info waves-effect waves-light" id="update_aperturabt">Actualizar</button>
                             </div>
                         </div>
                     </div>
                 </div>
                 <!-- ============================================================== -->
-                <!-- End Modal editar registro -->
+                <!-- End Modal editar -->
                 <!-- ============================================================== -->
-             
 
 
                 <!-- ============================================================== -->
@@ -387,8 +349,7 @@
     <!-- Menu -->
     <script src="../../js/treemodulo.js"></script>
     <!-- Mantenedor -->
-    <script src="../../js/bitacoras/incidencias_js.js"></script>
-   
+    <script src="../../js/bitacoras/ln_js.js"></script>
      <!-- Plugin JavaScript --> 
     <script src="../../assets/plugins/moment/moment.js"></script>
     <script src="../../assets/plugins/bootstrap-material-datetimepicker/js/bootstrap-material-datetimepicker.js"></script>
@@ -421,38 +382,12 @@
     <script src="../../assets/plugins/sweetalert/sweetalert.min.js"></script>
     <script src="../../assets/plugins/sweetalert/jquery.sweet-alert.custom.js"></script>
    
-    
-
-    <!-- Select 2 -->
-    <script src="../../assets/plugins/switchery/dist/switchery.min.js"></script>
-    <script src="../../assets/plugins/select2/dist/js/select2.full.min.js" type="text/javascript"></script>
-    <script src="../../assets/plugins/bootstrap-select/bootstrap-select.min.js" type="text/javascript"></script>
-    <script src="../../assets/plugins/bootstrap-tagsinput/dist/bootstrap-tagsinput.min.js"></script>
-    <script src="../../assets/plugins/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.js" type="text/javascript"></script>
-    <script type="text/javascript" src="../../assets/plugins/multiselect/js/jquery.multi-select.js"></script>
+   
 
     <script>
     
-    </script>
-
-    <script>
-    
-    jQuery('#param_fecha_solucion').datepicker({
-        autoclose: true,
-        todayHighlight: true
-    });
-
-    jQuery('#param_fecha_incidencia').datepicker({
-        autoclose: true,
-        todayHighlight: true
-    });
-
-    jQuery('#param_fecha_solucion_edit').datepicker({
-        autoclose: true,
-        todayHighlight: true
-    });
-
-    jQuery('#param_fecha_incidencia_edit').datepicker({
+  
+    jQuery('#param_fecha').datepicker({
         autoclose: true,
         todayHighlight: true
     });
@@ -475,46 +410,6 @@
     <!-- Style switcher -->
     <!-- ============================================================== -->
     <script src="../../assets/plugins/styleswitcher/jQuery.style.switcher.js"></script>
-
-
-
-
-    <script>
-    jQuery(document).ready(function() {
-        // Switchery
-        var elems = Array.prototype.slice.call(document.querySelectorAll('.js-switch'));
-        $('.js-switch').each(function() {
-            new Switchery($(this)[0], $(this).data());
-        });
-        // For select 2
-        $(".select2").select2();
-        $('.selectpicker').selectpicker();
-       
-        $('#select-all').click(function() {
-            $('#public-methods').multiSelect('select_all');
-            return false;
-        });
-        $('#deselect-all').click(function() {
-            $('#public-methods').multiSelect('deselect_all');
-            return false;
-        });
-        $('#refresh').on('click', function() {
-            $('#public-methods').multiSelect('refresh');
-            return false;
-        });
-        $('#add-option').on('click', function() {
-            $('#public-methods').multiSelect('addOption', {
-                value: 42,
-                text: 'test 42',
-                index: 0
-            });
-            return false;
-        });
-        
-    });
-    </script>
-
-
 
 
 

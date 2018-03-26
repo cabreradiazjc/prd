@@ -37,30 +37,42 @@ class Tickets_model{
 			case "update_tickets";
 				echo $this->update_tickets();
 				break;
+			case "ticket_resumen";
+				echo $this->ticket_resumen();
+				break;
 
 		}
 	}
 
-	function prepararConsultaUsuario($opcion) 
+	function prepararConsultaUsuario($opcion,$id) 
 	{
-		$consultaSql = "call sp_control_bitacoras(";
-		$consultaSql.="'".$opcion."')";
+		$consultaSql = "call sp_control_tickets(";
+		$consultaSql.="'".$opcion."',";
+		$consultaSql.="'".$id."')";
 		//echo $consultaSql;	
 		$this->result = mysqli_query($this->conexion,$consultaSql);
     }
 
 
 	function listar_tickets() {
-    	$this->prepararConsultaUsuario('opc_tickets_listar');    	
+    	$this->prepararConsultaUsuario('opc_tickets_listar','');  
+
     	while($row = mysqli_fetch_row($this->result)){
     		
     		switch($row[6])
 			{
-				case 'ATENDIDO';
-					$row2="<span class='label label-success'>ATENDIDO</span>";
-					break;
-				case 'EN PROCESO';
-					$row2="<span class='label label-danger'>EN PROCESO</span>";
+				case "APLICADO";
+                    $row2 = '<span class="label label-success">' . $row[6] . '</span>';
+                    break;
+                case "PENDIENTE";
+                    $row2 = '<span class="label label-inverse">' . $row[6] . '</span>';
+                    break;
+                case "RECHAZADO";
+                    $row2 = '<span class="label label-danger">' . $row[6] . '</span>';
+                    break;
+                case "NUEVO";
+                    $row2 = '<span class="label label-warning">' . $row[6] . '</span>';
+                    break;
 				};
 
 			echo '<tr>					
@@ -71,7 +83,11 @@ class Tickets_model{
 					<td style="width: 10%;">'.$row[4].'</td>
 					<td style="width: 10%;">'.$row[5].'</td>
 					<td style="width: 10%; text-align: center; direction: rtl;">'.$row2.'</td>
-					<td style="width: 5%; text-align: center; direction: rtl;"> <a class="btn btn-primary btn-xs" onclick="editar('.$row[7].');"><i class="fa fa-edit fa-lg"></i></a> </td>
+					<td style="width: 10%; text-align: center; direction: rtl;"> 
+                        <a class="btn btn-danger btn-sm text-white" onclick="eliminar('.$row[7].');"><i class="fa fa-trash"></i></a> 
+                        <a class="btn btn-info btn-sm text-white" onclick="editar('.$row[7].');"><i class="fa fa-edit"></i></a> 
+
+                    </td>
 				</tr>';
 		}
 	}
@@ -82,20 +98,9 @@ class Tickets_model{
 		$this->insertar_tickets('opc_tickets_registrar');
     }
 
-     function insertar_tickets($opcion) 
-
-	{
+     function insertar_tickets($opcion) {
 		
-		switch($this->param['param_estado'])
-		{
-			case "ATENDIDO";
-				$estado = 1;
-				break;
-			case "EN PROCESO";
-				$estado = 0;
-				break;
-
-		}
+		
 
 		$consultaSql = "INSERT INTO tickets(ticket_nro,usuario,asunto,descripcion,fecha,tipo,estado) VALUES (";
 		$consultaSql.="'".$this->param['param_ticket_nro']."',";
@@ -104,7 +109,7 @@ class Tickets_model{
 		$consultaSql.="'".$this->param['param_descripcion']."',";
 		$consultaSql.="'".$this->param['param_fecha']."',";
 		$consultaSql.="'".$this->param['param_tipo']."',";
-		$consultaSql.="'".$estado."')";
+		$consultaSql.="'2')";
 
 		//echo $estado;
 		//echo $consultaSql;	// FALTA VER AKI EL REGISTRO PREGUNTAR A MILUSKA	
@@ -120,9 +125,7 @@ class Tickets_model{
 		
 	}
 
-	function insertar_operacion() 
-
-	{
+	function insertar_operacion() 	{
 		$consultaSql = "INSERT INTO operaciones(nombreOperacion,fecha,usuario) VALUES (";
 		$consultaSql.="'".$this->param['param_tarea']."',";
 		$consultaSql.="now(),";
@@ -133,11 +136,10 @@ class Tickets_model{
 		mysqli_query($this->conexion,$consultaSql);
     }
 
-    function prepararEditar($opcion,$id) 
-	{
+    function prepararEditar($opcion,$id) 	{
 		$consultaSql = "call sp_control_tickets(";
 		$consultaSql.="'".$opcion."',";
-		$consultaSql.="".$id.")";
+		$consultaSql.="'".$id."')";
 		//echo $consultaSql;	
 		$this->result = mysqli_query($this->conexion,$consultaSql);
     }
@@ -181,6 +183,56 @@ class Tickets_model{
 
 	}
 
+	function ticket_resumen() {
+
+        $this->prepararConsultaUsuario('opc_ticket_resumen','');
+        
+        while ($row = mysqli_fetch_row($this->result)) {
+
+            echo ' <!-- Total de Tickets-->
+                <div class="col-md-6 col-lg-3 col-xlg-3">
+                    <div class="card card-inverse card-info">
+                        <div class="box bg-info text-center">
+                            <h1 class="font-light text-white">' . $row[0] . '</h1>
+                            <h6 class="text-white">Total </h6>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Total de Aplicados -->
+                <div class="col-md-6 col-lg-3 col-xlg-3">
+                    <div class="card card-primary card-inverse">
+                        <div class="box text-center">
+                            <h1 class="font-light text-white">' . $row[1] . '</h1>
+                            <h6 class="text-white">Aplicados</h6>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Total de Pendientes -->
+                <div class="col-md-6 col-lg-3 col-xlg-3">
+                    <div class="card card-inverse card-success">
+                        <div class="box text-center">
+                            <h1 class="font-light text-white">' . $row[2] . '</h1>
+                            <h6 class="text-white">Pendientes</h6>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Total de Nuevos -->
+                <div class="col-md-6 col-lg-3 col-xlg-3">
+                    <div class="card card-inverse card-dark">
+                        <div class="box text-center">
+                            <h1 class="font-light text-white">' . $row[3] . '</h1>
+                            <h6 class="text-white">Nuevos</h6>
+                        </div>
+                    </div>
+                </div>
+                ';
+
+           
+        }
+    }
 
 //REPORTES
 

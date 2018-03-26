@@ -23,15 +23,27 @@ class Incidencias_model {
             case "listar_incidencias";
                 echo $this->listar_incidencias();
                 break;
-            case "nuevo_svt";
-                echo $this->nuevo_svt();
+            case "nuevo_incidencias";
+                echo $this->nuevo_incidencias();
+                break;
+            case "listar_procesos";
+                echo $this->listar_procesos();
+                break;
+            case "eliminar_incidencias";
+                echo $this->eliminar_incidencias();
+                break;
+            case "editar_incidencias";
+                echo $this->editar_incidencias();
+                break;
+            case "update_incidencias";
+                echo $this->update_incidencias();
                 break;
         }
     }
 
     function prepararConsultaUsuario($opcion) {
         $consultaSql = "call sp_incidencias(";
-        $consultaSql .= "'" . $opcion . "')";
+        $consultaSql .= "'" . $opcion . "','')";
         //echo $consultaSql;	
         $this->result = mysqli_query($this->conexion, $consultaSql);
     }
@@ -67,20 +79,18 @@ class Incidencias_model {
     }
 
     function nuevo_incidencias() {
-        $this->insertar_operacion();
-        $consultaSql = "INSERT INTO incidencias(svt_nro_env,svt_ambiente,svt_origen,svt_motivo,svt_fec_rec,svt_fec_eje,svt_funcional,svt_tecnico,svt_emergencia,svt_observaciones,svt_estado) VALUES (";
-        $consultaSql .= "'" . $this->param['param_nroenvio'] . "',";
-        $consultaSql .= "'" . $this->param['param_ambiente'] . "',";
-        $consultaSql .= "'" . $this->param['param_origen'] . "',";
-        $consultaSql .= "'" . $this->param['param_motivo'] . "',";
-        $consultaSql .= "'" . $this->param['param_recepcion_fecha'] . "',";
-        $consultaSql .= "'" . $this->param['param_ejecucion_fecha'] . "',";
-        $consultaSql .= "'" . $this->param['param_responsable_funcional'] . "',";
-        $consultaSql .= "'" . $this->param['param_responsable_tecnico'] . "',";
-        $consultaSql .= "'" . $this->param['param_emergencia'] . "',";
-        $consultaSql .= "'" . $this->param['param_alertas'] . "',";
-        $consultaSql .= "'1')";
 
+    
+
+        $this->insertar_operacion();
+        $consultaSql = "INSERT INTO incidencia(procesos_idprocesos,inc_fechaI,inc_detalle, inc_fechaF,criticidad_idcriticidad,analista) VALUES (";
+        $consultaSql .= "'" . $this->param['param_procesos'] . "',";
+        $consultaSql .= "'" . $this->param['param_fecha_incidencia'] . "',";
+        $consultaSql .= "'" . $this->param['param_detalle'] . "',";
+        $consultaSql .= "'" . $this->param['param_fecha_solucion'] . "',";
+        $consultaSql .= "'" . $this->param['param_criticidad'] . "',";
+        $consultaSql .= "'" . $this->param['param_user'] . "')";
+        //echo $consultaSql;
         $this->result = mysqli_query($this->conexion, $consultaSql);
     }
 
@@ -96,6 +106,69 @@ class Incidencias_model {
         //echo $consultaSql;    // FALTA VER AKI EL REGISTRO PREGUNTAR A MILUSKA    
         mysqli_query($this->conexion,$consultaSql);
     }
+
+    
+    function prepararConsultaProcesos($opcion) {
+        $consultaSql = "call sp_procesos(";
+        $consultaSql .= "'" . $opcion . "')";
+        //echo $consultaSql;  
+        $this->result = mysqli_query($this->conexion, $consultaSql);
+    }
+
+
+    function listar_procesos() {
+        echo '<option>Select</option>';
+        $this->prepararConsultaProcesos('opc_procesos_listar');
+        while ($row = mysqli_fetch_row($this->result)) {
+             echo '<option value="'.$row[0].'">'.$row[1].' - '.$row[2].'</option>';
+        }
+    }
+
+
+
+
+    function preparar($opcion,$id) 
+    {
+        $consultaSql = "call sp_incidencias(";
+        $consultaSql.="'".$opcion."',";
+        $consultaSql.="".$id.")";
+        //echo $consultaSql;    
+        $this->result = mysqli_query($this->conexion,$consultaSql);
+    }
+
+    function eliminar_incidencias() {
+
+
+        $this->preparar('opc_incidencias_eliminar',$this->param['param_id']);
+
+    
+    }
+
+    function editar_incidencias() {
+
+        $this->preparar('opc_incidencias_editar',$this->param['param_id']);
+
+        while ($row = mysqli_fetch_row($this->result)) {
+                        echo json_encode($row);
+            }
+    }
+
+
+    function update_incidencias() {
+
+        $consultaSql = "UPDATE incidencia set ";
+        $consultaSql.="procesos_idprocesos = '".$this->param['param_procesos_edit']."',";
+        $consultaSql.="inc_fechaI = '".$this->param['param_fecha_incidencia_edit']."',";
+        $consultaSql.="inc_detalle = '".$this->param['param_detalle_edit']."',";
+        $consultaSql.="inc_fechaF = '".$this->param['param_fecha_solucion_edit']."',";
+        $consultaSql.="criticidad_idcriticidad = '".$this->param['param_criticidad_edit']."'";
+        $consultaSql.=" where idincidencia = '".$this->param['param_id_edit']."'";
+
+        echo $consultaSql;
+        mysqli_query($this->conexion,$consultaSql);
+
+    }
+
 
 }
 ?>

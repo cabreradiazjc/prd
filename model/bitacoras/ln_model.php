@@ -115,7 +115,11 @@ class Listasn_model{
 					<td style="width: 10%;">'.$row[5].'</td>
 					<td style="width: 10%;">'.$row[6].'</td>
 					<td style="width: 15%;">'.$row[7].'</td>
-					<td style="font-size: 12px; height: 10px; width: 5%;"> <a class="btn btn-info btn-xs" onclick="editar('.$row[8].');"><i class="fa fa-edit fa-lg"></i></a> </td>
+					<td style="width: 10%; text-align: center; direction: rtl;"> 
+                        <a class="btn btn-danger btn-sm text-white" onclick="eliminar('.$row[7].');"><i class="fa fa-trash"></i></a> 
+                        <a class="btn btn-info btn-sm text-white" onclick="editar('.$row[7].');"><i class="fa fa-edit"></i></a> 
+
+                    </td>
 				</tr>';
 		}
 	}

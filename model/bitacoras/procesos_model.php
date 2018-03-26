@@ -38,7 +38,9 @@ class Procesos_model {
     }
 
     function listar_procesos($idcat) {
+        echo '<option>Select</option>';
         $this->prepararConsultaUsuario('opc_procesos_listar',$idcat);
+
         while ($row = mysqli_fetch_row($this->result)) {
              echo '<option value="'.$row[0].'">'.$row[1].' - '.$row[2].'</option>';
         }

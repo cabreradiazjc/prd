@@ -1,6 +1,6 @@
 
 window.onload = function(){
-	$("#overlay").show();
+	ticket_resumen();
 	mostrarDatos();	
 	info();
 }
@@ -22,6 +22,19 @@ function info(){
 	});	
 }
 
+function ticket_resumen() {
+    $.ajax({
+        type: 'POST',
+        data: {param_opcion: 'ticket_resumen'},
+        url: '../../controller/bitacoras/tickets_controller.php',
+        success: function (respuesta) {
+           $('#ticket_resumen').html(respuesta);
+        },
+        error: function (respuesta) {
+            $('#ticket_resumen').html(respuesta);
+        }
+    });
+}
 
 function mostrarDatos(){
 	$.ajax({
@@ -35,7 +48,6 @@ function mostrarDatos(){
 			  dom: 'Bfrtip',
 	          buttons: [
 	            'copy', 'csv', 'excel', 'pdf', 'print' ],
-			  'fnInitComplete' : function() { $("#overlay").hide(); },
 		      'paging'      : true,
 		      'lengthChange': true,
 		      'searching'   : true,

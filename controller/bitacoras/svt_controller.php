@@ -23,6 +23,11 @@ if (isset($_POST['user']))
     $param['param_user'] = $_POST['user'];
 //FIN OPeraciones
 
+if (isset($_POST['param_id']))
+    $param['param_id'] = $_POST['param_id'];
+
+if (isset($_POST['param_id_edit']))
+    $param['param_id_edit'] = $_POST['param_id_edit'];
 //SVT
 
 $param['param_nroenvio'] = '';
@@ -41,7 +46,7 @@ $param['param_alertas'] = '';
 if (isset($_POST['param_opcion']))
     $param['param_opcion'] = $_POST['param_opcion'];
 
-echo $param['param_opcion'];
+//echo $param['param_opcion'];
 
 //VARIABLES SVT
 if (isset($_POST['param_nroenvio'])){
