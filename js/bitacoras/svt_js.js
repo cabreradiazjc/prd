@@ -129,7 +129,7 @@ $(function () {
 
         if (param_nroenvio.length == '' || param_ambiente.length == '' || param_origen.length == '' || param_motivo.length == '' || param_recepcion_fecha.length == ''|| param_ejecucion_fecha.length == ''|| param_responsable_funcional.length == ''|| param_responsable_tecnico.length == ''|| param_emergencia.length == '') {
             $("#mensaje").html(
-                    '<div class="alert alert-warning alert-dismissible">'+
+                '<div class="alert alert-warning alert-dismissible">'+
                 '<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>'+
                 '<h3 class="text-warning"><i class="fa fa-exclamation-triangle"></i> Warning</h3>'+
                 'Debe llenar los campos necesarios</div>').show(200).delay(3500).hide(200);

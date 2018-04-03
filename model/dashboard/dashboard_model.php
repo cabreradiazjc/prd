@@ -76,6 +76,12 @@ class Dashboard_model{
 				echo $this->ubaChart();
 				break;
 
+			case "r_aperturabt_year";
+				echo $this->r_aperturabt_year();
+				break;
+
+				
+
 
 
 		}
@@ -119,7 +125,7 @@ class Dashboard_model{
 
 	}
 
-	 function lastOpen() {
+	function lastOpen() {
 
     	$this->prepararConsultaUsuario('opc_lastOpen');    	
     	while($row = mysqli_fetch_row($this->result)){
@@ -136,7 +142,7 @@ class Dashboard_model{
 
 
 
-     function pieChartSVT() {
+    function pieChartSVT() {
     	//$this->prepararConsultaUsuario('opc_pieChartSVT');  
 
     	$jsonArray = array();
@@ -188,16 +194,17 @@ class Dashboard_model{
 		  exit; 
 		} else {    
 		    //$usuario = 'TGSAA001'
-		    $fini = date('d/m/Y',mktime(0, 0, 0, date("m")  , date("d")-7, date("Y")));
+		    $fini = date('d/m/Y',mktime(0, 0, 0, date("m")  , date("d")-3, date("Y")));
 		    $ffin = date('d/m/Y');
-			$sql = " SELECT DISTINCT to_char(u.z0e4gefec, 'DD/MM/YYYY') as FECHA, 
+			$sql = " SELECT DISTINCT to_char(z0e4gefec,'YYYY-MM-DD') as FECHA, 
 		            (select  COUNT(*) from dbprod.z0e4ge op1
 		            where op1.z0e4gefec >= u.z0e4gefec and op1.z0e4gefec <= u.z0e4gefec and op1.z0e4gehor >='00:00:00' and op1.z0e4gehor <='23:59:59' and op1.z0e4gemen = 1) as OPERACIONES_1,  
 		            (select count(*) from dbprod.z0e4ge re2
 		            where re2.z0e4gefec >= u.z0e4gefec and re2.z0e4gefec <= u.z0e4gefec and re2.z0e4gehor >='00:00:00' and re2.z0e4gehor <='23:59:59' and re2.z0e4gemen = 1 and re2.z0e4geest<>'PC' and re2.z0e4geest<>'00') as RECHAZOS_1
 		          FROM dbprod.z0e4ge u
-		          where u.z0e4gefec>=to_date('$fini','dd/mm/yyyy') and u.z0e4gefec<= to_date('$ffin','dd/mm/yyyy')
-		          order by to_char(u.z0e4gefec, 'DD/MM/YYYY')";
+		          where u.z0e4gefec>=to_date('27/03/2018','dd/mm/yyyy') and u.z0e4gefec<= to_date('03/04/2018','dd/mm/yyyy')
+		          order by  to_char(z0e4gefec,'YYYY-MM-DD')
+              ";
 		    //echo "-----------";
 		    //echo $sql;
 		    //oci_bind_by_name($stmt, ':variable', $id, -1); 
@@ -242,14 +249,10 @@ class Dashboard_model{
 		oci_close($conn); 
 
 
-
 	}
 
 
-
-
-
-     function users() {
+    function users() {
     	$this->prepararConsultaUsuario('opc_users');  
 
     	while($fila = mysqli_fetch_array($this->result)){
@@ -742,9 +745,9 @@ class Dashboard_model{
 	}
 
 
-	function chartAperturabt() {
+	function r_aperturabt_year() {
 		$jsonArray = array();
-		$consultaSql = "call sp_control_dashboard('opc_chartAperturabt')";
+		$consultaSql = "call sp_control_r_aperturabt('opc_chartAperturabt')";
 		//echo $consultaSql;
 		$this->result2 = mysqli_query($this->conexion,$consultaSql);
 

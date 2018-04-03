@@ -1,6 +1,6 @@
 
 window.onload = function(){
-	ticket_resumen();
+	
 	mostrarDatos();	
 	info();
 }
@@ -58,7 +58,8 @@ function mostrarDatos(){
 		      
 
 				});
-			$('#modal-nuevotickets').modal('hide');
+			ticket_resumen();
+			$('#modal-nuevo_tickets').modal('hide');
 			$('#modal-editar_tickets').modal('hide');
 
 		},
@@ -67,6 +68,48 @@ function mostrarDatos(){
 		}
 	});	
 }
+
+function eliminar(id){	
+	var param_opcion = 'eliminar_tickets';
+
+	//Parameter
+    swal({   
+        title: "¿Estás seguro?",   
+        text: "El proceso es irreversible.",   
+        type: "warning",   
+        showCancelButton: true,   
+        confirmButtonColor: "#DD6B55",   
+        confirmButtonText: "Sí, eliminar.",   
+        cancelButtonText: "No, cancelar.",   
+        closeOnConfirm: false,   
+        closeOnCancel: false 
+    }, function(isConfirm){   
+        if (isConfirm) {     
+        	$.ajax({
+				type: 'POST',
+				data:'param_opcion='+param_opcion+'&param_id='+id,
+				url: '../../controller/bitacoras/tickets_controller.php',
+				success: function(data){
+					//console.log(data);
+					$('#param_opcion').val('');	
+					swal("Deleted!", "Eliminado con éxito", "success"); 
+					setTimeout(mostrarDatos(),2000);
+				},
+				error: function(data){
+					
+				}
+			});
+              
+        } else {     
+            swal("Cancelled", "No se realizó niguna acción.", "error");   
+        } 
+    });
+
+	//idecito = id;
+	//var id = $("#param_id").val(objeto[0]);
+	
+}
+
 
 function editar(id){	
 	var param_opcion = 'editar_tickets';
@@ -77,7 +120,7 @@ function editar(id){
 		data:'param_opcion='+param_opcion+'&param_id='+id,
 		url: '../../controller/bitacoras/tickets_controller.php',
 		success: function(data){
-			console.log(data);
+			//console.log(data);
 			$('#param_opcion').val('editar_tickets');	
 		  	$('#modal-editar_tickets').modal({
 		  		show:true,
@@ -100,7 +143,40 @@ function editar(id){
 	});
 }
 
+function check(id){	
+	var param_opcion = 'check_tickets';
+	//idecito = id;
+	//var id = $("#param_id").val(objeto[0]);
+	$.ajax({
+		type: 'POST',
+		data:'param_opcion='+param_opcion+'&param_id='+id,
+		url: '../../controller/bitacoras/tickets_controller.php',
+		success: function(data){
+			//console.log(data);
+			swal("Good job!", "El ticket fue aplicado.", "success");
+		  	setTimeout(mostrarDatos(),2000);   
+			
+
+		},
+		error: function(data){
+			
+		}
+	});
+}
+
+
+
 $(function() {
+
+	 var today = new Date();
+        var todaybk = '';
+        var dd = today.getDate();
+        var mm = today.getMonth()+1; //January is 0!
+        var yyyy = today.getFullYear();
+        if(dd<10) { dd = '0'+dd } 
+        if(mm<10) { mm = '0'+mm } 
+        today = yyyy + '-' + mm + '-' + dd;
+
 	$('#nuevo_tickets').on('click', function(){
 		var ticket_nro = $('#param_ticket_nro').val();
 		var usuario = $('#param_usuario').val();
@@ -110,28 +186,30 @@ $(function() {
 		var tipo = $('#param_tipo').val();
 		var estado = $('#param_estado').val();
 
-		console.log(ticket_nro);
+		//console.log(ticket_nro);
 
 		if (ticket_nro.length == '' || usuario.length == '' || asunto.length == '' || fecha.length == '' || tipo.length == '' ) {            
             $("#mensaje").html(
-            	'<div class="alert alert-danger alert-dismissible"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button><h4><i class="icon fa fa-ban"></i> Alert!</h4> Debe llenar los campos necesarios</div>').show(200).delay(3500).hide(200);
+            	'<div class="alert alert-warning alert-dismissible">'+
+            	'<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>'+
+            	'<h3 class="text-warning"><i class="fa fa-exclamation-triangle"></i> Warning</h3>'+
+            	'Debe llenar los campos necesarios</div>').show(200).delay(3500).hide(200);
         } else {
         	$.ajax({
 		        type: 'POST',        
 		        data: $('#frm_nuevo_tickets').serialize()+'&param_opcion=nuevo_tickets',
 		        url: '../../controller/bitacoras/tickets_controller.php',
 		        success: function(data){
-		            $("#mensaje").html('<div class="alert alert-success alert-dismissible"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button><h4><i class="icon fa fa-check"></i> Alert!</h4>Registro exitoso.</div>').show(200).delay(3500).hide(200);
+		            swal("Good job!", "¡Guardado satisfactoriamente!", "success");
 		                        //window.location = "../index.php";
-		            $('#param_ticket_nro').val("");
+		            $('#param_ticket_nro').val('');
 					$('#param_usuario').val("");
 					$('#param_asunto').val("");
 					$('#param_descripcion').val("");
-					$('#param_fecha').val("");
-					$('#param_tipo').val("");
-					$('#param_estado').val("");
+					$('#param_fecha').val(today);
+					$('#param_tipo').val('1');
 
-					setTimeout("location.href='../../view/bitacoras/tickets.php'",1000)  
+					setTimeout(mostrarDatos(),2000);    
 					//setTimeout(mostrarDatos(),1000);
 
 		        },
@@ -156,25 +234,28 @@ $(function() {
 
 		if (ticket_nro_edit.length == '' || usuario_edit.length == '' || asunto_edit.length == '' ) {            
             $("#mensaje_edit").html(
-            	'<div class="alert alert-danger alert-dismissible"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button><h4><i class="icon fa fa-ban"></i> Alert!</h4> Debe llenar los campos necesarios</div>').show(200).delay(3500).hide(200);
+            	'<div class="alert alert-warning alert-dismissible">'+
+            	'<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>'+
+            	'<h3 class="text-warning"><i class="fa fa-exclamation-triangle"></i> Warning</h3>'+
+            	'Debe llenar los campos necesarios</div>').show(200).delay(3500).hide(200);
         } else {
         	$.ajax({
 		        type: 'POST',        
 		        data: $('#frm_update_tickets').serialize()+'&param_opcion=update_tickets',
 		        url: '../../controller/bitacoras/tickets_controller.php',
 		        success: function(data){
-		            $("#mensaje_edit").html('<div class="alert alert-success alert-dismissible"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button><h4><i class="icon fa fa-check"></i> Alert!</h4>Registro exitoso.</div>').show();
+		            swal("Good job!", "Se realizó la edición con éxito.", "success");
 		                        //window.location = "../index.php";
-		            $('#param_ticket_nro_edit').val();
+		            $('#param_ticket_nro_edit').val('');
 		            $('#param_usuario_edit').val('');
 					$("#param_asunto_edit").val('');
-					$('#param_descripcion_edit').val();
-					$('#param_fecha_edit').val();
-					$('#param_tipo_edit').val();
-					$('#param_estado_edit').val();
+					$('#param_descripcion_edit').val('');
+					$('#param_fecha_edit').val(today);
+					$('#param_tipo_edit').val('1');
+					$('#param_estado_edit').val('');
 					
 					
-					setTimeout(mostrarDatos(),10000);   
+					setTimeout(mostrarDatos(),2000);   
 
 		        },
 		        error: function(data){
@@ -185,43 +266,7 @@ $(function() {
 		
 	});
 
-	 /*PARA REPORTE
-
-		$('#consultarln').on('click', function(){
-		var fi = $('#param_fi').val();
-		var ff = $('#param_ff').val();
-		
-
-		if (fi.length == '' || ff.length == '' ) {            
-            $("#mensaje").html(
-            	'<div class="alert alert-danger alert-dismissible"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button><h4><i class="icon fa fa-ban"></i> Alert!</h4> Debe llenar los campos necesarios</div>').show(200).delay(3500).hide(200);
-        } else {
-        	$.ajax({
-		        type: 'POST',        
-		        data: $('#frm_consultarln').serialize()+'&param_opcion=consultarln',
-		        url: '../../controller/ln_controller.php',
-		        success: function(reportln){
-		           	$('#table_ln').DataTable().destroy();
-					$('#body_ln').html(reportln);
-					$('#table_ln').DataTable({
-
-				      'paging'      : true,
-				      'lengthChange': true,
-				      'searching'   : true,
-				      'ordering'    : true,
-				      'info'        : true,
-				      'autoWidth'   : false
-
-						});     
-
-		        },
-		        error: function(data){
-		              $('#body_ln').html(resportln);
-		        } 
-			});
-        }
-		
-	});*/
+	
 
 });
 

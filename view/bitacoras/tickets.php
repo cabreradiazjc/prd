@@ -104,7 +104,7 @@
                         <div class="d-flex m-t-10 justify-content-end">
                             
                             <div class="d-flex m-r-20 m-l-10 hidden-md-down">
-                                <button class="btn btn-info" alt="default" data-toggle="modal" data-target="#modal-nuevo_ticket">Nuevo registro</button>
+                                <button class="btn btn-info" alt="default" data-toggle="modal" data-target="#modal-nuevo_tickets">Nuevo registro</button>
                             </div>
                             
                         </div>
@@ -133,7 +133,7 @@
                             <div class="card-body">
                                 <div class="message-box contact-box">
                                     <h2 class="add-ct-btn">
-                                        <button type="button" class="btn btn-circle btn-lg btn-success waves-effect waves-dark"  alt="default" data-toggle="modal" data-target="#modal-nuevo_ticket">+</button>
+                                        <button type="button" class="btn btn-circle btn-lg btn-success waves-effect waves-dark"  alt="default" data-toggle="modal" data-target="#modal-nuevo_tickets">+</button>
                                     </h2>
                                 </div>  
                                 <br>
@@ -174,7 +174,7 @@
                 <!-- ============================================================== -->
                 <!-- Modal nuevo registro -->
                 <!-- ============================================================== -->
-                <div id="modal-nuevo_aperturabt" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+                <div id="modal-nuevo_tickets" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">
@@ -186,45 +186,98 @@
                                 <div class="row">
                                     <div class="col-lg-12">
                                             <div class="card-body">
-                                                <form id="frm_nuevo_aperturabt" name="frm_nuevo_aperturabt">
+                                                <form id="frm_nuevo_tickets" name="frm_nuevo_tickets">
                                                     <div class="form-body">
-                                                        <h3 class="card-title">Apertura de Bantotal</h3>
+                                                        <h3 class="card-title">Tickets</h3>
                                                         <hr>
                                                         <div id="mensaje"></div>
-                                                        <div class="row p-t-20">
+                                                        <div class="row">
                                                             <div class="col-md-6">
                                                                 <div class="form-group">
-                                                                    <label class="control-label">Fecha</label>
+                                                                    <label class="control-label">Fecha de recepción</label>
                                                                     <div class="input-group">
                                                                         <input type="text" class="form-control" placeholder="yyyy-mm-dd" data-date-format='yyyy-mm-dd' value="<?php echo date('Y-m-d',strtotime("0 days")); ?>" id="param_fecha" name="param_fecha">
                                                                         <span class="input-group-addon"><i class="icon-calender"></i></span> 
                                                                     </div>
-                                                                    <small class="form-control-feedback"> Usar fecha de hoy.</small>
+                                                                    <small class="form-control-feedback"> Fecha enviado.</small>
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-6">
-                                                                <div class="form-group">
-                                                                    <label class="control-label">Hora</label>
+                                                                <div class="form-group ">
+                                                                    <label class="control-label">Nro. Ticket</label>
                                                                     <div class="input-group">
-                                                                        <input type="text" class="form-control" placeholder="00:00:00" name="param_hora" id="param_hora"> <span class="input-group-addon"> <span class="fa fa-clock-o"></span> </span>
+                                                                        <input type="text" class="form-control" id="param_ticket_nro" name="param_ticket_nro">  
                                                                     </div>
-                                                                    <small class="form-control-feedback"> Después de carteras 2. </small> 
                                                                 </div>
                                                             </div>
-                                                            <!--/span-->
                                                         </div>
+
                                                         <div class="row">
-                                                            <div class="col-md-12 ">
+                                                            
+                                                            <div class="col-md-12">
+                                                                <div class="form-group ">
+                                                                    <label class="control-label">Usuario</label>
+                                                                    <div class="input-group">
+                                                                        <input type="text" class="form-control" id="param_usuario" name="param_usuario">  
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            
+                                                            
+                                                        </div>
+
+                                                         <div class="row">
+                                                            
+                                                            <div class="col-md-12">
+                                                                <div class="form-group ">
+                                                                    <label class="control-label">Asunto</label>
+                                                                    <div class="input-group">
+                                                                        <input type="text" class="form-control" id="param_asunto" name="param_asunto">  
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            
+                                                            
+                                                        </div>
+
+                                                      
+
+
+                                                        <div class="row">
+                                                            <div class="col-md-12">
                                                                 <div class="form-group">
-                                                                    <label>Observaciones</label>
-                                                                    <textarea row="2" class="form-control" placeholder="En caso la apertura sea demasiado tarde." name="param_observaciones" id="param_observaciones"></textarea>
+                                                                    <label>Descripción</label>
+                                                                    <textarea rows="4" class="form-control" name="param_descripcion" id="param_descripcion"></textarea>
                                                                 </div>
                                                             </div>
                                                         </div>
+
+                                                         <div class="row">
+                                                            <div class="col-md-12">
+                                                                <div class="form-group">
+                                                                    <label class="control-label">Tipo</label>
+                                                                    <div>
+                                                                        <select class="form-control" style="width: 100%" id="param_tipo" name="param_tipo">
+                                                                            <option value="1">SQL</option>
+                                                                            <option value="2">TARJETAS</option>
+                                                                            <option value="3">PDM</option>
+                                                                            <option value="4">TRASLADO DE CARTERAS</option>
+                                                                            <option value="5">SIRCON</option>
+                                                                            <option value="6">OTROS</option>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            
+                                                        </div>
+
                                                     </div>
                                                     <!-- Datos de Operación -->
                                                     <input type="hidden" name="grupo" id="grupo" value="Bitácoras">
-                                                    <input type="hidden" name="tarea" id="tarea" value="Bitácora de Apertura Bantotal">
+                                                    <input type="hidden" name="tarea" id="tarea" value="Bitácora de Tickets">
                                                     <input type="hidden" name="user" id="user" value="<?php echo $userData['email']; ?>">
                                                     <!-- /. End Datos de Operación -->
                                                 </form>
@@ -235,7 +288,7 @@
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">Cerrar</button>
-                                <button type="button" class="btn btn-info waves-effect waves-light" id="nuevo_aperturabt">Guardar</button>
+                                <button type="button" class="btn btn-info waves-effect waves-light" id="nuevo_tickets">Guardar</button>
                             </div>
                         </div>
                     </div>
@@ -248,55 +301,123 @@
                 <!-- ============================================================== -->
                 <!-- Modal editar -->
                 <!-- ============================================================== -->
-                <div id="modal-editar_aperturabt" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+                <div id="modal-editar_tickets" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">
                                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                                <h4 class="modal-title">Editar registro</h4>
+                                <h4 class="modal-title">Nuevo registro</h4>
                             </div>
                             <div class="modal-body">
                                 <!-- Row -->
                                 <div class="row">
                                     <div class="col-lg-12">
                                             <div class="card-body">
-                                                <form id="frm_update_aperturabt" name="frm_update_aperturabt">
+                                                <form id="frm_update_tickets" name="frm_update_tickets">
                                                     <div class="form-body">
-                                                        <h3 class="card-title">Apertura de Bantotal</h3>
+                                                        <h3 class="card-title">Tickets</h3>
                                                         <hr>
-                                                        <div id="mensaje"></div>
-                                                        <div class="row p-t-20">
+                                                        <div id="mensaje_edit"></div>
+                                                        <div class="row">
                                                             <div class="col-md-6">
                                                                 <div class="form-group">
-                                                                    <label class="control-label">Fecha</label>
+                                                                    <label class="control-label">Fecha de recepción</label>
                                                                     <div class="input-group">
                                                                         <input type="text" class="form-control" placeholder="yyyy-mm-dd" data-date-format='yyyy-mm-dd' value="<?php echo date('Y-m-d',strtotime("0 days")); ?>" id="param_fecha_edit" name="param_fecha_edit">
                                                                         <span class="input-group-addon"><i class="icon-calender"></i></span> 
                                                                     </div>
-                                                                    <small class="form-control-feedback"> Usar fecha de hoy.</small>
+                                                                    <small class="form-control-feedback"> Fecha enviado.</small>
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-6">
-                                                                <div class="form-group">
-                                                                    <label class="control-label">Hora</label>
+                                                                <div class="form-group ">
+                                                                    <label class="control-label">Nro. Ticket</label>
                                                                     <div class="input-group">
-                                                                        <input type="text" class="form-control" placeholder="00:00:00" name="param_hora_edit" id="param_hora_edit"> <span class="input-group-addon"> <span class="fa fa-clock-o"></span> </span>
+                                                                        <input type="text" class="form-control" id="param_ticket_nro_edit" name="param_ticket_nro_edit">  
                                                                     </div>
-                                                                    <small class="form-control-feedback"> Después de carteras 2. </small> 
                                                                 </div>
                                                             </div>
-                                                            <!--/span-->
                                                         </div>
+
                                                         <div class="row">
-                                                            <div class="col-md-12 ">
+                                                            
+                                                            <div class="col-md-12">
+                                                                <div class="form-group ">
+                                                                    <label class="control-label">Usuario</label>
+                                                                    <div class="input-group">
+                                                                        <input type="text" class="form-control" id="param_usuario_edit" name="param_usuario_edit">  
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            
+                                                            
+                                                        </div>
+
+                                                         <div class="row">
+                                                            
+                                                            <div class="col-md-12">
+                                                                <div class="form-group ">
+                                                                    <label class="control-label">Asunto</label>
+                                                                    <div class="input-group">
+                                                                        <input type="text" class="form-control" id="param_asunto_edit" name="param_asunto_edit">  
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            
+                                                            
+                                                        </div>
+
+                                                      
+
+
+                                                        <div class="row">
+                                                            <div class="col-md-12">
                                                                 <div class="form-group">
-                                                                    <label>Observaciones</label>
-                                                                    <textarea row="2" class="form-control" placeholder="En caso la apertura sea demasiado tarde." name="param_observaciones_edit" id="param_observaciones_edit"></textarea>
+                                                                    <label>Descripción</label>
+                                                                    <textarea rows="4" class="form-control" name="param_descripcion_edit" id="param_descripcion_edit"></textarea>
                                                                 </div>
                                                             </div>
                                                         </div>
+
+                                                         <div class="row">
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <label class="control-label">Tipo</label>
+                                                                    <div>
+                                                                        <select class="form-control" style="width: 100%" id="param_tipo_edit" name="param_tipo_edit">
+                                                                            <option value="1">SQL</option>
+                                                                            <option value="2">TARJETAS</option>
+                                                                            <option value="3">PDM</option>
+                                                                            <option value="4">TRASLADO DE CARTERAS</option>
+                                                                            <option value="5">SIRCON</option>
+                                                                            <option value="6">OTROS</option>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <label class="control-label">Tipo</label>
+                                                                    <div>
+                                                                        <select class="form-control" style="width: 100%" id="param_estado_edit" name="param_estado_edit">
+                                                                            <option value="1">APLICADO</option>
+                                                                            <option value="2">NUEVO</option>
+                                                                            <option value="3">PENDIENTE</option>
+                                                                            <option value="4">RECHAZADO</option>
+                                                                            
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            
+                                                        </div>
+
                                                     </div>
-                                                    <input type="hidden" id="param_id_edit" name="param_id_edit">
+                                                   <input type="hidden" id="param_id_edit" name="param_id_edit">
                                                 </form>
                                             </div>
                                     </div>
@@ -305,7 +426,7 @@
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">Cerrar</button>
-                                <button type="button" class="btn btn-info waves-effect waves-light" id="update_aperturabt">Actualizar</button>
+                                <button type="button" class="btn btn-info waves-effect waves-light" id="update_tickets">Guardar</button>
                             </div>
                         </div>
                     </div>
@@ -393,6 +514,12 @@
         autoclose: true,
         todayHighlight: true
     });
+
+    jQuery('#param_fecha_edit').datepicker({
+        autoclose: true,
+        todayHighlight: true
+    });
+    
     
     </script>
 

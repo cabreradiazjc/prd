@@ -123,9 +123,7 @@ class Aperturabt_model{
 
     	$this->preparar('opc_aperturabt_eliminar',$this->param['param_id']);
 
-    	while ($row = mysqli_fetch_row($this->result)) {
-                        echo json_encode($row);
-        	}
+
 	}
 
 	function editar_aperturabt() {

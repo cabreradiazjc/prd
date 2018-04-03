@@ -143,7 +143,7 @@
                             <div class="card-body">
                                 <div class="d-flex flex-wrap">
                                     <div>
-                                        <h3 class="card-title">Apertura de Bantotal</h3>
+                                        <h3 class="card-title">Apertura de Bantotal 2017</h3>
                                         <h6 class="card-subtitle">Hora de apertura de bantotal de la última semana.</h6> 
                                     </div>
                                     <div class="ml-auto align-self-center">
@@ -157,9 +157,9 @@
                                     
                                 </div> 
                                 <div class="campaign ct-charts"></div>
-                                 <div class="row text-center" id="lastOpen">
+                                <div class="row text-center" id="lastOpen">
                                     
-                                </div>
+                                </div> 
                             </div>
                         </div>    
                     </div>    

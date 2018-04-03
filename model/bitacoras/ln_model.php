@@ -37,6 +37,9 @@ class Listasn_model{
 			case "updateln";
 				echo $this->updateln();
 				break;
+			case "eliminar_ln";
+				echo $this->eliminar_ln();
+				break;
 
 		}
 	}
@@ -54,7 +57,7 @@ class Listasn_model{
 	{
 		$consultaSql = "call sp_control_ln(";
 		$consultaSql.="'".$opcion."',";
-		$consultaSql.="".$id.")";
+		$consultaSql.="'".$id."')";
 		//echo $consultaSql;	
 		$this->result = mysqli_query($this->conexion,$consultaSql);
     }
@@ -103,21 +106,35 @@ class Listasn_model{
 
 
 	function listar_ln() {
-    	$this->prepararConsultaUsuario('opc_ln_listar');    	
+    	$this->prepararListasNegras('opc_ln_listar','');    
+
+
     	while($row = mysqli_fetch_row($this->result)){
+
+
+    	 switch($row[7])
+            {
+                case "1";
+                    $estado = '<span class="label label-success">APLICADO</span>';
+                    break;
+                case "0";
+                    $estado = '<span class="label label-warning">EN PROCESO</span>';
+                    break;
+
+            }
     		
 			echo '<tr>					
-					<td style="width: 24%;">'.$row[0].'</td>					
-					<td style="width: 10%;">'.$row[1].'</td>
-					<td style="width: 8%;">'.$row[2].'</td>
-					<td style="width: 10%;">'.$row[3].'</td>
-					<td style="width: 9%;">'.$row[4].'</td>
-					<td style="width: 10%;">'.$row[5].'</td>
-					<td style="width: 10%;">'.$row[6].'</td>
-					<td style="width: 15%;">'.$row[7].'</td>
-					<td style="width: 10%; text-align: center; direction: rtl;"> 
-                        <a class="btn btn-danger btn-sm text-white" onclick="eliminar('.$row[7].');"><i class="fa fa-trash"></i></a> 
-                        <a class="btn btn-info btn-sm text-white" onclick="editar('.$row[7].');"><i class="fa fa-edit"></i></a> 
+					<td style="width: 25%;">'.$row[0].'</td>					
+					<td style="width: 12%;">'.$row[1].'</td>
+					<td style="width: 5%;">'.$row[2].'</td>
+					<td style="width: 12%;">'.$row[3].'</td>
+					<td style="width: 5%;">'.$row[4].'</td>
+					<td style="width: 12%;">'.$row[5].'</td>
+					<td style="width: 12%;">'.$row[6].'</td>
+					<td style="width: 5%;">'. $estado.'</td>
+					<td style="width: 8%; text-align: center; direction: rtl;"> 
+                        <a class="btn btn-danger btn-sm text-white" onclick="eliminar('.$row[8].');"><i class="fa fa-trash"></i></a> 
+                        <a class="btn btn-info btn-sm text-white" onclick="editar('.$row[8].');"><i class="fa fa-edit"></i></a> 
 
                     </td>
 				</tr>';
@@ -125,7 +142,13 @@ class Listasn_model{
 	}
 
 	
+	function eliminar_ln() {
 
+
+        $this->prepararListasNegras('opc_ln_eliminar',$this->param['param_id']);
+
+      
+    }
 
 	function nuevoln() {
 		$this->insertar_operacion();
@@ -135,17 +158,6 @@ class Listasn_model{
     function insertarln($opcion) 
 
 	{
-		
-		switch($this->param['param_estado'])
-		{
-			case "FINALIZADO";
-				$estado = 1;
-				break;
-			case "EN PROCESO";
-				$estado = 0;
-				break;
-
-		}
 
 		$consultaSql = "INSERT INTO listas_negras(ln_fecdesc,ln_nomarc,ln_tamori,ln_fecmod,ln_tammod,ln_feccar24,ln_feccarbt,ln_estado) VALUES (";
 		$consultaSql.="'".$this->param['param_fdesc']."',";
@@ -155,7 +167,7 @@ class Listasn_model{
 		$consultaSql.="'".$this->param['param_tamMod']."',";
 		$consultaSql.="'".$this->param['param_f24']."',";
 		$consultaSql.="'".$this->param['param_fBT']."',";
-		$consultaSql.="'".$estado."')";
+		$consultaSql.="'".$this->param['param_estado']."')";
 
 		//echo $estado;
 		//echo $consultaSql;	// FALTA VER AKI EL REGISTRO PREGUNTAR A MILUSKA	
@@ -177,16 +189,7 @@ class Listasn_model{
 
 	function updateln() {
 
-		switch($this->param['param_estado_edit'])
-		{
-			case "FINALIZADO";
-				$estado = 1;
-				break;
-			case "EN PROCESO";
-				$estado = 0;
-				break;
-
-		}
+		
 
     	$consultaSql = "UPDATE listas_negras set ";
     	$consultaSql.="ln_nomarc = '".$this->param['param_nombre_edit']."',";
@@ -196,7 +199,7 @@ class Listasn_model{
 		$consultaSql.="ln_tammod = '".$this->param['param_tamMod_edit']."',";
 		$consultaSql.="ln_feccar24 = '".$this->param['param_f24_edit']."',";
 		$consultaSql.="ln_feccarbt = '".$this->param['param_fBT_edit']."',";
-		$consultaSql.="ln_estado = '".$estado."' ";
+		$consultaSql.="ln_estado = '".$this->param['param_estado_edit']."' ";
 		$consultaSql.="where idlistas_negras = '".$this->param['param_id_edit']."'";
 
 		//echo $consultaSql;

@@ -93,13 +93,10 @@ if (isset($_POST['param_fBT_edit']))
 if (isset($_POST['param_estado_edit']))
     $param['param_estado_edit'] = $_POST['param_estado_edit']; 
 
+
 if (isset($_POST['param_id_edit']))
     $param['param_id_edit'] = $_POST['param_id_edit'];
 
-
-//EDITAR
-
-$param['param_id']='';
 
 if (isset($_POST['param_id']))
     $param['param_id'] = $_POST['param_id'];

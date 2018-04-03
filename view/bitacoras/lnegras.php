@@ -104,7 +104,7 @@
                         <div class="d-flex m-t-10 justify-content-end">
                             
                             <div class="d-flex m-r-20 m-l-10 hidden-md-down">
-                                <button class="btn btn-info" alt="default" data-toggle="modal" data-target="#modal-nuevo_svt">Nuevo registro</button>
+                                <button class="btn btn-info" alt="default" data-toggle="modal" data-target="#modal-nuevoln">Nuevo registro</button>
                             </div>
                             
                         </div>
@@ -144,7 +144,7 @@
                                    <table id="table_ln" class="display nowrap table table-hover table-striped table-bordered" cellspacing="0" width="100%">
 
                                         <thead>
-                                            <tr>
+                                            <tr style="font-size: 14px;">
                                                 <th>Nombre</th>
                                                 <th>Fecha Desc.</th>
                                                 <th>Tamaño</th>
@@ -172,7 +172,7 @@
                 <!-- ============================================================== -->
                 <!-- Modal nuevo registro -->
                 <!-- ============================================================== -->
-                <div id="modal-nuevo_aperturabt" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+                <div id="modal-nuevoln" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">
@@ -184,45 +184,120 @@
                                 <div class="row">
                                     <div class="col-lg-12">
                                             <div class="card-body">
-                                                <form id="frm_nuevo_aperturabt" name="frm_nuevo_aperturabt">
+                                                <form id="frm_nuevoln" name="frm_nuevoln">
                                                     <div class="form-body">
-                                                        <h3 class="card-title">Apertura de Bantotal</h3>
+                                                        <h3 class="card-title">Listas Negras</h3>
                                                         <hr>
                                                         <div id="mensaje"></div>
-                                                        <div class="row p-t-20">
-                                                            <div class="col-md-6">
-                                                                <div class="form-group">
-                                                                    <label class="control-label">Fecha</label>
+                                                         <div class="row">
+                                                            
+                                                             <div class="col-md-12">
+                                                                <div class="form-group ">
+                                                                    <label class="control-label">Nombre</label>
                                                                     <div class="input-group">
-                                                                        <input type="text" class="form-control" placeholder="yyyy-mm-dd" data-date-format='yyyy-mm-dd' value="<?php echo date('Y-m-d',strtotime("0 days")); ?>" id="param_fecha" name="param_fecha">
+                                                                        <input type="text" class="form-control" id="param_nombre" name="param_nombre" value="WorldCompliance_<?php echo date('Y-m-d',strtotime("0 days")); ?>">  
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="row">
+                                                            <div class="col-md-6">
+                                                                <div class="form-group has-success">
+                                                                    <label class="control-label">Fecha de descarga</label>
+                                                                    <div class="input-group">
+                                                                        <input type="text" class="form-control" placeholder="yyyy-mm-dd" data-date-format='yyyy-mm-dd' value="<?php echo date('Y-m-d',strtotime("0 days")); ?>" id="param_fdesc" name="param_fdesc">
                                                                         <span class="input-group-addon"><i class="icon-calender"></i></span> 
                                                                     </div>
-                                                                    <small class="form-control-feedback"> Usar fecha de hoy.</small>
+                                                                    <small class="form-control-feedback"> Fecha de sábado.</small>
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-6">
-                                                                <div class="form-group">
-                                                                    <label class="control-label">Hora</label>
+                                                                <div class="form-group has-success">
+                                                                    <label class="control-label">Tamaño</label>
                                                                     <div class="input-group">
-                                                                        <input type="text" class="form-control" placeholder="00:00:00" name="param_hora" id="param_hora"> <span class="input-group-addon"> <span class="fa fa-clock-o"></span> </span>
+                                                                        <input type="text" class="form-control" id="param_tamDesc" name="param_tamDesc">  
                                                                     </div>
-                                                                    <small class="form-control-feedback"> Después de carteras 2. </small> 
+                                                                    <small class="form-control-feedback"> Tamaño en kb.</small>
                                                                 </div>
                                                             </div>
-                                                            <!--/span-->
+
                                                         </div>
-                                                        <div class="row">
-                                                            <div class="col-md-12 ">
+
+                                                      
+                                                           
+
+                                                         <div class="row">
+                                                            <div class="col-md-6">
+                                                                <div class="form-group has-danger">
+                                                                    <label class="control-label">Fecha de Mod</label>
+                                                                    <div class="input-group">
+                                                                        <input type="text" class="form-control" placeholder="yyyy-mm-dd" data-date-format='yyyy-mm-dd'  id="param_fmod" name="param_fmod">
+                                                                        <span class="input-group-addon"><i class="icon-calender"></i></span> 
+                                                                    </div>
+                                                                    <small class="form-control-feedback"> Fecha de archivo.</small>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <div class="form-group has-danger">
+                                                                    <label class="control-label">Tamaño de Mod.</label>
+                                                                    <div class="input-group">
+                                                                        <input type="text" class="form-control" id="param_tamMod" name="param_tamMod">  
+                                                                    </div>
+                                                                     <small class="form-control-feedback"> Tamaño en kb.</small>
+                                                                </div>
+                                                            </div>
+
+                                                        </div>
+
+
+
+                                                         <div class="row">
+                                                           
+                                                           
+                                                             <div class="col-md-6">
                                                                 <div class="form-group">
-                                                                    <label>Observaciones</label>
-                                                                    <textarea row="2" class="form-control" placeholder="En caso la apertura sea demasiado tarde." name="param_observaciones" id="param_observaciones"></textarea>
+                                                                    <label class="control-label">Fecha de carga en BD</label>
+                                                                    <div class="input-group">
+                                                                        <input type="text" class="form-control" placeholder="yyyy-mm-dd" data-date-format='yyyy-mm-dd' value="<?php echo date('Y-m-d',strtotime("0 days")); ?>" id="param_f24" name="param_f24">
+                                                                        <span class="input-group-addon"><i class="icon-calender"></i></span> 
+                                                                    </div>
+                                                                    
+                                                                </div>
+                                                            </div>
+
+                                                             <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <label class="control-label">Fecha de carga en BT</label>
+                                                                    <div class="input-group">
+                                                                        <input type="text" class="form-control" placeholder="yyyy-mm-dd" data-date-format='yyyy-mm-dd' value="<?php echo date('Y-m-d',strtotime("0 days")); ?>" id="param_fBT" name="param_fBT">
+                                                                        <span class="input-group-addon"><i class="icon-calender"></i></span> 
+                                                                    </div>
+                                                                    
+                                                                </div>
+                                                            </div>
+
+                                                        </div>
+                                                       
+                                                        <div class="row">
+                                                            
+                                                            <div class="col-md-12">
+                                                                <div class="form-group">
+                                                                    <label class="control-label">Estado</label>
+                                                                    <div>
+                                                                        <select class="form-control" style="width: 100%" id="param_estado" name="param_estado">
+                                                                            <option value="0" selected="true">EN PROCESO</option>
+                                                                            <option value="1">APLICADO</option>
+                                                                                                                                                     
+                                                                        </select>
+                                                                    </div>
                                                                 </div>
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <!-- Datos de Operación -->
                                                     <input type="hidden" name="grupo" id="grupo" value="Bitácoras">
-                                                    <input type="hidden" name="tarea" id="tarea" value="Bitácora de Apertura Bantotal">
+                                                    <input type="hidden" name="tarea" id="tarea" value="Bitácora de Listas Negras">
                                                     <input type="hidden" name="user" id="user" value="<?php echo $userData['email']; ?>">
                                                     <!-- /. End Datos de Operación -->
                                                 </form>
@@ -233,7 +308,7 @@
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">Cerrar</button>
-                                <button type="button" class="btn btn-info waves-effect waves-light" id="nuevo_aperturabt">Guardar</button>
+                                <button type="button" class="btn btn-info waves-effect waves-light" id="nuevoln">Guardar</button>
                             </div>
                         </div>
                     </div>
@@ -246,7 +321,7 @@
                 <!-- ============================================================== -->
                 <!-- Modal editar -->
                 <!-- ============================================================== -->
-                <div id="modal-editar_aperturabt" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+                 <div id="modal-editarln" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">
@@ -258,43 +333,116 @@
                                 <div class="row">
                                     <div class="col-lg-12">
                                             <div class="card-body">
-                                                <form id="frm_update_aperturabt" name="frm_update_aperturabt">
+                                                <form id="frm_updateln" name="frm_updateln">
                                                     <div class="form-body">
-                                                        <h3 class="card-title">Apertura de Bantotal</h3>
+                                                        <h3 class="card-title">Listas Negras</h3>
                                                         <hr>
-                                                        <div id="mensaje"></div>
-                                                        <div class="row p-t-20">
-                                                            <div class="col-md-6">
-                                                                <div class="form-group">
-                                                                    <label class="control-label">Fecha</label>
+                                                        <div id="mensaje_edit"></div>
+                                                         <div class="row">
+                                                            
+                                                             <div class="col-md-12">
+                                                                <div class="form-group ">
+                                                                    <label class="control-label">Nombre</label>
                                                                     <div class="input-group">
-                                                                        <input type="text" class="form-control" placeholder="yyyy-mm-dd" data-date-format='yyyy-mm-dd' value="<?php echo date('Y-m-d',strtotime("0 days")); ?>" id="param_fecha_edit" name="param_fecha_edit">
+                                                                        <input type="text" class="form-control" id="param_nombre_edit" name="param_nombre_edit" >  
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="row">
+                                                            <div class="col-md-6">
+                                                                <div class="form-group has-success">
+                                                                    <label class="control-label">Fecha de descarga</label>
+                                                                    <div class="input-group">
+                                                                        <input type="text" class="form-control" placeholder="yyyy-mm-dd" data-date-format='yyyy-mm-dd' id="param_fdesc_edit" name="param_fdesc_edit">
                                                                         <span class="input-group-addon"><i class="icon-calender"></i></span> 
                                                                     </div>
-                                                                    <small class="form-control-feedback"> Usar fecha de hoy.</small>
+                                                                    <small class="form-control-feedback"> Fecha de sábado.</small>
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-6">
-                                                                <div class="form-group">
-                                                                    <label class="control-label">Hora</label>
+                                                                <div class="form-group has-success">
+                                                                    <label class="control-label">Tamaño</label>
                                                                     <div class="input-group">
-                                                                        <input type="text" class="form-control" placeholder="00:00:00" name="param_hora_edit" id="param_hora_edit"> <span class="input-group-addon"> <span class="fa fa-clock-o"></span> </span>
+                                                                        <input type="text" class="form-control" id="param_tamDesc_edit" name="param_tamDesc_edit">  
                                                                     </div>
-                                                                    <small class="form-control-feedback"> Después de carteras 2. </small> 
+                                                                    <small class="form-control-feedback"> Tamaño en kb.</small>
                                                                 </div>
                                                             </div>
-                                                            <!--/span-->
+
                                                         </div>
-                                                        <div class="row">
-                                                            <div class="col-md-12 ">
+
+                                                      
+                                                         <div class="row">
+                                                            <div class="col-md-6">
+                                                                <div class="form-group has-danger">
+                                                                    <label class="control-label">Fecha de Mod</label>
+                                                                    <div class="input-group">
+                                                                        <input type="text" class="form-control" placeholder="yyyy-mm-dd" data-date-format='yyyy-mm-dd'  id="param_fmod_edit" name="param_fmod_edit">
+                                                                        <span class="input-group-addon"><i class="icon-calender"></i></span> 
+                                                                    </div>
+                                                                    <small class="form-control-feedback"> Fecha de archivo.</small>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <div class="form-group has-danger">
+                                                                    <label class="control-label">Tamaño de Mod.</label>
+                                                                    <div class="input-group">
+                                                                        <input type="text" class="form-control" id="param_tamMod_edit" name="param_tamMod_edit">  
+                                                                    </div>
+                                                                     <small class="form-control-feedback"> Tamaño en kb.</small>
+                                                                </div>
+                                                            </div>
+
+                                                        </div>
+
+
+                                                         <div class="row">
+                                                           
+                                                           
+                                                             <div class="col-md-6">
                                                                 <div class="form-group">
-                                                                    <label>Observaciones</label>
-                                                                    <textarea row="2" class="form-control" placeholder="En caso la apertura sea demasiado tarde." name="param_observaciones_edit" id="param_observaciones_edit"></textarea>
+                                                                    <label class="control-label">Fecha de carga en BD</label>
+                                                                    <div class="input-group">
+                                                                        <input type="text" class="form-control" placeholder="yyyy-mm-dd" data-date-format='yyyy-mm-dd'  id="param_f24_edit" name="param_f24_edit">
+                                                                        <span class="input-group-addon"><i class="icon-calender"></i></span> 
+                                                                    </div>
+                                                                    
                                                                 </div>
                                                             </div>
-                                                        </div>
+
+                                                             <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <label class="control-label">Fecha de carga en BT</label>
+                                                                    <div class="input-group">
+                                                                        <input type="text" class="form-control" placeholder="yyyy-mm-dd" data-date-format='yyyy-mm-dd'  id="param_fBT_edit" name="param_fBT_edit">
+                                                                        <span class="input-group-addon"><i class="icon-calender"></i></span> 
+                                                                    </div>
+                                                                    
+                                                                </div>
+                                                            </div>
+
+                                                        </div>    
+
+                                                        <div class="row">
+                                                            
+                                                            <div class="col-md-12">
+                                                                <div class="form-group">
+                                                                    <label class="control-label">Estado</label>
+                                                                    <div>
+                                                                        <select class="form-control" style="width: 100%" id="param_estado_edit" name="param_estado_edit">
+                                                                            <option value="0" selected="true">EN PROCESO</option>
+                                                                            <option value="1">APLICADO</option>
+                                                                                                                                                     
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>                                                 
+
                                                     </div>
-                                                    <input type="hidden" id="param_id_edit" name="param_id_edit">
+                                                   <input type="hidden" id="param_id_edit" name="param_id_edit">
                                                 </form>
                                             </div>
                                     </div>
@@ -303,7 +451,7 @@
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">Cerrar</button>
-                                <button type="button" class="btn btn-info waves-effect waves-light" id="update_aperturabt">Actualizar</button>
+                                <button type="button" class="btn btn-info waves-effect waves-light" id="updateln">Guardar</button>
                             </div>
                         </div>
                     </div>
@@ -387,7 +535,36 @@
     <script>
     
   
-    jQuery('#param_fecha').datepicker({
+    jQuery('#param_fdesc').datepicker({
+        autoclose: true,
+        todayHighlight: true
+    });
+    jQuery('#param_fmod').datepicker({
+        autoclose: true,
+        todayHighlight: true
+    });
+    jQuery('#param_f24').datepicker({
+        autoclose: true,
+        todayHighlight: true
+    });
+    jQuery('#param_fBT').datepicker({
+        autoclose: true,
+        todayHighlight: true
+    });
+
+    jQuery('#param_fdesc_edit').datepicker({
+        autoclose: true,
+        todayHighlight: true
+    });
+    jQuery('#param_fmod_edit').datepicker({
+        autoclose: true,
+        todayHighlight: true
+    });
+    jQuery('#param_f24_edit').datepicker({
+        autoclose: true,
+        todayHighlight: true
+    });
+    jQuery('#param_fBT_edit').datepicker({
         autoclose: true,
         todayHighlight: true
     });

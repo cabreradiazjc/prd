@@ -40,6 +40,14 @@ class Tickets_model{
 			case "ticket_resumen";
 				echo $this->ticket_resumen();
 				break;
+			case "eliminar_tickets";
+				echo $this->eliminar_tickets();
+				break;
+			case "check_tickets";
+				echo $this->check_tickets();
+				break;
+
+
 
 		}
 	}
@@ -79,14 +87,14 @@ class Tickets_model{
 					<td style="width: 10%;">'.$row[0].'</td>					
 					<td style="width: 10%;">'.$row[1].'</td>
 					<td style="width: 15%;">'.$row[2].'</td>
-					<td style="font-size: 11px; width: 30%;">'.$row[3].'</td>
+					<td style="font-size: 11px; width: 25%;">'.$row[3].'</td>
 					<td style="width: 10%;">'.$row[4].'</td>
 					<td style="width: 10%;">'.$row[5].'</td>
 					<td style="width: 10%; text-align: center; direction: rtl;">'.$row2.'</td>
-					<td style="width: 10%; text-align: center; direction: rtl;"> 
+					<td style="width: 15%; text-align: center; direction: rtl;"> 
                         <a class="btn btn-danger btn-sm text-white" onclick="eliminar('.$row[7].');"><i class="fa fa-trash"></i></a> 
                         <a class="btn btn-info btn-sm text-white" onclick="editar('.$row[7].');"><i class="fa fa-edit"></i></a> 
-
+                        <a class="btn btn-primary btn-sm text-white" onclick="check('.$row[7].');"><i class="fa fa-check"></i></a>
                     </td>
 				</tr>';
 		}
@@ -144,6 +152,13 @@ class Tickets_model{
 		$this->result = mysqli_query($this->conexion,$consultaSql);
     }
 
+    function eliminar_tickets() {
+
+
+    	$this->prepararConsultaUsuario('opc_tickets_eliminar',$this->param['param_id']);
+
+	}
+
     function editar_tickets() {
 
 
@@ -155,18 +170,23 @@ class Tickets_model{
 	}
 
 
+
+	function check_tickets() {
+
+
+    	$consultaSql = "UPDATE tickets set ";
+		$consultaSql.="estado = '1' ";
+		$consultaSql.="where ticket_id = '".$this->param['param_id']."'";
+
+		//echo $consultaSql;
+		mysqli_query($this->conexion,$consultaSql);
+
+	}
+
+
+
 	function update_tickets() {
 
-		switch($this->param['param_estado_edit'])
-		{
-			case "ATENDIDO";
-				$estado = 1;
-				break;
-			case "EN PROCESO";
-				$estado = 0;
-				break;
-
-		}
 
     	$consultaSql = "UPDATE tickets set ";
 		$consultaSql.="ticket_nro = '".$this->param['param_ticket_nro_edit']."',";
@@ -175,7 +195,7 @@ class Tickets_model{
 		$consultaSql.="descripcion = '".$this->param['param_descripcion_edit']."',";
 		$consultaSql.="fecha = '".$this->param['param_fecha_edit']."',";
 		$consultaSql.="tipo = '".$this->param['param_tipo_edit']."',";
-		$consultaSql.="estado = '".$estado."' ";
+		$consultaSql.="estado = '".$this->param['param_estado_edit']."' ";
 		$consultaSql.="where ticket_id = '".$this->param['param_id_edit']."'";
 
 		//echo $consultaSql;
@@ -201,7 +221,7 @@ class Tickets_model{
 
                 <!-- Total de Aplicados -->
                 <div class="col-md-6 col-lg-3 col-xlg-3">
-                    <div class="card card-primary card-inverse">
+                    <div class="card card-success card-inverse">
                         <div class="box text-center">
                             <h1 class="font-light text-white">' . $row[1] . '</h1>
                             <h6 class="text-white">Aplicados</h6>
@@ -211,7 +231,7 @@ class Tickets_model{
 
                 <!-- Total de Pendientes -->
                 <div class="col-md-6 col-lg-3 col-xlg-3">
-                    <div class="card card-inverse card-success">
+                    <div class="card card-inverse card-dark">
                         <div class="box text-center">
                             <h1 class="font-light text-white">' . $row[2] . '</h1>
                             <h6 class="text-white">Pendientes</h6>
@@ -221,7 +241,7 @@ class Tickets_model{
 
                 <!-- Total de Nuevos -->
                 <div class="col-md-6 col-lg-3 col-xlg-3">
-                    <div class="card card-inverse card-dark">
+                    <div class="card card-warning">
                         <div class="box text-center">
                             <h1 class="font-light text-white">' . $row[3] . '</h1>
                             <h6 class="text-white">Nuevos</h6>
