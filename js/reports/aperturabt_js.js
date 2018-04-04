@@ -38,6 +38,36 @@ function chartAperturabt(){
 
 }
 
+function mostrartablayear(){
+    year = $('#param_year').val();
+    $.ajax({
+        type: 'POST',
+        data: 'param_year='+year+'&param_opcion=mostrartablayear',
+        url: '../../controller/reports/aperturabt_controller.php',
+        success: function(respuesta){
+            $('#table_r_aperturabt').DataTable().destroy();
+            $('#body_r_aperturabt').html(respuesta);
+            $('#table_r_aperturabt').DataTable({
+              dom: 'Bfrtip',
+              buttons: ['copy', 'csv', 'excel', 'pdf', 'print'],
+              'paging'      : true,
+              'lengthChange': true,
+              'searching'   : true,
+              'info'        : true,
+              'autoWidth'   : false,
+              'aaSorting'   : [[0,'asc'] ],
+              'pageLength'  : 4,
+              "lengthMenu": [[4, 8, 12, -1], [4, 8, 12, "Todos"]]
+
+                });
+        },
+        error: function(respuesta){
+            $('#body_r_aperturabt').html(respuesta);
+        }
+    }); 
+
+
+}
 
 
 
@@ -85,6 +115,9 @@ $(function() {
                 success: function(data){
                     swal("Good job!", "¡Guardado satisfactoriamente!", "success");
                                 //window.location = "../index.php";
+
+                    mostrartablayear();
+
                     $('#param_opcion').val('');
                         var fecha = [];
                         var hora = [];

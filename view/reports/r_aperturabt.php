@@ -126,8 +126,7 @@
                     <div class="col-lg-8 col-md-7">
                         <div class="card">
                             <div class="card-body">
-                                <div class="row">
-                                    <div class="col-12">
+                                <div class="col-12">
                                         <div class="d-flex flex-wrap">
                                             <div>
                                                 <h3 class="card-title">Tabla de datos</h3>
@@ -136,32 +135,30 @@
 
                                         </div>
                                     </div>
-
+                                    
                                     <div class="table-responsive m-t-40">
-                                        <table id="table_aperturabt" class="display nowrap table table-hover table-striped table-bordered" cellspacing="0" width="100%">
+                                        <table id="table_r_aperturabt" class="display nowrap table table-hover table-striped table-bordered" cellspacing="0" width="100%">
                                             <thead>
                                                 <tr>
+                                                    <th>#</th>
                                                     <th>Fecha</th>
                                                     <th>Hora</th>
-                                                    <th>Observaciones</th>
-                                                    <th>Acciones</th>
+                                              
                                                 </tr>
                                             </thead>
                                             <tfoot>
                                                 <tr>
+                                                    <th>#</th>
                                                     <th>Fecha</th>
                                                     <th>Hora</th>
-                                                    <th>Observaciones</th>
-                                                    <th>Acciones</th>
+                                          
                                                 </tr>
                                             </tfoot>
-                                            <tbody  id="body_aperturabt">
+                                            <tbody  id="body_r_aperturabt">
                                                 
                                             </tbody>
                                         </table>
                                     </div>
-                                   
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -231,14 +228,14 @@
                     <div class="col-lg-4 col-xlg-3 col-md-5">
                         <div class="card blog-widget">
                             <div class="card-body">
-                                <div class="blog-image"><img src="../../assets/images/big/img1.jpg" alt="img" class="img-responsive"/></div>
-                                 <h3>Business development new rules for 2017</h3>
-                                <label class="label label-rounded label-success">Technology</label>
+                                <div class="blog-image"><img src="../../assets/images/reports/bantotal.jpg" alt="img" class="img-responsive"/></div>
+                                 <h3>Reportes de bitácoras</h3>
+                                <label class="label label-rounded label-success">Apertura Bantotal</label>
                                 <p class="m-t-20 m-b-20">
-                                    Lorem ipsum dolor sit amet, this is a consectetur adipisicing elit, sed do eiusmod tempor incididunt ut 
+                                   La apertura de bantotal se refiere a la hora que está listo el sistema para que los demás usuarios puedan iniciar sesión. Siempre después de los procesos de carteras.
                                 </p>
                                 <div class="d-flex">
-                                    <div class="read"><a href="javascript:void(0)" class="link font-medium">Read More</a></div>
+                                    <div class="read"><a href="../bitacoras/aperturabt.php" class="link font-medium">Ver bitácora.</a></div>
                                     <div class="ml-auto">
                                         <a href="javascript:void(0)" class="link m-r-10 " data-toggle="tooltip" title="Like"><i class="mdi mdi-heart-outline"></i></a> <a href="javascript:void(0)" class="link" data-toggle="tooltip" title="Share"><i class="mdi mdi-share-variant"></i></a>
                                     </div>
@@ -343,6 +340,33 @@
     <script src="../../assets/plugins/chartist-plugin-tooltip-master/dist/chartist-plugin-tooltip.min.js"></script>
 
     
+
+    <script>
+    
+  
+    jQuery('#param_fecha').datepicker({
+        autoclose: true,
+        todayHighlight: true
+    });
+    
+    </script>
+
+    
+
+   
+    <!-- start - This is for export functionality only -->
+    <script src="https://cdn.datatables.net/buttons/1.2.2/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.2.2/js/buttons.flash.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/2.5.0/jszip.min.js"></script>
+    <script src="https://cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/pdfmake.min.js"></script>
+    <script src="https://cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/vfs_fonts.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.2.2/js/buttons.html5.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.2.2/js/buttons.print.min.js"></script>
+    <!-- end - This is for export functionality only -->
+    <!-- ============================================================== -->
+    <!-- Style switcher -->
+    <!-- ============================================================== -->
+    <script src="../../assets/plugins/styleswitcher/jQuery.style.switcher.js"></script>
 </body>
 
 </html>

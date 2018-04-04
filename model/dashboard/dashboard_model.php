@@ -76,9 +76,7 @@ class Dashboard_model{
 				echo $this->ubaChart();
 				break;
 
-			case "r_aperturabt_year";
-				echo $this->r_aperturabt_year();
-				break;
+			
 
 				
 
@@ -745,9 +743,9 @@ class Dashboard_model{
 	}
 
 
-	function r_aperturabt_year() {
+	function chartAperturabt() {
 		$jsonArray = array();
-		$consultaSql = "call sp_control_r_aperturabt('opc_chartAperturabt')";
+		$consultaSql = "call sp_control_aperturabt('opc_chartAperturabt','')";
 		//echo $consultaSql;
 		$this->result2 = mysqli_query($this->conexion,$consultaSql);
 
