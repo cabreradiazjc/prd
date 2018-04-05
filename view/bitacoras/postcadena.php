@@ -1705,6 +1705,16 @@
                                                                     
                                                                 </div>
                                                             </div>
+
+                                                            <div class="col-md-3">
+                                                                <div class="form-group">
+                                                                    <label class="control-label">PJNGX677</label>
+                                                                    <div class="input-group">
+                                                                        <input type="text" class="form-control" id="param_PJNGX677" name="param_PJNGX677"  value="00:00:00" style="text-align: right;">
+                                                                    </div>
+                                                                    
+                                                                </div>
+                                                            </div>
                                                             
                                                         </div>
                                                     

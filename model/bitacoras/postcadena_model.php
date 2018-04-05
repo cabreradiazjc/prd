@@ -1008,7 +1008,16 @@ class Postcadena_model{
 		$consultaSql.="'".$this->param['param_PJNGX648']."')";
 		//echo $consultaSql;	
 		$this->result = mysqli_query($this->conexion,$consultaSql);
-		$consultaSql = "";
+		$consultaSql = "";		
+		}if ($this->param['param_PJNGX677'] != ''){
+		$consultaSql = "INSERT INTO postcadena(fecha,idprocesos,tiempo) VALUES (";
+		$consultaSql.="'".$this->param['param_fecha_carteras3']."',";
+
+		$consultaSql.="'225',";
+		$consultaSql.="'".$this->param['param_PJNGX677']."')";
+		//echo $consultaSql;	
+		$this->result = mysqli_query($this->conexion,$consultaSql);
+		$consultaSql = "";		
 		}
 
 		$this->insertar_operacion();
